@@ -1,6 +1,6 @@
 # 各种框架的复习
 
-### [mybatis的源码复盘](https://github.com/YangGuang19/framework-learning/blob/mybatis/mybatis-learning/Mybatis.md)
+### [mybatis的源码复盘](https://github.com/YangGuang19/framework-learning/blob/master/mybatis-learning/Mybatis.md)
 
 ### Spring。。。
 
