@@ -4,6 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <groupId>com.github.yangguang19</groupId>
+        <artifactId>framework-learning</artifactId>
+        <version>1.0.0</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
     <groupId>com.github.yangguang19</groupId>
     <artifactId>mybaits-learning</artifactId>
     <version>1.0.0</version>
@@ -14,6 +21,10 @@
             <artifactId>mybatis</artifactId>
             <version>3.5.3</version>
         </dependency>
+        <!--mysql-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
     </dependencies>
-
 </project>
