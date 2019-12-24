@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.github.yangguang19.mapper.PersonMapper">
+
+    <resultMap id="personMap" type="com.github.yangguang19.entity.Person">
+        <id column="p_id" property="p_id" javaType="java.lang.Long"/>
+        <result column="p_name" property="p_name" javaType="java.lang.String"/>
+        <result column="age" property="age" javaType="java.lang.Integer"/>
+    </resultMap>
+
+    <select id="selectPersonById" resultMap="personMap" parameterType="java.lang.Long">
+        select p_id , p_name , age FROM tb_person WHERE p_id = #{p_id}
+    </select>
+</mapper>
