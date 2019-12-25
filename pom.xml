@@ -8,9 +8,11 @@
     <artifactId>framework-learning</artifactId>
     <packaging>pom</packaging>
     <version>1.0.0</version>
+
     <modules>
         <module>mybatis-learning</module>
         <module>spring-learning</module>
+        <module>springmvc-learning</module>
     </modules>
 
     <properties>
@@ -18,6 +20,7 @@
         <page-helper.version>5.1.11</page-helper.version>
         <mysql.version>8.0.18</mysql.version>
         <spring.version>5.2.2.RELEASE</spring.version>
+        <tomcat.version>9.0.30</tomcat.version>
     </properties>
 
     <dependencyManagement>
@@ -64,6 +67,17 @@
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-tx</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <!--mvc-->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-web</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-webmvc</artifactId>
                 <version>${spring.version}</version>
             </dependency>
         </dependencies>
