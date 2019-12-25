@@ -301,7 +301,7 @@ public interface Executor {
         PersonMapper personMapper = sqlSession.getMapper(PersonMapper.class);
 ````
 
-已经直到了上面返回的PersonMapper是一个MapperProxy对象,那么它是怎么被创建出来的呢?
+已经知到了上面返回的PersonMapper是一个MapperProxy对象,那么它是怎么被创建出来的呢?
 回想下上面的几个步骤,DefaultSqlSession包含了Configuration,而Configuration是解析的全局配置文件和mapper文件被构造出来的,Configuration也包含了相应的属性,
 所以MapperProxy应该也是从Configuration获取:
 ````
