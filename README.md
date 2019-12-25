@@ -2,7 +2,7 @@
 
 ### [Mybatis的源码复盘](https://github.com/YangGuang19/framework-learning/blob/master/mybatis-learning/Mybatis.md)
 
-### [Spring复习](https://github.com/YangGuang19/framework-learning/blob/master/Spring-learning/Spring.md)
+### [Spring复习](https://github.com/YangGuang19/framework-learning/blob/master/spring-learning/Spring.md)
 
 ### Spring MVC
 
