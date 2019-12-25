@@ -10,7 +10,7 @@
     <version>1.0.0</version>
     <modules>
         <module>mybatis-learning</module>
-        <module>Spring-learning</module>
+        <module>spring-learning</module>
     </modules>
 
     <properties>

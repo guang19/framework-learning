@@ -6,10 +6,11 @@
         <artifactId>framework-learning</artifactId>
         <groupId>com.github.yangguang19</groupId>
         <version>1.0.0</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>Spring-learning</artifactId>
+    <artifactId>spring-learning</artifactId>
 
     <dependencies>
         <dependency>
