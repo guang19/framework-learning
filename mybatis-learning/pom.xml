@@ -11,14 +11,13 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>mybaits-learning</artifactId>
+    <artifactId>mybatis-learning</artifactId>
     <version>1.0.0</version>
 
     <dependencies>
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
-            <version>3.5.3</version>
         </dependency>
         <!--mysql-->
         <dependency>

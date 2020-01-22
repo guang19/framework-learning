@@ -12,9 +12,9 @@ public class Person implements Serializable {
     //序列化ID
     private static final long serialVersionUID = 336571784061779072L;
 
-    private Long p_id;
+    private Long pId;
 
-    private String p_name;
+    private String pName;
 
     private Integer age;
 
@@ -22,20 +22,20 @@ public class Person implements Serializable {
         return serialVersionUID;
     }
 
-    public Long getP_id() {
-        return p_id;
+    public Long getpId() {
+        return pId;
     }
 
-    public void setP_id(Long p_id) {
-        this.p_id = p_id;
+    public void setpId(Long pId) {
+        this.pId = pId;
     }
 
-    public String getP_name() {
-        return p_name;
+    public String getpName() {
+        return pName;
     }
 
-    public void setP_name(String p_name) {
-        this.p_name = p_name;
+    public void setpName(String pName) {
+        this.pName = pName;
     }
 
     public Integer getAge() {
@@ -46,12 +46,13 @@ public class Person implements Serializable {
         this.age = age;
     }
 
-    @Override
-    public String toString() {
-        return "Person{" +
-                "p_id=" + p_id +
-                ", p_name='" + p_name + '\'' +
-                ", age=" + age +
-                '}';
-    }
+  @Override
+  public String toString()
+  {
+    return "Person{" +
+      "pId=" + pId +
+      ", pName='" + pName + '\'' +
+      ", age=" + age +
+      '}';
+  }
 }

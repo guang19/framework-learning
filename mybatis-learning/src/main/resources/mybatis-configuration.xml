@@ -20,19 +20,14 @@
         <setting name="jdbcTypeForNull" value="OTHER"/>
         <setting name="lazyLoadTriggerMethods" value="equals,clone,hashCode,toString"/>
     </settings>
-<!--    <plugins>-->
-<!--        <plugin interceptor="com.github.pagehelper.PageInterceptor">-->
-<!--            <property name="" value=""/>-->
-<!--        </plugin>-->
-<!--    </plugins>-->
     <environments default="development">
         <environment id="development">
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
                 <property name="url" value="jdbc:mysql://localhost:3306/db_test?tb_person&amp;serverTimezone=Asia/Shanghai"/>
-                <property name="username" value="YangGuang"/>
-                <property name="password" value="Yg1446125917!"/>
+                <property name="username" value="root"/>
+                <property name="password" value="YangGuang20000721!"/>
             </dataSource>
         </environment>
     </environments>
@@ -40,3 +35,4 @@
         <mapper resource="mapper/PersonMapper.xml"/>
     </mappers>
 </configuration>
+
