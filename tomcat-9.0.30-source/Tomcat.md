@@ -9,7 +9,7 @@
 1. 非常重要的一点:Http是基于TCP/IP通信协议来传递数据的,换言之,Http协议的底层是TCP/IP协议.
 2. HTTP是无状态的协议.无状态就是指协议对事务没有记忆能力,即:HTTP不会记录一次连接的具体信息或结果,所以诞生了Cookie和Session这种客户端与服务端有状态的产物.
 3. HTTP是无连接的协议.无连接指的就是HTTP每次只限制一次请求,即:服务端处理完客户端的请求,并成功收到了客户端的应答后,连接就断开了.
-
+ 
 当然,Http还有很多其他的特点,但我认为比较重要就是以上几点了..
 
 Tomcat作为一款JavaWeb服务器,自然少不Http方面的内容.
@@ -20,7 +20,7 @@ Tomcat作为一款JavaWeb服务器,自然少不Http方面的内容.
 >容器选择对应的Servlet处理,返回ServletResponse,最后由Connector解析为Response,返回给客户端.
 
 >![tomcat架构](../img/tomcat架构.png)
-
+  
 ##### Connector连接器
 >Tomcat中的连接器叫Coyote,因为连接器更多的是处理Socket协议和Socket流方面的功能,所以与Servlet的关系不大,Catalina作为Servlet容器,才是处理任务的关键.
 >
