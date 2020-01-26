@@ -1,4 +1,4 @@
-package com.github.yangguang19.rabbitmqlearning.simpleQueue;
+package com.github.yangguang19.rabbitmqlearning.simple_queue;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;

@@ -1,8 +1,6 @@
 package com.github.yangguang19.rabbitmqlearning.routing;
 
-import com.rabbitmq.client.BuiltinExchangeType;
-import com.rabbitmq.client.Channel;
-import com.rabbitmq.client.Connection;
+import com.rabbitmq.client.*;
 
 import static com.github.yangguang19.rabbitmqlearning.util.ConnectionUtil.getConnection;
 

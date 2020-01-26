@@ -30,7 +30,8 @@ public class Consumer1
         channel.basicQos(1);
 
         //回调函数异步监听生产者生产的消息
-        DeliverCallback deliverCallback = (consumerTag,delivery)->{
+        DeliverCallback deliverCallback = (consumerTag,delivery)->
+        {
             try
             {
                 TimeUnit.SECONDS.sleep(1);
@@ -38,7 +39,8 @@ public class Consumer1
 
                 //获取到消息后,手动应答
                 channel.basicAck(delivery.getEnvelope().getDeliveryTag(),false);
-            }catch (Throwable throwable)
+            }
+            catch (Throwable throwable)
             {
             }
         };
@@ -46,5 +48,6 @@ public class Consumer1
         //监听消费,关闭自动应答
         boolean autoAck = false;
         channel.basicConsume(TEST_WORK_QUEUE,autoAck,deliverCallback,consumerTag->{});
+
     }
 }

@@ -1,10 +1,10 @@
-package com.github.yangguang19.rabbitmqlearning.simpleQueue;
+package com.github.yangguang19.rabbitmqlearning.simple_queue;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.DeliverCallback;
 
-import static com.github.yangguang19.rabbitmqlearning.simpleQueue.Publisher.TEST_QUEUE;
+import static com.github.yangguang19.rabbitmqlearning.simple_queue.Publisher.TEST_QUEUE;
 import static com.github.yangguang19.rabbitmqlearning.util.ConnectionUtil.getConnection;
 
 /**
