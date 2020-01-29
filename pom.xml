@@ -22,6 +22,7 @@
         <module>springmvc-learning</module>
         <module>rabbitmq-learning</module>
         <module>tomcat-9.0.30-source</module>
+        <module>zookeeper-learning</module>
     </modules>
 
     <properties>

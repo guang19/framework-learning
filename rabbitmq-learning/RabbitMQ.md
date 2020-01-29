@@ -1,5 +1,5 @@
 ## RabbitMQ学习
->RabbitMQ是由Erlang语言开发的支持AMQP的消息队列.
+>RabbitMQ是由Erlang语言编写的支持AMQP的高性能消息队列.
 
 #### AMQP
 >Advanced Message Queue Protocol,高级消息队列协议.它与Http一样,同为应用层协议,是面向消息的中间件设计协议.
