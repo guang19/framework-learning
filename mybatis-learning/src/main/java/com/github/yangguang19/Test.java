@@ -12,11 +12,11 @@ import java.io.InputStream;
  * @Date 2020/1/9
  * @Description TODO
  */
-public class CommonTest1
+public class Test
 {
   public static void main(String[] args)
   {
-    InputStream inputStream = CommonTest1.class.getClassLoader().getResourceAsStream("mybatis-configuration.xml");
+    InputStream inputStream = Test.class.getClassLoader().getResourceAsStream("mybatis-configuration.xml");
     /********************************/
     SqlSessionFactory sqlSessionFactory =
       new SqlSessionFactoryBuilder().build(inputStream);
