@@ -23,6 +23,7 @@
         <module>rabbitmq-learning</module>
         <module>tomcat-9.0.30-source</module>
         <module>zookeeper-learning</module>
+        <module>dubbo-learning</module>
     </modules>
 
     <properties>

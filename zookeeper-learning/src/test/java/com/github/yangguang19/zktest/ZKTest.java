@@ -3,10 +3,17 @@ package com.github.yangguang19.zktest;
 import org.apache.curator.RetryPolicy;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
+import org.apache.curator.framework.recipes.cache.NodeCache;
+import org.apache.curator.framework.recipes.cache.NodeCacheListener;
+import org.apache.curator.framework.recipes.locks.InterProcessLock;
+import org.apache.curator.framework.recipes.locks.InterProcessMultiLock;
+import org.apache.curator.framework.recipes.locks.InterProcessMutex;
 import org.apache.curator.retry.ExponentialBackoffRetry;
 import org.apache.zookeeper.CreateMode;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.concurrent.*;
 
 /**
  * @Author yangguang
@@ -19,7 +26,7 @@ public class ZKTest
 
     private RetryPolicy retryPolicy = new ExponentialBackoffRetry(1000,5);
 
-    private final CuratorFramework client =  CuratorFrameworkFactory.builder().connectString(host).sessionTimeoutMs(20000).connectionTimeoutMs(20000).retryPolicy(retryPolicy).namespace("test").build();
+    private final CuratorFramework client =  CuratorFrameworkFactory.builder().connectString(host).sessionTimeoutMs(20000).connectionTimeoutMs(20000).retryPolicy(retryPolicy).build();
 
     @Before
     public void start()
@@ -72,6 +79,68 @@ public class ZKTest
     @Test
     public void test01() throws Exception
     {
-        System.out.println(client.checkExists().forPath("/test2"));
+        System.out.println(client.checkExists().forPath("/test3"));
     }
+
+
+
+    @Test
+    public void watch() throws Exception
+    {
+//        client.create().forPath("/watch/watch_children","watch的子节点没有改变的数据".getBytes("UTF-8"));
+
+        NodeCache nodeCache = new NodeCache(client,"/watch/watch_children");
+        nodeCache.start(true);
+
+        nodeCache.getListenable().addListener(()->{
+            System.out.println("node path : " + nodeCache.getPath());
+            System.out.println("node data : " + nodeCache.getCurrentData());
+            System.out.println(new String(nodeCache.getCurrentData().getData(),"UTF-8"));
+        });
+
+
+        client.setData().forPath("/watch/watch_children","watch的子节点改变后的数据".getBytes("UTF-8"));
+//        client.delete().forPath("/watch");
+
+        TimeUnit.SECONDS.sleep(3);
+        client.close();
+    }
+
+    //分布式锁测试
+    @Test
+    public void zkLock() throws Exception
+    {
+        //线程池
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(1,5,2000,TimeUnit.SECONDS,new LinkedBlockingQueue<>(5),Executors.defaultThreadFactory(),new ThreadPoolExecutor.DiscardOldestPolicy());
+        InterProcessLock zkLock = new InterProcessMutex(client,"/zkLock");
+
+        for (int i = 0 ; i < 10; ++i)
+        {
+            threadPoolExecutor.execute(()->{
+                try
+                {
+                    zkLock.acquire();
+                    System.out.println("thread: " + Thread.currentThread().getName() + "  has gotten lock");
+                    TimeUnit.SECONDS.sleep(1);
+                }
+                catch (Throwable e)
+                {
+                }
+                finally {
+                    try
+                    {
+                        zkLock.release();
+                        System.out.println("thread : " + Thread.currentThread().getName() + " has released lock");
+                    }
+                    catch (Throwable e)
+                    {
+                    }
+                }
+            });
+        }
+        TimeUnit.SECONDS.sleep(20);
+        threadPoolExecutor.shutdown();
+        client.close();
+    }
+
 }
