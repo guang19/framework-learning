@@ -4,30 +4,42 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.github.yangguang19</groupId>
-        <version>1.0.0</version>
         <artifactId>framework-learning</artifactId>
+        <version>1.0.0</version>
     </parent>
-
+    <packaging>pom</packaging>
     <artifactId>dubbo-learning</artifactId>
-    <version>1.0.0</version>
     <name>dubbo-learning</name>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
+    <modules>
+        <module>dubbo-learning-api</module>
+        <module>dubbo-learning-person-service-provider</module>
+        <module>dubbo-learning-person-service-consumer</module>
+    </modules>
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.junit.vintage</groupId>
-                    <artifactId>junit-vintage-engine</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-    </dependencies>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.github.yangguang19</groupId>
+                <artifactId>dubbo-learning-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.yangguang19</groupId>
+                <artifactId>dubbo-learning-person-service-provider</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>

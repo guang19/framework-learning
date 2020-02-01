@@ -13,7 +13,6 @@
 
     <artifactId>tomcat-9.0.30-source</artifactId>
     <name>tomcat-9.0.30-source</name>
-    <version>9.0</version>
 
     <build>
         <finalName>Tomcat9.0</finalName>

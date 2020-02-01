@@ -64,3 +64,14 @@
 >Dubbo最早是阿里开源的一个高性能,轻量级的Java RPC框架,中间停止维护了一段时间,后又重新恢复更新,并捐献给Apache,现为Apache
 >顶级项目.
 >Dubbo提供了:面向接口的远程方法调用,智能容错与负载均衡以及服务注册与发现3大核心功能.
+
+>Dubbo设计架构:
+![dubbo架构设计](../img/dubbo架构图.png)
+* Registry: 服务注册与发现的注册中心.允许服务提供者注册服务,当消费者(服务调用者)调用某个服务的时候,就到Registry中查询已注册的服务,从而实现服务调用.
+* Consumer: 服务调用者.
+* Provider: 服务提供者,向外暴露服务接口,并将服务注册到注册中心.
+* Container: 服务提供者运行的容器.
+* Monitor: 监控中心. 统计服务的调用次数和调用时间的监控中心
+
+其实我觉得Dubbo的官方文档写的已经非常好了,demo也非常齐全,关于Dubbo的学习,在这里也推荐Dubbo的官方文档:
+[Dubbo官方文档](https://dubbo.apache.org/zh-cn/index.html)

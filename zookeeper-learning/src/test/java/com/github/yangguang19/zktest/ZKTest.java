@@ -93,7 +93,7 @@ public class ZKTest
         nodeCache.start(true);
 
         nodeCache.getListenable().addListener(()->{
-            System.out.println("node path : " + nodeCache.getPath());
+//            System.out.println("node path : " + nodeCache.get());
             System.out.println("node data : " + nodeCache.getCurrentData());
             System.out.println(new String(nodeCache.getCurrentData().getData(),"UTF-8"));
         });

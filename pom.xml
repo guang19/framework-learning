@@ -30,25 +30,22 @@
         <java.version>11</java.version>
         <project.version>1.0.0</project.version>
         <mybatis.version>3.5.3</mybatis.version>
-        <page-helper.version>5.1.11</page-helper.version>
         <mysql.version>8.0.18</mysql.version>
         <spring.version>5.2.2.RELEASE</spring.version>
         <tomcat.version>9.0.30</tomcat.version>
+        <dubbo-starter.version>2.7.3</dubbo-starter.version>
         <zookeeper.version>3.5.6</zookeeper.version>
-        <curator.version>4.2.0</curator.version>
+        <curator.version>3.3.0</curator.version>
+        <lombok.version>1.18.10</lombok.version>
         <junit.version>4.12</junit.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+            <!--children module-->
           <dependency>
             <groupId>com.github.yangguang19</groupId>
             <artifactId>mybatis-learning</artifactId>
-            <version>${project.version}</version>
-          </dependency>
-          <dependency>
-            <groupId>com.github.yangguang19</groupId>
-            <artifactId>shiro-learning</artifactId>
             <version>${project.version}</version>
           </dependency>
           <dependency>
@@ -61,17 +58,32 @@
             <artifactId>springmvc-learning</artifactId>
             <version>${project.version}</version>
           </dependency>
+            <dependency>
+                <groupId>com.github.yangguang19</groupId>
+                <artifactId>tomcat-9.0.30-source</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.yangguang19</groupId>
+                <artifactId>rabbitmq-learning</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.yangguang19</groupId>
+                <artifactId>zookeeper-learning</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.yangguang19</groupId>
+                <artifactId>dubbo-learning</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
             <!--mybatis-->
             <dependency>
                 <groupId>org.mybatis</groupId>
                 <artifactId>mybatis</artifactId>
                 <version>${mybatis.version}</version>
-            </dependency>
-            <!--分页插件-->
-            <dependency>
-                <groupId>com.github.pagehelper</groupId>
-                <artifactId>pagehelper</artifactId>
-                <version>${page-helper.version}</version>
             </dependency>
             <!--mysql-->
             <dependency>
@@ -105,7 +117,7 @@
                 <artifactId>spring-tx</artifactId>
                 <version>${spring.version}</version>
             </dependency>
-            <!--mvc-->
+            <!--web mvc-->
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-web</artifactId>
@@ -115,6 +127,20 @@
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-webmvc</artifactId>
                 <version>${spring.version}</version>
+            </dependency>
+
+            <!-- dubbo -->
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo-spring-boot-starter</artifactId>
+                <version>${dubbo-starter.version}</version>
+            </dependency>
+            <!--dubbo zookeeper-->
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo-dependencies-zookeeper</artifactId>
+                <version>${dubbo-starter.version}</version>
+                <type>pom</type>
             </dependency>
 
             <!--zk curator客户端-->
@@ -133,6 +159,13 @@
                 <groupId>org.apache.zookeeper</groupId>
                 <artifactId>zookeeper</artifactId>
                 <version>${zookeeper.version}</version>
+            </dependency>
+
+            <!--lombok-->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
             </dependency>
 
             <!--junit-->
