@@ -3,6 +3,7 @@ package com.github.yangguang19.dubbolearningpersonserviceconsumer.controller;
 
 import com.github.yangguang19.entity.Person;
 import com.github.yangguang19.service.PersonService;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.config.annotation.Reference;
 import org.apache.dubbo.rpc.RpcException;
@@ -21,10 +22,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class ConsumerController
 {
-    @Reference(version = "2.0.0",stub = "com.github.yangguang19.dubbolearningpersonserviceconsumer.servicestub.ServiceStub")
+//    @Reference(version = "2.0.0",stub = "com.github.yangguang19.dubbolearningpersonserviceconsumer.servicestub.ServiceStub",loadbalance = "roundrobin" )
+    @Reference(version = "2.0.0",loadbalance = "roundrobin" )
     private PersonService personService;
 
+//    @HystrixCommand(fallbackMethod = "fallbackMethod")
     @ResponseBody
+
     @GetMapping("/get/person/{personId}")
     public Person consume(@PathVariable("personId")Long personId)
     {
@@ -39,4 +43,12 @@ public class ConsumerController
         }
         return person;
     }
+
+    //fallbackMethod
+    public Person fallbackMethod(Long personId)
+    {
+        return new Person(personId,"fallbackMethod",19);
+    }
+
+
 }

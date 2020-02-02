@@ -13,7 +13,9 @@
 
     <modules>
         <module>dubbo-learning-api</module>
-        <module>dubbo-learning-person-service-provider</module>
+        <module>dubbo-learning-person-service-provider1</module>
+        <module>dubbo-learning-person-service-provider2</module>
+        <module>dubbo-learning-person-service-provider3</module>
         <module>dubbo-learning-person-service-consumer</module>
     </modules>
 

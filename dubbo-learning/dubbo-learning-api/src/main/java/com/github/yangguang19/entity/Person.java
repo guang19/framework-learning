@@ -1,8 +1,6 @@
 package com.github.yangguang19.entity;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
@@ -16,6 +14,8 @@ import java.io.Serializable;
 @Setter
 @Accessors(chain = true)
 @ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class Person implements Serializable
 {
     private static final long serialVersionUID = -1046991842379162205L;
