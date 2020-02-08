@@ -11,7 +11,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>com.github.yangguang19</groupId>
+    <groupId>com.github.guang19</groupId>
     <artifactId>framework-learning</artifactId>
     <packaging>pom</packaging>
     <version>1.0.0</version>

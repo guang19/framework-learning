@@ -6,7 +6,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.github.yangguang19</groupId>
+        <groupId>com.github.guang19</groupId>
         <artifactId>framework-learning</artifactId>
         <version>1.0.0</version>
     </parent>

@@ -5,7 +5,7 @@
 
     <parent>
         <artifactId>framework-learning</artifactId>
-        <groupId>com.github.yangguang19</groupId>
+        <groupId>com.github.guang19</groupId>
         <version>1.0.0</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
