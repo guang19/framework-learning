@@ -22,12 +22,12 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>com.github.yangguang19</groupId>
+                <groupId>com.github.guang19</groupId>
                 <artifactId>dubbo-learning-api</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.github.yangguang19</groupId>
+                <groupId>com.github.guang19</groupId>
                 <artifactId>dubbo-learning-person-service-provider</artifactId>
                 <version>${project.version}</version>
             </dependency>

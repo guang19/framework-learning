@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <artifactId>dubbo-learning</artifactId>
-        <groupId>com.github.yangguang19</groupId>
+        <groupId>com.github.guang19</groupId>
         <version>1.0.0</version>
     </parent>
     <packaging>jar</packaging>
@@ -15,7 +15,7 @@
     <dependencies>
         <!--api-->
         <dependency>
-            <groupId>com.github.yangguang19</groupId>
+            <groupId>com.github.guang19</groupId>
             <artifactId>dubbo-learning-api</artifactId>
         </dependency>
 

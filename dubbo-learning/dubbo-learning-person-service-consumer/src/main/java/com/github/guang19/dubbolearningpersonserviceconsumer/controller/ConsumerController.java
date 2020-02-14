@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class ConsumerController
 {
-//    @Reference(version = "2.0.0",stub = "com.github.yangguang19.dubbolearningpersonserviceconsumer.servicestub.ServiceStub",loadbalance = "roundrobin" )
+//    @Reference(version = "2.0.0",stub = "com.github.guang19.dubbolearningpersonserviceconsumer.servicestub.ServiceStub",loadbalance = "roundrobin" )
     @Reference(version = "2.0.0",loadbalance = "roundrobin" )
     private PersonService personService;
 

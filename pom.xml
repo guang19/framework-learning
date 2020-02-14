@@ -25,6 +25,7 @@
         <module>zookeeper-learning</module>
         <module>dubbo-learning</module>
         <module>jdk_jvm_juc-learning</module>
+        <module>swagger-learning</module>
     </modules>
 
     <properties>
@@ -38,6 +39,7 @@
         <zookeeper.version>3.5.6</zookeeper.version>
         <curator.version>3.3.0</curator.version>
         <spring-cloud.version>Hoxton.SR1</spring-cloud.version>
+        <swagger.version>2.9.2</swagger.version>
         <lombok.version>1.18.10</lombok.version>
         <junit.version>4.12</junit.version>
     </properties>
@@ -46,38 +48,43 @@
         <dependencies>
             <!--children module-->
           <dependency>
-            <groupId>com.github.yangguang19</groupId>
+            <groupId>com.github.guang19</groupId>
             <artifactId>mybatis-learning</artifactId>
             <version>${project.version}</version>
           </dependency>
           <dependency>
-            <groupId>com.github.yangguang19</groupId>
+            <groupId>com.github.guang19</groupId>
             <artifactId>spring-learning</artifactId>
             <version>${project.version}</version>
           </dependency>
           <dependency>
-            <groupId>com.github.yangguang19</groupId>
+            <groupId>com.github.guang19</groupId>
             <artifactId>springmvc-learning</artifactId>
             <version>${project.version}</version>
           </dependency>
             <dependency>
-                <groupId>com.github.yangguang19</groupId>
+                <groupId>com.github.guang19</groupId>
                 <artifactId>tomcat-9.0.30-source</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.github.yangguang19</groupId>
+                <groupId>com.github.guang19</groupId>
                 <artifactId>rabbitmq-learning</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.github.yangguang19</groupId>
+                <groupId>com.github.guang19</groupId>
                 <artifactId>zookeeper-learning</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.github.yangguang19</groupId>
+                <groupId>com.github.guang19</groupId>
                 <artifactId>dubbo-learning</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.guang19</groupId>
+                <artifactId>swagger-learning</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
@@ -170,6 +177,18 @@
                 <groupId>org.apache.zookeeper</groupId>
                 <artifactId>zookeeper</artifactId>
                 <version>${zookeeper.version}</version>
+            </dependency>
+
+            <!--swagger2-->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${swagger.version}</version>
             </dependency>
 
             <!--lombok-->

@@ -28,7 +28,7 @@ public class MyClassLoader extends ClassLoader{
     protected Class<?> findClass(String name) throws ClassNotFoundException
     {
         //作为测试加载 ClassPerson 类
-        File file = new File("/home/yangguang/Myproject/juc-jvm/target/classes/com/github/yangguang19/jvm/classLoader/ClassPerson.class");
+        File file = new File("/home/yangguang/Myproject/juc-jvm/target/classes/com/github/guang19/jvm/classLoader/ClassPerson.class");
         
         try
         {
