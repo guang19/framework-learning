@@ -10,7 +10,7 @@ import java.lang.ref.ReferenceQueue;
  */
 public class PhantomReferenceDemo {
 
-    public static void main(String[] args)
+    public static void main(String[] args) throws Throwable
     {
         Object object = new Object();
 
@@ -27,6 +27,6 @@ public class PhantomReferenceDemo {
         System.gc();
 
         System.out.println(phantomReference.get());
-        System.out.println(referenceQueue.poll());
+        System.out.println(referenceQueue.poll().get());
     }
 }

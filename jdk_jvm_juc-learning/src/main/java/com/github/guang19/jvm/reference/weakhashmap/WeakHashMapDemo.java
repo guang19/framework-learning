@@ -20,7 +20,7 @@ public class WeakHashMapDemo {
 
         object = null;
         System.gc();
-        //不出意外,打印null
+        //不出意外,打印{}
         System.out.println(weakHashMap);
     }
 }

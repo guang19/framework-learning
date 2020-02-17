@@ -13,17 +13,14 @@ import java.util.concurrent.locks.ReentrantLock;
 
 
 public class ProducerConsumer {
-
-
-
     //资源
     private volatile int number = 0;
-
 
     //增加
     public synchronized void increment()
     {
-        try {
+        try
+        {
             while(number > 0)
             {
                 this.wait();
