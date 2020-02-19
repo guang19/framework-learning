@@ -83,7 +83,7 @@ GC分代年龄(因为它的大小为4bit,所以大小为 2^4, 0 - 15,15岁后就
 #### 可重入锁:
 >一个线程获取到锁后,如果继续遇到被相同锁修饰的资源或方法,那么可以继续获取该锁.
 >对synchronized来说,每个锁都有线程持有者和锁计数器,每次线程获取到锁,会记录下
->改线程,并且锁的计数器就+1,当线程退出synchronized代码块的时候,线程计数就会-1,
+>该线程,并且锁的计数器就+1,当线程退出synchronized代码块的时候,线程计数就会-1,
 >当锁计数为0的时候,就释放锁.   
 
 #### 公平锁: 
@@ -115,11 +115,11 @@ GC分代年龄(因为它的大小为4bit,所以大小为 2^4, 0 - 15,15岁后就
 >那么当前线程会自旋争夺，如果自旋成功，
 >那么仍然处于轻量级锁，如果失败，那么将膨胀为重量级锁     
      
-#### 自旋锁:
+#### 自旋锁
 >在争夺锁的过程中，线程不会阻塞，而是
 >通过不断的CAS来争抢。
 
-####　自适应自旋锁:
+#### 自适应自旋锁
 >自旋锁意味着线程会不断的消耗cpu资源，短时间还行，
 >长时间就意味着而资源的浪费，
 >所以自适应自旋锁就是给自旋设定一个时间,
@@ -141,17 +141,17 @@ GC分代年龄(因为它的大小为4bit,所以大小为 2^4, 0 - 15,15岁后就
 
 
 #### 死锁:
->死锁是指多个进程在执行过程中,循环等待彼此占有的资源而导致程序的无限期的阻塞.
-     
->产生死锁的条件:
->1.互斥条件. 一个资源在一段时间内只能被一个进程所持有.
->2.不可抢占条件.进程所持有的资源只能由进程自己主动释放,其他资源的申请者不能向进程持有者抢夺资源。
->3.占有且申请条件:进程已经持有一个资源后,又申请其他资源,但是其他资源已被其他线程所占有.
->4.循环等待条件:在条件3之上,进程1有进程2需要申请的资源,进程2有进程1需要申请的资源,那么这2个线程
->不停等待彼此持有的资源,又不能释放已拥有的资源,陷入循环等待.
+>死锁是指多个进程在执行过程中,循环等待彼此占有的资源而导致程序的无限期的阻塞.     
+
+产生死锁的条件:
+1. 互斥条件. 一个资源在一段时间内只能被一个进程所持有.
+2. 不可抢占条件.进程所持有的资源只能由进程自己主动释放,其他资源的申请者不能向进程持有者抢夺资源。
+3. 占有且申请条件:进程已经持有一个资源后,又申请其他资源,但是其他资源已被其他线程所占有.
+4. 循环等待条件:在条件3之上,进程1有进程2需要申请的资源,进程2有进程1需要申请的资源,那么这2个线程
+  不停等待彼此持有的资源,又不能释放已拥有的资源,陷入循环等待.
 
 ##### 防止死锁:
->只要打破死锁产生的4个条件之一就行,但是真正能够被打破的条件只有第4个条件:实现资源的有序分配. 
+>只要打破死锁产生的4个条件之一就行,但是真正能够被打破的条件只有第4个条件:实现资源的有序分配. 因为其他三个条件都是锁的必要条件。
        
 #### sleep方法和wait方法            
 1. sleep方法是Thread类的方法，而wait方法是Object类的方法
@@ -253,7 +253,7 @@ interrupted：
 
 2. synchronized和reentrantlock都属于可重入锁。
 
-3. ReentrantLock提供了比synchroinzed更高级的功能:
+3. ReentrantLock提供了比Synchronized更高级的功能:
 >1. 公平锁
 >2. 更方便的线程间的通信(Condition)
 >3. 等待可中断(在线程等待获取锁的时候可以被中断) 
@@ -271,80 +271,125 @@ interrupted：
 
 #### AQS (AbstractQueuedSynchronizer)
 
-##### Doug Lea大师写的JUC的核心就是AQS同步器模板,常见的Lock,CountDownLatch,CyclicBarrier等等同步工具都是基于AQS实现的.
+````java
+AQS是Doug Lea大师为JDK编写的一套基于API层面的抽象队列同步器.
+AbstractQueuedSynchronizer,抽象队列同步器.
+Lock,CountDownLatch等等这些并发工具都是基于AQS来实现的。
+由此可以看出Doug Lea大师的功力已经臻至化境，喔，对了，jdk9的Flow API也是他写的 |)_(|
+````
    
-##### AQS 概述:
->AQS,如其名,是一个抽象队列同步器,内部肯定有队列,而且既然是同步器,
->肯定是一个线程队列.
->
->它维护着一个代表同步状态的volatile变量:state,AQS对state的操作都是
->CAS操作,所以是线程安全的.   
->以及一个FIFO(先进先出)的线程等待队列,队列由内部的Node类节点组成.
+#### AQS 概述:
+
+>AQS的核心思想是如果被请求的资源空闲，那么就将当前请求资源的线程设置为有效的工作线程；
+>如果请求的资源被其他线程所占有， 那么就使用CLH线程阻塞队列来提供阻塞线程并唤线程分配资源的机制。
+>在CLH队列中，每个请求资源的线程都会被封装成队列中的一个节点。
+
+>在AQS内部有一个int类型的state表示线程同步状态，
+>当线程lock获取到锁后，该state计数就加1,unlock就减1，
+>这就是为什么解锁要对应加锁的次数。
+
+AQS主要实现技术为:CLH队列(Craig,Landin and Hagersten)，自旋CAS，Park(阻塞线程)以及unparkSuccessor(唤醒阻塞队列中的后继线程)
      
 ##### AQS的2种共享资源访问方式
 >AQS定义了2种资源共享方式.
 
 ###### 独占式(Exclusive):
->同一时间只有一个线程可以访问共享资源,也就是独占锁,如:ReentrantLock.
+>同一时间只有一个线程可以访问共享资源,也就是独占锁,如:Synchronized,ReentrantLock.
 >
 >对于独占式锁的实现,在AQS中对应tryAcquire获取锁和tryRelease释放锁. 
          
 ###### 共享式(Share):
-> 同一时间允许多个线程同时访问共享资源,也就是共享锁,如:CountDownLatch,
-> CycliBarrier,ReentrantReadWriteLock的读锁是共享锁.
+> 同一时间允许多个线程同时访问共享资源,也就是共享锁
+> CountDownLatch,Semaphore,ReentrantReadWriteLock的ReadLock都是共享锁.
 >
 >对于共享式锁的实现,在AQS中对应tryAcquireShare获取锁和tryReleaseShare释放锁. 
 
-##### AQS工作原理
->上面说了,AQS内部有一个核心的volatile变量state代表着共享资源的状态.
->内置一个FIFO队列完成线程的获取和排队工作,FIFO由核心内部类Node组成,
->Node就是代表着队列中的线程,每个Node有包含它前置Node和后置Node的引用,
->其实也就是一个双向链表.
->而AQS维护着队列的head和tail节点.
+##### CountDownLatch原理
+CountDownLatch允许count个线程阻塞在一个地方，直至所有线程的任务都执行完毕。
 
-###### AQS 的 Node 类
->  上面已经介绍了,AQS的核心之一就是FIFO队列,而FIFO的组成就是
->  Node
->  Node的重要属性:
+>CountDownLatch是共享锁的一种实现,它默认构造AQS的state为count。
+>当线程使用countDown方法时,其实使用了tryReleaseShared方法以CAS的操作来减少state,
+>直至state为0就代表所有的线程都调用了countDown方法。当调用await方法的时候，如果state不为0，
+>就代表仍然有线程没有调用countDown方法，那么就把已经调用过countDown的线程都放入阻塞队列Park,
+>并自旋CAS判断state == 0，
+>直至最后一个线程调用了countDown，使得state == 0，
+>于是阻塞的线程便判断成功，全部往下执行。
 
- 1. CANCELLED: 表示当前节点(线程)取消调度(取消或中断)
- 2. SIGNAL: 表示后继线程需要被唤醒
- 3. CONDITION:标示当前线程等在Condition上,被signal后,会从等待队列转移到同步队列
- 4. PROPAGATE:共享模式下,前继节点唤醒后继节点的同时,可能会传播给后面所有节点,
-             也就是不断唤醒后继所有节点.
- 5. waitStatus:等待状态,初始化为0
- 6. pre : 表示前继节点(前继线程)
- 7: next: 表示后继节点(后继线程)
- 8: thead:节点的线程 
+##### Semaphore
+Semaphore允许一次性最多(不是同时)permits个线程执行任务。
 
-###### 其实这里真不是不想写和不会写,而是AQS的机制看起来很复杂,其实还是围绕着CLH队列在转,建议各位同学直接看源码好理解,毕竟如果各位同学自己写同步器也需要自己懂才行.     
- 
-  
+>Semaphore与CountDownLatch一样，也是共享锁的一种实现。
+>它默认构造AQS的state为permits。
+>当执行任务的线程数量超出permits,那么多余的线程将会被放入阻塞队列Park,并自旋判断state是否大于0，
+>只有当state大于0的时候，阻塞的线程才能继续执行,此时先前执行任务的线程继续执行release方法，
+>release方法使得state的变量会加1，那么自旋的线程便会判断成功。
+>如此，每次只有固定的线程能自旋成功，便限制了执行任务线程的数量。
+>
+>所以这也是我为什么说它可能不是permits个线程同时执行，
+>因为只要state>0,线程就有机会执行.
+
+
+##### CycliBarrier
+CycliBarrier的功能与CountDownLatch相似，但是CountDownLatch的实现是基于AQS的，
+而CycliBarrier是基于ReentrantLock(ReentrantLock也属于AQS同步器)和Condition的.
+
+>CountDownLatch虽然可以令线程阻塞，但是CountDownLatch只能await一次就不能使用了，
+>而CycliBarrier有Generation代的概念，一个代，就代表CycliBarrier的一个循环，
+>这也是CycliBarrier支持重复await的原因。 
+
+#### ReentrantReadWriteLock如何区分读写锁的?
+
+>Sync既有写锁，又有读锁，因此一个state不够用，
+>所以使用state的高16为表示读锁，低位16表示写锁.
+````java
+ ReentrantReadWriteLock部分源码:
+
+ static final int SHARED_SHIFT   = 16;
+ static final int SHARED_UNIT    = (1 << SHARED_SHIFT);
+ static final int MAX_COUNT      = (1 << SHARED_SHIFT) - 1;
+ static final int EXCLUSIVE_MASK = (1 << SHARED_SHIFT) - 1;
+
+ /** Returns the number of shared holds represented in count. */
+ static int sharedCount(int c)    { return c >>> SHARED_SHIFT; }
+ /** Returns the number of exclusive holds represented in count. */
+ static int exclusiveCount(int c) { return c & EXCLUSIVE_MASK; }
+
+````
+
+```java
+剩下的就读源码吧。
+```
+
+>其实吧，在我读了几遍源码后,才发现，源码真的不难分析。
+>但是像我在读SpringBoot的源码时，我就只能分析个大概，
+>主要是Jdk的源码之间并没有什么耦合性，你看一个jdk的类，不像
+>Spring的源码那样绕来绕去，各种设计模式搞得你头晕。所以我建议阅读源码可以从
+>jdk的源码开始，前提是你需要一定的基础才能看得懂。比如我这个版本(11)就发现AQS的部分源码
+>与之前版本的源码不同，这个版本的AQS使用了 : VarHandle 这个类来
+>设置Node类内部的属性，而之前都是直接使用构造方法来构造Node的,并且AQS使用的是LockSupport
+>来阻塞线程的，LockSupport仍然使用的是Unsafe类来进行操作的,这些都属于java与c/c++交互的类,
+>所以你如果没有基础，会诧异,jdk还有这种东西呀^-^...
+
 
 #### volatile:
->Volatile是JVM提供的轻量级的同步机制
-     
-##### 1: volatile保证内存可见性
->JMM内存模型实现总是线程从主内存(共享内存)读取数据,线程把主存的变量存储到本地,
->在本地进行修改,然后写回主内存,而不是直接在主存中进行操作.
->
->那么这就可能造成可见性问题:假设2个线程从主存读取同一个变量,一个线程修改了它的本地变量,
->并写回了主存,但是另一个线程仍然使用的是之前的值,这就造成了数据的不一致.
->volatile关键字修饰的变量就解决了这个问题:被volatile修饰的变量要求线程使用时,
->都从主内存中读取,而不使用本地的拷贝.
-          
-##### 2. volatile不保证原子性
 volatile是JVM提供的轻量级的线程同步机制。
 
 1. volatile保证内存的可见性
 >可见性是指一个线程的修改对其他线程是可见的。
->jvm的内存模型是: 线程总是从主内存读取变量到工作内存，然后在工作内存中进行修改，在修改完后再把数据同步到主内存中。
->如果多个线程同时读取了一个变量到各自的内存中，其中一个线程对变量进行了修改，并同步回了主内存，但其它线程仍然使用的是原来的旧值，这就造成了数据的不一致。解决这个问题的办法就是给变量加上volatile关键字修饰，volatile使得线程如果要使用这个变量，那么每次都需要从主内存中读取，保证了变量的可见性。
+>jvm的内存模型是: 线程总是从主内存读取变量到工作内存，
+>然后在工作内存中进行修改，在修改完后再把数据同步到主内存中。
+>如果多个线程同时读取了一个变量到各自的内存中，
+>其中一个线程对变量进行了修改，并同步回了主内存，
+>但其它线程仍然使用的是原来的旧值，这就造成了数据的不一致。
+>解决这个问题的办法就是给变量加上volatile关键字修饰，
+>volatile使得线程如果要使用这个变量，那么每次都需要从主内存中读取，保证了变量的可见性。
 
 2. volatile禁止指令重排序
->指令冲排序是编译器和cpu为了程序的高效运行的一种优化手段，它只能保证程序执行的结果是正确的，但是无法保证程序指令运行的顺序是否与代码的顺序一致，比如:
+>指令冲排序是编译器和cpu为了程序的高效运行的一种优化手段，
+>它只能保证程序执行的结果是正确的，但是无法保证程序指令运行的顺序是否与代码的顺序一致
 
 比如: 
+
 ````java
 1. int a = 1;
 2. int b = 3;
@@ -393,22 +438,24 @@ volatile通过提供  内存屏障 来防止指令重排序.
  ##### CAS的缺点:
  
  ###### 1: 循环时间开销大
->并没有进行CAS失败的退出处理，只是单纯的循环比较并交换，
->这就让我很担心它的性能问题，如果长时间不成功，
->那会是很可怕的一件事请，至少cpu的负荷会很大。  
+>我在看源码的时候，发现Atomic的CAS操作并没有进行CAS失败的退出处理，
+>只是单纯的循环比较并交换，这就让我很担心它的性能问题，
+>如果长时间不成功，那会是很可怕的一件事请，至少cpu的负荷会很大。
            
  ###### 2:　只能保证一个共享变量的原子操作
->Atomic原子类只能保证一个变量的原子操作，如果是多数据的话，还是考虑用互斥锁来实现数据的同步吧
+>Atomic原子类只能保证一个变量的原子操作，
+>如果是多数据的话，还是考虑用互斥锁来实现数据的同步吧
           
  ###### 3: ABA问题
->ABA问题是指如果一个线程进行CAS操作并成功了，却不代表这个过程就是没有问题的。
+>ABA问题是指如果一个线程进行CAS操作并成功了，
+>却不代表这个过程就是没有问题的。
 
 >假设2个线程读取了同一份数据，线程1修改了这个值并把它改回了原值，并同步到主内存中，
 >另一个线程准备进行CAS操作,当它发现原值和期盼的值是一样的，那么CAS仍然成功。
            
  ###### 4:　解决ABA问题
 >在juc的atomic包中提供了 AtomicStampedReference 类,
->这个类较普通归档原子类新增了一个stamp字段，它的作用相当于version，
+>这个类较普通的原子类新增了一个stamp字段，它的作用相当于version，
 >每次修改这个引用的值，也都会修改stamp的值，
 >当发现stamp的值与期盼的stamp不一样，也会修改失败.
 >这就类似于以version实现乐观锁一样。                
@@ -422,30 +469,38 @@ volatile通过提供  内存屏障 来防止指令重排序.
 >ThreadLocal的原理还得从Thread线程类说起，
 >每个Thread类内部都有一个ThreadLocalMap，当使用ThreadLocal的get和remove操作的时候，
 >就是使用每个线程的ThreadLocalMap的get和remove。
->
->ThreadLocal引发的内存泄露:
->
+
+ThreadLocal引发的内存泄露:
+
 >在ThreadLocalMap中，key是使用弱引用的ThreadLocal存储的，
 >弱引用是只要垃圾回收器开始回收，无论内存是否充足，都会回收掉弱引用对象，如此一来，
 >当ThreadLocal被回收掉,那么ThreadLocalMap将可能出现Null Key 的 value。但是也不必太过担心，
->因为设计者已经想到了这点，所以ThreadLocal会自动处理key 为 null的 value.         
+>因为设计者已经想到了这点，所以ThreadLocal会自动处理key 为 null的 value.       
                      
 #### 线程池的好处:
->池化技术屡见不鲜:数据库连接池,Http连接池,线程池都是这种思想．
->池化技术的好处非常明显,以往单个的new Thread,不易于线程之间的管理,
->而池化技术把所有线程都放在一个池子里,要用就取出,用完就回收,这样非常易于管理,
->并且可以降低资源的消耗,使线程可以重复利用,提高任务的响应速度,当任务到来时,就可以
->处理.
+>http连接池，数据库连接池，线程池等都是利用了池化技术。
+>如果一个资源需要多次使用并且很昂贵，那么使用new创建的对象或资源，可能会带来较大的消耗。
+
+池化技术的好处在于:
+1. 方便资源的管理，无需显示的使用new创建。
+2. 降低了资源的消耗，在池子里的资源可以重复利用
+2. 提供了任务的响应速度，任务可以很快的被分配资源进行处理。
 
 #### 线程池构造参数:
 ````
- ThreadPoolExecutor
+ new ThreadPoolExecutor
 (int corePoolSize,
+
  int maximumPoolSize, 
+
  long keepAliveTime,
+
  TimeUnit unit,
+
  BlockingQueue<Runnable> workQueue,
+
  ThreadFactory threadFactory,
+
  RejectedExecutionHandler handler)
 ````
 
@@ -473,14 +528,18 @@ volatile通过提供  内存屏障 来防止指令重排序.
 >拒绝策略. 如果线程池陷入一种极端情况:工作队列满了,无法再容纳新的任务,最大工作线程也到达限制了,
 >此时线程池如何处理这种极端情况.
 >ThreadPoolExecutor 提供了四种策略:
-###### AbortPolicy(是线程池的默认拒绝策略): 
+
+1.AbortPolicy(是线程池的默认拒绝策略): 
 >如果还有新任务到来,那么拒绝,并抛出RejectedExecutionException异常
-###### CallerRunsPolicy: 
+
+2.CallerRunsPolicy: 
 >这种策略不会拒绝执行新任务,但是由发出任务的线程执行,也就是说当线程池无法
 >执行新任务的时候,就由请求线程自己执行任务
-###### DiscardPolicy:
+
+3.DiscardPolicy:
 >这种策略会拒绝新任务,但是不会抛出异常
-###### DiscardOldestPolicy:
+
+4.DiscardOldestPolicy:
 >这种策略不会拒绝策略,他会抛弃队列中等待最久那个任务,来执行新任务      
  
 ##### 阿里巴巴开发者手册不建议开发者使用Executors创建线程池:
@@ -491,7 +550,7 @@ volatile通过提供  内存屏障 来防止指令重排序.
 >newCachedThreadPool和newScheduledThreadPool:
 >会创建缓存线程池和周期任务线程池,二者线程池的最大线程为Integer.MAX_VALUE,
 >也可能会导致OOM             
- ---   
+
  ---
 #### JVM运行时内存分区:.
 >以HotSpot为例:

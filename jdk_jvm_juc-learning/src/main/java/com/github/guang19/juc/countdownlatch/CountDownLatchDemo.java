@@ -1,6 +1,7 @@
 package com.github.guang19.juc.countdownlatch;
 
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @Description : TODO     CuntDownLatch是并发编程辅助工具之一
@@ -20,16 +21,29 @@ public class CountDownLatchDemo {
 
     public static void main(String[] args) throws Exception
     {
-        for(int i = 0 ; i < count; ++i)
+        for(int i = 0 ; i < 6; ++i)
         {
             new Thread(()->{
                 System.out.println(Thread.currentThread().getName() + " 到达了终点");
-                //在当前线程内部阻塞
+                //减少state计数
                 countDownLatch.countDown();
             }).start();
         }
-        //如果有线程仍然没有执行完,那么继续等待
+        //线程到此处阻塞,只有当state==0的时候才被唤醒
         countDownLatch.await();
+
+        TimeUnit.SECONDS.sleep(2);
+
+        for(int i = 0 ; i < 6; ++i)
+        {
+            new Thread(()->{
+                System.out.println(Thread.currentThread().getName() + " 到达了终点2");
+                //减少state计数
+                countDownLatch.countDown();
+            }).start();
+        }
+        countDownLatch.await();
+
         System.out.println("比赛结束");
     }
 }

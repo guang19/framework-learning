@@ -10,7 +10,7 @@ import java.util.concurrent.Semaphore;
 public class SemaphoreDemo {
     /**
      *
-     * Semaphore 用于控制多线车公对多资源的控制
+     * Semaphore 用于控制多线程对多资源的控制
      *
      */
 
@@ -18,7 +18,7 @@ public class SemaphoreDemo {
     public static void main(String[] args)
     {
         //一共有3个凳子
-        Semaphore semaphore = new Semaphore(3);
+        Semaphore semaphore = new Semaphore(2);
 
         //模拟5个小朋友
         for (int i = 0 ; i < 6; ++i)
@@ -26,15 +26,17 @@ public class SemaphoreDemo {
             new Thread(()->{
                try
                {
+                   //最多允许2个线程获取到锁
                    semaphore.acquire();
                    System.out.println(Thread.currentThread().getName() + " 抢到了凳子");
-                   Thread.sleep(2000);
+//                   Thread.sleep(1000);
                    System.out.println(Thread.currentThread().getName() + "离开了凳子");
                }
                catch(Exception e)
                {
                    e.printStackTrace();
                } finally {
+                   //释放锁
                    semaphore.release();
                }
             }).start();

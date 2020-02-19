@@ -1,6 +1,8 @@
 package com.github.guang19.juc.cyclicBarrier;
 
 import java.util.concurrent.CyclicBarrier;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @Description : TODO          CyclicBarrier是并发编程辅助工具之一
@@ -17,15 +19,16 @@ public class CycliBarrierDemo {
         CyclicBarrier cyclicBarrier = new CyclicBarrier(6,()->{
             System.out.println("人都到齐了,可以比赛了");
         });
-
         for (int i = 0 ; i < 6; ++i)
         {
             new Thread(()->{
-                System.out.println(Thread.currentThread().getName() + " 到了");
+
                 try
                 {
+                    System.out.println(Thread.currentThread().getName() + " 到了");
                     //在线程内部等待
-                    cyclicBarrier.await();
+                    cyclicBarrier.await(0, TimeUnit.NANOSECONDS);
+
                 }
                 catch(Exception e)
                 {
