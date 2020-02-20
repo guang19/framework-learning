@@ -20,7 +20,7 @@ public class BlockQueue {
 //        System.out.println(arrayBlockQueue.add("a"));
 //        System.out.println(arrayBlockQueue.add("b"));
 //        System.out.println(arrayBlockQueue.add("c"));
-////        System.out.println(arrayBlockQueue.add("d"));//超出队列界限,抛出异常
+//        System.out.println(arrayBlockQueue.add("d"));//超出队列界限,抛出异常
 //        System.out.println(arrayBlockQueue.remove());
 //        System.out.println(arrayBlockQueue.remove());
 //        System.out.println(arrayBlockQueue.remove());
@@ -52,17 +52,17 @@ public class BlockQueue {
 //        System.out.println(arrayBlockQueue.take());//main线程阻塞
 
         //这一组不会一直阻塞等待,而是阻塞一段时间
-        System.out.println(arrayBlockQueue.offer("a", 3L, TimeUnit.SECONDS));
-        System.out.println(arrayBlockQueue.offer("b", 3L, TimeUnit.SECONDS));
-        System.out.println(arrayBlockQueue.offer("c", 3L, TimeUnit.SECONDS));
+//        System.out.println(arrayBlockQueue.offer("a", 3L, TimeUnit.SECONDS));
+//        System.out.println(arrayBlockQueue.offer("b", 3L, TimeUnit.SECONDS));
+//        System.out.println(arrayBlockQueue.offer("c", 3L, TimeUnit.SECONDS));
         //等待3秒,还没有空间可以存放,就返回false
 //        System.out.println(arrayBlockQueue.offer("d", 3L, TimeUnit.SECONDS));
 
-        System.out.println(arrayBlockQueue.poll(3L,TimeUnit.SECONDS));
-        System.out.println(arrayBlockQueue.poll(3L,TimeUnit.SECONDS));
-        System.out.println(arrayBlockQueue.poll(3L,TimeUnit.SECONDS));
+//        System.out.println(arrayBlockQueue.poll(3L,TimeUnit.SECONDS));
+//        System.out.println(arrayBlockQueue.poll(3L,TimeUnit.SECONDS));
+//        System.out.println(arrayBlockQueue.poll(3L,TimeUnit.SECONDS));
         //等待3秒,还没有元素可以poll,就返回null
-        System.out.println(arrayBlockQueue.poll(3L,TimeUnit.SECONDS));
+//        System.out.println(arrayBlockQueue.poll(3L,TimeUnit.SECONDS));
     }
 
 }
