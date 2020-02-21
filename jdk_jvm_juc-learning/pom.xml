@@ -11,5 +11,11 @@
 
     <artifactId>jdk_jvm_juc-learning</artifactId>
 
-
+    <dependencies>
+        <!--可用此工具查看对象内存布局-->
+        <dependency>
+            <groupId>org.openjdk.jol</groupId>
+            <artifactId>jol-core</artifactId>
+        </dependency>
+    </dependencies>
 </project>

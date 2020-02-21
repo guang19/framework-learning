@@ -41,6 +41,7 @@
         <curator.version>3.3.0</curator.version>
         <spring-cloud.version>Hoxton.SR1</spring-cloud.version>
         <swagger.version>2.9.2</swagger.version>
+        <openjdk-jol.version>0.10</openjdk-jol.version>
         <lombok.version>1.18.10</lombok.version>
         <junit.version>4.12</junit.version>
     </properties>
@@ -195,6 +196,13 @@
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-swagger2</artifactId>
                 <version>${swagger.version}</version>
+            </dependency>
+
+            <!--可用此工具查看对象内存布局-->
+            <dependency>
+                <groupId>org.openjdk.jol</groupId>
+                <artifactId>jol-core</artifactId>
+                <version>${openjdk-jol.version}</version>
             </dependency>
 
             <!--lombok-->
