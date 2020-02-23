@@ -10,7 +10,9 @@ import java.nio.channels.SocketChannel;
 import java.nio.channels.spi.SelectorProvider;
 import java.nio.charset.StandardCharsets;
 import java.util.Iterator;
+import java.util.Scanner;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author yangguang
@@ -21,13 +23,10 @@ public class NIOClient
 {
     public static void main(String[] args)
     {
-        SocketChannel clientSocketChannel = null;
-        Selector selector = null;
         NIOClient nioClient = new NIOClient();
-        try
+        try(final Selector  selector = SelectorProvider.provider().openSelector();
+            final  SocketChannel  clientSocketChannel = SocketChannel.open();)
         {
-            selector = SelectorProvider.provider().openSelector();
-            clientSocketChannel = SocketChannel.open();
             clientSocketChannel.configureBlocking(false);
             clientSocketChannel.register(selector, SelectionKey.OP_CONNECT);
             clientSocketChannel.connect(new InetSocketAddress("127.0.0.1",8080));
@@ -50,23 +49,9 @@ public class NIOClient
         catch (Exception e)
         {
         }
-        finally
-        {
-            try
-            {
-
-                clientSocketChannel.close();
-                selector.close();
-            }
-            catch (Exception e)
-            {
-
-            }
-        }
-
     }
 
-    private void handleResponse(Selector selector , SelectionKey selectionKey) throws IOException
+    private void handleResponse(Selector selector , SelectionKey selectionKey) throws Exception
     {
         if(selectionKey.isConnectable())
         {
@@ -78,6 +63,7 @@ public class NIOClient
                 byteBuffer.put("hello server".getBytes(StandardCharsets.UTF_8));
                 byteBuffer.flip();
                 clientSocket.write(byteBuffer);
+
                 clientSocket.configureBlocking(false);
                 clientSocket.register(selector,SelectionKey.OP_READ);
                 byteBuffer.clear();
@@ -90,22 +76,27 @@ public class NIOClient
             if(clientSocket.read(byteBuffer) > 0)
             {
                 byteBuffer.flip();
-                System.out.println("server data " + new String(byteBuffer.array(), StandardCharsets.UTF_8));
+                System.out.println("server data : " + new String(byteBuffer.array(), StandardCharsets.UTF_8));
             }
             clientSocket.configureBlocking(false);
             clientSocket.register(selector,SelectionKey.OP_WRITE);
+
             byteBuffer.clear();
         }
         else if(selectionKey.isWritable())
         {
             SocketChannel clientSocket = (SocketChannel)selectionKey.channel();
             ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
-            byteBuffer.put("hello server".getBytes(StandardCharsets.UTF_8));
-            byteBuffer.flip();
-            clientSocket.write(byteBuffer);
             clientSocket.configureBlocking(false);
             clientSocket.register(selector,SelectionKey.OP_READ);
-            byteBuffer.clear();
+            Scanner scanner = new Scanner(System.in);
+            while (scanner.hasNextLine())
+            {
+                byteBuffer.put(scanner.nextLine().getBytes(StandardCharsets.UTF_8));
+                byteBuffer.flip();
+                clientSocket.write(byteBuffer);
+                byteBuffer.clear();
+            }
         }
     }
 }
