@@ -42,6 +42,7 @@
         <spring-cloud.version>Hoxton.SR1</spring-cloud.version>
         <swagger.version>2.9.2</swagger.version>
         <openjdk-jol.version>0.10</openjdk-jol.version>
+        <cglib.version>3.3.0</cglib.version>
         <lombok.version>1.18.10</lombok.version>
         <junit.version>4.12</junit.version>
     </properties>
@@ -203,6 +204,13 @@
                 <groupId>org.openjdk.jol</groupId>
                 <artifactId>jol-core</artifactId>
                 <version>${openjdk-jol.version}</version>
+            </dependency>
+
+            <!--cglib-->
+            <dependency>
+                <groupId>cglib</groupId>
+                <artifactId>cglib</artifactId>
+                <version>${cglib.version}</version>
             </dependency>
 
             <!--lombok-->

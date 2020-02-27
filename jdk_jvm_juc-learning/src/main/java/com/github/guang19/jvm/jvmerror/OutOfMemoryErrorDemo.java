@@ -1,5 +1,10 @@
-package com.github.guang19.jvm.jvmError;
+package com.github.guang19.jvm.jvmerror;
 
+import net.sf.cglib.proxy.Enhancer;
+import net.sf.cglib.proxy.MethodInterceptor;
+import net.sf.cglib.proxy.MethodProxy;
+
+import java.lang.reflect.Method;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +38,7 @@ public class OutOfMemoryErrorDemo {
 
      5:jdk8之后的Metaspace元空间也有可能抛出OOM,Metasapce受限于物理内存,它存储
      着类的元信息,当Metaspace里的类的信息过多时,Metaspace可能会发生OOM.
-     这里是可以使用cglb的字节码生成类的技术测试的.
+     这里是可以使用cglib的字节码生成类的技术测试的.
      */
 
     //测试java heap space错误的时候,把堆的max size 设置的小如:-Xmx30m, 会快一点,不然电脑的内存足够大,没有限制,很难出现OutOfMemory
@@ -63,7 +68,7 @@ public class OutOfMemoryErrorDemo {
     //测试第3种情况
     public static void directBufferMemoryError()
     {
-        ByteBuffer byteBuffer = ByteBuffer.allocateDirect(1024 * 1024 * 2000);
+        ByteBuffer byteBuffer = ByteBuffer.allocateDirect(1024 * 1024 * 1000);
     }
 
     //测试第4种情况
@@ -76,7 +81,7 @@ public class OutOfMemoryErrorDemo {
             new Thread(()->{
                 try
                 {
-                    //使当前线程停止,让GC慢点回收此线程,这样使线程停留快点
+                    //使当前线程停止,让GC慢点回收此线程,这样使线程停留时间长些
                     TimeUnit.SECONDS.sleep(5);
                 }
                 catch(Exception e)
@@ -88,13 +93,46 @@ public class OutOfMemoryErrorDemo {
 
     }
 
+    //测试第5中情况，当metaspace里的类的元信息过多(测试时把 元空间的size设置小一些)，就可能造成metaspace oom
+    public static void metaspace()
+    {
+        enhancer.setSuperclass(OutOfMemoryErrorDemo.class);
+        enhancer.setUseCache(false);
+        enhancer.setCallback(new MethodInterceptor()
+        {
+            @Override
+            public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable
+            {
+                System.out.println("before method invoke");
+                Object invoke = methodProxy.invokeSuper(o, objects);
+                System.out.println("after method invoke");
+                return invoke;
+            }
+        });
+        while (true)
+        {
+                OutOfMemoryErrorDemo o1 = (OutOfMemoryErrorDemo)enhancer.create();
+                OutOfMemoryErrorDemo o2 = (OutOfMemoryErrorDemo)enhancer.create();
+                OutOfMemoryErrorDemo o3 = (OutOfMemoryErrorDemo)enhancer.create();
+                OutOfMemoryErrorDemo o4 = (OutOfMemoryErrorDemo)enhancer.create();
+                OutOfMemoryErrorDemo o5 = (OutOfMemoryErrorDemo)enhancer.create();
+                OutOfMemoryErrorDemo o6 = (OutOfMemoryErrorDemo)enhancer.create();
+                OutOfMemoryErrorDemo o7 = (OutOfMemoryErrorDemo)enhancer.create();
+                OutOfMemoryErrorDemo o8 = (OutOfMemoryErrorDemo)enhancer.create();
+                OutOfMemoryErrorDemo o9 = (OutOfMemoryErrorDemo)enhancer.create();
+                OutOfMemoryErrorDemo o10 = (OutOfMemoryErrorDemo)enhancer.create();
+
+        }
+    }
+
+    private static final Enhancer enhancer = new Enhancer();
 
 
     public static void main(String[] args) {
-
 //        heapSpace();
 //        overHeadLimitExceeded();
 //        directBufferMemoryError();
 //        unableCreateNewNativeThread();
+//        metaspace();
     }
 }

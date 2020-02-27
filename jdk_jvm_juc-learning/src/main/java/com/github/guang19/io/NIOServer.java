@@ -10,7 +10,6 @@ import java.nio.channels.spi.SelectorProvider;
 import java.nio.charset.StandardCharsets;
 import java.util.Iterator;
 import java.util.Set;
-import java.util.concurrent.TimeUnit;
 
 /**
  * @author yangguang
@@ -69,7 +68,6 @@ public class NIOServer
                     }
                 }
             }
-
         }
         catch (Exception e)
         {

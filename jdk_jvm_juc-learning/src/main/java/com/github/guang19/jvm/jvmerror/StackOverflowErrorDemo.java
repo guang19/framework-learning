@@ -1,4 +1,4 @@
-package com.github.guang19.jvm.jvmError;
+package com.github.guang19.jvm.jvmerror;
 
 /**
  * @Description : TODO              测试JVM会抛出的StackOverflowError
@@ -10,7 +10,7 @@ public class StackOverflowErrorDemo {
     /**
      *
      *  StackOverflowError:
-     *  当Java虚拟机栈无法动态扩容的时候,当前线程执行或请求的栈的大小超过了Java虚拟机栈的最大空间(比如递归嵌套调用太深),那么抛出StackOverflowError错误
+     *  当前线程执行或请求的栈的大小超过了Java虚拟机栈的最大空间(比如递归嵌套调用太深),那么抛出StackOverflowError错误
      *
      */
 

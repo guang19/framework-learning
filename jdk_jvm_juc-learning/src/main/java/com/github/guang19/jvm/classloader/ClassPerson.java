@@ -1,4 +1,4 @@
-package com.github.guang19.jvm.classLoader;
+package com.github.guang19.jvm.classloader;
 
 /**
  * @Description : TODO          测试用的,使用自定义的类加载器加载此类

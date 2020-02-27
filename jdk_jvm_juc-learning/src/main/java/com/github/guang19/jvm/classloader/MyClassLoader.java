@@ -1,4 +1,4 @@
-package com.github.guang19.jvm.classLoader;
+package com.github.guang19.jvm.classloader;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -69,7 +69,7 @@ public class MyClassLoader extends ClassLoader{
     public static void main(String[] args) throws Exception
     {
         MyClassLoader myClassLoader = new MyClassLoader();
-        Class<?> c = Class.forName("com.github.guang19.jvm.classLoader.ClassPerson",true,myClassLoader);
+        Class<?> c = Class.forName("com.github.guang19.jvm.classloader.ClassPerson",true,myClassLoader);
         ClassPerson person = (ClassPerson)c.getConstructor().newInstance();
 //        打印0
         System.out.println(person.getAge());
