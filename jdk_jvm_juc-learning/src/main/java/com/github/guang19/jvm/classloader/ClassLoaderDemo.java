@@ -5,7 +5,7 @@ package com.github.guang19.jvm.classloader;
  * @Author :    yangguang
  * @Date :      2019/11/19
  */
-public class ClassLoaderDemo {
+public class ClassLoaderDemo{
 
     /**
      * 类加载器负责加载java编译后的.class文件,.class文件开头有特殊的文件标识(cafe babe)
@@ -21,12 +21,12 @@ public class ClassLoaderDemo {
      * 2: PlatformClassLoader(由ExtensionClassLoader更新): 平台类加载器,加载平台相关的模块类,jdk9之前的ExtensionClassLoader加载javax等扩展类,但是
      *                          jdk9后引入模块化系统,就把 ExtensionClassLoader 取消了,PlatformClassLoader的双亲是BootStrapClassLoader
      *
-     * 3 : AppClassLoader:     应用程序加载器,是面向我们用户的,负责加载当前应用classpath下的所有jar和类,AppClassLoader的双亲是PlatformClassLoader
+     * 3: AppClassLoader:     应用程序加载器,是面向我们用户的,负责加载当前应用classpath下的所有jar和类,AppClassLoader的双亲是PlatformClassLoader
      *
      *
      * 双亲委派机制:
      * 每一个类都有一个它对应的类加载器.
-     * 在加载类的时候,系统手写会判断当前类是否被加载过了,如果已经被加载,那么直接返回已被加载的类.
+     * 在加载类的时候,系统首先会判断当前类是否被加载过了,如果已经被加载,那么直接返回已被加载的类.
      * 如果没有加载,手写会把加载的请求传递给它的父类加载器,这样一层一层,传递,最终会到顶级的BootStrapClassLoader,当父类加载器无法加载时,
      * 才由自己处理.这样避免了已经加载过的类重复被加载
      *
