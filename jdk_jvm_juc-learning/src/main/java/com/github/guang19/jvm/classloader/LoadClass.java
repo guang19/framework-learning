@@ -50,11 +50,11 @@ public class LoadClass
         //MethodHandler 动态调用,虽然调用的是静态方法，但仍需先初始化这个类
 //        MethodType methodType1 = MethodType.methodType(void.class);
 //        MethodHandle methodHandle1 = MethodHandles.lookup().findStatic($Class.class,"m1",methodType1);
-        //此处被编译成 invokestatic
+//        此处被编译成 invokestatic
 //        methodHandle1.invoke();
 
         //VarHandle作为动态获取变量的调用
-//        VarHandle a1 = MethodHandles.lookup().findStaticVarHandle($Class.class, "a1", int.class);
+        VarHandle a1 = MethodHandles.lookup().findStaticVarHandle($Class.class, "a1", int.class);
 //        Object o = a1.get();
           //此处被编译成 : getstatic
 //        System.out.println(o);
