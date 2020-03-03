@@ -1,5 +1,6 @@
 package com.github.guang19;
 
+
 /**
  * @author yangguang
  * @date 2020/3/2
@@ -7,10 +8,10 @@ package com.github.guang19;
  */
 public class T
 {
-    private final String a1 = "a";
-    private static final String a2 = "a";
     public static void main(String[] args)
     {
+        byte[] bytes1 = new byte[1024 * 1024 * 15];
+        byte[] bytes2 = new byte[1024 * 1024 * 15];
 
     }
 }
