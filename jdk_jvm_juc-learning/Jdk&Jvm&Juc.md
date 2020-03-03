@@ -52,7 +52,7 @@
 #### stop,suspend,resume等方法为什么会被遗弃
 stop:
 >stop方法被弃用很好理解，因为stop方法是强行终止线程的执行，
-不算线程的run方法是否执行完，资源是否释放完，它都会终止线程的运行，
+不管线程的run方法是否执行完，资源是否释放完，它都会终止线程的运行，
 并释放锁。这在设计上就不合理，不说资源浪费等问题，
 它都有可能造成数据的不一致，假设A线程被用于a用户向b用户转账，
 那么钱刚从a用户的账户里扣除，线程就被stop了，
@@ -213,8 +213,10 @@ PS:本来想真正弄清楚fast_enter(偏向锁的实现),slow_enter(轻量级�
 >执行monitorexit指令的时候,将当前object对象关联的**monitor**的_recursions减1,
 >当_recursions为0的时候，就说明线程不再持有锁对象。
 
->PS:如果熟悉AQS原理的同学就知道在AQS内部，有一个被volatile修饰state变量，
->这个state变量就是AQS的核心，state变量的作用类比到此处就是monitor计数器的作用。
+**PS:如果熟悉AQS原理的同学就知道在AQS内部，
+有一个被volatile修饰state变量，
+这个state变量就是AQS的核心，
+state变量的作用类比到此处就是monitor计数器的作用。**
 
 #### synchronized 使用方法
 ##### 1. 修饰静态方法
@@ -418,8 +420,7 @@ volatile是JVM提供的轻量级的线程同步机制。
 3. int c = a + b;
 ````
 上面的代码在编译后,指令执行的顺序可能有:
-1,2,3
-2,1,3
+1,2,3和2,1,3
 这样程序实际执行的顺序可能与代码的顺序不符,但并不会影响程序最终的结果。
 
 3.volatile如何禁止指令重排序的?
@@ -690,20 +691,31 @@ CycliBarrier的功能与CountDownLatch相似，但是CountDownLatch的实现是�
 >HashMap在Jdk8之前使用拉链法实现,jdk8之后使用拉链法+红黑树实现.
 >HashMap是线程不安全的,并允许null key 和 null value
 >
->HashMap在我当前的版本(11)的默认容量为0.在第一次添加元素的时候才初始化容量为 16,
+>HashMap在我当前的版本(11)的默认容量为0.
+>在第一次添加元素的时候才初始化容量为 16,
 >之后才扩容为原来的2倍.
 >HashMap的扩容是根据 threshold决定的,threshold = loadfactory * capacity, 
 >当 size > threshold 时,扩容.
 >
->当每个桶的元素数量达到默认的阈值TREEIFY_THRESHOLD(8)时,那么这个桶的链表将会转为红黑树,当红黑树节点的数量低于默认的阈值UNTREEIFY_THRSHOLD(6)时，那么这个桶的红黑树将转为链表
+>当每个桶的元素数量达到默认的阈值TREEIFY_THRESHOLD(8)时,
+>那么这个桶的链表将会转为红黑树,
+>当红黑树节点的数量低于默认的阈值UNTREEIFY_THRSHOLD(6)时，
+>那么这个桶的红黑树将转为链表
 >
 >HashMap的长度为什么要设计成2的幂？
 >这就不得不佩服大师们的设计。
 >
->想想看，一个对象的hashcode是很大的，当HashMap的容量仅为16,32时，如何根据hashcode来确定key在数组中的下标。一个好的办法就是取余. hashcode % length,这样就能确保，key的下表是永远不会超过数组的长度的。但是想想，除了取余有没有更好的办法，当然有。
+>想想看，一个对象的hashcode是很大的，当HashMap的容量仅为16,32时，
+>如何根据hashcode来确定key在数组中的下标。
+>一个好的办法就是取余: hashcode % length。
+>这样就能确保，key的下标是永远不会超过数组的长度的。
+>但是想想，除了取余有没有更好的办法，
+>当然有:
 >
 >hash % length == hash & (length - 1)
->为什么上面这个性能超高的等式成立，当然是有条件的，只当length为2的幂的时候这样的等式才成立.
+>
+>为什么上面这个性能超高的等式成立，当然是有条件的，
+>只当length为2的幂的时候这样的等式才成立.
 >这就明白了为什么使用2的幂来定义HashMap的长度.
 
 #### HashTable
@@ -714,11 +726,11 @@ CycliBarrier的功能与CountDownLatch相似，但是CountDownLatch的实现是�
 >
 #### TreeMap
 
->红黑树实现,不允许null,允许自然排序Comparable和比较器Comparator 
+>红黑树实现,不允许null key,允许自然排序Comparable和比较器Comparator 
   
 #### ArrayList与LinkedList
 1. ArrayList底层使用Object数组实现,LinkedList底层使用双向链表实现.
-ArrayList的容量默认为0
+ArrayList的容量默认为0,只有在第一次执行add操作时才会初始化容量为10。
 
 2. 由于ArrayList采用数组实现,它的容量是固定的,所以当添加新元素的时候,如果超出了数组的容量,
 那么此时add操作的时间复杂度将会是O(n-1).相反,LinkedList的add操作只需要改变尾节点的引用就行了,
@@ -728,17 +740,29 @@ ArrayList的容量默认为0
 3. ArrayList实现了RandomAccess接口，该接口没有具体的规范，只是一个标记，
 这代表ArrayList支持快速的随机访问。而LinkedList在这点上就不如ArrayList了。
 
-4. ArrayList在内存空间利用率上肯定是不如LinkedList的，因为数组是一片固定的连续的内存空间，
+4. ArrayList在内存空间利用率上肯定是不如LinkedList的，
+因为数组是一片固定的连续的内存空间，
 一旦分配就无法改变，所以难免会有空间不足或空间使用率很低的情况。
 而LinkedList的空间利用率虽然很高，但是它的每个Node可以说也是占用了较大空间的，
 因为每个Node需要保存它的前继和后继节点.
 
 ps: 双向链表与双向循环链表的区别:
-双向链表:每个Node都保存了前后2个节点的引用，双向链表的first节点的前一个节点为null,
- last节点的后一个节点为null
+**双向链表:每个Node都保存了前后2个节点的引用，双向链表的first节点的前一个节点为null,
+ last节点的后一个节点为null。**
 
-双向循环链表: 每个Node都保存了前后2个节点的引用，双向循环链表的first节点的前一个节点指向last节点，
-last节点的最后一个节点指向first节点.
+**双向循环链表: 每个Node都保存了前后2个节点的引用，
+双向循环链表的first节点的前一个节点指向last节点，
+last节点的最后一个节点指向first节点。**
+ 
+#### ArrayList和Vector
+1. ArrayList是线程不安全的，Vector是线程安全的，
+但Vector实现线程安全的手段是synchronized。这就好比HashMap与HashTable的区别。
+
+2. Vector默认容量为10，ArrayList默认容量为0，只有在第一次执行
+add操作的时候才会初始化容量为10
+
+3. ArrayList扩容为原来的1.5倍，而Vector是当它的扩容增量大于0时，
+会扩容为原来的容量+扩容增量，否则扩容为原来的2倍。
  
 #### Set
 >为啥不单独说HashSet，我目前看到的JDK所有的Set,都是使用Map实现的,
@@ -757,7 +781,7 @@ last节点的最后一个节点指向first节点.
 >拿HashMap来讲，它就是先判断key的hashcode是否相等，然后才使用equals判断
 >2个对象是否相等
 
-#### ConcurrentModificationException  
+#### ConcurrentModificationException异常  
  
 >ConcurrentModificationException可以从名字看出是并发修改的异常。
 >但我要说的是这个异常并不是在修改的时候会抛出的，而是在调用迭代器遍历集合的时候才会抛出，
@@ -767,7 +791,7 @@ last节点的最后一个节点指向first节点.
 >在ArrayList，HashMap等非线程安全的集合内部都有一个modCount变量，
 >这个变量是在集合被修改时(删除，新增)，都会被修改，如果是多线程对同一个集合做出修改操作，
 >就可能会造成modCount与实际的操作次数不符，那么最终在调用集合的迭代方法时，
->modCount与预期expectedModeCount比较，expectedModcount是在迭代器初始化时使用modCount赋值的，
+>modCount与预期expectedModeCount比较，expectedModCount是在迭代器初始化时使用modCount赋值的，
 >如果发现modCount与expectedModeCount不一致，就说明在使用迭代器遍历集合期间，
 >有其他线程对集合进行了修改,所以就会抛出ConcurrentModificationException异常。
 
@@ -1556,6 +1580,7 @@ JVM发起Minor GC。Minor GC的范围包括eden和From Survivor。
 >那么From Survivor就成为了下一次的To Survivor，
 >此时To Survivor存放着存活的对象，就成为了下一次的From Survivor。
 >这样From Survivor与To Survivor就是不断交替复制的使用。
+>
 >同时可以明白,老年代中的对象很多都是不易被回收的对象。
 
 <u>老年代的空间比新生代的空间要大，
@@ -1566,24 +1591,29 @@ JVM发起Minor GC。Minor GC的范围包括eden和From Survivor。
 >JVM并不要求对象年龄一定要达到 MaxTenuringThreshold 才会
 >晋升到老年代，晋升的年龄阈值是动态计算的。
 >如果在Survivor中，某个相同年龄阶段的所有对象大小的总和
->大于Survivor区域的一般，则大于等于这个年龄的所有对象
+>大于Survivor区域的一半，则大于等于这个年龄的所有对象
 >可以直接进入老年代，无需等到MaxTenuringThreshold。
          
 ### 垃圾回收器
 
-**如果说垃圾回收算法是JVM对GC算法的设计，
-那么垃圾回收器就是对GC的算法的实现。**
+**如果说垃圾回收算法是JVM对GC算法的方法论，
+那么垃圾回收器就是对GC算法的实现。**
+
+垃圾回收器主要分为以下几种收集器:
    
 #### Serial 串行收集器
 >它为单线程环境设计,并只使用一个线程进行垃圾回收,会暂停所有用户线程,
->不适用于并发环境.
->但是它在单线程环境中是很高效的,因为它没有多线程切换的消耗     
+>并不适用于并发环境。
 >
->新生代采用复制算法,老年代采用标记-整理算法. 
+>但是它在单线程环境中是很高效的,因为它没有多线程切换的消耗。     
+
+**Serial收集器新生代采用复制算法,老年代采用标记-整理算法。**
        
 ####  Serial Old 串行收集器
->它是 Serial收集器的老年代使用的GC收集器,同样是一个单线程的垃圾收集器. 
->它除了与Serial串行收集器搭配使用,还可作为ParNew + CMS 的备用收集器.   
+>它是 Serial收集器的老年代使用的GC收集器，同样是一个单线程的垃圾收集器。
+>它除了与Serial串行收集器搭配使用,还可作为ParNew + CMS 的备用收集器。  
+>
+**Serial Old收集器采用的是标记-整理算法。**
    
 ````java
    
@@ -1603,14 +1633,18 @@ JVM发起Minor GC。Minor GC的范围包括eden和From Survivor。
 
 ````           
             
-           
 #### Parallel Scavenge 并行收集器
->多个垃圾回收线程一起工作,但是仍然会暂停所有用户线程,但是暂停时间会比
->Serial垃圾回收器短,也不适用于并发环境. 
->新生代采用复制算法,老年代采用标记-整理算法.
+>多个垃圾回收线程一起工作,但是仍然会暂停所有用户线程，
+>
+>Parallel Scavenge与其它垃圾回收器不同的是
+>
+**Parallel Scavenge收集器新生代采用复制算法,
+老年代采用标记-整理算法。**
     
 #### Parallel Old 并行收集器
->它是 Parallel Scavenge 的老年代版本,同样是一个并行收集器,使用标记-整理算法.       
+>它是 Parallel Scavenge 的老年代版本,同样是一个并行收集器。
+
+**Parallel Old收集器采用标记-整理算法。**       
   
 ````java
     /**
