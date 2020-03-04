@@ -26,9 +26,9 @@ public class ParallelScavengeGC {
     public static void main(String[] args)
     {
         ArrayList<Object> list = new ArrayList<>();
-        while (true)
-        {
-            list.add(new Object());
-        }
+//        while (true)
+//        {
+//            list.add(new Object());
+//        }
     }
 }

@@ -1,6 +1,7 @@
 package com.github.guang19.jvm.gcs;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 /**
  * @Description : TODO          测试串行GC
@@ -20,9 +21,10 @@ public class SerialGC {
     public static void main(String[] args)
     {
         ArrayList<Object> list = new ArrayList<>();
-        while (true)
-        {
-            list.add(new Object());
-        }
+        
+//        while (true)
+//        {
+//            list.add(new Object());
+//        }
     }
 }

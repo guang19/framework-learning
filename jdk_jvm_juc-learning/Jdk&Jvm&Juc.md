@@ -1182,8 +1182,8 @@ Class文件常量池如下(javap -c -v -l 反编译class文件后的字节码):
 >eden空间占新生代的80%,2个Survivor空间栈新生代的20%,
 >FromSurvivor和ToSurvivor的空间占比为1:1。
 >
->(通过-XX:+NewRatio参数可以调整新生代和老年代的空间占比)
->(通过-XX:+SurvivorRatio参数可以调整eden和survivor的空间占比)
+>(通过-XX:NewRatio参数可以调整新生代和老年代的空间占比)
+>(通过-XX:SurvivorRatio参数可以调整eden和survivor的空间占比)
 >
 >发生在新生代的GC叫做Young GC或Minor GC,
 >发生在老年代的GC叫做Old GC或Major GC
@@ -1759,8 +1759,8 @@ JVM发起Minor GC。Minor GC的范围包括eden和From Survivor。
 
 * 空间整合
 >个人认为这是G1收集器不同于其他收集器的最大亮点了。
->在其他收集器中，堆区基本都分为年轻代和老年代。
->而在G1收集器中虽然仍然保留了年轻代和老年代的概念，
+>在其他收集器中，堆区基本都分为新生代和老年代。
+>而在G1收集器中虽然仍然保留了新生代和老年代的概念，
 >但已经不再是物理上的分隔了。
 >在G1收集器的堆内存模型中，内存被分割成了一块一块大小相等的Region，
 >在这些Region中，Region的类型也不同，有eden，survivor，old，humongous之分。
@@ -1809,4 +1809,82 @@ G1收集器与CMS收集器的回收过程相似
      *  这样可以保证在有限的时间内获得最大的回收率.
      *
      */
-````  
+```` 
+
+### JVM常用参数
+
+#### 堆栈相关
+* -Xss
+>调整线程栈大小。
+
+* -Xms
+>设置堆内存初始化大小。
+
+* -Xmx / -XX:MaxHeapSize=?
+>设置堆内存最大值。
+
+* -Xmn / -XX:NewSize=?
+>设置新生代大小。
+ 
+* -XX:NewRatio=?
+>设置老年代与新生代的空间占比。
+>如: -XX:NewRatio=2,那么老年代:新生代=2:1。
+
+* -XX:SurvivorRatio=?
+>设置eden与survivor的空间占比。
+>如: -XX:SurvivorRatio=2,那么eden:from survivor:to survivor=2:1:1
+
+* -XX:MetaspaceSize=? / -XX:PerGenSize=?
+>-XX:MetaspaceSize=9m
+>设置元空间的初始化大小为9m,此参数只在jdk8以后的版本有效。
+>
+>-XX:PerGenSize=9m
+>设置永久代的初始化大小为9m，此参数只在jdk8以前的版本有效。
+
+* -XX:MaxMetaspaceSize=? / -XX:MaxPerGenSize=?
+>-XX:MaxMetaspaceSize=50m
+>设置元空间最大值为50m,此参数只在jdk8以后的版本有效。
+>
+>-XX:MaxPerGenSize=50m
+>设置永久代的最大值为50m,此参数只在jdk8以前的版本有效。
+
+* -XX:+HeapDumpOnOutOfMemoryError
+>此参数使程序发生OOM时，dump错误堆栈信息。
+
+* -XX:HeapDumpPath=?
+>-XX:HeapDumpPath=/home/log
+>此参数指定发生OOM时，dump错误堆栈信息存放的日志文件或目录。
+>此参数只在 -XX:+HeapDumpOnOutOfMemoryError 开启时生效。
+
+#### GC相关
+* -XX:+PrintGCDetails / -Xlog:gc*
+>打印GC日志信息。 -Xlog:gc*在我使用的版本(jdk11)是更受推荐的。
+
+* -XX:+UseSerialGC
+>使用Serial串行回收器。
+
+* -XX:+UseParallelGC
+>使用Parallel并行回收器。
+
+* -XX:ParallelGCThreads=?
+>设置并行收集的线程数,如-XX:ParallelGCThreads=5。
+
+* -XX:+UseConcMarkSweepGC
+>使用CMS收集器，它默认的新生代搜集器为ParNew。
+>可以与参数: -XX:+UseSerialGC 一起使用，就替换掉了ParNew，
+>使用Serial作为CMS的新生代收集器。
+
+* -XX:+UseG1GC
+>使用G1收集器。
+
+* -XX:MaxTenuringThreshold=?
+>设置新生代对象晋升到老年代的最大年龄阈值。
+
+
+#### 其他
+* -server / -client
+>-server:以服务端模式运行应用程序，server模式适用于服务端应用程序。
+>JVM在此模式下，会对服务端运行效率做很大优化。
+>
+>-client:以客户端模式运行应用城西，client模式适用于客户端桌面程序(GUI)。
+>JVM在此模式下，会对客户端运行做很大优化。
