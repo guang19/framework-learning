@@ -1,6 +1,8 @@
 package com.github.guang19.jvm.gcs;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @Description : TODO      测试G1回收
@@ -36,5 +38,6 @@ public class G1GC {
         {
             list.add(new Object());
         }
+
     }
 }

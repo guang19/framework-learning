@@ -3,6 +3,7 @@ package com.github.guang19.juc.collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @Description : TODO          并发容器安全之 Map
@@ -59,11 +60,10 @@ public class MapDemo {
         };
 
         //30个线程对map进行修改和读取操作
-        for(int i = 0 ; i < 100; ++i)
-        {
-            new Thread(run).start();
-        }
-
+//        for(int i = 0 ; i < 100; ++i)
+//        {
+//            new Thread(run).start();
+//        }
         /**
          *
          * 大概率可能会抛出 ConcurrentModificationException 异常

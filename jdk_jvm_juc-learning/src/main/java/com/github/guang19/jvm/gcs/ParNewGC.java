@@ -11,7 +11,7 @@ public class ParNewGC {
     /**
      * 
      * 设置ParNewGC回收器的参数为:
-     * -XX:+UseParNewGC
+     * -XX:+UseConcMarkSweepGC
      * 
      * 
      */
