@@ -1339,7 +1339,7 @@ Class文件结构如下:
 * 通过动态生成字节码的技术(如使用动态代理，cglib)来生成class。
 
 PS:
-数组由数组元素的类性的类加载器加载，这是ClassLoader类的部分注释:
+数组由数组元素的类型的类加载器在java程序运行时加载，这是ClassLoader类的部分注释:
 ![ClassLoader部分注释](../img/ClassLoader部分注释.png)
 
 见: [测试](https://github.com/guang19/framework-learning/blob/master/jdk_jvm_juc-learning/src/main/java/com/github/guang19/jvm/classloader/ArrayClassLoaderTest.java)
@@ -1450,7 +1450,6 @@ PS:见:[测试](https://github.com/guang19/framework-learning/blob/master/jdk_jv
 如果类没有被加载，那么会根据类名找到这个类的模块。
 如果找到了这个类的模块，
 就由这个类的模块加载，否则仍然使用父类加载器加载。
-
 
 可以看出:在加载一个类时，是由下自上判断类是否被加载的。如果类没有被加载，
 就由上自下尝试加载类。
