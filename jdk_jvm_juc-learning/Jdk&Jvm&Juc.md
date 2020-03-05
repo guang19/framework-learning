@@ -2,6 +2,44 @@
 
 复习java基础知识的笔记   
 
+
+<u>PS:以下部分内容希望各位同学下载openjdk的源码,亲自实践。</u>
+
+openjdk8u:
+* hotspot:[hotspot](http://hg.openjdk.java.net/jdk8u/hs-dev/hotspot/archive/tip.tar.gz)
+* openjdk:[jdk](https://hg.openjdk.java.net/jdk8u/hs-dev/jdk/archive/tip.tar.gz)
+
+
+### equals知识点
+
+#### == 和 equals区别
+>==比较的是对象的内存地址,equals比较的是对象的值.
+>因此在Java中比较2个对象的值是否相等使用equals,判断2个对象是否是一个对象,使用==。
+
+#### hashCode方法返回的真是对象内存地址吗?
+在hotspot中，hashcode返回的不完全是地址
+(见：hotspot的/src/share/vm/runtime/synchronizer.cpp):
+
+![hashcode方法源码](../img/hashcode方法源码.png)
+
+可以看到hashcode有多种返回策略:随机数，自增长序列，关联地址等多种方式。
+
+#### equals方法重写要求
+1. 自反性: x.equals(x) == true 永远成立
+2. 非空性: x.equals(null) == false 永远成立
+3. 对称性: 如果 x.equals(y) == true , 那 y.equals(x)== true  
+4. 传递性: 如果 x.equals(y) == true,并且 y.equals(z) == true,那么一定满足x.equals(z) == true
+5. 一致性: 如果x.equals(y) == true , 那么只要x和y的值不变,那么x.equals(y) == true　永远成立
+
+#### 为什么重写equals方法一定要重写hashcode方法?
+>在普通环境下(不涉及hash表),equals方法和hashcode方法一毛钱关系没有的,
+>此时的equals方法是会按照我们的程序去执行的。
+>
+>但当使用map,set这些散列表时,
+>它们会根据对象的hashcode来计算对象在散列表中的位置的。
+>试想下,如果2个对象的值相等,但是由于它们是2个对象,hashcode却不相等。
+>那么即使放入set(map),set(map)仍会存在重复数据。
+
 ### Java引用类型    
 
 #### 强引用
@@ -101,8 +139,6 @@ interrupted：
 >只不过说别的线程可能先执行的机会稍大一些。
 
 ---
-
-#### PS:以下内容希望各位同学下载openjdk的源码,亲自下载jvm的源码:[openjdk8u](http://hg.openjdk.java.net/jdk8u/hs-dev/hotspot/archive/tip.tar.gz)并阅读
 
 ### 对象在内存中的布局(64位)
 ps:对象在内存中的布局,在32位和64位上的实现也是不同的，以我的
@@ -1302,6 +1338,13 @@ Class文件结构如下:
 * 通过网络读取类的字节流。
 * 通过动态生成字节码的技术(如使用动态代理，cglib)来生成class。
 
+PS:
+数组由数组元素的类性的类加载器加载，这是ClassLoader类的部分注释:
+![ClassLoader部分注释](../img/ClassLoader部分注释.png)
+
+见: [测试](https://github.com/guang19/framework-learning/blob/master/jdk_jvm_juc-learning/src/main/java/com/github/guang19/jvm/classloader/ArrayClassLoaderTest.java)
+
+
 #### 连接
 
 1.验证
@@ -1342,7 +1385,6 @@ Class文件结构如下:
 8. MethodHandle和VarHandle可以看作是轻量级的反射调用机制，而要想使用这2个调用，
 就必须先使用findStatic/findStaticVarHandle来初始化要调用的类。
 
-
 PS:见:[测试](https://github.com/guang19/framework-learning/blob/master/jdk_jvm_juc-learning/src/main/java/com/github/guang19/jvm/classloader/LoadClass.java)
 
 
@@ -1365,6 +1407,10 @@ PS:见:[测试](https://github.com/guang19/framework-learning/blob/master/jdk_jv
 >更是不能被获取到。而我们自定义的类加载器的实例是可以被GC掉的，
 >所以被我们自定义类加载器加载的类是可以被GC掉的。
 
+![类卸载](../img/类卸载.png)
+
+<u>PS:使用-XX:+TraceClassUnloading 或 -Xlog:class+unload=info可以打印类卸载的信息。</u>
+
 #### Java中类加载器有多少个
 1. BootstrapClassLoader(用于加载Java基础核心类库。由c/c++编写，Java获取不到)。
 2. PlatformClassLoader
@@ -1372,6 +1418,13 @@ PS:见:[测试](https://github.com/guang19/framework-learning/blob/master/jdk_jv
 。PlatformClassLoader加载平台相关的模块，ExtensionClassLoader加载jdk扩展的模块)。
 3. AppClassLoader。(应用程序类加载器，负责加载我们程序的classpath下的jar和类)。
 4. 自定义类加载器。
+
+#### 类加载器的命名空间
+>每个类加载器实例都有自己的命名空间，命名空间由该加载器及其所有父加载器加载的所有的类组成。
+>在同一个命名空间中，不会出现全限定名(包括包名)相同的2个类
+>在不同的命名空间中，可能会出现全限定名(包括包名)相同的2个类
+
+PS:见:[测试](https://github.com/guang19/framework-learning/blob/master/jdk_jvm_juc-learning/src/main/java/com/github/guang19/jvm/classloader/MyClassLoader.java)
 
 #### 双亲委派机制
 
@@ -1588,7 +1641,7 @@ JVM发起Minor GC。Minor GC的范围包括eden和From Survivor。
 
 #### 动态年龄阈值
 >JVM并不要求对象年龄一定要达到 MaxTenuringThreshold 才会
->晋升到老年代，晋升的年龄阈值是动态计算的。
+>晋升到老年代，晋升的年龄阈值是动态计算的。￼￼￼￼￼
 >如果在Survivor中，某个相同年龄阶段的所有对象大小的总和
 >大于Survivor区域的一半，则大于等于这个年龄的所有对象
 >可以直接进入老年代，无需等到MaxTenuringThreshold。
@@ -1858,7 +1911,10 @@ G1收集器与CMS收集器的回收过程相似
 
 #### GC相关
 * -XX:+PrintGCDetails / -Xlog:gc*
->打印GC日志信息。 -Xlog:gc*在我使用的版本(jdk11)是更受推荐的。
+>打印GC的日志信息。 -Xlog:gc* 在我使用的版本(jdk11)是更受推荐的。
+
+* -XX:+TraceClassUnloading / -Xlog:class+unload=info
+>打印类卸载的日志信息。 -Xlog:class+unload=info 在我使用的版本(jdk11)是更受推荐的。
 
 * -XX:+UseSerialGC
 >使用Serial串行回收器。
@@ -1888,3 +1944,52 @@ G1收集器与CMS收集器的回收过程相似
 >
 >-client:以客户端模式运行应用城西，client模式适用于客户端桌面程序(GUI)。
 >JVM在此模式下，会对客户端运行做很大优化。
+
+### Java常用调优工具
+* jps(个人认为非常重要)
+>jps 命令类似于 linux的 ps 命令，不过ps命令是用于查看系统进程的，
+>而jps用于查看当前系统运行的java进程。
+>
+````text
+jps -q 只输出java进程id
+jps -l 输出java进程main函数的详细路径
+jps -v 输出java进程时指定的jvm参数
+jps -m 输出java进程执行时main函数的参数
+````
+
+* jstat
+>jstat用于查看java进程的运行状态.
+
+````text
+jstat -class pid    用于查看java进程类的情况
+jstat -compiler pid 用于查看java进程编译的情况
+jstat -gc pid       用于查看java进程gc的情况
+````
+
+* jinfo
+>jinfo 查看正在运行的java进程的jvm参数
+
+```text
+jinfo -flag MetaspaceSize pid  查看java进程的jvm的元空间大小
+jinfo -flag MaxHeapSize pid    查看java进程的jvm的最大堆的大小
+...
+```
+
+* jmap
+>jmap 既可以dump java程序的快照，也可以查看对象的统计信息。
+
+```text
+jmap -heap pid               查看java进程堆的信息
+jmap -histo pid              查看java进程对象的信息
+jmap -dump:file=filename pid 生成java进程jvm的堆快照到指定文件 
+```
+
+* jstack
+>jstack用于分析java线程栈信息
+
+```text
+jstack pid
+```
+
+* jconsole
+>jconsole 是jdk提供的对java程序进行分析的GUI界面工具。
