@@ -20,5 +20,6 @@ public class ConstantPool
     public static void main(String[] args)
     {
         final int temp = 15;
+
     }
 }

@@ -27,6 +27,7 @@
         <module>jdk_jvm_juc-learning</module>
         <module>swagger-learning</module>
         <module>elasticsearch-learning</module>
+        <module>design-pattern</module>
     </modules>
 
     <properties>

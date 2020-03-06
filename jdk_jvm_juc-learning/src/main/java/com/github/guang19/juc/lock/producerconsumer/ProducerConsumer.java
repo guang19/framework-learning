@@ -1,4 +1,4 @@
-package com.github.guang19.juc.lock.producerConsumer;
+package com.github.guang19.juc.lock.producerconsumer;
 
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
