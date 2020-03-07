@@ -1,6 +1,7 @@
 package com.github.guang19.designpattern.singleton;
 
 import java.util.TreeMap;
+import java.util.UUID;
 
 /**
  * @author yangguang
@@ -10,6 +11,15 @@ import java.util.TreeMap;
 public class Lazy
 {
     private static volatile Lazy lazy = null;
+
+    public static final String s = "a";
+
+    public static final String s2 = UUID.randomUUID().toString();
+
+    static
+    {
+        System.out.println("init");
+    }
 
     private Lazy(){}
 
@@ -27,31 +37,5 @@ public class Lazy
             }
         }
         return lazy;
-    }
-
-    static class T{
-        private String name;
-
-        public T()
-        { }
-
-        public String getName()
-        {
-            return name;
-        }
-
-        public void setName(String name)
-        {
-            this.name = name;
-        }
-    }
-
-    public static void main(String[] args)
-    {
-        TreeMap<T,Object> treeMap =  new TreeMap<>();
-        treeMap.put(new T(),"a");
-        treeMap.put(new T(),"b");
-        treeMap.put(new T(),"c");
-        System.out.println(treeMap);
     }
 }
