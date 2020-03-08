@@ -1,5 +1,5 @@
 # 各种框架或框架的源码学习
-#### [Jdk&Jvm&Juc](https://github.com/guang19/framework-learning/blob/master/jdk_jvm_juc-learning/Jdk&Jvm&Juc.md)(待纠正)
+#### [Jdk&Jvm&Juc](https://github.com/guang19/framework-learning/blob/master/jdk_jvm_juc-learning/Jdk&Jvm&Juc.md)(暂完)
 
 #### [DesignPattern](https://github.com/guang19/framework-learning/blob/master/design-pattern/DesignPattern.md)(更新中)
 

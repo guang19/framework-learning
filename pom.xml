@@ -44,6 +44,7 @@
         <swagger.version>2.9.2</swagger.version>
         <openjdk-jol.version>0.10</openjdk-jol.version>
         <cglib.version>3.3.0</cglib.version>
+        <jsr250.version>1.0</jsr250.version>
         <lombok.version>1.18.10</lombok.version>
         <junit.version>4.12</junit.version>
     </properties>
@@ -96,6 +97,17 @@
                 <artifactId>elasticsearch-learning</artifactId>
                 <version>${project.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.github.guang19</groupId>
+                <artifactId>jdk_jvm_juc-learning</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.guang19</groupId>
+                <artifactId>design-pattern</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
 
             <!--SpringCloud-->
             <dependency>
@@ -212,6 +224,13 @@
                 <groupId>cglib</groupId>
                 <artifactId>cglib</artifactId>
                 <version>${cglib.version}</version>
+            </dependency>
+
+            <!--jsr250-->
+            <dependency>
+                <groupId>javax.annotation</groupId>
+                <artifactId>jsr250-api</artifactId>
+                <version>${jsr250.version}</version>
             </dependency>
 
             <!--lombok-->
