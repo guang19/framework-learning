@@ -1,5 +1,6 @@
-package com.springmvclearning.controller;
+package com.guang19.springmvc.controller;
 
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -14,8 +15,15 @@ public class TestController {
 
     @ResponseBody
     @RequestMapping("/test")
-    public void test()
+    public String test()
     {
-        System.out.println("spring mvc test");
+        return "hello spring mvc";
+    }
+
+    @ResponseBody
+    @RequestMapping("/test2")
+    public String test2()
+    {
+        return "hello spring mvc";
     }
 }

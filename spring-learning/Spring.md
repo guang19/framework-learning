@@ -70,7 +70,7 @@ jdbcTemplate等就使用模板方法模式
 3. Java API(和注解一起使用)
  
 #### BeanFactory和ApplicationContext的区别是什么?
->BeanFactory是最底层，最顶级的IOC容器，它提供了对bean的基本操作，属于低级容器。
+>BeanFactory是最底层，最顶级的IOC容器接口，它提供了对bean的基本操作，属于低级容器。
 >而ApplicationContext是BeanFactory的应用扩展接口，
 >提供了比BeanFactory更多高级的功能和扩展接口，属于高级容器。 
  
@@ -128,9 +128,9 @@ BeanFactoryAware,ApplicationContextAware等扩展的setXXX方法
 
 7. 如果容器中有BeanPostProcessor，那么执行BeanPostProcessor的postProcessAfterInitialization方法
 
-8.bean可以被使用了
+8. bean可以被使用了
 
-9.容器销毁后，执行bean指定的destroy方法，如果bean还实现了DisposableBean接口，
+9. 容器销毁后，执行bean指定的destroy方法，如果bean还实现了DisposableBean接口，
 那么继续执行DisposableBean的destroy方法
  
 #### 事务的传播行为是什么?有哪些?
@@ -196,23 +196,23 @@ AOP(Aspect Oriented Programming)面向切面编程，个人认为AOP是一种程
 >以织入实现AOP的框架主要有AspectJ
  
 #### AspectJ AOP 和 Spring AOP的区别? 
-AspectJ AOP
+* AspectJ AOP
 >AspectJ是一整套AOP的工具，它提供了切面语法(切入点表达式)以及织入等强大的功能。
 >Aspect提供文件和注解2种方式来进行AOP编程，
 >并且它允许在编译时，编译后和加载时织入，
 >但是需要使用它特定的ajc编译器才能实现织入这一功能。
 
-Spring AOP
+* Spring AOP
 >Spring AOP吸收了AspectJ的优点，
 >采用了AspectJ的切入点语法以及AspectJ式的注解，
 >但却并未使用AspectJ的一整套工具,
 >而是集cglib和jdk于一体(动态代理)的方式来实现AOP功能，真的很强。
 
 #### cglib和jdk的区别?
-jdk动态代理
+* jdk动态代理
 >jdk只提供基于接口式的动态代理来对目标进行增强。
 
-cglib动态代理
+* cglib动态代理
 >cglib则是使用字节码技术，动态生成目标的子类，以继承的方式来对目标方法进行重写，
 >所以如果方法是final的，那么cglib将无法对方法进行增强。
 

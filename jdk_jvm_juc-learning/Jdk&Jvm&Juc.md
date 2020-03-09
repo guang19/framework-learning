@@ -2,13 +2,18 @@
 
 复习java基础知识的笔记   
 
-
 <u>PS:以下部分内容希望各位同学下载openjdk的源码,亲自实践。</u>
 
 openjdk8u:
 * hotspot:[hotspot](http://hg.openjdk.java.net/jdk8u/hs-dev/hotspot/archive/tip.tar.gz)
 * openjdk:[jdk](https://hg.openjdk.java.net/jdk8u/hs-dev/jdk/archive/tip.tar.gz)
 
+<u>JVM部分参考了《深入理解Java虚拟机》(周志明)</u>
+```text
+个人认为《深入理解Java虚拟机》上的部分内容已经过时
+有些知识请各位同学明鉴
+本部分如有错误之处，敬请各位同学issue
+```
 
 ### equals知识点
 
@@ -38,16 +43,16 @@ openjdk8u:
 >但当使用map,set这些散列表时,
 >它们会根据对象的hashcode来计算对象在散列表中的位置的。
 >试想下,如果2个对象的值相等,但是由于它们是2个对象,hashcode却不相等。
->那么即使放入set(map),set(map)仍会存在重复数据。
+>那么即使放入map,set(map)仍会存在重复数据。
 
 ### Java引用类型    
 
 #### 强引用
->一般常用的new方式创建对象,创建的就是强引用. 只要强引用存在,
+>一般常用的new方式创建对象,创建的就是强引用. 只要强引用存在且被其他可达的对象引用,
 >垃圾回收器就不会回收.        
 
 #### 软引用
->SoftReference , 非必须引用,如果内存足够或正常,就不回收,但是当
+>SoftReference , 非必须引用,如果内存足够或正常,就不回收。但是当
 >内存不够,快发生OOM的时候就回收掉软引用对象.
 
 #### 弱引用
@@ -88,15 +93,13 @@ openjdk8u:
 被wait的线程才能重新与其他线程一起争夺资源。
   
 #### stop,suspend,resume等方法为什么会被遗弃
-stop:
+* stop:
 >stop方法被弃用很好理解，因为stop方法是强行终止线程的执行，
-不管线程的run方法是否执行完，资源是否释放完，它都会终止线程的运行，
-并释放锁。这在设计上就不合理，不说资源浪费等问题，
-它都有可能造成数据的不一致，假设A线程被用于a用户向b用户转账，
-那么钱刚从a用户的账户里扣除，线程就被stop了，
-b用户却没收到钱，然后其他线程又继续执行其它的操作，这根本上就是不被允许的。  
+>不管线程的run方法是否执行完，资源是否释放完，它都会终止线程的运行，并释放锁。
+>这在设计上就不合理，不说资源控制的问题，
+>当线程正在执行任务的时候，线程突然就被stop了，这根本上就是不被允许的。  
 
-suspend和resume
+* suspend和resume
 >suspend方法用于阻塞一个线程,但并不释放锁，
 >而resume方法的作用只是为了恢复被suspend的线程。
 
@@ -177,7 +180,7 @@ mark 和 metadata(klass* , compressed_klass)
            
 ##### 2. Klass Pointer /  Compressed Klass
 >Klass Pointer是指向对象类型的指针，指针指向对象的类元数据。
->jvm通过klass pointer判断对象属于那个类。
+>jvm通过klass pointer判断对象属于哪个类。
 >
 >在64位的jvm实现中，Klass Pointer的长度为64bit(32位系统,
 >指针为32bit)，也就意味着,64位系统比32位的系统占用更多内存。
@@ -499,7 +502,7 @@ volatile通过提供  内存屏障 来防止指令重排序.
  ###### 1. 循环时间开销大
 >我在看源码的时候，发现Atomic的CAS操作并没有进行CAS失败的退出处理，
 >只是单纯的循环比较并交换，这就让我很担心它的性能问题，
-/home/yangguang/图片/截图/用户态与内核态.png>如果长时间不成功，那会是很可怕的一件事请，至少cpu的负荷会很大。
+如果长时间不成功，那会是很可怕的一件事请，至少cpu的负荷会很大。
            
  ###### 2. 只能保证一个共享变量的原子操作
 >Atomic原子类只能保证一个变量的原子操作，
@@ -782,8 +785,8 @@ ArrayList的容量默认为0,只有在第一次执行add操作时才会初始化
 而LinkedList的空间利用率虽然很高，但是它的每个Node可以说也是占用了较大空间的，
 因为每个Node需要保存它的前继和后继节点.
 
-ps: 双向链表与双向循环链表的区别:
-**双向链表:每个Node都保存了前后2个节点的引用，双向链表的first节点的前一个节点为null,
+**ps: 双向链表与双向循环链表的区别:
+双向链表:每个Node都保存了前后2个节点的引用，双向链表的first节点的前一个节点为null,
  last节点的后一个节点为null。**
 
 **双向循环链表: 每个Node都保存了前后2个节点的引用，
@@ -1077,11 +1080,7 @@ Java中的IO模型，也只是换汤不换药。
 ---
 
 ### JVM(参考:《深入理解Java虚拟机》(周志明))
-```text
-个人认为《深入理解Java虚拟机》上的部分内容已经过时
-有些知识请各位同学明鉴
-本部分如有错误之处，敬请各位同学issue
-```
+
 
 #### JVM运行时内存分区
 >以HotSpot为例:
@@ -1338,8 +1337,8 @@ Class文件结构如下:
 * 通过网络读取类的字节流。
 * 通过动态生成字节码的技术(如使用动态代理，cglib)来生成class。
 
-PS:
-数组由数组元素的类型的类加载器在java程序运行时加载，这是ClassLoader类的部分注释:
+**PS:
+数组由数组元素的类型的类加载器在java程序运行时加载，这是ClassLoader类的部分注释:**
 ![ClassLoader部分注释](../img/ClassLoader部分注释.png)
 
 见: [测试](https://github.com/guang19/framework-learning/blob/master/jdk_jvm_juc-learning/src/main/java/com/github/guang19/jvm/classloader/ArrayClassLoaderTest.java)
@@ -1446,10 +1445,10 @@ PS:见:[测试](https://github.com/guang19/framework-learning/blob/master/jdk_jv
 >如果BootstrapClassLoader加载失败了，
 >就由BootstrapClassLoader的子类加载器们加载。
 
-在jdk9之后，由于模块化的到来，双亲委派机制也变化了一点:
+**在jdk9之后，由于模块化的到来，双亲委派机制也变化了一点:
 如果类没有被加载，那么会根据类名找到这个类的模块。
 如果找到了这个类的模块，
-就由这个类的模块加载，否则仍然使用父类加载器加载。
+就由这个类的模块加载，否则仍然使用父类加载器加载。**
 
 可以看出:在加载一个类时，是由下自上判断类是否被加载的。如果类没有被加载，
 就由上自下尝试加载类。
