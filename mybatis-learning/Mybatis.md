@@ -1,4 +1,4 @@
-## mybatis复习和源码复盘
+## mybatis常见知识和源码复盘
 
 ### 1.创建SqlSessionFactory
 ````

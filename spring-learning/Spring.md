@@ -1,4 +1,4 @@
-## Spring常见面试题
+## Spring常见知识点
 
 ````text
 如有错误之处，敬请各位同学指教
@@ -132,6 +132,32 @@ BeanFactoryAware,ApplicationContextAware等扩展的setXXX方法
 
 9. 容器销毁后，执行bean指定的destroy方法，如果bean还实现了DisposableBean接口，
 那么继续执行DisposableBean的destroy方法
+ 
+#### Spring如何解决循环依赖?
+循环依赖是指:A依赖B，并且B依赖A的情况。或者 A依赖B，B依赖C，C依赖A的情况。
+
+1. 构造器注入的循环依赖无法解决，直接抛出BeanCurrentlyInCreationException异常。
+>容器在创建Bean的时候，会将Bean添加到正在创建的Bean池中，如果在创建Bean的时候，
+>发现自己已经在创建的Bean池中，就说明Bean陷入循环依赖了，
+>直接抛出BeanCurrentlyInCreationException异常。
+>
+>为什么构造器注入不能像Setter方法注入一样解决循环依赖问题?
+>>因为Setter方法注入的前提是首先需要实例化这个对象，而构造器注入的参数正是bean啊，
+>怎么实例化，所以无法解决这个问题。 
+
+2. Setter方法注入的循环依赖可以通过缓存解决。
+三级缓存：
+1). 初始化完成的Bean池；
+2). 实例化完成，但是没有填充属性的Bean池；
+3). 刚刚实例化完成的Bean的工厂缓存，用于提前曝光Bean。
+
+![Spring3级缓存](../img/Spring三级缓存.png)
+
+>Setter方法注入时，如果Bean A发现自己依赖于Bean B，
+>那么将自己实例化后并添加到第三级缓存(Bean 工厂)。
+>然后再初始化B,检查到B又依赖于A，于是到三级缓存里查询A,那么查询肯定是成功的,
+>于是将A设置为B的属性。当A初始化时，
+>发现B已经初始化完成,就可以直接将B设置为A的属性了。
  
 #### 事务的传播行为是什么?有哪些?
 >事务的传播行为是Spring提供的对事务增强的一种特性，不属于数据库事务特性。

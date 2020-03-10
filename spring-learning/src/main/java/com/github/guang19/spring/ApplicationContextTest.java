@@ -1,6 +1,6 @@
 package com.github.guang19.spring;
 
-import com.github.guang19.spring.config.Person;
+
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -11,12 +11,12 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
  */
 public class ApplicationContextTest
 {
-    public static void main(String[] args)
+    public static void main(String[] args) throws Exception
     {
-        AnnotationConfigApplicationContext context =
-                new AnnotationConfigApplicationContext("com.github.guang19.spring.config");
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext("com.github.guang19.spring.config");
 //        System.out.println(context.getBean("person"));
         context.close();
+
 //        BeanFactory beanFactory = new AnnotationConfigApplicationContext("com.github.guang19.spring.config");
 //        System.out.println(beanFactory.getBean("person"));
     }

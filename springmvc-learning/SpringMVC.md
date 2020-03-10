@@ -1,8 +1,9 @@
-## Spring MVC常见面试题及源码解析
+## Spring MVC常见知识点及源码解析
 
 #### MVC 是什么 / 有什么优点?
 >MVC是一种设计模式，遵循 模型(Model),视图(View) 和 控制器(Controller)的架构设计。
->MVC的优点很明显: 应用层次分明，职责分明，使得系统的耦合性降低，并有利于系统的维护。
+>MVC的优点很明显: 应用层次分明
+>，职责分明，使得系统的耦合性降低，并有利于系统的维护。
 
 #### 什么是 Spring MVC?
 >Spring MVC是一个基于Spring框架的轻量级的MVC Web应用框架。
@@ -21,8 +22,8 @@
 
 #### 什么是DispatcherServlet?
 >DispatcherServlet是Spring MVC的核心,
->可以说SpringMVC就是这个DispatcherServlet，它是一个Servlet，
->负责拦截所有的请求，并以调用各种组件来对请求进行分发并处理。
+>可以说SpringMVC就是这个DispatcherServlet。
+>它是一个Servlet，负责拦截所有的请求，并以调用各种组件来对请求进行分发并处理。
 
 #### Spring MVC有哪些组件?(见:DispatcherServlet源码)
 1. MultipartResolver
@@ -52,12 +53,13 @@
 9. 	FlashMapManager
 核心组件之一，在请求进行重定向时，FlashMapManager用于保存请求中的参数。
 
-#### 简述SpringMVC 原理/执行流程?
+#### 简述SpringMVC原理/执行流程
 1. 用户发出的请求被DispatcherServlet拦截。
 2. DispatcherServlet使用HandlerMapping根据请求匹配到相应的Handler。Handler实际上是一个(HandlerMethod)。
 3. DispatcherServlet根据Handler适配合适的HandlerAdapter.
 4. HandlerAdapter使用Handler执行请求，并返回ModelAndView
-5. 使用RequestToViewNameTranslator和ViewResolver等解析器，解析并渲染ModelAndView，并处理相关异常信息
+5. 使用RequestToViewNameTranslator,HandlerExceptionResolver和ViewResolver等解析器，
+解析并渲染ModelAndView，并处理相关异常信息
 6. 渲染后的结果反馈给用户。
 
 #### Spring MVC  拦截器是什么 / 有什么作用 / 与 Filter有什么区别?
@@ -73,9 +75,9 @@ Servlet Filter:
 个人认为除了它们提供的拦截时间不同，目的都是相同的，没啥区别。
 ```
 
-####  @Component @Controller @Service @Repository 区别?
+#### @Component @Controller @Service @Repository 区别?
 
->@Component 声明一个类为IOC容器的组件，会被IOC容器管理
+>@Component 声明一个类为IOC容器的组件，会被IOC容器管理。
 >而@Controller,@Service和@Repository则拥有更细分的语义。
 
 >@Controller通常用于Web应用，被@Controller注解的类，应该作为一个处理请求的控制器。
@@ -84,13 +86,19 @@ Servlet Filter:
 
 >被@Repository注解的类，应该被用于处理与数据库交互和持久化相关的功能。
 
->在说SpringMVC之前我想先回顾一下JavaWeb的知识.JavaWeb的核心是Servlet,一个Servlet对应一个URL,每次一个Http请求访问,那么对应URL的Servlet就会调用service方法处理.
->其实这里我是对SpringMVC的一个复习,所以我先说说就我目前SpringMVC的理解吧.
->大家都知道SpringMVC是一个MVC框架,但它还是脱离不了Tomcat,Undertow,Jetty这样的Servlet容器,还是因为SpringMVC的核心是Servlet.在初学SpringMVC的时候,各位同学可能都在web.xml里配置过DispatcherServlet,可能当时都没有想过为什么要去配置这个类,
->甚至把它的url配置成/,我当时确实也没有想过,不过后来在学习的时候,已经明白了为什么这样去做,并且已经明白了SpringMVC的设计思想.
-
+---
 
 ### Spring的源码分析
+
+>在分析SpringMVC源码之前我想先回顾一下JavaWeb的知识.JavaWeb的核心是Servlet,一个Servlet对应一个URL,
+>每次一个Http请求访问,那么对应URL的Servlet就会调用service方法处理。
+>其实这里我是对SpringMVC的一个复习,所以我先说说就我目前SpringMVC的理解吧.
+>大家都知道SpringMVC是一个MVC框架,但它还是脱离不了Tomcat,Undertow,Jetty这样的Servlet容器,
+>还是因为SpringMVC的核心是Servlet.在初学SpringMVC的时候,
+>各位同学可能都在web.xml里配置过DispatcherServlet,可能当时都没有想过为什么要去配置这个类,
+>甚至把它拦截的url配置成/**,我当时确实也没有想过,不过后来在学习的时候,已经明白了为什么这样去做,
+>并且已经明白了SpringMVC的设计思想。
+
 ```text
 前方高能
 ```
@@ -101,12 +109,12 @@ Servlet Filter:
 >而DispatcherServlet是一个Servlet拦截全部URL,并做分发处理.
 >这也是SpringMVC的设计的精妙之处。
 
-当然上面只是简单的一个流程,在这个过程中肯定有很多细节和设计模式值得我们细细揣摩。
+当然上面只是简单的一个流程,在这个过程中肯定有很多细节值得我们细细揣摩。
 
 ----
 
 >我是以SpringBoot搭建的调试环境,再加上已经知晓DispatcherServlet是核心,
->几乎可以直接到这个类了,但是在这之前可以看看DispatcherServlet的父类:FrameworkServlet。
+>几乎可以直接定位到这个类了,但是在这之前可以看看DispatcherServlet的父类:FrameworkServlet。
 >上面说过,Servlet是以service方法处理请求的,所以直接定位到FrameworkServlet的service方法:
 
 ````
@@ -749,8 +757,8 @@ public class HandlerMethod {
 
 ----
 
-这样一份源码也算是勉勉强强过了一遍,其实我发现从这个项目的第一份源码分析起,
-到现在,其中的一些知识不懂不是我笨,其实顺藤蘑摸瓜倒也好寻到一些线索。
+这样一份源码也算是勉勉强强过了一遍,其实我发现从这个项目的第一份源码分析起到现在,
+其中的一些知识不懂不是我笨,其实顺藤蘑摸瓜倒也好寻到一些线索。
 只是像这样的框架我发现我根本没有去了解它的全貌.
 
 >我说一个现象:可能有很多同学在分析一份源码的时候,
@@ -760,13 +768,13 @@ public class HandlerMethod {
 >到了他们这个体量,也很难再通过HelloWorld去了解他们的全貌了。。
 
 
-<u>简单总结下SpringMVC工作的流程:
+**简单总结下SpringMVC工作的流程:
 SpringMVC通过DispatcherServlet拦截所有的请求,
 并通过HandlerMapping与指定的请求找出匹配的handler,
 handler实际是HandlerMethod对象。
 再通过与handler适配的HandlerAdapter执行目标方法,
 执行完目标方法后会返回ModelAndView对象,
-最后通过ViewResolver解析ModelAndView的View视图。</u>
+最后通过ViewResolver解析ModelAndView的View视图。**
 
 **其实我佩服这些框架并不是因为代码写的规范,而是他们要么总能充分利用面向对象的程序设计和各种巧妙的设计模式来完成应用设计,
 要么总能在完成一个功能的同时,把各个组件的关系处理尽善尽美.**

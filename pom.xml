@@ -28,6 +28,8 @@
         <module>swagger-learning</module>
         <module>elasticsearch-learning</module>
         <module>design-pattern</module>
+        <module>database-learning</module>
+        <module>computer-network</module>
     </modules>
 
     <properties>
@@ -107,7 +109,16 @@
                 <artifactId>design-pattern</artifactId>
                 <version>${project.version}</version>
             </dependency>
-
+            <dependency>
+                <groupId>com.github.guang19</groupId>
+                <artifactId>database-learning</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.guang19</groupId>
+                <artifactId>computer-network</artifactId>
+                <version>${project.version}</version>
+            </dependency>
 
             <!--SpringCloud-->
             <dependency>
@@ -246,7 +257,6 @@
                 <artifactId>junit</artifactId>
                 <version>${junit.version}</version>
             </dependency>
-
         </dependencies>
     </dependencyManagement>
 

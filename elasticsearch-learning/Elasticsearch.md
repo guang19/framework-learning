@@ -1,5 +1,3 @@
-
-
 ##  Elasticsearch
 
 >  Elasticsearch是一个基于Lucence开源的分布式搜索引擎数据库.
