@@ -1,5 +1,9 @@
 ## Spring MVC常见知识点及源码解析
 
+````text
+如有错误之处，敬请指教。
+````
+
 #### MVC 是什么 / 有什么优点?
 >MVC是一种设计模式，遵循 模型(Model),视图(View) 和 控制器(Controller)的架构设计。
 >MVC的优点很明显: 应用层次分明
@@ -220,7 +224,7 @@ public class DispatcherServlet extends FrameworkServlet {
 >这就是DispatcherServlet的九大组件,正是这九大组件,
 >DispatcherServlet才能在支持请求和相应的同时,对许多功能和细节做出完善.
 
-**九大组件的功能已经在上面的面试题中说过了，就不再细讲了。**
+**九大组件的功能已经在上面的问题中说过了，就不再细讲了。**
 
 >再看看doDispatch方法的源码,其实都是上面组件之间的配合完成任务:
 

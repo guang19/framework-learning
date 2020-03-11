@@ -9,10 +9,11 @@ openjdk8u:
 * openjdk:[jdk](https://hg.openjdk.java.net/jdk8u/hs-dev/jdk/archive/tip.tar.gz)
 
 <u>JVM部分参考了《深入理解Java虚拟机》(周志明)</u>
+
 ```text
 个人认为《深入理解Java虚拟机》上的部分内容已经过时
 有些知识请各位同学明鉴
-本部分如有错误之处，敬请各位同学issue
+本部分如有错误之处，敬请各位同学指教。
 ```
 
 ### equals知识点
