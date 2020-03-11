@@ -35,7 +35,7 @@ PS: Spring框架常见知识点一览:
 
 #### [SpringMVC常见知识点和源码分析](https://github.com/guang19/framework-learning/blob/master/springmvc-learning/SpringMVC.md)(暂完)
 
-#### [计算机网络常见知识点 - XMind](https://github.com/guang19/framework-learning/blob/master/xmind_file/Java知识梳理之Spring.xmind)
+#### [Spring常见知识点 - XMind](https://github.com/guang19/framework-learning/blob/master/xmind_file/Java知识梳理之Spring.xmind)
 
 ---
 
