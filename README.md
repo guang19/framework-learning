@@ -46,7 +46,7 @@ PS: Spring框架常见知识点一览:
 
 ---
 
-#### [数据库常见知识点](https://github.com/guang19/framework-learning/blob/dev/database-learning/database-learning)(更新中)
+#### [数据库常见知识点](https://github.com/guang19/framework-learning/blob/dev/database-learning/database-learning.md)(更新中)
 
 #### [Mybatis](https://github.com/guang19/framework-learning/blob/dev/mybatis-learning/Mybatis.md)(更新中)
 
