@@ -94,18 +94,41 @@ BeanDefinition 是对Bean的定义，它定义了Bean的元数据，
 如Bean的Scope，Class，beanName，bean的实例化方式等等。
  
 #### bean的作用域有哪些?
-1. singleton: 单例bean.IOC容器中只会保存该bean的一个实例,并且全局都使用这一个bean实例
+* singleton(单例bean)
+>singleton作用域表示在容器中，一个bean只存在一个实例。每次获取这个bean，
+>都是获取它唯一的实例。
 
-2. prototype: 原型bean.每次获取bean的时候,都会创建该bean的实例
+* prototype(原型bean)
+>prototype作用域表示如果有一个bean是prototype scope,那么每次获取该作用域的bean时，
+>容器都会新创建该bean的实例。
 
-3. request:  用于web应用.每次Http请求,都会创建该bean的实例,并且该bean的实例只会在相应的Http请求内有效.
+* request(请求域)
+>作用于Web应用。
+>
+>request作用域表示如果一个bean是request scope，
+>那每次HTTP请求，容器都会创建一个该bean的实例。
+ 
+* session(会话域)
+>作用与Web应用。
+>
+>session作用域表示如果一个bean是session scope，
+>那么容器为每个session创建一个该bean的实例，当session销毁时，
+>该session内的bean也就销毁了。
 
-4. session:  用于web应用.不同的Http Session有不同的bean实例,
-该bean实例只在对应的Session域内生效,Session销毁,bean实例也就销毁
+* application(web应用作用域)
+>作用与web应用。
+>
+>application作用域表示如果一个bean是 application scope的，
+>那么容器会为整个Web应用上下文创建一个该bean的实例，这个实例属于ServletContext级别的。
+>不同于singleton，singleton是Spring的每个ApplicationContext唯一，
+>而application是每个ServletContext唯一，对于Web应用来说，
+>ServletContext也只有一个，所以application可以理解为web应用唯一。
 
-5. global-session: 用于portlet web应用(与servlet应用相似),
-如果 global-session 用于 portlet web应用,那么该bean的实例作用于该应用的整个session域内,
-而如果是用于普通的java ee(servlet)应用,只在对应的session域内生效.
+* websocket(websocket作用域)
+>应用于web应用。
+>
+>websocket作用域表示如果一个bean是websocket scope的，
+>那么该bean作用域整个WebSocket作用域内，也是唯一的。
  
 #### Spring 的扩展点主要有哪些?
 >这里列举的并不是很全，因为Spring的扩展点实在是太多了，
