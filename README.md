@@ -23,6 +23,7 @@ PS: Jdk&Jvm&Juc知识点一览:
 #### [Jdk&Jvm&JUC - XMind](https://github.com/guang19/framework-learning/blob/master/xmind_file/Java知识梳理之JDK&JVM&JUC.xmind)
 
 ---
+
 PS: 计算机网络常见知识点一览:
 
 ![Java知识梳理之计算机网络](img/Java知识梳理之计算机网络截图.png)
@@ -32,6 +33,7 @@ PS: 计算机网络常见知识点一览:
 #### [计算机网络常见知识点 - XMind](https://github.com/guang19/framework-learning/blob/master/xmind_file/Java知识梳理之计算机网络.xmind)
 
 ---
+
 PS: Spring框架常见知识点一览:
 
 ![Java知识梳理之Spring](img/Java知识梳理之Spring截图.png)
@@ -44,18 +46,18 @@ PS: Spring框架常见知识点一览:
 
 ---
 
-#### [数据库常见知识点](https://github.com/guang19/framework-learning/blob/master/database-learning/database-learning)(更新中)
+#### [数据库常见知识点](https://github.com/guang19/framework-learning/blob/dev/database-learning/database-learning)(更新中)
 
-#### [Mybatis](https://github.com/guang19/framework-learning/blob/master/mybatis-learning/Mybatis.md)(更新中)
+#### [Mybatis](https://github.com/guang19/framework-learning/blob/dev/mybatis-learning/Mybatis.md)(更新中)
 
-#### [Tomcat](https://github.com/guang19/framework-learning/blob/master/tomcat-9.0.30-source/Tomcat.md)(待纠正)
+#### [Tomcat](https://github.com/guang19/framework-learning/blob/dev/tomcat-9.0.30-source/Tomcat.md)(待纠正)
 
-#### [RabbitMQ](https://github.com/guang19/framework-learning/blob/master/rabbitmq-learning/RabbitMQ.md)(更新中)
+#### [RabbitMQ](https://github.com/guang19/framework-learning/blob/dev/rabbitmq-learning/RabbitMQ.md)(更新中)
 
-#### [Zookeeper](https://github.com/guang19/framework-learning/blob/master/zookeeper-learning/Zookeeper.md)(待纠正)
+#### [Zookeeper](https://github.com/guang19/framework-learning/blob/dev/zookeeper-learning/Zookeeper.md)(待纠正)
 
-#### [Dubbo](https://github.com/guang19/framework-learning/blob/master/dubbo-learning/Dubbo.md)(更新中)
+#### [Dubbo](https://github.com/guang19/framework-learning/blob/dev/dubbo-learning/Dubbo.md)(更新中)
 
-#### [Swagger](https://github.com/guang19/framework-learning/blob/master/swagger-learning/Swagger.md)(更新中)
+#### [Swagger](https://github.com/guang19/framework-learning/blob/dev/swagger-learning/Swagger.md)(更新中)
 
-#### [DesignPattern](https://github.com/guang19/framework-learning/blob/master/design-pattern/DesignPattern.md)(更新中)
+#### [DesignPattern](https://github.com/guang19/framework-learning/blob/dev/design-pattern/DesignPattern.md)(更新中)
