@@ -174,7 +174,7 @@ BeanFactoryAware,ApplicationContextAware等扩展的setXXX方法
 2). 实例化完成，但是没有填充属性的Bean池；
 3). 刚刚实例化完成的Bean的工厂缓存，用于提前曝光Bean。
 
-![Spring3级缓存](../img/Spring三级缓存.png)
+![Spring3级缓存](../img/spring/Spring三级缓存.png)
 
 >Setter方法注入时，如果Bean A发现自己依赖于Bean B，
 >那么将自己实例化后并添加到第三级缓存(Bean 工厂)。

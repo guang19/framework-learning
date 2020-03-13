@@ -54,7 +54,7 @@
 8. RequestToViewNameTranslator
 核心组件之一,请求到视图的转换器。根据Request设置最终的视图名,当Handler执行完请求后，它会将Request解析成视图名。
 
-9. 	FlashMapManager
+9. FlashMapManager
 核心组件之一，在请求进行重定向时，FlashMapManager用于保存请求中的参数。
 
 #### 简述SpringMVC原理/执行流程
@@ -84,11 +84,11 @@ Servlet Filter:
 >@Component 声明一个类为IOC容器的组件，会被IOC容器管理。
 >而@Controller,@Service和@Repository则拥有更细分的语义。
 
->@Controller通常用于Web应用，被@Controller注解的类，应该作为一个处理请求的控制器。
->
->@Service则是声明一个类为Service类，处理业务逻辑。
+- **@Controller通常用于Web应用，被@Controller注解的类，应该作为一个处理请求的控制器。**
 
->被@Repository注解的类，应该被用于处理与数据库交互和持久化相关的功能。
+- **@Service则是声明一个类为Service类，处理业务逻辑。**
+
+- **被@Repository注解的类，应该被用于处理与数据库交互和持久化相关的功能。**
 
 ---
 
