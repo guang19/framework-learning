@@ -18,9 +18,9 @@ PS: Jdk&Jvm&Juc知识点一览:
 
 ![Java知识梳理之JDK&JVM&JUC截图](img/Java知识梳理之JDK&JVM&JUC截图.png)
 
-#### [Jdk&Jvm&Juc](https://github.com/guang19/framework-learning/blob/master/jdk_jvm_juc-learning/Jdk&Jvm&Juc.md)(暂完)
+#### [Jdk&Jvm&Juc](https://github.com/guang19/framework-learning/blob/dev/jdk_jvm_juc-learning/Jdk&Jvm&Juc.md)(暂完)
 
-#### [Jdk&Jvm&JUC - XMind](https://github.com/guang19/framework-learning/blob/master/xmind_file/Java知识梳理之JDK&JVM&JUC.xmind)
+#### [Jdk&Jvm&JUC - XMind](https://github.com/guang19/framework-learning/blob/dev/xmind_file/Java知识梳理之JDK&JVM&JUC.xmind)
 
 ---
 
@@ -28,9 +28,9 @@ PS: 计算机网络常见知识点一览:
 
 ![Java知识梳理之计算机网络](img/Java知识梳理之计算机网络截图.png)
 
-#### [计算机网络常见知识点](https://github.com/guang19/framework-learning/blob/master/computer-network/Computer-Network.md)(暂完)
+#### [计算机网络常见知识点](https://github.com/guang19/framework-learning/blob/dev/computer-network/Computer-Network.md)(暂完)
 
-#### [计算机网络常见知识点 - XMind](https://github.com/guang19/framework-learning/blob/master/xmind_file/Java知识梳理之计算机网络.xmind)
+#### [计算机网络常见知识点 - XMind](https://github.com/guang19/framework-learning/blob/dev/xmind_file/Java知识梳理之计算机网络.xmind)
 
 ---
 
@@ -38,11 +38,11 @@ PS: Spring框架常见知识点一览:
 
 ![Java知识梳理之Spring](img/Java知识梳理之Spring截图.png)
 
-#### [Spring常见知识点](https://github.com/guang19/framework-learning/blob/master/spring-learning/Spring.md)(暂完)
+#### [Spring常见知识点](https://github.com/guang19/framework-learning/blob/dev/spring-learning/Spring.md)(暂完)
 
-#### [SpringMVC常见知识点和源码分析](https://github.com/guang19/framework-learning/blob/master/springmvc-learning/SpringMVC.md)(暂完)
+#### [SpringMVC常见知识点和源码分析](https://github.com/guang19/framework-learning/blob/dev/springmvc-learning/SpringMVC.md)(暂完)
 
-#### [Spring常见知识点 - XMind](https://github.com/guang19/framework-learning/blob/master/xmind_file/Java知识梳理之Spring.xmind)
+#### [Spring常见知识点 - XMind](https://github.com/guang19/framework-learning/blob/dev/xmind_file/Java知识梳理之Spring.xmind)
 
 ---
 
@@ -61,3 +61,5 @@ PS: Spring框架常见知识点一览:
 #### [Swagger](https://github.com/guang19/framework-learning/blob/dev/swagger-learning/Swagger.md)(更新中)
 
 #### [DesignPattern](https://github.com/guang19/framework-learning/blob/dev/design-pattern/DesignPattern.md)(更新中)
+
+#### 推荐一个数据结构与算法的可视化网站，应该能够帮到正在学习数据结构与算法的同学: ![数据结构与算法可视化](https://www.cs.usfca.edu/~galles/visualization/Algorithms.html)
