@@ -10,11 +10,12 @@
 
 个人能力有限，总结的知识可能不全且有遗漏和错误，故敬请各位同学指教。
 ```
+
 PS: 本人XMind版本: Linux XMind 8 (XMind为Java所写，所以文件应该是通用的)
 
 ---
 
-PS: Jdk&Jvm&Juc知识点一览:
+Jdk&Jvm&Juc常见知识点一览:
 
 ![Java知识梳理之JDK&JVM&JUC截图](img/Java知识梳理之JDK&JVM&JUC截图.png)
 
@@ -24,7 +25,7 @@ PS: Jdk&Jvm&Juc知识点一览:
 
 ---
 
-PS: 计算机网络常见知识点一览:
+计算机网络常见知识点一览:
 
 ![Java知识梳理之计算机网络](img/Java知识梳理之计算机网络截图.png)
 
@@ -34,7 +35,7 @@ PS: 计算机网络常见知识点一览:
 
 ---
 
-PS: Spring框架常见知识点一览:
+Spring框架常见知识点一览:
 
 ![Java知识梳理之Spring](img/Java知识梳理之Spring截图.png)
 

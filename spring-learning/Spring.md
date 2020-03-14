@@ -1,25 +1,27 @@
 <!-- TOC -->
-- [Spring常见知识点](#spring-----)
-    + [什么是Spring Framework?](#---spring-framework-)
-    + [Spring的优缺点](#spring----)
-      - [Spring的优点:](#spring----)
-      - [Spring的缺点:](#spring----)
-    + [Spring 主要提供了哪些模块?](#spring-----------)
-    + [Spring主要使用了哪些设计模式?](#spring------------)
-    + [Spring IOC容器的配置方式有哪些？](#spring-ioc-----------)
-    + [BeanFactory和ApplicationContext的区别是什么?](#beanfactory-applicationcontext-------)
-    + [什么是IOC容器和DI依赖注入?](#---ioc---di-----)
-    + [Spring依赖注入的方式有几种?](#spring-----------)
-    + [一个bean的定义包含了什么?(BeanDefinition)](#--bean----------beandefinition-)
-    + [bean的作用域有哪些?](#bean--------)
-    + [Spring 的扩展点主要有哪些?](#spring-----------)
-    + [Spring如何解决循环依赖?](#spring---------)
-    + [事务的传播行为是什么?有哪些?](#---------------)
-    + [什么是AOP?](#---aop-)
-    + [AOP的组成元素和概念有哪些?](#aop------------)
-    + [AOP实现方式有哪些?](#aop--------)
-    + [AspectJ AOP 和 Spring AOP的区别?](#aspectj-aop---spring-aop----)
-    + [cglib和jdk的区别?](#cglib-jdk----)
+
+   * [Spring常见知识点](#spring常见知识点)
+        * [什么是Spring Framework?](#什么是spring-framework)
+        * [Spring的优缺点](#spring的优缺点)
+        * [Spring的优点:](#spring的优点)
+        * [Spring的缺点:](#spring的缺点)
+        * [Spring 主要提供了哪些模块?](#spring-主要提供了哪些模块)
+        * [Spring主要使用了哪些设计模式?](#spring主要使用了哪些设计模式)
+        * [Spring IOC容器的配置方式有哪些？](#spring-ioc容器的配置方式有哪些)
+        * [BeanFactory和ApplicationContext的区别是什么?](#beanfactory和applicationcontext的区别是什么)
+        * [什么是IOC容器和DI依赖注入?](#什么是ioc容器和di依赖注入)
+        * [Spring依赖注入的方式有几种?](#spring依赖注入的方式有几种)
+        * [一个bean的定义包含了什么?(BeanDefinition)](#一个bean的定义包含了什么beandefinition)
+        * [bean的作用域有哪些?](#bean的作用域有哪些)
+        * [Spring 的扩展点主要有哪些?](#spring-的扩展点主要有哪些)
+        * [Spring如何解决循环依赖?](#spring如何解决循环依赖)
+        * [事务的传播行为是什么?有哪些?](#事务的传播行为是什么有哪些)
+        * [什么是AOP?](#什么是aop)
+        * [AOP的组成元素和概念有哪些?](#aop的组成元素和概念有哪些)
+        * [AOP实现方式有哪些?](#aop实现方式有哪些)
+        * [AspectJ AOP 和 Spring AOP的区别?](#aspectj-aop-和-spring-aop的区别)
+        * [cglib和jdk的区别?](#cglib和jdk的区别)
+
 <!-- /TOC -->
 
 ## Spring常见知识点
@@ -32,27 +34,28 @@
 Spring是一个轻量级的，开源的Java应用程序开发框架。它提供的IOC和AOP等核心功能，能够使开发者很方便的开发出松耦合的应用。
  
 #### Spring的优缺点
-##### Spring的优点:
-1. 方便解耦，简化开发
+
+#### Spring的优点:
+- 方便解耦，简化开发
 >对象统一交由容器管理，实现了资源的可配置和易管理。
 >并且不再需要显示的编写管理对象的代码，降低了应用的代码量。
 
-
-2. AOP支持
+- AOP支持
 >Spring 提供 AOP模块，能够很方便的编写出AOP程序.
 
-3. 声明式事务
+- 声明式事务
 >只需要通过配置或注解就可以完成对事务的支持，而不需要手动的编写事务代码
 
-4. 第三方框架无缝集成
+- 第三方框架无缝集成
 >Spring可以很方便的将第三方框架继承到系统中，很灵活。
 
 ...
-##### Spring的缺点:
-1. 复杂
+
+#### Spring的缺点:
+- 复杂
 >Spring发展到现在，确认有些复杂了，但是对于它解决的问题来说，复杂已经不算什么了。
 
-2. 效率
+- 效率
 >Spring内部依赖反射，而反射会带来一定的效率损耗。
  
 

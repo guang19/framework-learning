@@ -1,3 +1,42 @@
+<!-- TOC -->
+
+   * [计算机网络部分常见知识](#计算机网络部分常见知识)
+      * [OSI七层模型](#osi七层模型)
+         * [OSI网络互联模型为什么要分层?](#osi网络互联模型为什么要分层)
+      * [TCP/IP](#tcpip)
+         * [HTTP(HyperText Transfer Protocol)(应用层协议)](#httphypertext-transfer-protocol应用层协议)
+         * [HTTPS(HyperText Transfer Protocol Secure) (应用层协议)](#httpshypertext-transfer-protocol-secure-应用层协议)
+         * [SMTP(Simple Mail Transfer Protocol) (应用层协议)](#smtpsimple-mail-transfer-protocol-应用层协议)
+         * [POP3(Post Office Protocol 3)](#pop3post-office-protocol-3)
+         * [IMAP(Internet Mail Access Protocol)](#imapinternet-mail-access-protocol)
+         * [DNS(Domain Name System) (应用层协议)](#dnsdomain-name-system-应用层协议)
+         * [FTP(File Transfer Protocol)(应用层协议)](#ftpfile-transfer-protocol应用层协议)
+         * [SFTP(Secure File Transfer Protocol) (应用层协议)](#sftpsecure-file-transfer-protocol-应用层协议)
+         * [Telnet / SSH(Secure Shell) (应用层协议)](#telnet--sshsecure-shell-应用层协议)
+         * [TCP协议(Transmission Control Protocol)](#tcp协议transmission-control-protocol)
+         * [TCP为什么可靠性较高?](#tcp为什么可靠性较高)
+         * [UDP协议(User Datagram Protocol)](#udp协议user-datagram-protocol)
+         * [TCP与UDP主要区别](#tcp与udp主要区别)
+         * [TCP如何保证可靠性传输?](#tcp如何保证可靠性传输)
+         * [为什么需要三次握手?](#为什么需要三次握手)
+         * [TCP三次握手的过程](#tcp三次握手的过程)
+         * [为什么需要四次挥手?](#为什么需要四次挥手)
+         * [TCP四次挥手的过程](#tcp四次挥手的过程)
+         * [TCP粘包和半包问题](#tcp粘包和半包问题)
+         * [解决TCP消息无边界的办法主要有以下几种:](#解决tcp消息无边界的办法主要有以下几种)
+      * [HTTP](#http)
+         * [HTTP协议的特点](#http协议的特点)
+         * [Cookie和Session的区别](#cookie和session的区别)
+         * [没有Cookie是否依然能实现Session?](#没有cookie是否依然能实现session)
+         * [重定向和转发的区别](#重定向和转发的区别)
+         * [GET和POST区别](#get和post区别)
+         * [常见HTTP状态码](#常见http状态码)
+         * [301与302的区别](#301与302的区别)
+         * [HTTP请求方法](#http请求方法)
+         * [URI,URL,URN](#uriurlurn)
+
+<!-- /TOC -->
+
 ## 计算机网络部分常见知识
 
 PS: 部分图来自网上的文章，如有侵权，请联系俺，俺会立即删除。
@@ -52,7 +91,7 @@ OSI模型定义了网络互联的7层框架:
 >应用层为应用程序提供SPI(Service Provider Interface)应用程序接口。
 >应用层协议是为应用程序提供服务保证的协议。
 
-#### TCP/IP
+### TCP/IP
 **TCP / IP 不仅仅是指TCP和IP这两种协议，而是一系列网络协议的总和，
 而这些协议中最核心的2个协议就是TCP和IP，所以被称为TCP/IP网络协议族。
 TCP/IP协议族是互联网的基础通信架构。**
@@ -323,6 +362,8 @@ TCP四次挥手的过程:
 * 添加数据的长度字段:这种方式是为报文添加一个Length字段，存储消息的长度。
 >在Http协议的报文中，有一个字段为Content-Length，专门存储数据的长度。 
 >这种方式是比较好的。
+
+### HTTP
 
 #### HTTP协议的特点
 * 适用于客户端与服务端的通信架构
