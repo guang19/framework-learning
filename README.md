@@ -62,4 +62,4 @@ PS: Spring框架常见知识点一览:
 
 #### [DesignPattern](https://github.com/guang19/framework-learning/blob/dev/design-pattern/DesignPattern.md)(更新中)
 
-#### 推荐一个数据结构与算法的可视化网站，应该能够帮到正在学习数据结构与算法的同学: ![数据结构与算法可视化](https://www.cs.usfca.edu/~galles/visualization/Algorithms.html)
+#### 推荐一个数据结构与算法的可视化网站，应该能够帮到正在学习数据结构与算法的同学: [数据结构与算法可视化](https://www.cs.usfca.edu/~galles/visualization/Algorithms.html)

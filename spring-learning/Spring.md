@@ -1,3 +1,27 @@
+<!-- TOC -->
+- [Spring常见知识点](#spring-----)
+    + [什么是Spring Framework?](#---spring-framework-)
+    + [Spring的优缺点](#spring----)
+      - [Spring的优点:](#spring----)
+      - [Spring的缺点:](#spring----)
+    + [Spring 主要提供了哪些模块?](#spring-----------)
+    + [Spring主要使用了哪些设计模式?](#spring------------)
+    + [Spring IOC容器的配置方式有哪些？](#spring-ioc-----------)
+    + [BeanFactory和ApplicationContext的区别是什么?](#beanfactory-applicationcontext-------)
+    + [什么是IOC容器和DI依赖注入?](#---ioc---di-----)
+    + [Spring依赖注入的方式有几种?](#spring-----------)
+    + [一个bean的定义包含了什么?(BeanDefinition)](#--bean----------beandefinition-)
+    + [bean的作用域有哪些?](#bean--------)
+    + [Spring 的扩展点主要有哪些?](#spring-----------)
+    + [Spring如何解决循环依赖?](#spring---------)
+    + [事务的传播行为是什么?有哪些?](#---------------)
+    + [什么是AOP?](#---aop-)
+    + [AOP的组成元素和概念有哪些?](#aop------------)
+    + [AOP实现方式有哪些?](#aop--------)
+    + [AspectJ AOP 和 Spring AOP的区别?](#aspectj-aop---spring-aop----)
+    + [cglib和jdk的区别?](#cglib-jdk----)
+<!-- /TOC -->
+
 ## Spring常见知识点
 
 ````text
