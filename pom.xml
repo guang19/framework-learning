@@ -30,6 +30,7 @@
         <module>design-pattern</module>
         <module>database-learning</module>
         <module>computer-network</module>
+    <module>dataStructureandAlgorithm</module>
     </modules>
 
     <properties>
