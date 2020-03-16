@@ -136,14 +136,14 @@ BeanDefinition 是对Bean的定义，它定义了Bean的元数据，
 >那每次HTTP请求，容器都会创建一个该bean的实例。
  
 * session(会话域)
->作用与Web应用。
+>作用于Web应用。
 >
 >session作用域表示如果一个bean是session scope，
 >那么容器为每个session创建一个该bean的实例，当session销毁时，
 >该session内的bean也就销毁了。
 
 * application(web应用作用域)
->作用与web应用。
+>作用于web应用。
 >
 >application作用域表示如果一个bean是 application scope的，
 >那么容器会为整个Web应用上下文创建一个该bean的实例，这个实例属于ServletContext级别的。
