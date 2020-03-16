@@ -1,14 +1,173 @@
+<!-- TOC -->
+
+   * [java基础知识(部分图源:<a href="https://github.com/Snailclimb/JavaGuide">JavaGuide</a>)](#java基础知识部分图源javaguide)
+        * [equals知识点](#equals知识点)
+            * [== 和 equals区别](#-和-equals区别)
+            * [hashCode方法返回的真是对象内存地址吗?](#hashcode方法返回的真是对象内存地址吗)
+            * [equals方法重写要求](#equals方法重写要求)
+            * [为什么重写equals方法一定要重写hashcode方法?](#为什么重写equals方法一定要重写hashcode方法)
+        * [Java引用类型](#java引用类型)
+           * [强引用](#强引用)
+           * [软引用](#软引用)
+           * [弱引用](#弱引用)
+           * [虚引用(幽灵引用)](#虚引用幽灵引用)
+           * [软引用,弱引用,虚引用在被GC前会被加入到与其关联的引用队列中.](#软引用弱引用虚引用在被gc前会被加入到与其关联的引用队列中)
+        * [线程](#线程)
+           * [进程和线程](#进程和线程)
+           * [线程的几种状态(见:jdk Thread类源码中的state枚举类)](#线程的几种状态见jdk-thread类源码中的state枚举类)
+           * [并发和并行](#并发和并行)
+           * [sleep方法和wait方法](#sleep方法和wait方法)
+           * [stop,suspend,resume等方法为什么会被遗弃](#stopsuspendresume等方法为什么会被遗弃)
+           * [interrupt,interrupted,isInterrupted方法别搞混了](#interruptinterruptedisinterrupted方法别搞混了)
+           * [join方法](#join方法)
+           * [yield方法](#yield方法)
+        * [对象在内存中的布局(64位)](#对象在内存中的布局64位)
+           * [对象头](#对象头)
+           * [1. Mark Word(mark)](#1-mark-wordmark)
+           * [2. Klass Pointer /  Compressed Klass](#2-klass-pointer---compressed-klass)
+           * [实例数据](#实例数据)
+           * [对齐填充](#对齐填充)
+        * [synchronized](#synchronized)
+           * [谈谈 synchronized 关键字](#谈谈-synchronized-关键字)
+           * [synchronized底层原理](#synchronized底层原理)
+           * [synchronized 使用方法](#synchronized-使用方法)
+           * [Synchronized和ReentrantLock的区别](#synchronized和reentrantlock的区别)
+           * [lock](#lock)
+           * [tryLock](#trylock)
+           * [lockInterruptibly](#lockinterruptibly)
+           * [乐观锁](#乐观锁)
+           * [悲观锁](#悲观锁)
+           * [独占锁](#独占锁)
+           * [共享锁](#共享锁)
+           * [公平锁](#公平锁)
+           * [非公平锁](#非公平锁)
+           * [可重入锁(递归锁)](#可重入锁递归锁)
+           * [偏向锁](#偏向锁)
+           * [轻量级锁](#轻量级锁)
+           * [自旋锁](#自旋锁)
+           * [自适应自旋锁](#自适应自旋锁)
+           * [锁消除](#锁消除)
+           * [锁粗化](#锁粗化)
+           * [死锁](#死锁)
+           * [防止死锁](#防止死锁)
+           * [volatile](#volatile)
+        * [CAS](#cas)
+           * [CAS在JAVA中的底层实现(Atomic原子类实现)](#cas在java中的底层实现atomic原子类实现)
+           * [CAS的缺点](#cas的缺点)
+        * [ThreadLocal](#threadlocal)
+           * [ThreadLocal引发的内存泄露:](#threadlocal引发的内存泄露)
+        * [AQS (AbstractQueuedSynchronizer)](#aqs-abstractqueuedsynchronizer)
+           * [AQS 概述](#aqs-概述)
+           * [AQS的2种共享资源访问方式](#aqs的2种共享资源访问方式)
+           * [CountDownLatch原理](#countdownlatch原理)
+           * [Semaphore](#semaphore)
+           * [CycliBarrier](#cyclibarrier)
+           * [ReentrantReadWriteLock如何区分读写锁的?](#reentrantreadwritelock如何区分读写锁的)
+        * [线程池的好处](#线程池的好处)
+           * [线程池构造参数](#线程池构造参数)
+           * [阿里巴巴开发者手册不建议开发者使用Executors创建线程池](#阿里巴巴开发者手册不建议开发者使用executors创建线程池)
+        * [java集合](#java集合)
+           * [HashMap](#hashmap)
+           * [HashTable](#hashtable)
+           * [TreeMap](#treemap)
+           * [ArrayList与LinkedList](#arraylist与linkedlist)
+           * [ArrayList和Vector](#arraylist和vector)
+           * [Set](#set)
+           * [ConcurrentModificationException异常](#concurrentmodificationexception异常)
+           * [线程安全的 List](#线程安全的-list)
+           * [CopyOnWriteArrayList](#copyonwritearraylist)
+           * [线程安全的Set](#线程安全的set)
+           * [线程安全的Map](#线程安全的map)
+           * [ConcurrentHashMap](#concurrenthashmap)
+           * [ConcurrentSkipListMap](#concurrentskiplistmap)
+        * [Java IO](#java-io)
+           * [操作系统的用户态与内核态](#操作系统的用户态与内核态)
+           * [操作系统的内核：](#操作系统的内核)
+           * [用户态切换到内核态的几种方式](#用户态切换到内核态的几种方式)
+           * [阻塞和非阻塞](#阻塞和非阻塞)
+           * [同步与异步](#同步与异步)
+        * [Linux IO模型](#linux-io模型)
+           * [阻塞IO](#阻塞io)
+           * [非阻塞IO(网络IO模型)](#非阻塞io网络io模型)
+           * [多路复用IO(网络IO模型)](#多路复用io网络io模型)
+           * [信号驱动IO(网络IO模型)](#信号驱动io网络io模型)
+           * [异步IO](#异步io)
+        * [JVM(参考:《深入理解Java虚拟机》(周志明))](#jvm参考深入理解java虚拟机周志明)
+           * [JVM运行时内存分区](#jvm运行时内存分区)
+           * [程序计数器](#程序计数器)
+           * [程序计数器的特点](#程序计数器的特点)
+           * [Java虚拟机栈](#java虚拟机栈)
+           * [栈帧](#栈帧)
+           * [局部变量表](#局部变量表)
+           * [操作数栈](#操作数栈)
+           * [动态连接](#动态连接)
+           * [方法出口](#方法出口)
+           * [本地方法栈](#本地方法栈)
+           * [堆](#堆)
+           * [方法区](#方法区)
+        * [JavaVirtualMachineError](#javavirtualmachineerror)
+           * [StackOverflowError](#stackoverflowerror)
+           * [OutOfMemoryError](#outofmemoryerror)
+        * [简单了解类文件结构](#简单了解类文件结构)
+        * [类的生命周期](#类的生命周期)
+           * [类加载过程](#类加载过程)
+           * [加载](#加载)
+           * [连接](#连接)
+           * [<strong>初始化</strong>](#初始化)
+           * [使用](#使用)
+           * [类的卸载](#类的卸载)
+           * [Java中类加载器有多少个](#java中类加载器有多少个)
+           * [类加载器的命名空间](#类加载器的命名空间)
+           * [双亲委派机制](#双亲委派机制)
+           * [为什么需要双亲委派机制?](#为什么需要双亲委派机制)
+           * [双亲委派机制的实现原理?](#双亲委派机制的实现原理)
+        * [JVM常量池](#jvm常量池)
+           * [Class常量池(静态常量池)](#class常量池静态常量池)
+           * [运行时常量池](#运行时常量池)
+           * [字符串常量池(全局常量池)](#字符串常量池全局常量池)
+           * [包装类型缓存池](#包装类型缓存池)
+        * [GC](#gc)
+           * [判断对象存活的方法](#判断对象存活的方法)
+           * [什么是GC Root ?](#什么是gc-root-)
+        * [垃圾回收算法](#垃圾回收算法)
+           * [复制算法(Copying)](#复制算法copying)
+           * [标记-清除算法(Mark-Sweep)](#标记-清除算法mark-sweep)
+           * [标记-整理算法(Mark-Compact)](#标记-整理算法mark-compact)
+           * [分代收集算法](#分代收集算法)
+           * [内存分配与垃圾回收策略](#内存分配与垃圾回收策略)
+           * [一次GC的过程](#一次gc的过程)
+           * [动态年龄阈值](#动态年龄阈值)
+        * [垃圾回收器](#垃圾回收器)
+           * [Serial 串行收集器](#serial-串行收集器)
+           * [Serial Old 串行收集器(老年代版本)](#serial-old-串行收集器老年代版本)
+           * [Parallel Scavenge 并行多线程收集器](#parallel-scavenge-并行多线程收集器)
+           * [Parallel Old 并行收集器(老年代版本)](#parallel-old-并行收集器老年代版本)
+           * [ParNew 多线程收集器](#parnew-多线程收集器)
+           * [CMS 并发标记清除收集器](#cms-并发标记清除收集器)
+           * [CMS回收内存主要分为以下阶段:](#cms回收内存主要分为以下阶段)
+           * [G1 收集器](#g1-收集器)
+           * [G1回收器的主要特点有:](#g1回收器的主要特点有)
+           * [G1收集器回收内存主要分为以下阶段](#g1收集器回收内存主要分为以下阶段)
+        * [JVM常用参数](#jvm常用参数)
+           * [堆栈相关](#堆栈相关)
+           * [GC相关](#gc相关)
+           * [其他](#其他)
+        * [Java常用调优工具](#java常用调优工具)
+
+<!-- /TOC -->
+
+
 # java基础知识(部分图源:[JavaGuide](https://github.com/Snailclimb/JavaGuide))
 
 复习java基础知识的笔记   
 
-<u>PS:以下部分内容希望各位同学下载openjdk的源码,亲自实践。</u>
+**PS:以下部分内容希望各位同学下载openjdk的源码,亲自实践。**
 
 openjdk8u:
 * hotspot:[hotspot](http://hg.openjdk.java.net/jdk8u/hs-dev/hotspot/archive/tip.tar.gz)
 * openjdk:[jdk](https://hg.openjdk.java.net/jdk8u/hs-dev/jdk/archive/tip.tar.gz)
 
-<u>JVM部分参考了《深入理解Java虚拟机》(周志明)</u>
+**JVM部分参考了《深入理解Java虚拟机》(周志明)**
 
 ```text
 个人认为《深入理解Java虚拟机》上的部分内容已经过时
@@ -26,7 +185,7 @@ openjdk8u:
 在hotspot中，hashcode返回的不完全是地址
 (见：hotspot的/src/share/vm/runtime/synchronizer.cpp):
 
-![hashcode方法源码](../img/hashcode方法源码.png)
+![hashcode方法源码](../img/jdk_jvm_juc/hashcode方法源码.png)
 
 可以看到hashcode有多种返回策略:随机数，自增长序列，关联地址等多种方式。
 
@@ -66,6 +225,8 @@ openjdk8u:
       
 #### 软引用,弱引用,虚引用在被GC前会被加入到与其关联的引用队列中.  
 
+### 线程
+
 #### 进程和线程
 
 >进程与线程最主要的区别是它们是操作系统管理资源的不同方式的体现。
@@ -95,33 +256,33 @@ openjdk8u:
   
 #### stop,suspend,resume等方法为什么会被遗弃
 * stop:
->stop方法被弃用很好理解，因为stop方法是强行终止线程的执行，
->不管线程的run方法是否执行完，资源是否释放完，它都会终止线程的运行，并释放锁。
->这在设计上就不合理，不说资源控制的问题，
->当线程正在执行任务的时候，线程突然就被stop了，这根本上就是不被允许的。  
+>>stop方法被弃用很好理解，因为stop方法是强行终止线程的执行，
+>>不管线程的run方法是否执行完，资源是否释放完，它都会终止线程的运行，并释放锁。
+>>这在设计上就不合理，不说资源控制的问题，
+>>当线程正在执行任务的时候，线程突然就被stop了，这根本上就是不被允许的。  
 
 * suspend和resume
->suspend方法用于阻塞一个线程,但并不释放锁，
->而resume方法的作用只是为了恢复被suspend的线程。
-
->假设A，B线程都争抢同一把锁，A线程成功的获得了锁，
->然后被suspend阻塞了，却并没有释放锁，它需要其他线程来唤醒，
->但此时B线程需要获得这把锁才能唤醒A，所以此时就陷入了死锁.
-
->这也是它们为什么被弃用的原因。   
+>>suspend方法用于阻塞一个线程,但并不释放锁，
+>>而resume方法的作用只是为了恢复被suspend的线程。
+>>
+>>假设A，B线程都争抢同一把锁，A线程成功的获得了锁，
+>>然后被suspend阻塞了，却并没有释放锁，它需要其他线程来唤醒，
+>>但此时B线程需要获得这把锁才能唤醒A，所以此时就陷入了死锁.
+>>
+>>这也是它们为什么被弃用的原因。   
           
 #### interrupt,interrupted,isInterrupted方法别搞混了
-interrupt:
->这个方法并不是中断当前线程，而是给当前线程设置一个中断状态。
+* interrupt:
+>>这个方法并不是中断当前线程，而是给当前线程设置一个中断状态。
 
-isInterrupted:
->当线程调用interrupt方法后，线程就有了一个中断状态，
->而使用isInterrupted方法就可以检测线程的中断状态。
+* isInterrupted:
+>>当线程调用interrupt方法后，线程就有了一个中断状态，
+>>而使用isInterrupted方法就可以检测线程的中断状态。
 
-interrupted：
->这个方法用于清除interrupt方法设置的中断状态。
->如果一个线程之前调用了interrupt方法设置了中断状态，
->那么interrupted方法就可以清除这个中断状态。          
+* interrupted：
+>>这个方法用于清除interrupt方法设置的中断状态。
+>>如果一个线程之前调用了interrupt方法设置了中断状态，
+>>那么interrupted方法就可以清除这个中断状态。          
  
 #### join方法
 >join方法的作用是让指定线程加入当线程执行。
@@ -145,12 +306,12 @@ interrupted：
 ---
 
 ### 对象在内存中的布局(64位)
-ps:对象在内存中的布局,在32位和64位上的实现也是不同的，以我的
-机器为例(64位)
+**PS:对象在内存中的布局,在32位和64位上的实现也是不同的，以我的
+机器为例(64位)**
 
 >对象在内存中由 对象头,实例数据,对齐填充三部分组成。
 
-![对象内存布局](../img/对象在内存中的布局.png)
+![对象内存布局](../img/jdk_jvm_juc/对象在内存中的布局.png)
     
 #### 对象头
 >对象头可以分为2部分数据组成.
@@ -160,16 +321,16 @@ ps:对象在内存中的布局,在32位和64位上的实现也是不同的，以
 mark 和 metadata(klass* , compressed_klass)
 (见oop.hpp文件):
 
-![对象头组成1](../img/对象头的markword组成1.png)
+![对象头组成1](../img/jdk_jvm_juc/对象头的markword组成1.png)
 
 下面是mark/markword的组成(见:markOop.hpp头文件)
-![对象头组成2](../img/对象头的markword组成2.png)
+![对象头组成2](../img/jdk_jvm_juc/对象头的markword组成2.png)
 
 对象处于每种状态时的锁标志位都不同(见:markOop.hpp头文件):
-![对象头组成3](../img/对象头的markword组成3.png)
-![对象头组成4](../img/对象头的markword组成4.png)
+![对象头组成3](../img/jdk_jvm_juc/对象头的markword组成3.png)
+![对象头组成4](../img/jdk_jvm_juc/对象头的markword组成4.png)
 
-##### 1. Mark Word(mark)
+#### 1. Mark Word(mark)
 
 | 锁状态    | markword组成      |
 | :---:    | :---:    |
@@ -179,7 +340,7 @@ mark 和 metadata(klass* , compressed_klass)
 |膨胀锁 10   |  由指向锁的指针和锁标志位组成   |
 | GC 11     | 无数据  |                               
            
-##### 2. Klass Pointer /  Compressed Klass
+#### 2. Klass Pointer /  Compressed Klass
 >Klass Pointer是指向对象类型的指针，指针指向对象的类元数据。
 >jvm通过klass pointer判断对象属于哪个类。
 >
@@ -197,7 +358,7 @@ mark 和 metadata(klass* , compressed_klass)
 >不足或多余的部分就要使用对齐填充数据补齐.
 >如果Java对象大小正好是8的倍数,那么就无需对齐填充数据
 
-PS: 可以使用openjdk-jol工具查看对象大小
+**PS:可以使用openjdk-jol工具查看对象大小**
 
 ### synchronized
 
@@ -219,11 +380,11 @@ PS: 可以使用openjdk-jol工具查看对象大小
 #### synchronized底层原理
 先看我编写的一段测试代码:
 
-![synchronized底层原理1](../img/synchronized底层原理1.png)
+![synchronized底层原理1](../img/jdk_jvm_juc/synchronized底层原理1.png)
 
 使用 javap -c -v -l 指令反编译 class文件后的 **字节码指令** 如下
 
-![synchronized底层原理2](../img/synchronized底层原理2.png)
+![synchronized底层原理2](../img/jdk_jvm_juc/synchronized底层原理2.png)
 
 >可以清楚的看到,在进入synchronized的时候，底层字节码编译出来的指令为
 >**monitorenter**,在执行完同步代码块后又有一个**monitorexit**指令.
@@ -235,17 +396,17 @@ PS: 可以使用openjdk-jol工具查看对象大小
 >看到这2个文件，相信各位同学应该就知道，这个就是synchronized锁对象的monitor，它也是
 >一个对象,不过它是一个c++对象(见:objectMonitor.hpp头文件):
 
-![synchronized底层原理3](../img/synchronized底层原理3.png) 
+![synchronized底层原理3](../img/jdk_jvm_juc/synchronized底层原理3.png) 
 
 >其实真正的锁应该是这个monitor,synchronized锁的那个对象起到的只是关联monitor的作用。
 >只不过我们身在java层面，无法感知到monitor的作用，所以才称synchronized的锁对象为锁。
 
 以下是monitorenter指令执行过程(见 InterpreterRuntime.cpp):
 
-![synchronized底层原理4](../img/synchronized底层原理4.png)
+![synchronized底层原理4](../img/jdk_jvm_juc/synchronized底层原理4.png)
 
-PS:本来想真正弄清楚fast_enter(偏向锁的实现),slow_enter(轻量级锁实现)和inflate(膨胀锁实现)
-的,无奈看不太懂cpp源码，但是有的地方是可以根据语义来推断的。
+**PS:本来想真正弄清楚fast_enter(偏向锁的实现),slow_enter(轻量级锁实现)和inflate(膨胀锁实现)
+的,无奈看不太懂cpp源码，但是有的地方是可以根据语义来推断的。**
 
 >这里做一个总结吧,这个总结可能不太准确，但大致是这样的:
 >每次执行monitorenter指令的时候,是将当前synchronized锁对象
@@ -259,41 +420,36 @@ PS:本来想真正弄清楚fast_enter(偏向锁的实现),slow_enter(轻量级�
 state变量的作用类比到此处就是monitor计数器的作用。**
 
 #### synchronized 使用方法
-##### 1. 修饰静态方法
->修饰静态方法是给类加锁,会作用于所有对象,因为静态方法属于类,
->而不属于对象,不管有多少个对象,static方法都是共享的.
+1. 修饰静态方法: 修饰静态方法是给类加锁,会作用于所有对象,因为静态方法属于类,
+而不属于对象,不管有多少个对象,static方法都是共享的.
        
-##### 2. 修饰实例方法
->修饰实例方法是给对象加锁,会作用于当前类的实例对象.      
+2. 修饰实例方法: 修饰实例方法是给对象加锁,会作用于当前类的实例对象.      
 
-##### 3. 修饰代码块
->修饰代码块,根据代码块给定的对象加锁,线程想要进入代码块,只能获取
->指定的对象的锁.
+3. 修饰代码块: 修饰代码块,根据代码块给定的对象加锁,线程想要进入代码块,只能获取指定的对象的锁.
 
 #### Synchronized和ReentrantLock的区别
 
-##### 1.Synchronized基于jvm层面,ReentrantLock基于java层面.
-  
-##### 2.ReentrantLock提供了更高级的功能
-1. synchronized是基于JVM层面的同步机制，
-而ReentrantLock是基于Java API层面提供的同步机制。
+- Synchronized是基于JVM层面的同步机制;而ReentrantLock是基于Java API层面提供的同步机制。
 
-2. synchronized和reentrantlock都属于可重入锁。
+- Synchronized和Reentrantlock都属于可重入锁。
 
-3. ReentrantLock提供了比Synchronized更高级的功能:
->1. 公平锁
->2. 更方便的线程间的通信(Condition)
->3. 等待可中断(在线程等待获取锁的时候可以被中断) 
+- ReentrantLock提供了比Synchronized更高级的功能:
+   - 公平锁
+   - 更方便的线程间的通信(Condition)
+   - 等待可中断(在线程等待获取锁的时候可以被中断) 
 
 #### lock
->线程不获取到锁不罢休。如果线程获取到了锁，那么线程的锁的计数设置为1，如果线程已经持有了该锁，那么锁的计数加1,，否则线程就阻塞
+>线程不获取到锁不罢休。如果线程获取到了锁，那么线程的锁的计数设置为1，
+>如果线程已经持有了该锁，那么锁的计数加1,，否则线程就阻塞
 
 #### tryLock
->尝试获取锁，并立刻返回，如果获取到锁返回true，并设置锁计数为1，并返回true，如果线程已经持有了该锁，那么设置锁计数加1并返回true，否则返回false
+>尝试获取锁，并立刻返回，如果获取到锁返回true，并设置锁计数为1，并返回true，如果线程已经持有了该锁，
+>那么设置锁计数加1并返回true，否则返回false
 
 #### lockInterruptibly
->尝试获取锁，如果获取不到就阻塞，但在阻塞期间响应中断，也就是说在阻塞期间可以被打断，不只在阻塞期间可以被打断，而且如果线程在获取锁之前就已经被调用了interrupt方法，那么在阻塞时也会被打断。
-
+>尝试获取锁，如果获取不到就阻塞，但在阻塞期间响应中断，也就是说在阻塞期间可以被打断，
+>不只在阻塞期间可以被打断，而且如果线程在获取锁之前就已经被调用了interrupt方法，那么在阻塞时也会被打断。
+>
 >与lock相似，但是lockInterruptibly优先响应中断，而不是优先获取锁。
 
 
@@ -330,10 +486,10 @@ state变量的作用类比到此处就是monitor计数器的作用。**
 >为当前线程ID,如果设置成功,那么对象偏向当前线程，并将当对象的锁标志位改为01。
 >如果设置失败，则说明多线程竞争，将撤销偏向锁，升级为轻量级锁。
 
-##### 偏向锁适用于单线程无锁竞争环境(单线程环境).
+**偏向锁适用于单线程无锁竞争环境(单线程环境)。**
 
 hotspot偏向锁实现(faster_enter):
-![偏向锁实现](../img/偏向锁实现.png)
+![偏向锁实现](../img/jdk_jvm_juc/偏向锁实现.png)
    
 #### 轻量级锁
 >在线程获取对象锁时，jvm首先会判断对象是否为无锁状态(锁标志位为01),
@@ -344,10 +500,10 @@ hotspot偏向锁实现(faster_enter):
 >如果已经指向，那么线程直接执行同步代码。否则，说明多个线程竞争，将inflate为
 >重量级锁。
 
-##### 轻量级锁适用于多线程无锁竞争环境(多线程轮流执行).
+**轻量级锁适用于多线程无锁竞争环境(多线程轮流执行)。**
 
 hotspot轻量级锁实现(slow_enter):
-![轻量级锁实现](../img/轻量级锁实现.png)   
+![轻量级锁实现](../img/jdk_jvm_juc/轻量级锁实现.png)   
      
      
 #### 自旋锁
@@ -369,7 +525,7 @@ hotspot轻量级锁实现(slow_enter):
 >如果判断到一段代码，在堆上的数据不会逃逸出去被其他线程访问到，
 >那么就把它们当做栈上的数据，为线程私有的，自然无需同步加锁。
 
-````java
+````text
 
     //每次线程进入此方法，创建的都是不同的StringBuffer临时对象,
     //也就是说 StringBuffer 临时对象不会逃出方法t,作用于外部,
@@ -387,7 +543,7 @@ hotspot轻量级锁实现(slow_enter):
 >当虚拟机检测出一系列连续的操作都对同一个连续加锁，
 >那么它会把加锁的返回扩大至整个操作的序列的外部，保证只加锁一次。
 
-````java
+````text
 
     public String t()
     { 
@@ -446,7 +602,7 @@ volatile是JVM提供的轻量级的线程同步机制。
 >解决这个问题的办法就是给变量加上volatile关键字修饰，
 >volatile使得线程如果要使用这个变量，那么每次都需要从主内存中读取，保证了变量的可见性。
 
-![Java内存模型](../img/Java内存模型.png)
+![Java内存模型](../img/jdk_jvm_juc/Java内存模型.png)
 
 2.volatile禁止指令重排序
 >指令冲排序是编译器和cpu为了程序的高效运行的一种优化手段，
@@ -454,7 +610,7 @@ volatile是JVM提供的轻量级的线程同步机制。
 
 比如: 
 
-````java
+````text
 1. int a = 1;
 2. int b = 3;
 3. int c = a + b;
@@ -464,18 +620,19 @@ volatile是JVM提供的轻量级的线程同步机制。
 这样程序实际执行的顺序可能与代码的顺序不符,但并不会影响程序最终的结果。
 
 3.volatile如何禁止指令重排序的?
-volatile通过提供  内存屏障 来防止指令重排序.
+volatile通过提供 **内存屏障** 来防止指令重排序.
 
 >java内存模型会在每个volatile写操作前后都会插入store指令，将工作内存中的变量同步回主内存。
 >在每个volatile读操作前后都会插入load指令，从主内存中读取变量。
 
 4.volatile不保证原子性
-比如: i++
+>比如: i++
+>
 >如果是多线程环境下，一个线程读取到i的值到工作内存，然后对i做出自增操作，然后写回主内存，其它内存才可见。
 >可以看到这个过程本身就不是一个原子的.
 >所以不能拿volatile来带替synchronized,如果是多线程环境下，仍然需要使用synchronized保证线程同步.
   
-#### CAS
+### CAS
 >CAS: Compare And Swap 比较成功并交换。
 >CAS体现的是一种乐观锁的机制。
 >CAS涉及到3个元素: 指定的内存地址,期盼值和目标值。
@@ -483,7 +640,8 @@ volatile通过提供  内存屏障 来防止指令重排序.
 >
 #### CAS在JAVA中的底层实现(Atomic原子类实现)  
       
- ###### Unsafe类
+Unsafe类
+
 >CAS在Java中的实现是 juc的atomic包下的Atomicxx原子类。
 >而这些Atomic原子类的核心是: <Unsafe>类
 >Unsafe类是个final类，它的核心方法都是native的，
@@ -495,28 +653,29 @@ volatile通过提供  内存屏障 来防止指令重排序.
 >它会根据当前Atomic的value在内存中地址获取到当前对象的值,
 >然后再重复一遍此操作，把之前获得的值与第二遍获得的值进行比较，
 >如果成功，就把内存地址的值更新为新值，否则就do while循环.
-    
-##### 并且有个重要的细节就是,Atomic原子类内部的value值都是由volatile修饰的,这就使得Atomic的值是对其他线程可见的
+
+**并且有个重要的细节就是,Atomic原子类内部的value值都是由volatile修饰的,
+这就使得Atomic的值是对其他线程可见的。**
  
- ##### CAS的缺点
+#### CAS的缺点
  
- ###### 1. 循环时间开销大
+* 循环时间开销大
 >我在看源码的时候，发现Atomic的CAS操作并没有进行CAS失败的退出处理，
 >只是单纯的循环比较并交换，这就让我很担心它的性能问题，
 如果长时间不成功，那会是很可怕的一件事请，至少cpu的负荷会很大。
            
- ###### 2. 只能保证一个共享变量的原子操作
+* 只能保证一个共享变量的原子操作
 >Atomic原子类只能保证一个变量的原子操作，
 >如果是多数据的话，还是考虑用互斥锁来实现数据的同步吧
           
- ###### 3. ABA问题
+* ABA问题
 >ABA问题是指如果一个线程进行CAS操作并成功了，
 >却不代表这个过程就是没有问题的。
 
 >假设2个线程读取了同一份数据，线程1修改了这个值并把它改回了原值，并同步到主内存中，
 >另一个线程准备进行CAS操作,当它发现原值和期盼的值是一样的，那么CAS仍然成功。
            
- ###### 4. 解决ABA问题
+* 解决ABA问题
 >在juc的atomic包中提供了 AtomicStampedReference 类,
 >这个类较普通的原子类新增了一个stamp字段，它的作用相当于version，
 >每次修改这个引用的值，也都会修改stamp的值，
@@ -525,7 +684,7 @@ volatile通过提供  内存屏障 来防止指令重排序.
 
 ---      
          
-#### ThreadLocal
+### ThreadLocal
 >ThreadLocal为每个线程都提供了一份相同的变量的副本，
 >每个线程都可以修改这个副本，但不用担心与其他线程发生数据冲突，
 >实现了线程之间的数据隔离。
@@ -534,7 +693,7 @@ volatile通过提供  内存屏障 来防止指令重排序.
 >每个Thread类内部都有一个ThreadLocalMap，当使用ThreadLocal的get和remove操作的时候，
 >就是使用每个线程的ThreadLocalMap的get和remove。
 
-ThreadLocal引发的内存泄露:
+#### ThreadLocal引发的内存泄露:
 
 >在ThreadLocalMap中，key是使用弱引用的ThreadLocal存储的，
 >弱引用是只要垃圾回收器开始回收，无论内存是否充足，都会回收掉弱引用对象，如此一来，
@@ -543,7 +702,7 @@ ThreadLocal引发的内存泄露:
 
 ---
 
-#### AQS (AbstractQueuedSynchronizer)
+### AQS (AbstractQueuedSynchronizer)
 
 ````text
 AQS是Doug Lea大师为JDK编写的一套基于API层面的抽象队列同步器.
@@ -562,23 +721,24 @@ Lock,CountDownLatch等等这些并发工具都是基于AQS来实现的。
 >当线程lock获取到锁后，该state计数就加1,unlock就减1，
 >这就是为什么解锁要对应加锁的次数。
 
-AQS主要实现技术为:CLH队列(Craig,Landin and Hagersten)，自旋CAS，Park(阻塞线程)以及unparkSuccessor(唤醒阻塞队列中的后继线程)
+**AQS主要实现技术为:CLH队列(Craig,Landin and Hagersten)，
+自旋CAS，Park(阻塞线程)以及unparkSuccessor(唤醒阻塞队列中的后继线程)。**
      
-##### AQS的2种共享资源访问方式
+#### AQS的2种共享资源访问方式
 >AQS定义了2种资源共享方式.
 
-###### 独占式(Exclusive)
+* 独占式(Exclusive)
 >同一时间只有一个线程可以访问共享资源,也就是独占锁,如:Synchronized,ReentrantLock.
 >
 >对于独占式锁的实现,在AQS中对应tryAcquire获取锁和tryRelease释放锁. 
          
-###### 共享式(Share)
+* 共享式(Share)
 > 同一时间允许多个线程同时访问共享资源,也就是共享锁
 > CountDownLatch,Semaphore,ReentrantReadWriteLock的ReadLock都是共享锁.
 >
 >对于共享式锁的实现,在AQS中对应tryAcquireShare获取锁和tryReleaseShare释放锁. 
 
-##### CountDownLatch原理
+#### CountDownLatch原理
 CountDownLatch允许count个线程阻塞在一个地方，直至所有线程的任务都执行完毕。
 
 >CountDownLatch是共享锁的一种实现,它默认构造AQS的state为count。
@@ -589,7 +749,7 @@ CountDownLatch允许count个线程阻塞在一个地方，直至所有线程的�
 >直至最后一个线程调用了countDown，使得state == 0，
 >于是阻塞的线程便判断成功，全部往下执行。
 
-##### Semaphore
+#### Semaphore
 Semaphore允许一次性最多(不是同时)permits个线程执行任务。
 
 >Semaphore与CountDownLatch一样，也是共享锁的一种实现。
@@ -603,7 +763,7 @@ Semaphore允许一次性最多(不是同时)permits个线程执行任务。
 >因为只要state>0,线程就有机会执行.
 
 
-##### CycliBarrier
+#### CycliBarrier
 CycliBarrier的功能与CountDownLatch相似，但是CountDownLatch的实现是基于AQS的，
 而CycliBarrier是基于ReentrantLock(ReentrantLock也属于AQS同步器)和Condition的.
 
@@ -613,8 +773,9 @@ CycliBarrier的功能与CountDownLatch相似，但是CountDownLatch的实现是�
 
 #### ReentrantReadWriteLock如何区分读写锁的?
 
->Sync既有写锁，又有读锁，因此一个state不够用，
->所以使用state的高16为表示读锁，低位16表示写锁.
+**Sync既有写锁，又有读锁，因此一个state不够用，
+所以使用state的高16为表示读锁，低位16表示写锁.**
+
 ````java
  ReentrantReadWriteLock部分源码:
 
@@ -645,7 +806,8 @@ CycliBarrier的功能与CountDownLatch相似，但是CountDownLatch的实现是�
 >所以你如果没有基础，会诧异,jdk还有这种东西呀^-^...              
 
 ---
-#### 线程池的好处
+
+### 线程池的好处
 >http连接池，数据库连接池，线程池等都是利用了池化技术。
 >如果一个资源需要多次使用并且很昂贵，那么使用new创建的对象或资源，可能会带来较大的消耗。
 
@@ -673,48 +835,34 @@ CycliBarrier的功能与CountDownLatch相似，但是CountDownLatch的实现是�
  RejectedExecutionHandler handler)
 ````
 
-##### corePoolSize
->线程池的核心线程数(常驻线程数),也就是线程池的最小线程数,这部分线程不会被回收.
+1. corePoolSize: 线程池的核心线程数(常驻线程数),也就是线程池的最小线程数,这部分线程不会被回收.
       
-##### maximumPoolSize
->线程池最大线程数,线程池中允许同时执行的最大线程数量
+2. maximumPoolSize: 线程池最大线程数,线程池中允许同时执行的最大线程数量
       
-##### keepAliveTime
->当线程池中的线程数量超过corePoolSize，但此时没有任务执行，
->那么空闲的线程会保持keepAliveTime才会被回收，corePoolSize的线程不会被回收。
+3. keepAliveTime: 当线程池中的线程数量超过corePoolSize，但此时没有任务执行，
+那么空闲的线程会保持keepAliveTime才会被回收，corePoolSize的线程不会被回收。
       
-##### unit
->keepAliveTime的时间单位
+4. unit: KeepAliveTime的时间单位
   
-##### workQueue
->当线程池中的线程达到了corePoolSize的线程数量，
->并仍然有新任务，那么新任务就会被放入workQueue。          
+5. workQueue: 当线程池中的线程达到了corePoolSize的线程数量，
+并仍然有新任务，那么新任务就会被放入workQueue。          
 
-##### threadFactory
->创建工作线程的工厂,也就是如何创建线程的,一般采用默认的
+6. threadFactory: 创建工作线程的工厂,也就是如何创建线程的,一般采用默认的
 
-##### handler
->拒绝策略，当线程池中的工作线程达到了最大数量，
->并且阻塞队列也已经满了，那么拒绝策略会决定如何处理新的任务。
->ThreadPoolExecutor 提供了四种策略:
+7. handler: 拒绝策略，当线程池中的工作线程达到了最大数量，
+并且阻塞队列也已经满了，那么拒绝策略会决定如何处理新的任务。ThreadPoolExecutor 提供了四种策略:
 
-1.AbortPolicy(是线程池的默认拒绝策略): 
->如果使用此拒绝策略，那么将对新的任务抛出RejectedExecutionException异常，来拒绝任务。
+   - AbortPolicy(是线程池的默认拒绝策略): 如果使用此拒绝策略，那么将对新的任务抛出RejectedExecutionException异常，来拒绝任务。
+   
+   - DiscardPolicy: 如果使用此策略，那么会拒绝执行新的任务，但不会抛出异常。
 
-2.DiscardPolicy:
->如果使用此策略，那么会拒绝执行新的任务，但不会抛出异常。
+   - DiscardOldestPolicy: 如果使用此策略，那么不会拒绝新的任务，但会抛弃阻塞队列中等待最久的那个线程。     
 
-3.DiscardOldestPolicy:
->如果使用此策略，那么不会拒绝新的任务，
->但会抛弃阻塞队列中等待最久的那个线程。     
-
-4.CallerRunsPolicy: 
->如果使用此策略，不会拒绝新的任务，但会让调用者执行线程。
->也就是说哪个线程发出的任务，哪个线程执行。
-
+   - CallerRunsPolicy: 如果使用此策略，不会拒绝新的任务，但会让调用者执行线程。
+     也就是说哪个线程发出的任务，哪个线程执行。
 
  
-##### 阿里巴巴开发者手册不建议开发者使用Executors创建线程池
+#### 阿里巴巴开发者手册不建议开发者使用Executors创建线程池
 >newFixedThreadPool和newSIngleThreadPoolExecutor都是创建固定线程的线程池,
 >尽管它们的线程数是固定的，但是它们的阻塞队列的长度却是Integer.MAX_VALUE的,所以，
 >队列的任务很可能过多，导致OOM。
@@ -734,14 +882,15 @@ CycliBarrier的功能与CountDownLatch相似，但是CountDownLatch的实现是�
 >HashMap在我当前的版本(11)的默认容量为0.
 >在第一次添加元素的时候才初始化容量为 16,
 >之后才扩容为原来的2倍.
->HashMap的扩容是根据 threshold决定的,threshold = loadfactory * capacity, 
->当 size 大于 threshold 时,扩容。
->
->当每个桶的元素数量达到默认的阈值TREEIFY_THRESHOLD(8)时,
->那么这个桶的链表将会转为红黑树,
->当红黑树节点的数量低于默认的阈值UNTREEIFY_THRSHOLD(6)时，
->那么这个桶的红黑树将转为链表
->
+
+**HashMap的扩容是根据 threshold决定的,threshold = loadfactory * capacity, 
+当 size 大于 threshold 时,扩容。**
+
+**当每个桶的元素数量达到默认的阈值TREEIFY_THRESHOLD(8)时,
+那么这个桶的链表将会转为红黑树,
+当红黑树节点的数量低于默认的阈值UNTREEIFY_THRSHOLD(6)时，
+那么这个桶的红黑树将转为链表**
+
 >HashMap的长度为什么要设计成2的幂？
 >这就不得不佩服大师们的设计。
 >
@@ -751,19 +900,21 @@ CycliBarrier的功能与CountDownLatch相似，但是CountDownLatch的实现是�
 >这样就能确保，key的下标是永远不会超过数组的长度的。
 >但是想想，除了取余有没有更好的办法，
 >当然有:
->
->hash % length == hash & (length - 1)
->
+
+**hash % length == hash & (length - 1)**
+
 >为什么上面这个性能超高的等式成立，当然是有条件的，
->只当length为2的幂的时候这样的等式才成立.
->这就明白了为什么使用2的幂来定义HashMap的长度.
+
+**只有当length为2的幂的时候这样的等式才成立.
+这就明白了为什么使用2的幂来定义HashMap的长度。**
 
 #### HashTable
->HashTable就像Vector一样,也是jdk1就存在的很古老的一个类，它是线程安全的，实现线程安全的手段是使用synchronized，HashTable的默认容量为16，每次扩容为原来的2倍+1.
+>HashTable就像Vector一样,也是jdk1就存在的很古老的一个类，它是线程安全的，
+>实现线程安全的手段是使用synchronized，HashTable的默认容量为16，每次扩容为原来的2倍+1.
 >HashTable底层使用拉链法实现.
 >
 >HashTable不允许null key 和 null value
->
+
 #### TreeMap
 
 >红黑树实现,不允许null key,允许自然排序Comparable和比较器Comparator 
@@ -865,10 +1016,10 @@ add操作的时候才会初始化容量为10
 >但是控制并发的方法改为了CAS+synchronized
 >synchronized锁的只是链表的首节点或红黑树的首节点,
 
-PS:我承认我只看了常用的put,get,remove等方法的源码.
+**PS:我承认我只看了常用的put,get,remove等核心方法的源码.
 整个ConcurrentHashMap的实现用"复杂"来形容一点也不为过,
 你只要想到它内部有52个内部类就知道有多复杂了,但如果不考虑并发CAS这部分，
-ConcurrentHashMap和普通的HashMap的差别是不大的。
+ConcurrentHashMap和普通的HashMap的差别是不大的。**
 
 #### ConcurrentSkipListMap
 >ConcurrentSkipListMap是基于跳表这种数据结构实现的。
@@ -876,20 +1027,20 @@ ConcurrentHashMap和普通的HashMap的差别是不大的。
 >每层链表的元素也都是有序的。处于上层索引的链表都是下层链表的子集。
 >跳表与普通链表相比查找元素的效率更高。
 
-![跳表](../img/跳表.png)
+![跳表](../img/jdk_jvm_juc/跳表.png)
 
 ---
 ---
 
 ### Java IO
 
-IO图源:
-[简书](https://www.jianshu.com/p/85e931636f27) (如有侵权,请联系俺,俺会立刻删除)
+**IO图源:
+[简书](https://www.jianshu.com/p/85e931636f27) (如有侵权,请联系俺,俺会立刻删除)**
 
 #### 操作系统的用户态与内核态
 unix与linux的体系架构：分为用户态与内核态.
 
-![用户态与内核态](../img/用户态与内核态.png)
+![用户态与内核态](../img/jdk_jvm_juc/用户态与内核态.png)
 
 
 ```text
@@ -935,14 +1086,14 @@ unix与linux的体系架构：分为用户态与内核态.
 2. 非阻塞: 一个线程调用一个方法计算 1 - 100的和，如果该方法没有返回，调用者线程也无需一直等待该方法返回，
 可以执行其他任务，但是线程仍然需要不断检查方法是否返回。
 
-##### 结论: 阻塞与非阻塞针对调用者的立场而言。
+**结论: 阻塞与非阻塞针对调用者的立场而言。**
 
 #### 同步与异步
 1. 同步: 一个线程调用一个方法计算 1 - 100 的和，如果方法没有计算完，就不返回。
 2. 异步: 一个线程调用一个方法计算 1 - 100 的和，该方法立刻返回，但是由于方法没有返回结果，所以就需要被调用的这个
 方法来通知调用线程 1 - 100的结果，或者线程在调用方法的时候指定一个回调函数来告诉被调用的方法执行完后就执行回调函数。
 
-##### 结论:同步和异步是针对被调用方的立场而言的。
+**结论:同步和异步是针对被调用方的立场而言的。**
 
 ### Linux IO模型
 
@@ -960,8 +1111,7 @@ unix与linux的体系架构：分为用户态与内核态.
 >那么用户应用进程(线程)就阻塞，直到内核准备好数据并把数据从
 >内核复制到用户应用进程，最后应用程序再处理数据。
 
-![BIO原理](../img/BIO原理.png)
-
+![BIO原理](../img/jdk_jvm_juc/BIO原理.png)
 
 阻塞IO是同步阻塞的
 
@@ -991,7 +1141,7 @@ unix与linux的体系架构：分为用户态与内核态.
 >这个过程就叫轮询。轮询直到内核准备好数据，然后内核把数据拷贝到用户应用进程，
 >再进行数据处理。
 
-![NIO原理](../img/NIO原理.png)
+![NIO原理](../img/jdk_jvm_juc/NIO原理.png)
 
 >非阻塞IO的非阻塞体现在用户应用进程不用阻塞在对内核的系统调用上
 
@@ -1009,7 +1159,7 @@ unix与linux的体系架构：分为用户态与内核态.
 >当select/poll/epoll函数返回后，即某个socket有数据了，用户应用进程就会
 >发起系统调用，将数据从内核态拷贝到用户应用进程内，然后进行数据处理。
 
-![多路复用IO原理](../img/多路复用IO原理.png)
+![多路复用IO原理](../img/jdk_jvm_juc/多路复用IO原理.png)
 
 
 多路复用IO模型是同步阻塞的
@@ -1026,16 +1176,15 @@ unix与linux的体系架构：分为用户态与内核态.
 而非阻塞IO和阻塞IO的一个用户应用进程只能处理一个socket，
 要想处理多socket，只能新开进程或线程，但这样很消耗系统资源。
 
-<u>PS: 
+**PS: 
 在多路复用IO模型中, socket一般应该为非阻塞的，
 这就是Java中NIO被称为非阻塞IO的原因。
-具体原因见 [知乎讨论](https://www.zhihu.com/question/37271342)</u>
+具体原因见 [知乎讨论](https://www.zhihu.com/question/37271342)**
 
 
-<u>PS:
+**PS:
 select/poll/epoll函数是多路复用IO模型的基础，所以如果想
-深入了解多路复用IO模型，就需要了解这3个函数以及它们的优缺点
-。</u>
+深入了解多路复用IO模型，就需要了解这3个函数以及它们的优缺点。**
 
 #### 信号驱动IO(网络IO模型)
 
@@ -1044,7 +1193,7 @@ select/poll/epoll函数是多路复用IO模型的基础，所以如果想
 >发送SIGIO信号，应用进程收到信号后，发起系统调用，
 >将数据从内核拷贝到用户进程，然后进行数据处理。
 
-![信号驱动IO原理](../img/信号驱动IO原理.png)
+![信号驱动IO原理](../img/jdk_jvm_juc/信号驱动IO原理.png)
 
 个人感觉在内核收到信号就立刻返回这一点很像异步IO的方式了，不过
 与异步IO仍有很大差别。
@@ -1054,7 +1203,7 @@ select/poll/epoll函数是多路复用IO模型的基础，所以如果想
 >都会立即返回。用户应用进程不会阻塞,可以继续执行其他任务。当内核准备好数据,
 >会直接把数据复制到用户应用进程。最后内核会通知用户应用进程IO完成。
 
-![异步IO原理](../img/异步IO原理.png)
+![异步IO原理](../img/jdk_jvm_juc/异步IO原理.png)
 
 异步IO的异步体现在:
 >内核不用等待数据准备好就立刻返回，
@@ -1073,9 +1222,9 @@ Java中的IO模型，也只是换汤不换药。
 本来打算写Java中的IO模型的，发现上面几乎讲完了(剩API使用吧)，
 没啥要写的，所以暂时就这样吧。
 
-<u>PS:
+**PS:
 当然，我此处写的IO模型均是借鉴于网上的资料，如有错误，
-请各位同学指出。</u>
+请各位同学指出。**
 
 ---
 ---
@@ -1091,13 +1240,13 @@ Java中的IO模型，也只是换汤不换药。
 
 >线程共享部分有: GC堆,永久代(是方法区的一种实现)。
 
-![jdk8之前的jvm内存分区](../img/jdk8之前的JVM内存分区.png)
+![jdk8之前的jvm内存分区](../img/jdk_jvm_juc/jdk8之前的JVM内存分区.png)
 
 * JDK8之后:
 >线程私有的部分不变, 线程共享部分的永久代改为了元空间(MetaSpace)
 >(永久代和元空间都是方法区的实现),运行时常量池也移动到了 heap空间
     
-![jdk8之后的jvm内存分区](../img/jdk8之后的jvm内存分区.png)     
+![jdk8之后的jvm内存分区](../img/jdk_jvm_juc/jdk8之后的jvm内存分区.png)     
     
 #### 程序计数器
 >程序计数器是一块较小的内存空间，
@@ -1110,7 +1259,7 @@ Java中的IO模型，也只是换汤不换药。
 >以便下次切换回当前线程时，能够继续执行字节码指令，
 >所以每个线程都需要有自己的程序计数器。
 
-##### 程序计数器的特点
+#### 程序计数器的特点
 1. 如果当前线程执行的是java方法，那么程序计数器记录的是字节码指令的地址。
 2. 如果当前线程执行的native方法，那么程序计数器记录的值为空(undefined)。
 3. 程序计数器这部分内存区域是JVM中唯一不会出现OOM错误的区域
@@ -1122,13 +1271,13 @@ Java中的IO模型，也只是换汤不换药。
 红框里的就是字节码的偏移地址:
 ```
 
-![JVM程序计数器](../img/JVM程序计数器.png)
+![JVM程序计数器](../img/jdk_jvm_juc/JVM程序计数器.png)
       
 #### Java虚拟机栈
 >Java虚拟机栈与程序计数器一样，
 >都是线程私有的部分，生命周期也跟线程一样。
 
-<u>Java虚拟机栈描述的是Java方法运行时的内存模型，它由一个一个的栈帧组成。</u>
+**Java虚拟机栈描述的是Java方法运行时的内存模型，它由一个一个的栈帧组成。**
 
 #### 栈帧
 
@@ -1138,7 +1287,7 @@ Java中的IO模型，也只是换汤不换药。
 >就对应着栈帧的入栈和出栈的过程。
 
 Java虚拟机栈:
-![Java虚拟机栈](../img/Java虚拟机栈.png)
+![Java虚拟机栈](../img/jdk_jvm_juc/Java虚拟机栈.png)
     
            
 #### 局部变量表
@@ -1158,7 +1307,7 @@ Java虚拟机栈:
 
 使用java -c -v -l 反编译class文件后可以得到的字节码指令如下:
 
-![局部变量表](../img/局部变量表.png)
+![局部变量表](../img/jdk_jvm_juc/局部变量表.png)
 
 #### 动态连接
 ````text
@@ -1173,7 +1322,7 @@ Java虚拟机栈:
 >指向目标的指针，可以简单理解为目标的内存地址(如指向类的字段的内存地址)。
 
 Class文件常量池如下(javap -c -v -l 反编译class文件后的字节码):
-![Class文件常量池](../img/Class文件常量池.png)
+![Class文件常量池](../img/jdk_jvm_juc/Class文件常量池.png)
 
 >在虚拟机栈中，每个栈帧都包含了一个该栈帧所属方法的符号引用，
 >持有这个符号引用的目的是为了支持方法调用过程中的动态连接。
@@ -1192,8 +1341,8 @@ Class文件常量池如下(javap -c -v -l 反编译class文件后的字节码):
 >在方法执行过程中遇到了异常，并且方法内部没有处理这个异常，就会导致方法退出。
 >方法异常退出时，返回地址需要通过异常处理器表来确定的，栈帧中不会保存这部分值。
 
-<u>无论何种退出方式，在方法退出后，都需要回到方法被调用的位置，
-程序才能继续执行。</u>
+**无论何种退出方式，在方法退出后，都需要回到方法被调用的位置，
+程序才能继续执行。**
 
 #### 本地方法栈
 >本地方法栈与虚拟机栈的作用是相似的，
@@ -1224,18 +1373,21 @@ Class文件常量池如下(javap -c -v -l 反编译class文件后的字节码):
 >发生在新生代的GC叫做Young GC或Minor GC,
 >发生在老年代的GC叫做Old GC或Major GC
 
-<u>PS:
+
+堆:
+![堆内存分区](../img/jdk_jvm_juc/堆内存分区.png)
+
+**PS:
 FromSurvivor和ToSurvivor这两块内存空间并不是固定的，
-在进行GC的时候，这两块内存会轮流替换使用。这部分内容参考GC部分。</u>
+在进行GC的时候，这两块内存会轮流替换使用。这部分内容参考GC部分。**
 
 
-<u>PS:
+**PS:
 有的文章说 Full GC与Major GC一样是属于对老年代的GC，
 也有的文章说 Full GC 是对整个堆区的GC，所以这点需要各位同学自行
 分辨Full GC语义。
-见: [知乎讨论](https://www.zhihu.com/question/41922036)</u>
+见: [知乎讨论](https://www.zhihu.com/question/41922036)**
 
-![堆内存分区](../img/堆内存分区.png)
 
 #### 方法区
 
@@ -1248,12 +1400,13 @@ FromSurvivor和ToSurvivor这两块内存空间并不是固定的，
 >元空间使用的是本地内存，所以元空间仅受本地物理内存的限制。
 >元空间存储着已被加载的类的方法描述，字段描述，运行时常量池等信息。
 
-<u>字符串常量池在jdk7已经从永久代转移到了堆内存之中。</u>
+**字符串常量池在jdk7已经从永久代转移到了堆内存之中。**
 
-<u>方法区在逻辑上是属于堆区的。
+**方法区在逻辑上是属于堆区的。
 在jdk8之前，堆区在GC时会回收永久代。
 但jdk8之后的元空间归属于物理内存，
-存储的都是常量，几乎不可能发生GC。
+存储的都是常量，几乎不可能发生GC。**
+
 **无论是永久代还是元空间，都有可能发生OOM。**</u>
 
 ### JavaVirtualMachineError
@@ -1289,22 +1442,22 @@ FromSurvivor和ToSurvivor这两块内存空间并不是固定的，
 * Metaspace
 >当加载到元空间中的类的信息太多，就有可能导致 OOM : Metaspace。
 
-<u>PS:
+**PS:
 使用cglib的库，可以动态生成class，
-所以可以使用cglib测试此错误(Metaspace)</u>
+所以可以使用cglib测试此错误(Metaspace)**
 
 ---
 
-#### 简单了解类文件结构
+### 简单了解类文件结构
 
 Class文件结构如下:
 
-![Class文件结构1](../img/Class文件结构1.png)
+![Class文件结构1](../img/jdk_jvm_juc/Class文件结构1.png)
 
 使用vim -b filename 以二进制模式编辑class文件，
 然后输入 **:%!xxd** 即可查看十六进制的Class文件,如下:
 
-![Class文件结构2](../img/Class文件结构2.png)
+![Class文件结构2](../img/jdk_jvm_juc/Class文件结构2.png)
 
 当然，最直观的方法是对 class 文件使用 javap -c -v -l命令进行详细查看。
 
@@ -1315,7 +1468,7 @@ Class文件结构如下:
 >而是需要将class文件加载到内存，并经过连接和初始化这几个阶段
 >后才能使用。在使用完类后，需要将类卸载掉。
 
-![类的生命周期](../img/类的生命周期.png)
+![类的生命周期](../img/jdk_jvm_juc/类的生命周期.png)
 
 #### 类加载过程
 
@@ -1338,11 +1491,10 @@ Class文件结构如下:
 * 通过网络读取类的字节流。
 * 通过动态生成字节码的技术(如使用动态代理，cglib)来生成class。
 
-**PS:
-数组由数组元素的类型的类加载器在java程序运行时加载，这是ClassLoader类的部分注释:**
-![ClassLoader部分注释](../img/ClassLoader部分注释.png)
+**PS:数组由数组元素的类型的类加载器在java程序运行时加载，这是ClassLoader类的部分注释:**
+![ClassLoader部分注释](../img/jdk_jvm_juc/ClassLoader部分注释.png)
 
-见: [测试](https://github.com/guang19/framework-learning/blob/master/jdk_jvm_juc-learning/src/main/java/com/github/guang19/jvm/classloader/ArrayClassLoaderTest.java)
+**见: [测试](https://github.com/guang19/framework-learning/blob/master/jdk_jvm_juc-learning/src/main/java/com/github/guang19/jvm/classloader/ArrayClassLoaderTest.java)**
 
 
 #### 连接
@@ -1373,7 +1525,8 @@ Class文件结构如下:
 
 #### **初始化**
 >初始化阶段是类加载过程的最后一个阶段。在这个阶段，
-<u>只有主动使用类才会初始化类，总共有8种情况会涉及到主动使用类。</u>
+
+**只有主动使用类才会初始化类，总共有8种情况会涉及到主动使用类。**
 
 1. 当jvm执行new指令时会初始化类。即当程序创建一个类的实例对象。
 2. 当jvm执行getstatic指令时会初始化类。即程序访问类的静态变量(不是静态常量，常量归属于运行时常量池)。
@@ -1385,7 +1538,7 @@ Class文件结构如下:
 8. MethodHandle和VarHandle可以看作是轻量级的反射调用机制，而要想使用这2个调用，
 就必须先使用findStatic/findStaticVarHandle来初始化要调用的类。
 
-PS:见:[测试](https://github.com/guang19/framework-learning/blob/master/jdk_jvm_juc-learning/src/main/java/com/github/guang19/jvm/classloader/LoadClass.java)
+**PS:见:[测试](https://github.com/guang19/framework-learning/blob/master/jdk_jvm_juc-learning/src/main/java/com/github/guang19/jvm/classloader/LoadClass.java)**
 
 
 #### 使用
@@ -1407,9 +1560,9 @@ PS:见:[测试](https://github.com/guang19/framework-learning/blob/master/jdk_jv
 >更是不能被获取到。而我们自定义的类加载器的实例是可以被GC掉的，
 >所以被我们自定义类加载器加载的类是可以被GC掉的。
 
-![类卸载](../img/类卸载.png)
+![类卸载](../img/jdk_jvm_juc/类卸载.png)
 
-<u>PS:使用-XX:+TraceClassUnloading 或 -Xlog:class+unload=info可以打印类卸载的信息。</u>
+**PS:使用-XX:+TraceClassUnloading 或 -Xlog:class+unload=info可以打印类卸载的信息。**
 
 #### Java中类加载器有多少个
 1. BootstrapClassLoader(用于加载Java基础核心类库。由c/c++编写，Java获取不到)。
@@ -1424,7 +1577,7 @@ PS:见:[测试](https://github.com/guang19/framework-learning/blob/master/jdk_jv
 >在同一个命名空间中，不会出现全限定名(包括包名)相同的2个类
 >在不同的命名空间中，可能会出现全限定名(包括包名)相同的2个类
 
-PS:见:[测试](https://github.com/guang19/framework-learning/blob/master/jdk_jvm_juc-learning/src/main/java/com/github/guang19/jvm/classloader/MyClassLoader.java)
+**PS:见:[测试](https://github.com/guang19/framework-learning/blob/master/jdk_jvm_juc-learning/src/main/java/com/github/guang19/jvm/classloader/MyClassLoader.java)**
 
 #### 双亲委派机制
 
@@ -1454,7 +1607,7 @@ PS:见:[测试](https://github.com/guang19/framework-learning/blob/master/jdk_jv
 可以看出:在加载一个类时，是由下自上判断类是否被加载的。如果类没有被加载，
 就由上自下尝试加载类。
 
-![双亲委派机制](../img/双亲委派机制.png)
+![双亲委派机制](../img/jdk_jvm_juc/双亲委派机制.png)
 
 ---
 
@@ -1480,7 +1633,7 @@ Jvm常量池分为:
 2. 符号引用
 符号引用包括三种：类的全限定名，方法名和描述符，字段名和描述符。
 
-![Class文件常量池](../img/Class文件常量池.png)
+![Class文件常量池](../img/jdk_jvm_juc/Class文件常量池.png)
 
 #### 运行时常量池
 >运行是常量池是在类加载阶段，将class二进制数据加载到内存，
@@ -1499,8 +1652,8 @@ Jvm常量池分为:
 >拥有包装类型缓存池的类有:Integer,Byte,Character,Long,Short，
 >而Float，Double，Boolean都不具有缓存池。
 
-<u>包装类的缓存池缓存的范围基本都为: -128 - 127之间，
-Character的缓存范围为 0 - 127。</u>
+**包装类的缓存池缓存的范围基本都为: -128 - 127之间，
+Character的缓存范围为 0 - 127。**
 
 ---
     
@@ -1515,9 +1668,9 @@ Character的缓存范围为 0 - 127。</u>
 >对象的引用计数器就加1,当引用失效时,引用计数器就减1,
 >直到引用计数器为0,就代表对象不再被引用。
 
-<u>引用计数的主要缺陷是很难解决循环引用的问题:
+**引用计数的主要缺陷是很难解决循环引用的问题:
 也就是当2个对象互相引用的时候,除了彼此,
-没有其他地方引用这2个对象,那么他们的引用计数都为1,就无法被回收。 </u>
+没有其他地方引用这2个对象,那么他们的引用计数都为1,就无法被回收。**
 
 * 可达性算法:
 >通过GC ROOT的对象节点往下搜索,
@@ -1533,7 +1686,7 @@ Character的缓存范围为 0 - 127。</u>
 2. 方法区中类的静态属性引用的对象(static)
 3. 方法区中的常量引用的对象(final)   
 
-![可达性算法](../img/可达性算法.png)      
+![可达性算法](../img/jdk_jvm_juc/可达性算法.png)      
         
 ### 垃圾回收算法
 常见的垃圾回收算法主要有以下4种:
@@ -1556,7 +1709,7 @@ Character的缓存范围为 0 - 127。</u>
 >存活的对象较少。
 >所以采用复制算法效率更高，复制时只需要复制少量存活的对象。
          
-![复制算法](../img/复制算法.png)         
+![复制算法](../img/jdk_jvm_juc/复制算法.png)         
          
 #### 标记-清除算法(Mark-Sweep)
 >标记-清除算法分为2个步骤：标记和清除。
@@ -1577,7 +1730,7 @@ Character的缓存范围为 0 - 127。</u>
 >所以标记-清除和标记-整理算法GC的时间不会太长，
 >GC的对象相比新生代更少。
 
-![标记-清除算法](../img/标记-清除算法.png)
+![标记-清除算法](../img/jdk_jvm_juc/标记-清除算法.png)
       
 #### 标记-整理算法(Mark-Compact)
 >标记-整理算法是对标记-清除算法的一种改进。
@@ -1593,7 +1746,7 @@ Character的缓存范围为 0 - 127。</u>
 
 标记-整理算法和标记-清除算法一样，一般用于老年代。        
          
-![标记-整理算法](../img/标记-整理算法.png)         
+![标记-整理算法](../img/jdk_jvm_juc/标记-整理算法.png)         
          
 #### 分代收集算法
 >分代收集算法并不是指某一种具体的垃圾收集算法，
@@ -1634,9 +1787,9 @@ JVM发起Minor GC。Minor GC的范围包括eden和From Survivor。
 >
 >同时可以明白,老年代中的对象很多都是不易被回收的对象。
 
-<u>老年代的空间比新生代的空间要大，
+**老年代的空间比新生代的空间要大，
 所以老年代的Major GC要比Minor GC耗时更长。
-根据垃圾回收器的不同，老年代的GC算法也不同。</u>
+根据垃圾回收器的不同，老年代的GC算法也不同。**
 
 #### 动态年龄阈值
 >JVM并不要求对象年龄一定要达到 MaxTenuringThreshold 才会
@@ -1652,7 +1805,7 @@ JVM发起Minor GC。Minor GC的范围包括eden和From Survivor。
 
 垃圾回收器主要分为以下几种收集器:
 
-![垃圾回收器分类](../img/垃圾回收器分类.png)
+![垃圾回收器分类](../img/jdk_jvm_juc/垃圾回收器分类.png)
 
    
 #### Serial 串行收集器
@@ -1661,14 +1814,14 @@ JVM发起Minor GC。Minor GC的范围包括eden和From Survivor。
 >
 >Serial收集器在单线程环境中是很高效的,它没有多线程切换的消耗。     
 
-<u>Serial收集器采用复制算法</u>
+**Serial收集器采用复制算法**
 
-<u>**PS:目前只有Serial和ParNew能作为CMS收集器的新生代收集器。**</u>
+**PS:目前只有Serial和ParNew能作为CMS收集器的新生代收集器。**
        
 ####  Serial Old 串行收集器(老年代版本)
 >它是 Serial收集器的老年代使用的GC收集器，同样是一个单线程的垃圾收集器。 
 
-<u>Serial Old收集器采用的是标记-整理算法。</u>
+**Serial Old收集器采用的是标记-整理算法。**
    
 ````text
    
@@ -1701,12 +1854,13 @@ JVM发起Minor GC。Minor GC的范围包括eden和From Survivor。
 吞吐量 = 应用程序代码运行时间 / (应用程序代码运行时间 + GC时间)
 ```
 
-<u>Parallel Scavenge收集器采用复制算法</u>
-    
+**Parallel Scavenge收集器采用复制算法**
+
+   
 #### Parallel Old 并行收集器(老年代版本)
 >它是 Parallel Scavenge 的老年代版本,同样是一个并行多线程的收集器。
 
-<u>Parallel Old收集器采用标记-整理算法。</u>       
+**Parallel Old收集器采用标记-整理算法。**
   
 ````text
     /**
@@ -1731,9 +1885,9 @@ JVM发起Minor GC。Minor GC的范围包括eden和From Survivor。
 >它可以看做是多线程版的Serial收集器。
 >除了多线程外，ParNew收集器与Serial收集器几乎没啥区别。
 
-<u>**PS:目前只有Serial和ParNew能作为CMS收集器的新生代收集器。**</u>
+**PS:目前只有Serial和ParNew能作为CMS收集器的新生代收集器。**
          
-<u>ParNew收集器采用复制算法</u>
+**ParNew收集器采用复制算法**
 
 ````text
      /**
@@ -1748,13 +1902,12 @@ JVM发起Minor GC。Minor GC的范围包括eden和From Survivor。
 >Concurrent Mark Sweep,并发标记-清除垃圾回收器。
 >它是一款老年代的收集器，是以达到最短回收停顿时间目标的收集器。
 
-<u>见名知意,CMS收集器使用的是标记-清除回收算法。
-   CMS在垃圾回收过程中，用户线程可以同时工作，无需暂停。
-</u>
+**见名知意,CMS收集器使用的是标记-清除回收算法。
+   CMS在垃圾回收过程中，用户线程可以同时工作，无需暂停。**
 
-<u>因为CMS收集器采用的是标记-清除算法，所以回收时可能会产生不连续的内存碎片。</u>
+**因为CMS收集器采用的是标记-清除算法，所以回收时可能会产生不连续的内存碎片。**
 
-##### CMS回收内存主要分为以下阶段:
+#### CMS回收内存主要分为以下阶段:
 * 初始标记(Stop The World，此阶段会暂停用户线程)
 >只是标记与GC ROOT直接关联的对象。
 
@@ -1801,7 +1954,7 @@ JVM发起Minor GC。Minor GC的范围包括eden和From Survivor。
 >G1收集器无需配合其他收集器就可以管理整个堆内存。
 >jdk9开始，G1成为jdk默认使用的垃圾回收器
 
-##### G1回收器的主要特点有:
+#### G1回收器的主要特点有:
 * 并行和并发
 >G1能够充分利用多核cpu的优势，使垃圾回收与用户线程同时运行。
 
@@ -1818,9 +1971,9 @@ JVM发起Minor GC。Minor GC的范围包括eden和From Survivor。
 >在这些Region中，Region的类型也不同，有eden，survivor，old，humongous之分。
 >当有大对象时，对象会被分配到Humongous Region之中。
 
-![G1收集器Region](../img/G1收集器Region.png)
+![G1收集器Region](../img/jdk_jvm_juc/G1收集器Region.png)
 
-##### G1收集器回收内存主要分为以下阶段
+#### G1收集器回收内存主要分为以下阶段
 ````text
 G1收集器与CMS收集器的回收过程相似
 ````
@@ -1862,6 +2015,8 @@ G1收集器与CMS收集器的回收过程相似
      *
      */
 ```` 
+
+---
 
 ### JVM常用参数
 
