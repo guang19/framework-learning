@@ -51,15 +51,17 @@ Spring框架常见知识点一览:
 
 #### [Mybatis](https://github.com/guang19/framework-learning/blob/dev/mybatis-learning/Mybatis.md)(更新中)
 
-#### [数据结构与算法](https://github.com/guang19/framework-learning/blob/dev/dataStructureandAlhorithm/dataStructureandAlhorithm.md)(更新中)
+---
+
+#### [数据结构与算法](https://github.com/guang19/framework-learning/blob/dev/datastructure_algorithm/DataStructure&Algorithm.md)(更新中)
 
 #### 推荐一个数据结构与算法的可视化网站，应该能够帮到正在学习数据结构与算法的同学: [数据结构与算法可视化](https://www.cs.usfca.edu/~galles/visualization/Algorithms.html)
+
+---
 
 #### [Tomcat](https://github.com/guang19/framework-learning/blob/dev/tomcat-9.0.30-source/Tomcat.md)(待纠正)
 
 #### [RabbitMQ](https://github.com/guang19/framework-learning/blob/dev/rabbitmq-learning/RabbitMQ.md)(更新中)
-
-#### [Zookeeper](https://github.com/guang19/framework-learning/blob/dev/zookeeper-learning/Zookeeper.md)(待纠正)
 
 #### [Zookeeper](https://github.com/guang19/framework-learning/blob/dev/zookeeper-learning/Zookeeper.md)(待纠正)
 
@@ -69,4 +71,3 @@ Spring框架常见知识点一览:
 
 #### [DesignPattern](https://github.com/guang19/framework-learning/blob/dev/design-pattern/DesignPattern.md)(更新中)
 
-#### [DesignPattern](https://github.com/guang19/framework-learning/blob/dev/design-pattern/DesignPattern.md)(更新中)

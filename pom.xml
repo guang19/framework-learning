@@ -30,7 +30,7 @@
         <module>design-pattern</module>
         <module>database-learning</module>
         <module>computer-network</module>
-    <module>dataStructureandAlgorithm</module>
+        <module>datastructure_algorithm</module>
     </modules>
 
     <properties>
@@ -118,6 +118,11 @@
             <dependency>
                 <groupId>com.github.guang19</groupId>
                 <artifactId>computer-network</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.guang19</groupId>
+                <artifactId>datastructure_algorithm</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
