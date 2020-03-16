@@ -7,9 +7,9 @@
         <artifactId>framework-learning</artifactId>
         <groupId>com.github.guang19</groupId>
         <version>1.0.0</version>
-        <relativePath>../pom.xml</relativePath>
     </parent>
-    <version>1.0.0</version>
+
+    <!--rabbitmq知识点-->
     <artifactId>rabbitmq-learning</artifactId>
     <name>rabbitmq-learning</name>
 

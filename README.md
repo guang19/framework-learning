@@ -21,7 +21,7 @@ Jdk&Jvm&Juc常见知识点一览:
 
 #### [Jdk&Jvm&Juc](https://github.com/guang19/framework-learning/blob/dev/jdk_jvm_juc-learning/Jdk&Jvm&Juc.md)(暂完)
 
-#### [Jdk&Jvm&JUC - XMind](https://github.com/guang19/framework-learning/blob/dev/xmind_file/Java知识梳理之JDK&JVM&JUC.xmind)
+#### [Java知识梳理之JDK&JVM&JUC - XMind](https://github.com/guang19/framework-learning/blob/dev/xmind_file/Java知识梳理之JDK&JVM&JUC.xmind)
 
 ---
 
@@ -31,7 +31,7 @@ Jdk&Jvm&Juc常见知识点一览:
 
 #### [计算机网络常见知识点](https://github.com/guang19/framework-learning/blob/dev/computer-network/Computer-Network.md)(暂完)
 
-#### [计算机网络常见知识点 - XMind](https://github.com/guang19/framework-learning/blob/dev/xmind_file/Java知识梳理之计算机网络.xmind)
+#### [Java知识梳理之计算机网络 - XMind](https://github.com/guang19/framework-learning/blob/dev/xmind_file/Java知识梳理之计算机网络.xmind)
 
 ---
 
@@ -43,11 +43,19 @@ Spring框架常见知识点一览:
 
 #### [SpringMVC常见知识点和源码分析](https://github.com/guang19/framework-learning/blob/dev/springmvc-learning/SpringMVC.md)(暂完)
 
-#### [Spring常见知识点 - XMind](https://github.com/guang19/framework-learning/blob/dev/xmind_file/Java知识梳理之Spring.xmind)
+#### [Java知识梳理之Spring - XMind](https://github.com/guang19/framework-learning/blob/dev/xmind_file/Java知识梳理之Spring.xmind)
 
 ---
 
-#### [数据库常见知识点](https://github.com/guang19/framework-learning/blob/dev/database-learning/Database.md)(更新中)
+关系型数据库常见知识点一览:
+
+![Java知识梳理之关系型数据库](img/Java知识梳理之关系型数据库截图.png)
+
+#### [关系型数据库常见知识点](https://github.com/guang19/framework-learning/blob/dev/rdbms-learning/RDBMS.md)(暂完)
+
+#### [Java知识梳理之关系型数据库 - XMind](https://github.com/guang19/framework-learning/blob/dev/xmind_file/Java知识梳理之关系型数据库.xmind)
+
+---
 
 #### [Mybatis](https://github.com/guang19/framework-learning/blob/dev/mybatis-learning/Mybatis.md)(更新中)
 
@@ -55,7 +63,7 @@ Spring框架常见知识点一览:
 
 #### [数据结构与算法](https://github.com/guang19/framework-learning/blob/dev/datastructure_algorithm/DataStructure&Algorithm.md)(更新中)
 
-#### 推荐一个数据结构与算法的可视化网站，应该能够帮到正在学习数据结构与算法的同学: [数据结构与算法可视化](https://www.cs.usfca.edu/~galles/visualization/Algorithms.html)
+#### 推荐一个数据结构与算法的可视化网站，希望能够帮到正在学习数据结构与算法的同学: [数据结构与算法可视化](https://www.cs.usfca.edu/~galles/visualization/Algorithms.html)
 
 ---
 

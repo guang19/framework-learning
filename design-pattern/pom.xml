@@ -9,6 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <!--设计模式-->
     <artifactId>design-pattern</artifactId>
 
 

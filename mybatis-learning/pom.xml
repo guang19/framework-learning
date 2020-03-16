@@ -11,6 +11,7 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
+    <!--mybatis-->
     <artifactId>mybatis-learning</artifactId>
     <version>1.0.0</version>
 

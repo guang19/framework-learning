@@ -9,6 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <!--jdk,jvm,juc知识点-->
     <artifactId>jdk_jvm_juc-learning</artifactId>
 
     <dependencies>

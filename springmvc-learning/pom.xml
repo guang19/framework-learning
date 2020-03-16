@@ -8,6 +8,7 @@
         <artifactId>framework-learning</artifactId>
         <version>1.0.0</version>
     </parent>
+    <!--spring mvc 知识点-->
     <artifactId>springmvc-learning</artifactId>
 
     <dependencies>

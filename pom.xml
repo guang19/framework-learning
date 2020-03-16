@@ -28,7 +28,7 @@
         <module>swagger-learning</module>
         <module>elasticsearch-learning</module>
         <module>design-pattern</module>
-        <module>database-learning</module>
+        <module>rdbms-learning</module>
         <module>computer-network</module>
         <module>datastructure_algorithm</module>
     </modules>
@@ -112,7 +112,7 @@
             </dependency>
             <dependency>
                 <groupId>com.github.guang19</groupId>
-                <artifactId>database-learning</artifactId>
+                <artifactId>rdbms-learning</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
