@@ -19,6 +19,15 @@
          * [Redis事务执行过程](#redis事务执行过程)
          * [Redis事务队列](#redis事务队列)
          * [Redis事务错误](#redis事务错误)
+      * [Redis数据结构](#redis数据结构)
+      * [Redis缓存淘汰策略(key回收)](#redis缓存淘汰策略key回收)
+         * [noeviction](#noeviction)
+         * [volatile](#volatile)
+         * [allkeys](#allkeys)
+      * [Redis持久化](#redis持久化)
+         * [RDB(Redis Data Base)](#rdbredis-data-base)
+         * [AOF(Append Only File)](#aofappend-only-file)
+         * [如何选择持久化策略?](#如何选择持久化策略)
 
 <!-- /TOC -->
 
