@@ -6,9 +6,9 @@
 我把它们都做成Markdown的文章供各位同学参考，
 其中一些我也以XMind方式来对相应部分的知识进行梳理总结。
 
-其中没有更新完或待纠正的部分，我会持续更新，各位同学有好的建议也请issue或pr。
+其中没有更新完或待纠正的部分，我会持续更新，各位同学有好的建议也可以issue或pr。
 
-个人能力有限，总结的知识可能不全且有遗漏和错误，敬请各位同学指教。
+个人能力有限，总结的知识可能不全或有遗漏和错误，敬请各位同学指教。
 ```
 
 PS: 本人XMind版本: Linux XMind 8 (XMind为Java所写，所以文件应该是通用的)
@@ -34,6 +34,16 @@ Jdk&Jvm&Juc常见知识点一览:
 #### [关系型数据库常见知识点](https://github.com/guang19/framework-learning/blob/dev/rdbms-learning/RDBMS.md)
 
 #### [Java知识梳理之关系型数据库 - XMind](https://github.com/guang19/framework-learning/blob/dev/xmind_file/Java知识梳理之关系型数据库.xmind)
+
+---
+
+非关系型数据库常见知识点一览:
+
+![Java知识梳理之非关系型数据库](img/Java知识梳理之非关系型数据库截图.png)
+
+#### [非关系型数据库常见知识点](https://github.com/guang19/framework-learning/blob/dev/nosql-learning/NoSQL.md)
+
+#### [Java知识梳理之非关系型数据库 - XMind](https://github.com/guang19/framework-learning/blob/dev/xmind_file/Java知识梳理之非关系型数据库.xmind)
 
 ---
 
@@ -75,11 +85,19 @@ Spring框架常见知识点一览:
 
 #### [Tomcat](https://github.com/guang19/framework-learning/blob/dev/tomcat-9.0.30-source/Tomcat.md)(待纠正)
 
+---
+
 #### [RabbitMQ](https://github.com/guang19/framework-learning/blob/dev/rabbitmq-learning/RabbitMQ.md)(更新中)
+
+---
 
 #### [Zookeeper](https://github.com/guang19/framework-learning/blob/dev/zookeeper-learning/Zookeeper.md)(待纠正)
 
+---
+
 #### [Dubbo](https://github.com/guang19/framework-learning/blob/dev/dubbo-learning/Dubbo.md)(更新中)
+
+---
 
 #### [Swagger](https://github.com/guang19/framework-learning/blob/dev/swagger-learning/Swagger.md)(更新中)
 
