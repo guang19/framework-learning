@@ -79,7 +79,7 @@ Spring框架常见知识点一览:
 
 ---
 
-#### [Mybatis](https://github.com/guang19/framework-learning/blob/dev/mybatis-learning/Mybatis.md)(更新中)
+#### [ORM](https://github.com/guang19/framework-learning/blob/dev/orm-learning/ORM.md)(更新中)
 
 ---
 
