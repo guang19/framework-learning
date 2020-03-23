@@ -152,6 +152,8 @@ Configuration内部属性一览：
 >比如a调用getB方法，那么getB方法就会进入代理方法，如果getB为空，
 >就查询B，并setB，这样就可以获取到a的B属性了。
 
+### Mybatis映射处理器
+
 #### ${} 和 #{}的区别
 
 - ${} 是将传入的参数直接显示在SQL中;#{} 把传入的参数当做字符串，会给参数加上引号
@@ -195,6 +197,15 @@ SELECT * FROM table WHERE id = "1 OR 1 = 1";
 ````
 >可以看到: #{} 是将参数作为一个字符串为条件的，这样就可以避免 OR 生效，防止SQL注入。
 
+#### Mybatis 模糊查询LIKE怎么写
+
+- SELECT * FROM table WHERE name LIKE '%${name}%' (有注入风险)
+
+- SELECT * FROM table WHERE name LIKE "%"#{name}"%"
+
+- SELECT * FROM table WHERE name LIKE CONCAT('%',#{name},'%')
+
+- Bind标签
 
 ### Mybatis源码分析
 
