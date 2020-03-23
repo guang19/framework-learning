@@ -1,23 +1,38 @@
 <!-- TOC -->
     
-  * [ORM(Object Relational Mapping)](#ormobject-relational-mapping)
-          * [什么是ORM?](#什么是orm)
-             * [JDBC的缺点](#jdbc的缺点)
-       * [Mybatis](#mybatis)
-          * [什么是Mybatis?](#什么是mybatis)
-          * [为什么说Mybatis是半ORM框架?](#为什么说mybatis是半orm框架)
-          * [Mybatis优缺点](#mybatis优缺点)
-             * [Mybatis优点](#mybatis优点)
-             * [Mybatis缺点](#mybatis缺点)
-          * [Mybatis适用场景](#mybatis适用场景)
-          * [Mybatis架构](#mybatis架构)
-          * [Mybatis SQL执行流程](#mybatis-SQL执行流程)
-          * [Mybatis源码分析](#mybatis源码分析)
-             * [1. 解析配置文件，创建SQLSessionFactory](#1-解析配置文件创建SQLsessionfactory)
-             * [2. 开启java程序和数据库之间的会话：](#2-开启java程序和数据库之间的会话)
-             * [3. 获取mapper代理对象:](#3-获取mapper代理对象)
-             * [4. 执行mapper接口方法:](#4-执行mapper接口方法)
-          * [mybatis总结:](#mybatis总结)
+ * [ORM(Object Relational Mapping)](#ormobject-relational-mapping)
+      * [什么是ORM?](#什么是orm)
+      * [JDBC的缺点](#jdbc的缺点)
+ * [Mybatis](#mybatis)
+      * [什么是Mybatis?](#什么是mybatis)
+         * [为什么说Mybatis是半ORM框架?](#为什么说mybatis是半orm框架)
+         * [Mybatis优点](#mybatis优点)
+         * [Mybatis缺点](#mybatis缺点)
+         * [Mybatis适用场景](#mybatis适用场景)
+      * [Mybatis架构](#mybatis架构)
+      * [Mybatis SQL执行流程](#mybatis-sql执行流程)
+      * [Mybatis常见面试题](#mybatis常见面试题)
+         * [Executor的类型](#executor的类型)
+         * [什么是延迟加载?](#什么是延迟加载)
+         * [延迟加载原理](#延迟加载原理)
+         * [${} 和 #{}的区别](#-和-的区别)
+         * [Mybatis 模糊查询LIKE怎么写](#mybatis-模糊查询like怎么写)
+         * [Mybatis是如何获取生成的主键的?](#mybatis是如何获取生成的主键的)
+         * [Mybatis动态SQL是什么?](#mybatis动态sql是什么)
+         * [Mybatis插件原理](#mybatis插件原理)
+      * [Mybatis查询缓存](#mybatis查询缓存)
+         * [Mybatis一级缓存](#mybatis一级缓存)
+         * [一级缓存的原理](#一级缓存的原理)
+         * [使得Mybatis一级缓存失效的方法](#使得mybatis一级缓存失效的方法)
+         * [Mybatis二级缓存](#mybatis二级缓存)
+         * [Mybatis二级缓存的原理](#mybatis二级缓存的原理)
+         * [Mybatis缓存的缺点](#mybatis缓存的缺点)
+      * [Mybatis源码分析](#mybatis源码分析)
+         * [1. 解析配置文件，创建SQLSessionFactory](#1-解析配置文件创建sqlsessionfactory)
+         * [2. 开启java程序和数据库之间的会话：](#2-开启java程序和数据库之间的会话)
+         * [3. 获取mapper代理对象:](#3-获取mapper代理对象)
+         * [4. 执行mapper接口方法:](#4-执行mapper接口方法)
+         * [mybatis源码总结:](#mybatis源码总结)
   
 <!-- /TOC -->
 
@@ -51,7 +66,7 @@ PS:部分图片源于网络,如有侵权，请联系俺，俺会立刻删除。
 >Mybatis最大的优点就是无需像JDBC一样采用硬编码的方式进行持久化操作，
 >它允许我们定制SQL和对象与数据库之间的高级映射关系，极大的提高了持久化操作的灵活性。
 
-### 为什么说Mybatis是半ORM框架?
+#### 为什么说Mybatis是半ORM框架?
 >与Hibernate不同，Hibernate属于全自动ORM框架，无需手写SQL，
 >且能够自动建立对象与数据库之间的映射关系，很方便。
 >但**无需手写SQL也就意味着SQL优化方面可能不如Mybatis那么出色。**
@@ -60,8 +75,6 @@ PS:部分图片源于网络,如有侵权，请联系俺，俺会立刻删除。
 >但是在定义SQL和建立对象持久化关系方面，仍然给了我们很大自由，
 >**它相对Hibernate更加灵活，扩展性更强。**
 
-
-### Mybatis优缺点
 
 #### Mybatis优点
 
@@ -75,7 +88,7 @@ PS:部分图片源于网络,如有侵权，请联系俺，俺会立刻删除。
 
 - 配置繁琐
 
-### Mybatis适用场景
+#### Mybatis适用场景
 
 - 功能复杂的应用: Mybatis足够的灵活，这保证了它能够面对较为复杂的应用场景。
 
@@ -94,7 +107,6 @@ Mybatis架构图:
 Configuration内部属性一览：
 
 ![Mybatis-Configuration](../img/mybatis/Mybatis-Configuration.png)
-
 
 - SQLSession: SQLSession是Mybatis最顶级的API接口，
 它封装了SQL的增删查改功能，但最终还是交由Executor去执行逻辑。
@@ -126,7 +138,7 @@ Configuration内部属性一览：
 
 - StatementHandler调用ParameterHandler装配SQL参数并执行,最后使用ResultSetHandler封装结果集返回。
 
-### Executor
+### Mybatis常见面试题
 
 #### Executor的类型
 
@@ -137,12 +149,11 @@ Configuration内部属性一览：
 
 3. BatchExecutor: 批处理执行器。执行SQL时，会将statement添加到批处理中，等到最终executeBatch时，一起执行。
 
-### Mybatis延迟加载
-
 #### 什么是延迟加载?
 >延迟加载又称按需加载，即在关联查询中(一对一或一对多)，
 >**如果指定了延迟加载，那么并不会一次就把对象关联的数据查出来，
 >而是等到对象需要使用关联的数据时才会进行查询**。
+
 
 #### 延迟加载原理
 >Mybatis的底层原理是ResultSetHandler在封装结果时，
@@ -152,7 +163,6 @@ Configuration内部属性一览：
 >比如a调用getB方法，那么getB方法就会进入代理方法，如果getB为空，
 >就查询B，并setB，这样就可以获取到a的B属性了。
 
-### Mybatis映射处理器
 
 #### ${} 和 #{}的区别
 
@@ -206,6 +216,112 @@ SELECT * FROM table WHERE id = "1 OR 1 = 1";
 - SELECT * FROM table WHERE name LIKE CONCAT('%',#{name},'%')
 
 - Bind标签
+````xml
+<select id="listProduct" resultType="Product">
+     <bind name="fuzzyName" value="'%' + name + '%'" />
+    select * from  table  where name like #{fuzzyName}
+</select>
+````
+
+#### Mybatis是如何获取生成的主键的?
+>Mybatis有一个KeyGenerator接口，这个接口专门用于获取数据库生成的主键。
+>但其核心原理还是使用的JDBC 的 API : Statement的 getGeneratedKeys 方法获取的。
+
+![Mybatis获取生成的主键](../img/mybatis/Mybatis获取生成的主键.png)
+
+#### Mybatis动态SQL是什么?
+>Mybatis允许我们在mapper文件内，**以标签的形式编写动态SQL，用于逻辑判断和SQL拼接等功能。**
+>Mybatis动态标签有:
+>
+> trim  / where  / set / if /  choose / otherwise / bind / foreach 等。
+>
+>实际上**Mybatis的动态标签是依赖于OGNL的。**
+
+#### Mybatis插件原理
+>Mybatis允许我们编写插件对它核心的组件：
+>Executor , StatementHandler, ParameterHandler, ResultSetHandler
+>这些核心组件的扩展
+>
+>**Mybatis底层实际上是使用jdk动态代理包装后的组件带替它原生的组件。
+>当执行这些组件的方法时，就会执行Interceptor的intercept方法。
+>当然，只是当执行我们指定要拦截的方法时，才会执行intercept方法。**
+
+见:Configuration:
+
+![Mybatis插件原理](../img/mybatis/Mybatis插件原理.png)
+
+### Mybatis查询缓存
+
+Mybatis查询缓存可以分为一级缓存和二级缓存。
+
+
+#### Mybatis一级缓存
+
+>**一级缓存又称本地缓存，它属于SqlSession级别的缓存，默认是开启的。每个SqlSession都有自己的缓存。
+>同一个SqlSession查询到的数据都会放入它自己的缓存中，如果之后需要获取相同的数据，
+>那么会先从缓存中查找，如果没有才会去查询数据库，这样就降低了数据库的压力。**
+
+Mybatis一级缓存流程:
+
+![Mybatis一级缓存流程图](../img/mybatis/Mybatis一级缓存流程图.png)
+
+Mybatis一级缓存源码:
+
+![Mybatis一级缓存](../img/mybatis/Mybatis一级缓存1.png)
+
+![Mybatis一级缓存](../img/mybatis/Mybatis一级缓存2.png)
+
+
+#### 一级缓存的原理
+>对于BaseExecutor来说，它内部维护了一个叫localCache的PerpetualCache对象。
+>PerpetualCache实现了Cache接口，它内部使用HashMap进行缓存。
+>**所以可以简单理解为Mybatis的一级缓存是由HashMap存储的。**
+  
+Mybatis一级存实现:
+   
+![Mybatis一级缓存实现](../img/mybatis/Myabtis一级缓存实现类.png)
+
+
+#### 使得Mybatis一级缓存失效的方法
+
+- 如果SQL相同，但是SQL的条件或参数不同，缓存会失效
+
+- 在两次查询操作中间，如果进行了增删改操作，会清空本地缓存
+
+- 不同的SqlSession，缓存会失效
+
+- 手动清空SqlSession的缓存
+
+#### Mybatis二级缓存
+>**二级缓存又称全局缓存，它属于mapper级别的缓存,默认是关闭的，需要指定配置和标签才会开启。
+>多个SqlSession操作同一个Mapper是可以共享一个二级缓存的，但是要求Sql会话必须属于同一个Mapper。**
+
+Mybatis二级缓存流程:
+
+![Mybatis二级缓存流程图](../img/mybatis/Mybatis二级缓存流程图.png)
+
+#### Mybatis二级缓存的原理
+
+>Mybatis二级缓存的Executor使用的是CachingExecutor，
+>在原生的Executor执行查询操作之前，它会先从二级缓存中查询，如果查询不到才会从一级缓存或数据库中查询。
+
+Configuration创建CachingExecutor:
+
+![Mybatis创建CachingExecutor](../img/mybatis/Mybatis创建CachingExecutor.png)
+
+Mybatis二级缓存源码:
+
+![Mybatis二级缓存](../img/mybatis/Mybatis二级缓存.png)
+
+
+#### Mybatis缓存的缺点
+
+- Mybatis缓存设计缺陷: Mybatis的一级缓存是使用HashMap实现的，并没有指定容量限制，
+虽然可以提高查询效率，但是设计上还有所欠缺。
+
+- 容易引起脏读: Mybatis的缓存是属于Java进程内的缓存，在分布式环境下，缓存的不一致，
+很容易引起数据的脏读。建议还是使用第三方容器，如Redis和Memcached等中间件存储缓存数据。
+
 
 ### Mybatis源码分析
 
@@ -247,8 +363,11 @@ SQLSessionFactory SQLSessionFactory =
     }
 ````
 
-根据上面代码可知,SQLSessionFactory被创建的核心是 XMLConfigBuilder的 parse方法,也就是解析文件的那个步骤,它又是怎么解析的呢?
-初次学Mybatis的时候,配置的那个Configuration全局文件里有很多属性对吧,各种节点,environment,mapper,setting...的,可想它内部肯定是对这些节点做了解析的:
+根据上面代码可知,SQLSessionFactory被创建的核心是 XMLConfigBuilder的 parse方法,
+也就是解析文件的那个步骤,它又是怎么解析的呢?
+
+初次学Mybatis的时候,配置的那个Configuration全局文件里有很多属性对吧,各种节点,
+environment,mapper,setting...的,可想它内部肯定是对这些节点做了解析的:
 
 ````
     private void parseConfiguration(XNode root) {
@@ -277,10 +396,13 @@ SQLSessionFactory SQLSessionFactory =
     }
 ````
 
-从上面代码可以分析,其实解析是大概分为2个部分的,一个是解析全局配置文件里的属性,一个是解析mapper文件的各个属性,对已经学过mybatis的同学来说,
+从上面代码可以分析,其实解析是大概分为2个部分的,一个是解析全局配置文件里的属性,
+一个是解析mapper文件的各个属性,对已经学过mybatis的同学来说,
 都知道mybatis底层是使用了动态代理模式来操作接口方法的,那么从第二个部分:解析mapper的部分就尤为重要了.
 
-先看第一个部分,其实其第一个部分最重要的一点就是分析出了,mybatis所有的属性,配置全部由一个Configuration对象保存了起来,随便抽一个方法:
+先看第一个部分,其实其第一个部分最重要的一点就是分析出了,mybatis所有的属性,
+配置全部由一个Configuration对象保存了起来,随便抽一个方法:
+
 ````
     private void settingsElement(Properties props) {
         this.configuration.setAutoMappingBehavior(AutoMappingBehavior.valueOf(props.getProperty("autoMappingBehavior", "PARTIAL")));
@@ -296,7 +418,10 @@ SQLSessionFactory SQLSessionFactory =
        
     }
 ````
-再看看Configuration类的属性,就印证了之前说过的,Configuration就是一个贯穿的mybatis整个生命周期的核心配置类:
+
+再看看Configuration类的属性,就印证了之前说过的,
+Configuration就是一个贯穿的mybatis整个生命周期的核心配置类:
+
 ````
 public class Configuration {
     protected Environment environment;
@@ -322,8 +447,10 @@ public class Configuration {
   }
 ````
 
-之前说过,XMLConfigBuilder负责解析mybatis全局配置文件,而解析阶段又大致分为2个阶段:解析基本属性;解析mapper文件.解析的基本属性都存放在了全局的Configuration之中.
-再看mapperElement方法,也就是开始解析的那个方法,可以直接锁定XMLMapperBuilder类,看这个类的名字就知道它是解析mapper文件的:
+之前说过,XMLConfigBuilder负责解析mybatis全局配置文件,而解析阶段又大致分为2个阶段:解析基本属性;
+解析mapper文件.解析的基本属性都存放在了全局的Configuration之中.
+再看mapperElement方法,也就是开始解析的那个方法,可以直接锁定XMLMapperBuilder类,
+看这个类的名字就知道它是解析mapper文件的:
 
 ````
     private void mapperElement(XNode parent) throws Exception {
@@ -373,7 +500,9 @@ public class Configuration {
     }
 ````
 
-在说解析mapper文件之前,先想想mapper文件里有什么,最核心的就那几个:resultMap,statement(也就是SQL),cache缓存,那么XMLMapperBuilder肯定也是围绕那个几个去解析的,或者还解析了其他的东西:
+在说解析mapper文件之前,先想想mapper文件里有什么,最核心的就那几个:resultMap,statement(也就是SQL),
+cache缓存,那么XMLMapperBuilder肯定也是围绕那个几个去解析的,或者还解析了其他的东西:
+
 ````
     public void parse() {
         if (!this.configuration.isResourceLoaded(this.resource)) {
@@ -504,9 +633,14 @@ public interface Executor {
         return executor;
     }
 ````
-从上面代码就可以分析出:创建SQLSession的时机其实是创建Executor的时机,也是封装plugin的时机,也可以猜测Executor就是Mybatis的核心组件之一,负责执行一系列的SQL(Statement).
 
-总结下第二步获取SQLSession的过程:使用DefaultSQLSessionFactory的Configuration创建出对应类型的Executor,并封装配置中的插件,再使用Executor和Configuration创建DefaultSQLSession,由此可见Configuration从被构建出来,流转到了DefaultSQLSession之中.
+从上面代码就可以分析出:创建SQLSession的时机其实是创建Executor的时机,也是封装plugin的时机,
+也可以猜测Executor就是Mybatis的核心组件之一,负责执行一系列的SQL(Statement).
+
+总结下第二步获取SQLSession的过程:
+使用DefaultSQLSessionFactory的Configuration创建出对应类型的Executor,
+并封装配置中的插件,再使用Executor和Configuration创建DefaultSQLSession,
+由此可见Configuration从被构建出来,流转到了DefaultSQLSession之中.
 
 #### 3. 获取mapper代理对象:
 ````

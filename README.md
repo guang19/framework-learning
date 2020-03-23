@@ -13,6 +13,8 @@
 
 PS: 本人XMind版本: Linux XMind 8 (XMind为Java所写，所以文件应该是通用的)
 
+PS: 如果这份资料帮助到了各位同学，还请各位同学点个star(别下次一定 =^_^=),感谢...
+
 ### 知识点总览:
 
 ---
@@ -29,7 +31,7 @@ Jdk&Jvm&Juc常见知识点一览:
 
 关系型数据库常见知识点一览:
 
-![Java知识梳理之关系型数据库](img/Java知识梳理之关系型数据库截图.png)
+![Java知识梳理之关系型数据库截图](img/Java知识梳理之关系型数据库截图.png)
 
 #### [关系型数据库常见知识点](https://github.com/guang19/framework-learning/blob/dev/rdbms-learning/RDBMS.md)
 
@@ -39,7 +41,7 @@ Jdk&Jvm&Juc常见知识点一览:
 
 非关系型数据库常见知识点一览:
 
-![Java知识梳理之非关系型数据库](img/Java知识梳理之非关系型数据库截图.png)
+![Java知识梳理之非关系型数据库截图](img/Java知识梳理之非关系型数据库截图.png)
 
 #### [非关系型数据库常见知识点](https://github.com/guang19/framework-learning/blob/dev/nosql-learning/NoSQL.md)
 
@@ -59,7 +61,7 @@ Jdk&Jvm&Juc常见知识点一览:
 
 计算机网络常见知识点一览:
 
-![Java知识梳理之计算机网络](img/Java知识梳理之计算机网络截图.png)
+![Java知识梳理之计算机网络截图](img/Java知识梳理之计算机网络截图.png)
 
 #### [计算机网络常见知识点](https://github.com/guang19/framework-learning/blob/dev/computer-network/Computer-Network.md)
 
@@ -69,7 +71,7 @@ Jdk&Jvm&Juc常见知识点一览:
 
 Spring框架常见知识点一览:
 
-![Java知识梳理之Spring](img/Java知识梳理之Spring截图.png)
+![Java知识梳理之Spring截图](img/Java知识梳理之Spring截图.png)
 
 #### [Spring常见知识点](https://github.com/guang19/framework-learning/blob/dev/spring-learning/Spring.md)
 
@@ -79,7 +81,13 @@ Spring框架常见知识点一览:
 
 ---
 
-#### [ORM](https://github.com/guang19/framework-learning/blob/dev/orm-learning/ORM.md)(更新中)
+ORM常见知识点一览:
+
+![Java知识梳理之ORM截图](img/Java知识梳理之ORM截图.png)
+
+#### [ORM常见知识点](https://github.com/guang19/framework-learning/blob/dev/orm-learning/ORM.md)
+
+#### [Java知识梳理之ORM - XMind](https://github.com/guang19/framework-learning/blob/dev/xmind_file/Java知识梳理之ORM.xmind)
 
 ---
 
