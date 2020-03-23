@@ -32,7 +32,7 @@
          * [2. 开启java程序和数据库之间的会话：](#2-开启java程序和数据库之间的会话)
          * [3. 获取mapper代理对象:](#3-获取mapper代理对象)
          * [4. 执行mapper接口方法:](#4-执行mapper接口方法)
-         * [mybatis源码总结:](#mybatis源码总结)
+         * [mybatis源码总结](#mybatis源码总结)
   
 <!-- /TOC -->
 
@@ -1164,7 +1164,7 @@ public class MapperProxy<T> implements InvocationHandler, Serializable {
 算是完成了对mybatis执行过程的一个简单的源码分析吧,由于我功力浅薄,
 即使是分析出来了这么一个大致的运行流程,其中的大部分细节我仍然是不懂的,所以我会继续学习.
 
-#### mybatis源码总结:
+#### mybatis源码总结
 
 >Mybatis最核心的对象莫过于Configuration了,
 >Configuration在解析完配置文件和mapper文件后就一直流转于整个mybatis执行的生命周期内,
