@@ -126,6 +126,17 @@ Configuration内部属性一览：
 
 - StatementHandler调用ParameterHandler装配SQL参数并执行,最后使用ResultSetHandler封装结果集返回。
 
+### Executor
+
+#### Executor的类型
+
+1. SimpleExecutor: 简单执行器。 每次执行SQL就开启一个statement，用完后就关闭掉。
+
+2. ReuseExecutor: 可重用的执行器。每次执行SQL先去缓存(Map)中找SQL对应的statement，
+如果不存在就新创建statement，用完后并不关闭，而是放入Map缓存中，以待下次使用。
+
+3. BatchExecutor: 批处理执行器。执行SQL时，会将statement添加到批处理中，等到最终executeBatch时，一起执行。
+
 ### Mybatis源码分析
 
 #### 1. 解析配置文件，创建SQLSessionFactory
