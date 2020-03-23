@@ -152,6 +152,49 @@ Configuration内部属性一览：
 >比如a调用getB方法，那么getB方法就会进入代理方法，如果getB为空，
 >就查询B，并setB，这样就可以获取到a的B属性了。
 
+#### ${} 和 #{}的区别
+
+- ${} 是将传入的参数直接显示在SQL中;#{} 把传入的参数当做字符串，会给参数加上引号
+
+>假设有2条SQL如下:
+
+```text
+1. SELECT * FROM table WHERE id =${id};
+2. SELECT * FROM table WHERE id = #{id};
+```
+
+>如果传入的参数为 1 , 
+>那么第一条SQL会被拼接成:
+````text
+SELECT * FROM table WHERE id = 1;
+````
+
+>第二条SQL会被编译成:
+````text
+SELECT * FROM table WHERE id = "1";
+````
+
+- ${}属于拼接符，需要进行字符串拼接;#{} 属于占位符，需要预编译
+
+- ${} 则不能防止SQL注入;#{} 可以在很大程度上预防SQL注入
+
+>假如有一条SQL:
+````text
+SELECT * FROM table WHERE id = ${id}
+````
+
+>假设传入的id为: 1 OR 1 = 1 ,那么字符串拼接后,SQL为:
+````text
+SELECT * FROM table WHERE id = 1 OR 1 = 1;
+````
+>这条SQL无论如何都会执行成功。
+
+>如果将 ${id} 改为 #{id},那么经过预编译后，SQL为:
+````text
+SELECT * FROM table WHERE id = "1 OR 1 = 1";
+````
+>可以看到: #{} 是将参数作为一个字符串为条件的，这样就可以避免 OR 生效，防止SQL注入。
+
 
 ### Mybatis源码分析
 
