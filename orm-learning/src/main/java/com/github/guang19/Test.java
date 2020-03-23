@@ -1,5 +1,6 @@
 package com.github.guang19;
 
+import com.github.guang19.entity.Person;
 import com.github.guang19.mapper.PersonMapper;
 import com.mysql.cj.jdbc.Driver;
 import org.apache.ibatis.executor.resultset.DefaultResultSetHandler;
@@ -33,6 +34,7 @@ public class Test
 //
     PersonMapper personMapper = sqlSession.getMapper(PersonMapper.class);
 //
-    personMapper.selectPersonById(1L);
+    Person person = personMapper.selectPersonById(1L);
+    System.out.println(person);
   }
 }
