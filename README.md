@@ -11,9 +11,14 @@
 个人能力有限，总结的知识可能不全或有遗漏和错误，敬请各位同学指教。
 ```
 
-PS: 本人XMind版本: Linux XMind 8 (XMind为Java所写，所以文件应该是通用的)
+为了良好的阅读体验，可以移步到本项目的GitBook网页阅读版:
+**[framework-learning](https://guang19.github.io/framework-learning/)** 
 
-PS: 如果这份资料帮助到了各位同学，还请各位同学点个star(别下次一定 =^_^=),感谢...
+网页阅读版的内容与本项目是同步的，请放心阅读。
+
+本人XMind版本: Linux XMind 8 (XMind为Java所写，所以文件应该是通用的)
+
+如果这份资料帮助到了各位同学，还请各位同学点个star(别下次一定呀 =^_^=),非常感谢...
 
 ### 知识点总览:
 
