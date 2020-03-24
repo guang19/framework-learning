@@ -1,0 +1,16 @@
+# 关于本电子书
+
+本电子书是为笔者的开源学习资料: [framework-learning](https://github.com/guang19/framework-learning)
+提供一个更为良好的阅读环境。
+
+笔者github: [github](https://github.com/guang19)
+
+项目地址: [github](https://github.com/guang19/framework-learning)
+
+笔者联系方式:
+
+- 微信:  yg1446125917
+
+- QQ: 2196927727@qq.com
+
+如果您有对于本项目或本电子书的建议，欢迎issue/pr，非常感谢您的对本项目的支持!
