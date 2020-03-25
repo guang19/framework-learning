@@ -1155,15 +1155,16 @@ unix与linux的体系架构：分为用户态与内核态.
 >(在NIO,socket就是注册到Selector上的SocketChannel,可以允许多个)
 >直至监听的socket有数据可读或可写，select/poll/epoll函数才会返回。
 >用户应用进程也会阻塞的等待select/poll/epoll函数返回。
->当select/poll/epoll函数返回后，即某个socket有事件发生了，用户应用进程就会
->发起系统调用，处理事件，将socket数据复制到用户进程内，然后进行数据处理。
+>当select/poll/epoll函数返回后，即某个socket有数据了，用户应用进程就会
+>发起系统调用，将数据从内核态拷贝到用户应用进程内，然后进行数据处理。
 
 ![多路复用IO原理](../img/jdk_jvm_juc/多路复用IO原理.png)
+
 
 多路复用IO模型是同步阻塞的
 
 1.多路复用IO模型的同步体现在
->select函数只有监听到某个socket有事件才会返回。
+>select函数只有监听到某个socket有数据才会返回。
 
 2.多路复用IO模型的阻塞体现在
 >用户应用进程会阻塞在对select函数上的调用上。
@@ -1303,7 +1304,7 @@ Java虚拟机栈:
 >和局部变量表一样，操作数栈的每个元素的类型也可以是基本数据类型和引用类型。
 >操作数栈的深度不会超过 Code属性的stack值。
 
-使用javap -c -v -l 反编译class文件后可以得到的字节码指令如下:
+使用java -c -v -l 反编译class文件后可以得到的字节码指令如下:
 
 ![局部变量表](../img/jdk_jvm_juc/局部变量表.png)
 

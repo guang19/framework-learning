@@ -17,7 +17,7 @@
     <version>1.0.0</version>
 
     <modules>
-        <module>orm-learning</module>
+        <module>mybatis-learning</module>
         <module>spring-learning</module>
         <module>springmvc-learning</module>
         <module>rabbitmq-learning</module>
@@ -58,7 +58,7 @@
             <!--children module-->
           <dependency>
             <groupId>com.github.guang19</groupId>
-            <artifactId>orm-learning</artifactId>
+            <artifactId>mybatis-learning</artifactId>
             <version>${project.version}</version>
           </dependency>
           <dependency>

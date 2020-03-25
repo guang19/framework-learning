@@ -12,7 +12,8 @@
     </parent>
 
     <!--mybatis-->
-    <artifactId>orm-learning</artifactId>
+    <artifactId>mybatis-learning</artifactId>
+    <version>1.0.0</version>
 
     <dependencies>
         <dependency>

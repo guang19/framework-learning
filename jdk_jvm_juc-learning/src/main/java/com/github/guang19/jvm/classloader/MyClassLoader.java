@@ -39,8 +39,7 @@ public class MyClassLoader extends ClassLoader{
     private byte[] getFileBytes(String filePath)
     {
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        try( FileChannel channel = FileChannel.open(Path.of(path+filePath.replace(".","/")+suffix), StandardOpenOption.READ);
-             bos)
+        try( FileChannel channel = FileChannel.open(Path.of(path+filePath.replace(".","/")+suffix), StandardOpenOption.READ); )
         {
             ByteBuffer bf  = ByteBuffer.allocate(1024);
             int length = 0;
