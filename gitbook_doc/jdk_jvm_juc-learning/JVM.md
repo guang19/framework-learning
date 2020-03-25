@@ -206,6 +206,8 @@ HotSpot移除了永久代，新增了元空间。
            
 #### OutOfMemoryError
              
+发生OOM的情况: 
+             
 * java heap space 
 >当需要为对象分配内存时，堆空间占用已经达到最大值，
 >无法继续为对象分配内存，可能会出现OOM: java heap space错误。 

@@ -421,10 +421,10 @@ String内部的字段是用final修饰的(我的jdk版本是11,String由byte[]�
  非运行时异常(CheckedException)。
   
   - RuntimeException: RuntimeException(运行时异常)是在程序运行时可能会发生的异常,如NullPointException,
-                      这类异常往往是不可预料的,编译器也不会要求你手动try catch或throws。
+   这类异常往往是不可预料的,编译器也不会要求你手动try catch或throws。
   
   - CheckedException: CheckedException(非运行时异常)是RuntimeException以外的异常,如IOException，
-                      这类异常要求必须显示的try catch或throws ， 如果不处理,那么编译就不会通过。
+   这类异常要求必须显示的try catch或throws ， 如果不处理,那么编译就不会通过。
 
 - Error: Error错误是程序无法处理的,表示程序出现了无法解决的问题。
 
@@ -434,7 +434,7 @@ String内部的字段是用final修饰的(我的jdk版本是11,String由byte[]�
 - Comparable: 自然排序接口。实现了它的类意味着就支持排序。
 
 - Comparator: 外部比较器。无需让需要排序的对象实现排序逻辑，而是根据Comparator定义的逻辑来排序。
-               Comparator相较于Comparable更加的灵活。
+  Comparator相较于Comparable更加的灵活。
                
 #### 为什么要慎用 Arrays.asList()?
 >**因为Arrays.asList这个方法返回的根本就不是我们期盼的ArrayList,
@@ -446,15 +446,15 @@ String内部的字段是用final修饰的(我的jdk版本是11,String由byte[]�
 Java中引用类型总共有四种: 强引用，软引用，弱引用，虚引用。
 
 - 强引用(Strong Reference): Java程序中绝大部分都是强引用，一般使用new关键字创建的对象就是强引用。
-                         只要强引用存在，强引用的对象就不会被回收，除非不可达(参考jvm部分)
+  只要强引用存在，强引用的对象就不会被回收，除非不可达(参考jvm部分)
 
 - 软引用(Soft Reference): 软引用一般不会回收，但是当堆内存不够的时候，
-                         比如几乎快要发生OOM的时候，就会发生回收掉软引用对象。
+  比如几乎快要发生OOM的时候，就会发生回收掉软引用对象。
 
 - 弱引用(Weak Reference): 只要垃圾回收开始，就会回收掉弱引用的对象
 
 - 虚引用(Phantom Reference,又称幽灵引用): 和其他几种引用不同，虚引用不决定对象的生命周期，
-                                它在任何时候都可能被回收掉。
+  它在任何时候都可能被回收掉。
 
 ---
 
@@ -535,10 +535,10 @@ jvm通过klass pointer判断对象属于哪个类。
 
 #### 并发和并行
 1. 并发: 多个线程任务被一个cpu轮流执行。注意，这里并不是规定一个cpu，多个cpu也是可以的。
-         **并发主要强调的是cpu有处理多个任务的能力。**
+   **并发主要强调的是cpu有处理多个任务的能力。**
          
 2. 并行:多个线程被多个cpu同时执行。这里也并不是规定要多个cpu，一个cpu也是可以的，
-        只要你的cpu能在同一时刻处理多任务。**并行强调的是拥有同时处理多任务的能力。**
+   只要你的cpu能在同一时刻处理多任务。**并行强调的是拥有同时处理多任务的能力。**
 
 #### 多线程的利弊
 
@@ -795,7 +795,7 @@ hotspot轻量级锁实现(slow_enter):
 
 在争夺锁的过程中，线程不会停止获取锁，而是通过CAS不断的判断线程是否符合获取锁的条件。
 
-PS: AQS获取锁的核心就是CAS。
+**AQS获取锁的核心就是CAS。**
 
 #### 自适应自旋锁
 自旋锁意味着线程会不断的消耗cpu资源，短时间还行，长时间就意味着而资源的浪费。
@@ -1521,6 +1521,7 @@ select/poll/epoll函数是多路复用IO模型的基础，所以如果想
 **异步IO的异步体现在:内核不用等待数据准备好就立刻返回，
 所以内核肯定需要在IO完成后通知用户应用进程。**
 
+---
 
 ```text
 弄清楚了阻塞与非阻塞，同步与异步和上面5种IO模型，相信再看
@@ -1726,6 +1727,8 @@ HotSpot移除了永久代，新增了元空间。
 虚拟机栈的最大空间(比如递归嵌套调用太深),就可能出现StackOverflowError错误
            
 #### OutOfMemoryError
+
+发生OOM的情况: 
              
 * java heap space 
 >当需要为对象分配内存时，堆空间占用已经达到最大值，
@@ -2391,7 +2394,7 @@ G1收集器与CMS收集器的回收过程相似
 >-server:以服务端模式运行应用程序，server模式适用于服务端应用程序。
 >JVM在此模式下，会对服务端运行效率做很大优化。
 >
->-client:以客户端模式运行应用城西，client模式适用于客户端桌面程序(GUI)。
+>-client:以客户端模式运行应用程序，client模式适用于客户端桌面程序(GUI)。
 >JVM在此模式下，会对客户端运行做很大优化。
 
 ### Java常用调优命令和工具

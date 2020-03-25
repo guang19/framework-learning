@@ -1,0 +1,61 @@
+{
+  "title":"framework-learning",
+  "author:": "qsjzwithguang19forever",
+  "description": "Java方向的开发者学习的资料",
+  "language":"zh-hans",
+  "links" : {
+    "sidebar" : {
+
+    }
+  },
+  "plugins": [
+    "back-to-top-button",
+    "expandable-chapters",
+    "code",
+    "prism",
+    "github",
+    "github-buttons",
+    "splitter",
+    "pageview-count",
+    "lightbox",
+    "theme-comscore",
+    "-lunr",
+    "-search",
+    "search-pro",
+    "sitemap",
+    "simple-page-toc"
+  ],
+  "pluginsConfig": {
+    "github": {
+      "url": "https://github.com/guang19/framework-learning"
+    },
+    "theme-default": {
+
+    },
+    "sitemap": {
+      "hostname": "https://github.com/guang19/framework-learning"
+    },
+    "simple-page-toc": {
+      "maxDepth": 4,
+      "skipFirstH1": false
+    },
+    "github-buttons": {
+      "buttons": [{
+        "user": "guang19",
+        "repo": "framework-learning",
+        "type": "star",
+        "size": "small"
+      },{
+          "user": "guang19",
+          "repo": "framework-learning",
+          "type": "fork",
+          "size": "small"
+        },{
+        "user": "guang19",
+        "type": "follow",
+        "width": "230",
+        "size": "small"
+      }]
+    }
+  }
+}
