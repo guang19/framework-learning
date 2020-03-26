@@ -33,5 +33,6 @@ build/
 DubboLearningPersonServiceConsumerApplication.java
 DubboLearningPersonServiceProviderApplication.java
 
+### gitbook
 _book/
 node_modules/

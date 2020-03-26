@@ -1,8 +1,8 @@
 <!-- TOC -->
 
   * [jdk&amp;jvm&amp;juc(部分图源:<a href="https://github.com/Snailclimb/JavaGuide">JavaGuide</a>)](#jdkjvmjuc部分图源javaguide)
-      * [java基础知识(部分图源:<a href="https://github.com/Snailclimb/JavaGuide">JavaGuide</a>)](#java基础知识部分图源javaguide)
-         * [Java常见基础知识](#java常见基础知识)
+      * [java基础知识](#java基础知识)
+         * [Java常见基础知识点](#java常见基础知识点)
             * [面向对象和面向过程的区别](#面向对象和面向过程的区别)
             * [OracleJdk与OpenJdk的区别](#oraclejdk与openjdk的区别)
             * [Java与C  的异同](#java与c的异同)
@@ -27,10 +27,15 @@
             * [Comparable和Comparator](#comparable和comparator)
             * [为什么要慎用 Arrays.asList()?](#为什么要慎用-arraysaslist)
             * [Java中引用的类型](#java中引用的类型)
-         * [对象在内存中的布局(64位)](#对象在内存中的布局64位)
-            * [对象头](#对象头)
+      * [对象在内存中的布局(64位)](#对象在内存中的布局64位)
+         * [对象头](#对象头)
+            * [markword和metadata](#markword和metadata)
             * [实例数据](#实例数据)
             * [对齐填充](#对齐填充)
+         * [jol工具查看对象布局](#jol工具查看对象布局)
+            * [查看对象内存布局](#查看对象内存布局)
+            * [hashcode](#hashcode)
+            * [对象的hashcode返回的是对象的内存地址吗?](#对象的hashcode返回的是对象的内存地址吗)
       * [线程并发(JUC,AQS,CAS)](#线程并发jucaqscas)
          * [多线程](#多线程)
             * [进程和线程](#进程和线程)
@@ -177,6 +182,9 @@
             * [GC相关](#gc相关)
             * [其他](#其他)
          * [Java常用调优命令和工具](#java常用调优命令和工具)
+      * [Jdk新特性](#jdk新特性)
+         * [Jdk8新特性](#jdk8新特性)
+         * [Jdk9新特性](#jdk9新特性)
 
 <!-- /TOC -->
 
@@ -295,12 +303,12 @@ openjdk8u:
 11. finalize
 
 #### 静态属性方法和成员属性方法区别
->**静态属性和方法属于类Class,而成员属性和方法属于实例化的对象。**
->
->静态方法只能使用静态方法和静态属性,不能使用成员属性和方法,
->因为静态属性和方法在对象还没被实例化的时候就存在了。
->
->**简单理解就是不允许一个已存在的事物使用一个不存在的事物。**
+**静态属性和方法属于类Class,而成员属性和方法属于实例化的对象。**
+
+静态方法只能使用静态方法和静态属性,不能使用成员属性和方法,
+因为静态属性和方法在对象还没被实例化的时候就存在了。
+
+**简单理解就是不允许一个已存在的事物使用一个不存在的事物。**
 
 #### 子类属性与父类属性初始化顺序
 1. 无论如何,静态数据首先加载,所以先初始化父类静态变量和静态初始化块,再初始化子类静态变量和静态初始化块。
@@ -310,32 +318,32 @@ openjdk8u:
 3. 调用子类普通代码块和构造方法。
 
 #### 自动拆箱和装箱
->自动拆箱和装箱实际上是Java编译器的一个语法糖。
->
->自动装箱是指: **将基本数据类型转为对应的包装类对象的过程。**
->
->自动拆箱是指: **将包装类转为对应的基本数据类型。**
->
->**自动装箱实际上是调用了包装类对象的valueof方法**,如: Integer.valueof(1)
->
->**自动拆箱实际上是调用了包装类的xxxValue方法**,如: Integer.intValue()
->
->**在自动装箱的时候,如果包装类允许缓存并且值在缓存的范围内,那么装箱生成的对象会被缓存到常量池中。**
->
->**Integer,Byte,Short,Long,Character包装类型具有缓存池,
->而其他三种:Float,Double,Boolean不具有缓存池。**
->
->包装类的缓存池缓存的范围基本都为: -128 - 127之间，
->除了Character的缓存范围为 0 - 127。
+自动拆箱和装箱实际上是Java编译器的一个语法糖。
+
+自动装箱是指: **将基本数据类型转为对应的包装类对象的过程。**
+
+自动拆箱是指: **将包装类转为对应的基本数据类型。**
+
+**自动装箱实际上是调用了包装类对象的valueof方法**,如: Integer.valueof(1)
+
+**自动拆箱实际上是调用了包装类的xxxValue方法**,如: Integer.intValue()
+
+**在自动装箱的时候,如果包装类允许缓存并且值在缓存的范围内,那么装箱生成的对象会被缓存到常量池中。**
+
+**Integer,Byte,Short,Long,Character包装类型具有缓存池,
+而其他三种:Float,Double,Boolean不具有缓存池。**
+
+包装类的缓存池缓存的范围基本都为: -128 - 127之间，
+除了Character的缓存范围为 0 - 127。
 
 #### String为什么不可变?
 >先说下我的看法:String是Java中最常使用的类没有之一,如果String是可变的,那么会发生非常多数不清的问题。
 >
 >如ip地址,人名,邮箱非常多的敏感数据,如果String是可变的,那么就会发生安全问题。
 >如果String是可变的,那么字符串常量池也就无从谈起了。
->**String是不可变的,那么它本质上也是线程安全的。**
->
->**不可变类的缺点就是每个不同的值需要创建一个对象**
+>String是不可变的,那么它本质上也是线程安全的。
+
+**不可变类的缺点就是每个不同的值需要创建一个对象**
 
 **String 是用final修饰的，保证了String类不能被扩展。
 String内部的字段是用final修饰的(我的jdk版本是11,String由byte[]实现)，
@@ -351,11 +359,11 @@ String内部的字段是用final修饰的(我的jdk版本是11,String由byte[]�
 - 被final修饰的方法不能被子类重写。
 
 #### StringBuilder和StringBuffer区别
->**StringBuilder和StringBuffer都是可变的字符串,但是StringBuilder是线程不安全的。**
->
->StringBuffer是安全的,因此单线程情况下考虑使用StringBuilder,多线程情况下考虑使用StringBuffer。
->
->**他们之间的关系就好比HashMap和HashTable的关系。**
+**StringBuilder和StringBuffer都是可变的字符串,但是StringBuilder是线程不安全的。**
+
+StringBuffer是安全的,因此单线程情况下考虑使用StringBuilder,多线程情况下考虑使用StringBuffer。
+
+**他们之间的关系就好比HashMap和HashTable的关系。**
  
 #### equals知识点
 
@@ -363,14 +371,7 @@ String内部的字段是用final修饰的(我的jdk版本是11,String由byte[]�
   - ==比较的是对象的内存地址,equals比较的是对象的值。
   因此在Java中比较2个对象的值是否相等使用equals,判断2个对象是否是一个对象,使用==。
 
-- hashCode方法返回的真是对象内存地址吗?
-
-  - 在hotspot中，hashcode返回的不完全是地址
-   (见：hotspot的/src/share/vm/runtime/synchronizer.cpp):
-
-    ![hashcode方法源码](../img/jdk_jvm_juc/hashcode方法源码.png)
-
-    可以看到hashcode有多种返回策略:随机数，自增长序列，关联地址等多种方式。
+- hashCode方法返回的真是对象内存地址吗? 这个已在对象内存布局部分有讲解，此处就不重复写了。
 
 - equals方法重写要求
 
@@ -394,9 +395,9 @@ String内部的字段是用final修饰的(我的jdk版本是11,String由byte[]�
   那么即使放入map,set(map)仍会存在重复数据。
 
 #### 深拷贝与浅拷贝
->**深拷贝,听名字就知道,拷贝所有的内容,除了基本数据类型的变量复制一份,连引用类型的的对象也复制一份。**
->
->**浅拷贝,只是复制基本数据类型的变量,对于引用类型的变量,直接返回这个引用本身。**
+**深拷贝,听名字就知道,拷贝所有的内容,除了基本数据类型的变量复制一份,连引用类型的的对象也复制一份。**
+
+**浅拷贝,只是复制基本数据类型的变量,对于引用类型的变量,直接返回这个引用本身。**
 
 #### IO流分类
 
@@ -405,14 +406,14 @@ String内部的字段是用final修饰的(我的jdk版本是11,String由byte[]�
 2. 按照操作单元,分为:字节流和字符流。
 
 #### 使用字节流还是字符流?
->考虑通用性,应该使用字节流。
->如果只是文本文件的操作,可以考虑使用字符流。
+考虑通用性,应该使用字节流。
+如果只是文本文件的操作,可以考虑使用字符流。
 
 #### BigDecimal
->BigDecimal是Java中表示大浮点数的类型。
->
->在Java中,如果遇到浮点数的判断,可以使用BigDecimal来做计算,
->因为如果使用普通数据类型很可能会发生精度丢失的情况,这个时候的结果可能会出乎意料之外.
+BigDecimal是Java中表示大浮点数的类型。
+
+在Java中,如果遇到浮点数的判断,可以使用BigDecimal来做计算,
+因为如果使用普通数据类型很可能会发生精度丢失的情况,这个时候的结果可能会出乎意料之外.
 
 #### Java异常体系结构
 在Java中,异常分为 Exception和Error,这2个类都继承自Throwable。
@@ -437,9 +438,9 @@ String内部的字段是用final修饰的(我的jdk版本是11,String由byte[]�
   Comparator相较于Comparable更加的灵活。
                
 #### 为什么要慎用 Arrays.asList()?
->**因为Arrays.asList这个方法返回的根本就不是我们期盼的ArrayList,
->而是Arrays类内部实现的ArrayList,这个内部类只支持访问和set操作,
->并不支持remove,add,clear等修改操作。**
+**因为Arrays.asList这个方法返回的根本就不是我们期盼的ArrayList,
+而是Arrays类内部实现的ArrayList,这个内部类只支持访问和set操作,
+并不支持remove,add,clear等修改操作。**
 
 #### Java中引用的类型
 
@@ -458,20 +459,21 @@ Java中引用类型总共有四种: 强引用，软引用，弱引用，虚引�
 
 ---
 
-### 对象在内存中的布局(64位)
+## 对象在内存中的布局(64位)
 
-PS:对象在内存中的布局,在32位和64位上的实现也是不同的，以我的
-机器为例(64位)
+对象在内存中的布局,在32位和64位上的实现也是不同的，以我的机器为例(64位)
 
 **对象在内存中由 对象头,实例数据,对齐填充三部分组成。**
 
-![对象内存布局](../img/jdk_jvm_juc/对象在内存中的布局.png)
-    
-#### 对象头
->对象头可以分为2部分数据组成,**如果是数组,对象头还会保存数组长度。**
+其中**实例数据和对齐填充是不固定的**，下面会讲到。
 
-可以看到在hotspot虚拟机中的对象头由2部分组成:
-mark 和 metadata(klass* , compressed_klass)(见oop.hpp文件):
+![对象内存布局](../img/jdk_jvm_juc/对象在内存中的布局.png)
+
+**可以使用openjdk-jol工具查看对象的内存布局**
+    
+### 对象头
+在hotspot虚拟机中的对象头由2部分组成(**如果是数组,对象头还会保存数组长度**):
+mark 和 metadata(包括klass* , compressed_klass)(见oop.hpp文件)
 
 ![对象头组成1](../img/jdk_jvm_juc/对象头的markword组成1.png)
 
@@ -485,33 +487,88 @@ mark 和 metadata(klass* , compressed_klass)(见oop.hpp文件):
 
 ![对象头组成4](../img/jdk_jvm_juc/对象头的markword组成4.png)
 
-- Mark Word(mark)
+#### markword和metadata
+
+Mark Word(mark)组成:
 
    | 锁状态   | 锁标志  |   markword组成      |
    | :---:   | :---:  |     :---:    |
-   |无锁     |  01    |  由hashcode,分代年龄,偏向锁,锁标志位组成 |
-   |偏向锁   |  01    |  由偏向线程的ID,偏向时间戳(epoch),偏向锁,分代年龄,锁标志位组成|
+   |无锁     |  01    |  由hashcode,分代年龄,是否偏向锁(1位),锁标志位组成 |
+   |偏向锁   |  01    |  由偏向线程的ID,偏向时间戳(epoch),是否偏向锁(1位),分代年龄,锁标志位组成 |
    |轻量级锁 |  00    |  由指向栈中锁的记录和锁标志位组成 |
    |膨胀锁  |  10    |   由指向锁的指针和锁标志位组成   |
    | GC    |  11    |   无数据  |                        
            
-- Klass Pointer /  Compressed Klass: **Klass Pointer是指向对象类型的指针，指针指向对象的类元数据。**
+Klass Pointer /  Compressed Klass: **Klass Pointer是指向对象类型的指针，指针指向对象的类元数据。**
 jvm通过klass pointer判断对象属于哪个类。
 在64位的jvm实现中，Klass Pointer的长度为64bit(32位系统,
 指针为32bit)，也就意味着,64位系统比32位的系统占用更多内存。
-**jvm提供了压缩指针(Compressed Klass)，可以使用-XX:+UseCompressedOops
-来开启指针压缩。**
+
+所以**jvm提供了压缩指针(Compressed Klass)来节省空间，在64位系统下，压缩指针是默认开启的，
+可以使用-XX:-UseCompressedOops来关闭指针压缩。**
            
 #### 实例数据
->实例数据存储着对象在程序中被定义的各个字段的数据,也就是对象的字段的
->数据。
+实例数据存储着对象在程序中被定义的各个字段的数据,也就是对象的字段的
+数据。**如果一个类没有字段，也就不存在实例数据，所以这是它不固定的原因。**
         
 #### 对齐填充
->**Java对象的小必须是8字节的倍数**,像13,15这种非8的倍数的对象的大小,
->不足或多余的部分就要使用对齐填充数据补齐。
->如果Java对象大小正好是8的倍数,那么就无需对齐填充数据。
+**Java对象的小必须是8字节的倍数**,像13,15这种非8的倍数的对象的大小,
+不足或多余的部分就要使用对齐填充数据补齐。
+如果Java对象大小正好是8的倍数,那么就无需对齐填充数据。
 
-**PS:可以使用openjdk-jol工具查看对象大小**
+### jol工具查看对象布局
+
+````xml
+<!--可用此工具查看对象内存布局-->
+ <dependency>
+     <groupId>org.openjdk.jol</groupId>
+     <artifactId>jol-core</artifactId>
+     <version>0.10</version>
+ </dependency>
+````
+
+相信各位同学可能还是对上面的概念优点迷糊，那就可以使用jol工具来查看一下
+对象的真实布局，在实践之前，请各位同学带着几个问题看下面的内容:
+ 
+- hashCode方法返回的真是对象内存地址吗?
+
+- hashcode真实存在吗?
+
+#### 查看对象内存布局
+一下是我自己的一个测试demo，详解了jol的使用:
+
+![jol工具查看对象内存布局1](../img/jdk_jvm_juc/jol工具查看对象内存布局1.png)
+
+以上可以看到jol工具很直观的给我们展现了对象的内存布局，
+但是在对象的markword之中，我们并没有看到hashcode的值，
+难道对象不存在hashcode吗？
+
+#### hashcode
+
+上一个测试在打印对象内存布局之前，我并没有调用对象的hashcode方法，
+相信各位同学也注意到了，我把那2行代码注释掉了。
+
+打开那2行注释再运行看看:
+
+![jol工具查看对象内存布局2](../img/jdk_jvm_juc/jol工具查看对象内存布局2.png)
+
+我们发现，在调用hashcode方法后，对象的hashcode的值与打印结果完全一致，
+到这里可以初步猜想:
+
+**hashcode的值也是不固定存在的。**
+
+**在没有调用对象的hashcode方法之前，对象不存在hashcode。**
+
+**当调用完对象的hashcode之后，jvm就把生成的hashcode值赋予了对象的markword之中。**
+
+#### 对象的hashcode返回的是对象的内存地址吗?
+
+**在hotspot中，hashcode返回的不完全是地址**
+(见：hotspot的/src/share/vm/runtime/synchronizer.cpp):
+
+![hashcode方法源码](../img/jdk_jvm_juc/hashcode方法源码.png)
+
+可以看到hashcode有多种返回策略:随机数，自增长序列，关联地址等多种方式。
 
 ---
 
