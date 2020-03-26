@@ -1,364 +1,40 @@
-<<<<<<< HEAD:mybatis-learning/Mybatis.md
-## mybatis常见知识和源码复盘
-=======
 <!-- TOC -->
-    
-   * [ORM(Object Relational Mapping)](#ormobject-relational-mapping)
-        * [什么是ORM?](#什么是orm)
-           * [JDBC的缺点](#jdbc的缺点)
-        * [Mybatis](#mybatis)
-           * [什么是Mybatis?](#什么是mybatis)
-              * [为什么说Mybatis是半ORM框架?](#为什么说mybatis是半orm框架)
-           * [Mybatis常见知识点](#mybatis常见知识点)
-              * [Mybatis优点](#mybatis优点)
-              * [Mybatis缺点](#mybatis缺点)
-              * [Mybatis适用场景](#mybatis适用场景)
-           * [Mybatis架构](#mybatis架构)
-           * [Mybatis SQL执行流程](#mybatis-sql执行流程)
-              * [Executor的类型](#executor的类型)
-              * [什么是延迟加载?](#什么是延迟加载)
-              * [延迟加载原理](#延迟加载原理)
-              * [${} 和 #{}的区别](#-和-的区别)
-              * [Mybatis 模糊查询LIKE怎么写](#mybatis-模糊查询like怎么写)
-              * [Mybatis是如何获取生成的主键的?](#mybatis是如何获取生成的主键的)
-              * [Mybatis动态SQL是什么?](#mybatis动态sql是什么)
-              * [Mybatis插件原理](#mybatis插件原理)
-              * [Mybatis一级缓存](#mybatis一级缓存)
-              * [一级缓存的原理](#一级缓存的原理)
-              * [使得Mybatis一级缓存失效的方法](#使得mybatis一级缓存失效的方法)
-              * [Mybatis二级缓存](#mybatis二级缓存)
-              * [Mybatis二级缓存的原理](#mybatis二级缓存的原理)
-              * [Mybatis缓存的缺点](#mybatis缓存的缺点)
-           * [Mybatis源码分析](#mybatis源码分析)
-              * [1. 解析配置文件，创建SQLSessionFactory](#1-解析配置文件创建sqlsessionfactory)
-              * [2. 开启java程序和数据库之间的会话：](#2-开启java程序和数据库之间的会话)
-              * [3. 获取mapper代理对象:](#3-获取mapper代理对象)
-              * [4. 执行mapper接口方法:](#4-执行mapper接口方法)
-              * [mybatis源码总结](#mybatis源码总结)
-  
+   
+   * [Mybatis源码分析](#mybatis源码分析)
+      * [1. 解析配置文件，创建SQLSessionFactory](#1-解析配置文件创建sqlsessionfactory)
+      * [2. 开启java程序和数据库之间的会话：](#2-开启java程序和数据库之间的会话)
+      * [3. 获取mapper代理对象:](#3-获取mapper代理对象)
+      * [4. 执行mapper接口方法:](#4-执行mapper接口方法)   
+      * [mybatis源码总结](#mybatis源码总结)
+
 <!-- /TOC -->
 
-# ORM(Object Relational Mapping)
-
-````text
-如有错误之处，敬请指教。
-````
-
-PS:部分图片源于网络,如有侵权，请联系俺，俺会立刻删除。
-
-## 什么是ORM?
-
-Object Relational Mapping : 对象关系映射。
-它是一种解决数据库与简单对象(entity)之间关系映射的技术。
-
-简单理解: ORM通过简单对象(entity) 与 数据库之间的映射关系，将描述对象持久化到数据库中。
-
-#### JDBC的缺点
-
-- 频繁创建数据库连接,浪费连接资源,不易维护
-
-- SQL语句存在硬编码，不易维护
-
-- 结果集处理过程繁琐
-
-
----
-
-
-## Mybatis
-
-### 什么是Mybatis?
-**Mybatis是一款优秀的轻量级的半ORM框架。**
-Mybatis最大的优点就是无需像JDBC一样采用硬编码的方式进行持久化操作，
-它允许我们定制SQL和对象与数据库之间的高级映射关系，极大的提高了持久化操作的灵活性。
-
-#### 为什么说Mybatis是半ORM框架?
-与Hibernate不同，Hibernate属于全自动ORM框架，无需手写SQL，
-且能够自动建立对象与数据库之间的映射关系，很方便。
-但**无需手写SQL也就意味着SQL优化方面可能不如Mybatis那么出色。**
-
-Mybatis则属于半自动ORM框架，因为Mybatis仅仅给我们省去了JDBC硬编码的形式，
-但是在定义SQL和建立对象持久化关系方面，仍然给了我们很大自由，
-**它相对Hibernate更加灵活，扩展性更强。**
-
-
-
-### Mybatis常见知识点
-
-#### Mybatis优点
-
-- 消除了JDBC硬编码，提高了应用的扩展性
-
-- 自定义SQL和对象持久化关系，带来了灵活性
-
-- SQL和对象持久化关系都在配置里，解除了SQL与程序之间的耦合性
-
-#### Mybatis缺点
-
-- 配置繁琐
-
-#### Mybatis适用场景
-
-- 功能复杂的应用: Mybatis足够的灵活，这保证了它能够面对较为复杂的应用场景。
-
-- 考虑SQL优化的应用: SQL优化是一个很常见的问题，Mybatis允许我们自己编写SQL，这样一来就可以轻松的更新和优化SQL了。
-
-### Mybatis架构
-
-Mybatis架构图:
-
-![mybatis架构图](../img/mybatis/Mybatis架构图.png)
-
-- Configuration: Configuration可以说是贯穿整个Mybatis生命周期的一个核心配置组件,
-它存储着Mybatis所有需要的属性和组件。
-从解析阶段开始，到获取Mapper，都需要Configuration。
-
-Configuration内部属性一览：
-
-![Mybatis-Configuration](../img/mybatis/Mybatis-Configuration.png)
-
-- SQLSession: SQLSession是Mybatis最顶级的API接口，
-它封装了SQL的增删查改功能，但最终还是交由Executor去执行逻辑。
-
-- Executor: Executor执行器，是Mybatis的核心组件之一，
-它负责调度StatementHandler来维护和执行SQL。
-
-- StatementHandler: StatementHandler负责JDBC的statement的操作，如SQL入参，执行SQL，封装结果集。
-
-- ParameterHandler: ParameterHandler负责将用户传递的参数转换成statement所需的参数。
-
-- TypeHandler: TypeHandler负责Java数据类型与JDBC数据类型的转换。
-
-- ResultSetHandler: ResultSetHandler负责处理statement执行后返回的结果集。
-
-### Mybatis SQL执行流程
-
-- 配置解析: 由XML解析器解析配置文件(总配置文件，mapper文件),并将解析的结果保存到Configuration中。
-
-- 使用配置环境信息构建SQLSessionFactory工厂: SQLSessionFactory提供了构建SQLSession的多种方式，可以指定Executor的类型和事务隔离级别等。
-
-- 使用SQLSessionFactory创建SQLSession会话: SQLSessionFactory创建SQLSession后，其实是创建的DefaultSQLSession，它包含了Mybatis的环境配置Configuration和Executor执行器。
-
-- 使用SQLSession获取用户需要的Mapper类: Mybatis底层是使用了jdk动态代理来实现目标Mapper的执行的，获取Mapper实际上是获取Mapper的代理类。
-
-- 使用MapperProxy执行目标方法: 实际上最终是Executor调度StatementHandler执行statement。
-
-- Executor调用StatementHandler对Statement做出处理(包括参数处理，执行，结果集处理)。
-
-- StatementHandler调用ParameterHandler装配SQL参数并执行,最后使用ResultSetHandler封装结果集返回。
-
-#### Executor的类型
-
-1. SimpleExecutor: 简单执行器。 每次执行SQL就开启一个statement，用完后就关闭掉。
-
-2. ReuseExecutor: 可重用的执行器。每次执行SQL先去缓存(Map)中找SQL对应的statement，
-如果不存在就新创建statement，用完后并不关闭，而是放入Map缓存中，以待下次使用。
-
-3. BatchExecutor: 批处理执行器。执行SQL时，会将statement添加到批处理中，等到最终executeBatch时，一起执行。
-
-#### 什么是延迟加载?
-延迟加载又称按需加载，即在关联查询中(一对一或一对多)，
-**如果指定了延迟加载，那么并不会一次就把对象关联的数据查出来，
-而是等到对象需要使用关联的数据时才会进行查询**。
-
-
-#### 延迟加载原理
-Mybatis的底层原理是ResultSetHandler在封装结果时，
-**判断对象的属性是否有关联查询(嵌套查询)，如果有，则使用动态代理创建该对象作为结果。**
-
-当对象需要使用它的某个属性时，比如a调用getB方法，
-那么getB方法就会进入代理方法，如果getB为空，就查询B，并setB，这样就可以获取到a的B属性了。
-
-
-#### ${} 和 #{}的区别
-
-- ${} 是将传入的参数直接显示在SQL中;#{} 把传入的参数当做字符串，会给参数加上引号
-
->假设有2条SQL如下:
-
-```text
-1. SELECT * FROM table WHERE id =${id};
-2. SELECT * FROM table WHERE id = #{id};
-```
-
->如果传入的参数为 1 , 那么第一条SQL会被拼接成:
-
-````text
-SELECT * FROM table WHERE id = 1;
-````
-
->第二条SQL会被编译成:
-
-````text
-SELECT * FROM table WHERE id = "1";
-````
-
-- ${}属于拼接符，需要进行字符串拼接;#{} 属于占位符，需要预编译
-
-- ${} 则不能防止SQL注入;#{} 可以在很大程度上预防SQL注入
-
->假如有一条SQL:
-
-````text
-SELECT * FROM table WHERE id = ${id}
-````
-
->假设传入的id为: 1 OR 1 = 1 ,那么字符串拼接后,SQL为:
-
-````text
-SELECT * FROM table WHERE id = 1 OR 1 = 1;
-````
->这条SQL无论如何都会执行成功。
-
->如果将 ${id} 改为 #{id},那么经过预编译后，SQL为:
-
-````text
-SELECT * FROM table WHERE id = "1 OR 1 = 1";
-````
-
->可以看到: #{} 是将参数作为一个字符串为条件的，这样就可以避免 OR 生效，防止SQL注入。
-
-#### Mybatis 模糊查询LIKE怎么写
-
-- SELECT * FROM table WHERE name LIKE '%${name}%' (有注入风险)
-
-- SELECT * FROM table WHERE name LIKE "%"#{name}"%"
-
-- SELECT * FROM table WHERE name LIKE CONCAT('%',#{name},'%')
-
-- Bind标签:
-````xml
-<select id="listProduct" resultType="Product">
-     <bind name="fuzzyName" value="'%' + name + '%'" />
-    select * from  table  where name like #{fuzzyName}
-</select>
-````
-
-#### Mybatis是如何获取生成的主键的?
-Mybatis有一个KeyGenerator接口，这个接口专门用于获取数据库生成的主键。
-但其核心原理还是使用的JDBC 的 API : Statement的 getGeneratedKeys 方法获取的。
-
-![Mybatis获取生成的主键](../img/mybatis/Mybatis获取生成的主键.png)
-
-
-#### Mybatis动态SQL是什么?
-Mybatis允许我们在mapper文件内，**以标签的形式编写动态SQL，用于逻辑判断和SQL拼接等功能。**
-Mybatis动态标签有:
-
- trim  / where  / set / if /  choose / otherwise / bind / foreach 等。
-
-实际上**Mybatis的动态标签是依赖于OGNL的。**
-
-#### Mybatis插件原理
-Mybatis允许我们编写插件对它核心的组件：
-Executor , StatementHandler, ParameterHandler, ResultSetHandler
-这些核心组件的扩展
-
-**Mybatis底层实际上是使用jdk动态代理包装后的组件带替它原生的组件。
-当执行这些组件的方法时，就会执行Interceptor的intercept方法。
-当然，只是当执行我们指定要拦截的方法时，才会执行intercept方法。**
-
-见:Configuration:
-
-![Mybatis插件原理](../img/mybatis/Mybatis插件原理.png)
-
-
-
-#### Mybatis一级缓存
-
-**一级缓存又称本地缓存，它属于SqlSession级别的缓存，默认是开启的。每个SqlSession都有自己的缓存。
-同一个SqlSession查询到的数据都会放入它自己的缓存中，如果之后需要获取相同的数据，
-那么会先从缓存中查找，如果没有才会去查询数据库，这样就降低了数据库的压力。**
-
-Mybatis一级缓存流程:
-
-![Mybatis一级缓存流程图](../img/mybatis/Mybatis一级缓存流程图.png)
-
-Mybatis一级缓存源码:
-
-![Mybatis一级缓存](../img/mybatis/Mybatis一级缓存1.png)
-
-![Mybatis一级缓存](../img/mybatis/Mybatis一级缓存2.png)
-
-
-#### 一级缓存的原理
-对于BaseExecutor来说，它内部维护了一个叫localCache的PerpetualCache对象。
-PerpetualCache实现了Cache接口，它内部使用HashMap进行缓存。
-**所以可以简单理解为Mybatis的一级缓存是由HashMap存储的。**
-  
-Mybatis一级存实现:
-   
-![Mybatis一级缓存实现](../img/mybatis/Myabtis一级缓存实现类.png)
-
-
-#### 使得Mybatis一级缓存失效的方法
-
-- 如果SQL相同，但是SQL的条件或参数不同，缓存会失效
-
-- 在两次查询操作中间，如果进行了增删改操作，会清空本地缓存
-
-- 不同的SqlSession，缓存会失效
-
-- 手动清空SqlSession的缓存
-
-#### Mybatis二级缓存
-**二级缓存又称全局缓存，它属于mapper级别的缓存,默认是关闭的，需要指定配置和标签才会开启。
-多个SqlSession操作同一个Mapper是可以共享一个二级缓存的，但是要求Sql会话必须属于同一个Mapper。**
-
-Mybatis二级缓存流程:
-
-![Mybatis二级缓存流程图](../img/mybatis/Mybatis二级缓存流程图.png)
-
-#### Mybatis二级缓存的原理
-
-Mybatis二级缓存的Executor使用的是CachingExecutor，
-在原生的Executor执行查询操作之前，它会先从二级缓存中查询，如果查询不到才会从一级缓存或数据库中查询。
-
-Configuration创建CachingExecutor:
-
-![Mybatis创建CachingExecutor](../img/mybatis/Mybatis创建CachingExecutor.png)
-
-Mybatis二级缓存源码:
-
-![Mybatis二级缓存](../img/mybatis/Mybatis二级缓存.png)
-
-
-#### Mybatis缓存的缺点
-
-- Mybatis缓存设计缺陷: Mybatis的一级缓存是使用HashMap实现的，并没有指定容量限制，
-虽然可以提高查询效率，但是设计上还有所欠缺。
-
-- 容易引起脏读: Mybatis的缓存是属于Java进程内的缓存，在分布式环境下，缓存的不一致，
-很容易引起数据的脏读。建议还是使用第三方容器，如Redis和Memcached等中间件存储缓存数据。
-
-
-### Mybatis源码分析
+# Mybatis源码分析
 
 #### 1. 解析配置文件，创建SQLSessionFactory
->>>>>>> upstream/dev:orm-learning/ORM.md
 
-### 1.创建SqlSessionFactory
 ````
 InputStream inputStream = CommonTest.class.getClassLoader().getResourceAsStream("mybatis-configuration.xml");
-SqlSessionFactory sqlSessionFactory =
-                new SqlSessionFactoryBuilder().build(inputStream);
+SQLSessionFactory SQLSessionFactory =
+                new SQLSessionFactoryBuilder().build(inputStream);
 ````
 
 这一步首先读取了mybatis的configuration xml配置文件,用这个流构造了Factory的Builder,它底层是使用Mybatis自己的XMLConfigBuilder解析器去解析了这个Configuration文件,
-然后调用了解析器的parse方法,SqlSessionFactory就被构造出来了:
+然后调用了解析器的parse方法,SQLSessionFactory就被构造出来了:
+
 ````
-   public SqlSessionFactory build(InputStream inputStream, String environment, Properties properties) {
-        SqlSessionFactory var5;
+   public SQLSessionFactory build(InputStream inputStream, String environment, Properties properties) {
+        SQLSessionFactory var5;
         try {
           
             //文件解析器
             XMLConfigBuilder parser = new XMLConfigBuilder(inputStream, environment, properties);
            
-            //构造SqlSessionFactory
+            //构造SQLSessionFactory
             var5 = this.build(parser.parse());
      
         } catch (Exception var14) {
-            throw ExceptionFactory.wrapException("Error building SqlSession.", var14);
+            throw ExceptionFactory.wrapException("Error building SQLSession.", var14);
         } finally {
             ErrorContext.instance().reset();
 
@@ -373,17 +49,12 @@ SqlSessionFactory sqlSessionFactory =
     }
 ````
 
-<<<<<<< HEAD:mybatis-learning/Mybatis.md
-根据上面代码可知,SqlSessionFactory被创建的核心是 XMLConfigBuilder的 parse方法,也就是解析文件的那个步骤,它又是怎么解析的呢?
-初次学Mybatis的时候,配置的那个Configuration全局文件里有很多属性对吧,各种节点,environment,mapper,setting...的,可想它内部肯定是对这些节点做了解析的:
-=======
 根据上面代码可知,SQLSessionFactory被创建的核心是 XMLConfigBuilder的 parse方法,
 也就是解析文件的那个步骤,它又是怎么解析的呢?
 
 初次学Mybatis的时候,配置的那个Configuration全局文件里有很多属性对吧,各种节点,
 environment,mapper,setting...的,可想它内部肯定是对这些节点做了解析的:
 
->>>>>>> upstream/dev:orm-learning/ORM.md
 ````
     private void parseConfiguration(XNode root) {
         try {
@@ -403,7 +74,7 @@ environment,mapper,setting...的,可想它内部肯定是对这些节点做了�
             this.databaseIdProviderElement(root.evalNode("databaseIdProvider"));
             this.typeHandlerElement(root.evalNode("typeHandlers"));
         
-            //解析mapper的各个元素(sql,resultmap......)    
+            //解析mapper的各个元素(SQL,resultmap......)    
             this.mapperElement(root.evalNode("mappers"));
         } catch (Exception var3) {
             throw new BuilderException("Error parsing SQL Mapper Configuration. Cause: " + var3, var3);
@@ -490,13 +161,13 @@ public class Configuration {
                             inputStream = Resources.getResourceAsStream(resource);
 
                             //开始解析mapper文件
-                            mapperParser = new XMLMapperBuilder(inputStream, this.configuration, resource, this.configuration.getSqlFragments());
+                            mapperParser = new XMLMapperBuilder(inputStream, this.configuration, resource, this.configuration.getSQLFragments());
                             mapperParser.parse();
                         
                            } else if (resource == null && url != null && mapperClass == null) {
                             ErrorContext.instance().resource(url);
                             inputStream = Resources.getUrlAsStream(url);
-                            mapperParser = new XMLMapperBuilder(inputStream, this.configuration, url, this.configuration.getSqlFragments());
+                            mapperParser = new XMLMapperBuilder(inputStream, this.configuration, url, this.configuration.getSQLFragments());
                             mapperParser.parse();
                         } else {
                             if (resource != null || url != null || mapperClass == null) {
@@ -515,19 +186,15 @@ public class Configuration {
     }
 ````
 
-<<<<<<< HEAD:mybatis-learning/Mybatis.md
-在说解析mapper文件之前,先想想mapper文件里有什么,最核心的就那几个:resultMap,statement(也就是sql),cache缓存,那么XMLMapperBuilder肯定也是围绕那个几个去解析的,或者还解析了其他的东西:
-=======
 在说解析mapper文件之前,先想想mapper文件里有什么,最核心的就那几个:resultMap,statement(也就是SQL),
 cache缓存,那么XMLMapperBuilder肯定也是围绕那个几个去解析的,或者还解析了其他的东西:
 
->>>>>>> upstream/dev:orm-learning/ORM.md
 ````
     public void parse() {
         if (!this.configuration.isResourceLoaded(this.resource)) {
 
             //这里是解析Mapper文件的核心,它内部把Mapper的select,delete,update,insert这些
-            //标签添加到了MapperStatement内,也就是sql语句
+            //标签添加到了MapperStatement内,也就是SQL语句
             this.configurationElement(this.parser.evalNode("/mapper"));
            
             this.configuration.addLoadedResource(this.resource);
@@ -549,24 +216,24 @@ this.configurationElement(this.parser.evalNode("/mapper"));
 ......
 ````
 
-最后,回到解析Configuration文件的起点,解析完文件后,SqlSessionFactory就被build方法构造出来了,其实他是个DefaultSqlSessionFactory:
+最后,回到解析Configuration文件的起点,解析完文件后,SQLSessionFactory就被build方法构造出来了,其实他是个DefaultSQLSessionFactory:
 ````
-   public SqlSessionFactory build(Configuration config) {
-        return new DefaultSqlSessionFactory(config);
+   public SQLSessionFactory build(Configuration config) {
+        return new DefaultSQLSessionFactory(config);
     }
 ````
 
-总结下SqlSessionFactory被创建的过程: 
-首先Mybatis使用XMLConfigBuilder文件解析器,解析全局配置文件,XMLMapperBuilder,解析mapper文件,解析完后将所有的属性封装在了Configuration对象中,然后使用这个全局的Configuration对象构造了DefaultSqlSessionFactory.
+总结下SQLSessionFactory被创建的过程: 
+首先Mybatis使用XMLConfigBuilder文件解析器,解析全局配置文件,XMLMapperBuilder,解析mapper文件,解析完后将所有的属性封装在了Configuration对象中,然后使用这个全局的Configuration对象构造了DefaultSQLSessionFactory.
 
 
-### 2.开启java程序和数据库之间的会话：
+#### 2. 开启java程序和数据库之间的会话：
 ````
-   SqlSession sqlSession = sqlSessionFactory.openSession();
+   SQLSession SQLSession = SQLSessionFactory.openSession();
 ````
-从第一步创建SqlSessionFactory的过程可知,SqlSessionFactory是一个DefaultSqlSessionFactory,所以openSession也是调用了DefaultSqlSessionFactory的openSession:
+从第一步创建SQLSessionFactory的过程可知,SQLSessionFactory是一个DefaultSQLSessionFactory,所以openSession也是调用了DefaultSQLSessionFactory的openSession:
 `````
-   public SqlSession openSession() {
+   public SQLSession openSession() {
         return this.openSessionFromDataSource(this.configuration.getDefaultExecutorType(), (TransactionIsolationLevel)null, false);
     }
 `````
@@ -574,10 +241,10 @@ this.configurationElement(this.parser.evalNode("/mapper"));
 可以看到openSession是调用了openSessionFromDataSource方法,那它是怎么实现的呢:
 
 ````
-    private SqlSession openSessionFromDataSource(ExecutorType execType, TransactionIsolationLevel level, boolean autoCommit) {
+    private SQLSession openSessionFromDataSource(ExecutorType execType, TransactionIsolationLevel level, boolean autoCommit) {
         Transaction tx = null;
 
-        DefaultSqlSession var8;
+        DefaultSQLSession var8;
         try {
             Environment environment = this.configuration.getEnvironment();
 
@@ -588,8 +255,8 @@ this.configurationElement(this.parser.evalNode("/mapper"));
             //核心Executor执行器
             Executor executor = this.configuration.newExecutor(tx, execType);
             
-            //SqlSession就是DefaultSqlSession
-            var8 = new DefaultSqlSession(this.configuration, executor, autoCommit);
+            //SQLSession就是DefaultSQLSession
+            var8 = new DefaultSQLSession(this.configuration, executor, autoCommit);
         } catch (Exception var12) {
             this.closeTransaction(tx);
             throw ExceptionFactory.wrapException("Error opening session.  Cause: " + var12, var12);
@@ -598,7 +265,7 @@ this.configurationElement(this.parser.evalNode("/mapper"));
         }
 ````
 
-从上面代码可以看出,SqlSession是DefaultSqlSession,然后还创建了一个Executor这个核心的执行器对象,那么首先看看这个Executor是什么,为什么说它是核心呢？
+从上面代码可以看出,SQLSession是DefaultSQLSession,然后还创建了一个Executor这个核心的执行器对象,那么首先看看这个Executor是什么,为什么说它是核心呢？
 首先看看它内部的方法吧:
 ````
 public interface Executor {
@@ -606,7 +273,7 @@ public interface Executor {
 
     int update(MappedStatement var1, Object var2) throws SQLException;
 
-    <E> List<E> query(MappedStatement var1, Object var2, RowBounds var3, ResultHandler var4, CacheKey var5, BoundSql var6) throws SQLException;
+    <E> List<E> query(MappedStatement var1, Object var2, RowBounds var3, ResultHandler var4, CacheKey var5, BoundSQL var6) throws SQLException;
 
     <E> List<E> query(MappedStatement var1, Object var2, RowBounds var3, ResultHandler var4) throws SQLException;
 
@@ -652,11 +319,6 @@ public interface Executor {
         return executor;
     }
 ````
-<<<<<<< HEAD:mybatis-learning/Mybatis.md
-从上面代码就可以分析出:创建SqlSession的时机其实是创建Executor的时机,也是封装plugin的时机,也可以猜测Executor就是Mybatis的核心组件之一,负责执行一系列的Sql(Statement).
-
-总结下第二步获取SqlSession的过程:使用DefaultSqlSessionFactory的Configuration创建出对应类型的Executor,并封装配置中的插件,再使用Executor和Configuration创建DefaultSqlSession,由此可见Configuration从被构建出来,流转到了DefaultSqlSession之中.
-=======
 
 从上面代码就可以分析出:创建SQLSession的时机其实是创建Executor的时机,也是封装plugin的时机,
 也可以猜测Executor就是Mybatis的核心组件之一,负责执行一系列的SQL(Statement).
@@ -665,15 +327,14 @@ public interface Executor {
 使用DefaultSQLSessionFactory的Configuration创建出对应类型的Executor,
 并封装配置中的插件,再使用Executor和Configuration创建DefaultSQLSession,
 由此可见Configuration从被构建出来,流转到了DefaultSQLSession之中.
->>>>>>> upstream/dev:orm-learning/ORM.md
 
-### 3.获取mapper代理对象:
+#### 3. 获取mapper代理对象:
 ````
-        PersonMapper personMapper = sqlSession.getMapper(PersonMapper.class);
+        PersonMapper personMapper = SQLSession.getMapper(PersonMapper.class);
 ````
 
 已经知到了上面返回的PersonMapper是一个MapperProxy对象,那么它是怎么被创建出来的呢?
-回想下上面的几个步骤,DefaultSqlSession包含了Configuration,而Configuration是解析的全局配置文件和mapper文件被构造出来的,Configuration也包含了相应的属性,
+回想下上面的几个步骤,DefaultSQLSession包含了Configuration,而Configuration是解析的全局配置文件和mapper文件被构造出来的,Configuration也包含了相应的属性,
 所以MapperProxy应该也是从Configuration获取:
 ````
  public <T> T getMapper(Class<T> type) {
@@ -681,8 +342,8 @@ public interface Executor {
     }
 
 -----------------------------------------------------------
-   public <T> T getMapper(Class<T> type, SqlSession sqlSession) {
-        return this.mapperRegistry.getMapper(type, sqlSession);
+   public <T> T getMapper(Class<T> type, SQLSession SQLSession) {
+        return this.mapperRegistry.getMapper(type, SQLSession);
     }
 ````
 
@@ -691,7 +352,7 @@ public interface Executor {
     ...
     private final Map<Class<?>, MapperProxyFactory<?>> knownMappers = new HashMap();
 
-    public <T> T getMapper(Class<T> type, SqlSession sqlSession) {
+    public <T> T getMapper(Class<T> type, SQLSession SQLSession) {
         //获取mapper接口对应的工厂
         MapperProxyFactory<T> mapperProxyFactory = (MapperProxyFactory)this.knownMappers.get(type);
         if (mapperProxyFactory == null) {
@@ -699,7 +360,7 @@ public interface Executor {
         } else {
             try {
                 //使用工厂创建mapper接口
-                return mapperProxyFactory.newInstance(sqlSession);
+                return mapperProxyFactory.newInstance(SQLSession);
             } catch (Exception var5) {
                 throw new BindingException("Error getting mapper instance. Cause: " + var5, var5);
             }
@@ -716,9 +377,9 @@ MapperRegistry内部有一个map,保存着mapper接口的class到相应的Mapper
         return Proxy.newProxyInstance(this.mapperInterface.getClassLoader(), new Class[]{this.mapperInterface}, mapperProxy);
     }
 
-    public T newInstance(SqlSession sqlSession) {
+    public T newInstance(SQLSession SQLSession) {
         //首先创建MapperProxy对象,MapperProxy对象实现了InvocationalHandler接口,所以它可以被jdk动态代理
-        MapperProxy<T> mapperProxy = new MapperProxy(sqlSession, this.mapperInterface, this.methodCache);
+        MapperProxy<T> mapperProxy = new MapperProxy(SQLSession, this.mapperInterface, this.methodCache);
         return this.newInstance(mapperProxy);
     }
 ````
@@ -726,12 +387,12 @@ MapperRegistry内部有一个map,保存着mapper接口的class到相应的Mapper
 上面代码就不解释了,直接总结第3步吧:
 Configuration从MapperRegistry里获取对应的Mapper接口的代理工厂MapperProxyFactory,MapperProxyFactory使用jdk动态代理创建Mapper接口的动态代理对象.
 
-### 4.执行mapper接口方法:
+#### 4. 执行mapper接口方法:
 ````
   personMapper.selectPersonById(1L);
 ````
 
-上面分析到由SqlSession获取的Mapper对象其实是MapperProxyFactory创建的MapperProxy代理对象,那么sql代码的执行也肯定是在MapperProxy类的invoke中了,所以直接锁定MapperProxy类的invoke方法:
+上面分析到由SQLSession获取的Mapper对象其实是MapperProxyFactory创建的MapperProxy代理对象,那么SQL代码的执行也肯定是在MapperProxy类的invoke中了,所以直接锁定MapperProxy类的invoke方法:
 ````
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         try {
@@ -754,7 +415,7 @@ Configuration从MapperRegistry里获取对应的Mapper接口的代理工厂Mappe
        
         MapperMethod mapperMethod = this.cachedMapperMethod(method);
          //真正执行Statement的入口
-        return mapperMethod.execute(this.sqlSession, args);
+        return mapperMethod.execute(this.SQLSession, args);
     }
 ````
 
@@ -766,7 +427,7 @@ public class MapperProxy<T> implements InvocationHandler, Serializable {
     private static final int ALLOWED_MODES = 15;
     private static final Constructor<Lookup> lookupConstructor;
     private static final Method privateLookupInMethod;
-    private final SqlSession sqlSession;
+    private final SQLSession SQLSession;
     private final Class<T> mapperInterface;
     //存储着mapperProxy对应接口的方法
     private final Map<Method, MapperMethod> methodCache;
@@ -780,8 +441,8 @@ public class MapperProxy<T> implements InvocationHandler, Serializable {
        .....
         //根据接口要调用的方法,获取对应的mapperMethod
         MapperMethod mapperMethod = this.cachedMapperMethod(method);
-        //使用获取到的mapperMethod执行sql
-        return mapperMethod.execute(this.sqlSession, args);
+        //使用获取到的mapperMethod执行SQL
+        return mapperMethod.execute(this.SQLSession, args);
     }
 ````
 
@@ -789,43 +450,43 @@ public class MapperProxy<T> implements InvocationHandler, Serializable {
 
 那mapperMethod是如何执行的呢?
 ````
-    public Object execute(SqlSession sqlSession, Object[] args) {
+    public Object execute(SQLSession SQLSession, Object[] args) {
         Object result;
         Object param;
         switch(this.command.getType()) {
 
          //insert操作
         case INSERT:
-            param = this.method.convertArgsToSqlCommandParam(args);
-            result = this.rowCountResult(sqlSession.insert(this.command.getName(), param));
+            param = this.method.convertArgsToSQLCommandParam(args);
+            result = this.rowCountResult(SQLSession.insert(this.command.getName(), param));
             break;
 
         //update操作
         case UPDATE:
-            param = this.method.convertArgsToSqlCommandParam(args);
-            result = this.rowCountResult(sqlSession.update(this.command.getName(), param));
+            param = this.method.convertArgsToSQLCommandParam(args);
+            result = this.rowCountResult(SQLSession.update(this.command.getName(), param));
             break;
     
         //delete操作
         case DELETE:
-            param = this.method.convertArgsToSqlCommandParam(args);
-            result = this.rowCountResult(sqlSession.delete(this.command.getName(), param));
+            param = this.method.convertArgsToSQLCommandParam(args);
+            result = this.rowCountResult(SQLSession.delete(this.command.getName(), param));
             break;
 
         //select操作
         case SELECT:
             if (this.method.returnsVoid() && this.method.hasResultHandler()) {
-                this.executeWithResultHandler(sqlSession, args);
+                this.executeWithResultHandler(SQLSession, args);
                 result = null;
             } else if (this.method.returnsMany()) {
-                result = this.executeForMany(sqlSession, args);
+                result = this.executeForMany(SQLSession, args);
             } else if (this.method.returnsMap()) {
-                result = this.executeForMap(sqlSession, args);
+                result = this.executeForMap(SQLSession, args);
             } else if (this.method.returnsCursor()) {
-                result = this.executeForCursor(sqlSession, args);
+                result = this.executeForCursor(SQLSession, args);
             } else {
-                param = this.method.convertArgsToSqlCommandParam(args);
-                result = sqlSession.selectOne(this.command.getName(), param);
+                param = this.method.convertArgsToSQLCommandParam(args);
+                result = SQLSession.selectOne(this.command.getName(), param);
                 if (this.method.returnsOptional() && (result == null || !this.method.getReturnType().equals(result.getClass()))) {
                     result = Optional.ofNullable(result);
                 }
@@ -834,7 +495,7 @@ public class MapperProxy<T> implements InvocationHandler, Serializable {
         
         //flush操作
         case FLUSH:
-            result = sqlSession.flushStatements();
+            result = SQLSession.flushStatements();
             break;
         default:
             throw new BindingException("Unknown execution method for: " + this.command.getName());
@@ -853,26 +514,26 @@ public class MapperProxy<T> implements InvocationHandler, Serializable {
   case SELECT:
             //如果方法没有返回值
             if (this.method.returnsVoid() && this.method.hasResultHandler()) {
-                this.executeWithResultHandler(sqlSession, args);
+                this.executeWithResultHandler(SQLSession, args);
                 result = null;
             }
             //如果方法返回集合
              else if (this.method.returnsMany()) {
-                result = this.executeForMany(sqlSession, args);
+                result = this.executeForMany(SQLSession, args);
             } 
             //如果方法返回map
             else if (this.method.returnsMap()) {
-                result = this.executeForMap(sqlSession, args);
+                result = this.executeForMap(SQLSession, args);
             }
             //返回游标类
             else if (this.method.returnsCursor()) {
-                result = this.executeForCursor(sqlSession, args);
+                result = this.executeForCursor(SQLSession, args);
             } else {
                 //正常普通返回值
 
                 //抓换
-                param = this.method.convertArgsToSqlCommandParam(args);
-                result = sqlSession.selectOne(this.command.getName(), param);
+                param = this.method.convertArgsToSQLCommandParam(args);
+                result = SQLSession.selectOne(this.command.getName(), param);
                 if (this.method.returnsOptional() && (result == null || !this.method.getReturnType().equals(result.getClass()))) {
                     result = Optional.ofNullable(result);
                 }
@@ -900,21 +561,21 @@ public class MapperProxy<T> implements InvocationHandler, Serializable {
  
 ````
 
-可以看到SqlSession的select还是代理到Executor的query方上了:
+可以看到SQLSession的select还是代理到Executor的query方上了:
 ````
     public <E> List<E> query(MappedStatement ms, Object parameter, RowBounds rowBounds, ResultHandler resultHandler) throws SQLException {
-        //获取sql
-        BoundSql boundSql = ms.getBoundSql(parameter);
+        //获取SQL
+        BoundSQL boundSQL = ms.getBoundSQL(parameter);
         //创建二级缓存的key,这个key非常长
-        CacheKey key = this.createCacheKey(ms, parameter, rowBounds, boundSql);
+        CacheKey key = this.createCacheKey(ms, parameter, rowBounds, boundSQL);
         //查询
-        return this.query(ms, parameter, rowBounds, resultHandler, key, boundSql);
+        return this.query(ms, parameter, rowBounds, resultHandler, key, boundSQL);
     }
 ````
 
 继续深入重载的query方法:
 ````
-    public <E> List<E> query(MappedStatement ms, Object parameter, RowBounds rowBounds, ResultHandler resultHandler, CacheKey key, BoundSql boundSql) throws SQLException {
+    public <E> List<E> query(MappedStatement ms, Object parameter, RowBounds rowBounds, ResultHandler resultHandler, CacheKey key, BoundSQL boundSQL) throws SQLException {
         ErrorContext.instance().resource(ms.getResource()).activity("executing a query").object(ms.getId());
         if (this.closed) {
             throw new ExecutorException("Executor was closed.");
@@ -931,10 +592,10 @@ public class MapperProxy<T> implements InvocationHandler, Serializable {
                 list = resultHandler == null ? (List)this.localCache.getObject(key) : null;
                 if (list != null) {
                     //如果有缓存,就覆盖当前参数值,但只针对CALLABLE
-                    this.handleLocallyCachedOutputParameters(ms, key, parameter, boundSql);
+                    this.handleLocallyCachedOutputParameters(ms, key, parameter, boundSQL);
                 } else {
                     //从数据库查询
-                    list = this.queryFromDatabase(ms, parameter, rowBounds, resultHandler, key, boundSql);
+                    list = this.queryFromDatabase(ms, parameter, rowBounds, resultHandler, key, boundSQL);
                 }
             } finally {
                 --this.queryStack;
@@ -961,13 +622,13 @@ public class MapperProxy<T> implements InvocationHandler, Serializable {
 ````
 继续深入 queryFromDatabase 方法,看Executor到底是怎么查询的:
 ````
-    private <E> List<E> queryFromDatabase(MappedStatement ms, Object parameter, RowBounds rowBounds, ResultHandler resultHandler, CacheKey key, BoundSql boundSql) throws SQLException {
+    private <E> List<E> queryFromDatabase(MappedStatement ms, Object parameter, RowBounds rowBounds, ResultHandler resultHandler, CacheKey key, BoundSQL boundSQL) throws SQLException {
         this.localCache.putObject(key, ExecutionPlaceholder.EXECUTION_PLACEHOLDER);
 
         List list;
         try {
             //又是一个接口方法,有需要深入
-            list = this.doQuery(ms, parameter, rowBounds, resultHandler, boundSql);
+            list = this.doQuery(ms, parameter, rowBounds, resultHandler, boundSQL);
         } finally {
             this.localCache.removeObject(key);
         }
@@ -983,14 +644,14 @@ public class MapperProxy<T> implements InvocationHandler, Serializable {
 
 继续看doQuery方法,因为我没有指定Executor的类型,所以这个doQuery肯定是在SimpleExecutor中了:
 ````
-    public <E> List<E> doQuery(MappedStatement ms, Object parameter, RowBounds rowBounds, ResultHandler resultHandler, BoundSql boundSql) throws SQLException {
+    public <E> List<E> doQuery(MappedStatement ms, Object parameter, RowBounds rowBounds, ResultHandler resultHandler, BoundSQL boundSQL) throws SQLException {
         Statement stmt = null;
 
         List var9;
         try {
             Configuration configuration = ms.getConfiguration();
             //来了,又是一个核心对象
-            StatementHandler handler = configuration.newStatementHandler(this.wrapper, ms, parameter, rowBounds, resultHandler, boundSql);
+            StatementHandler handler = configuration.newStatementHandler(this.wrapper, ms, parameter, rowBounds, resultHandler, boundSQL);
             stmt = this.prepareStatement(handler, ms.getStatementLog());
             var9 = handler.query(stmt, resultHandler);
         } finally {
@@ -1001,11 +662,11 @@ public class MapperProxy<T> implements InvocationHandler, Serializable {
     }
 ````
 
-在doQuery方法中根据Configuration创建了StatementHandler,它是Sql的处理器,看看Configuration是怎么创建它的:
+在doQuery方法中根据Configuration创建了StatementHandler,它是SQL的处理器,看看Configuration是怎么创建它的:
 ````
-    public StatementHandler newStatementHandler(Executor executor, MappedStatement mappedStatement, Object parameterObject, RowBounds rowBounds, ResultHandler resultHandler, BoundSql boundSql) {
+    public StatementHandler newStatementHandler(Executor executor, MappedStatement mappedStatement, Object parameterObject, RowBounds rowBounds, ResultHandler resultHandler, BoundSQL boundSQL) {
         //RoutingStatementHandler
-        StatementHandler statementHandler = new RoutingStatementHandler(executor, mappedStatement, parameterObject, rowBounds, resultHandler, boundSql);
+        StatementHandler statementHandler = new RoutingStatementHandler(executor, mappedStatement, parameterObject, rowBounds, resultHandler, boundSQL);
         //再次对插件进行了封装
         StatementHandler statementHandler = (StatementHandler)this.interceptorChain.pluginAll(statementHandler);
         return statementHandler;
@@ -1015,19 +676,19 @@ public class MapperProxy<T> implements InvocationHandler, Serializable {
 
 上面最重要的创建RoutingStatementHandler那句代码,RoutingStatementHandler是个什么东西,看样子它是路由的StatementHandler,岂不是创建各种类型的StatementHandler:
 ````
-    public RoutingStatementHandler(Executor executor, MappedStatement ms, Object parameter, RowBounds rowBounds, ResultHandler resultHandler, BoundSql boundSql) {
+    public RoutingStatementHandler(Executor executor, MappedStatement ms, Object parameter, RowBounds rowBounds, ResultHandler resultHandler, BoundSQL boundSQL) {
         switch(ms.getStatementType()) {
         //普通的StatementHandler
         case STATEMENT:
-            this.delegate = new SimpleStatementHandler(executor, ms, parameter, rowBounds, resultHandler, boundSql);
+            this.delegate = new SimpleStatementHandler(executor, ms, parameter, rowBounds, resultHandler, boundSQL);
             break;
-        //预编译StatementHandler,也就是预编译的sql
+        //预编译StatementHandler,也就是预编译的SQL
         case PREPARED:
-            this.delegate = new PreparedStatementHandler(executor, ms, parameter, rowBounds, resultHandler, boundSql);
+            this.delegate = new PreparedStatementHandler(executor, ms, parameter, rowBounds, resultHandler, boundSQL);
             break;
         //CALLABLE类型的StatementHandler
         case CALLABLE:
-            this.delegate = new CallableStatementHandler(executor, ms, parameter, rowBounds, resultHandler, boundSql);
+            this.delegate = new CallableStatementHandler(executor, ms, parameter, rowBounds, resultHandler, boundSQL);
             break;
         default:
             throw new ExecutorException("Unknown statement type: " + ms.getStatementType());
@@ -1035,19 +696,19 @@ public class MapperProxy<T> implements InvocationHandler, Serializable {
 
     }
 ````
-从RoutingStatementHandler的源码可知,它负责创建不同类型的sql的StatementHandler.
+从RoutingStatementHandler的源码可知,它负责创建不同类型的SQL的StatementHandler.
 
 那么创建完这个StatementHandler后,有啥用呢？
 回到doQuery方法:
 ````
-    public <E> List<E> doQuery(MappedStatement ms, Object parameter, RowBounds rowBounds, ResultHandler resultHandler, BoundSql boundSql) throws SQLException {
+    public <E> List<E> doQuery(MappedStatement ms, Object parameter, RowBounds rowBounds, ResultHandler resultHandler, BoundSQL boundSQL) throws SQLException {
         Statement stmt = null;
 
         List var9;
         try {
             Configuration configuration = ms.getConfiguration();
            //创建StatementHandler
-            StatementHandler handler = configuration.newStatementHandler(this.wrapper, ms, parameter, rowBounds, resultHandler, boundSql);
+            StatementHandler handler = configuration.newStatementHandler(this.wrapper, ms, parameter, rowBounds, resultHandler, boundSQL);
              //预编译StatemenT    
             stmt = this.prepareStatement(handler, ms.getStatementLog());
             var9 = handler.query(stmt, resultHandler);
@@ -1059,7 +720,7 @@ public class MapperProxy<T> implements InvocationHandler, Serializable {
     }
 
 ````
-可以看到下面的一个 prepareStatement 方法直接预编译出来了一个Statement,Statement相信各位同学不陌生吧,java原生的Sql操作啊,由StatementHandler预编译成Statement这个方法肯定是做些事情的,到现在还没有设置参数呢,而且参数一直都随着那几颗方法：
+可以看到下面的一个 prepareStatement 方法直接预编译出来了一个Statement,Statement相信各位同学不陌生吧,java原生的SQL操作啊,由StatementHandler预编译成Statement这个方法肯定是做些事情的,到现在还没有设置参数呢,而且参数一直都随着那几颗方法：
 ````
    private Statement prepareStatement(StatementHandler handler, Log statementLog) throws SQLException {
         Connection connection = this.getConnection(statementLog);
@@ -1070,11 +731,11 @@ public class MapperProxy<T> implements InvocationHandler, Serializable {
     }
 ````
 
-看看parametersize是如何设置参数的吧:
+看看parameterize是如何设置参数的吧:
 
 ````
   public void parameterize(Statement statement) throws SQLException {
-        //ParameterHandler出来了,它时StatementHandler的一个属性,负责sql的入参
+        //ParameterHandler出来了,它时StatementHandler的一个属性,负责SQL的入参
         this.parameterHandler.setParameters((PreparedStatement)statement);
     }
 ````
@@ -1085,8 +746,8 @@ public class MapperProxy<T> implements InvocationHandler, Serializable {
    public void setParameters(PreparedStatement ps) {
         ErrorContext.instance().activity("setting parameters").object(this.mappedStatement.getParameterMap().getId());
        
-        //从BoundSql中获取ParameterMapping,也就是参数
-        List<ParameterMapping> parameterMappings = this.boundSql.getParameterMappings();
+        //从BoundSQL中获取ParameterMapping,也就是参数
+        List<ParameterMapping> parameterMappings = this.boundSQL.getParameterMappings();
         if (parameterMappings != null) {
             for(int i = 0; i < parameterMappings.size(); ++i) {
                 ParameterMapping parameterMapping = (ParameterMapping)parameterMappings.get(i);
@@ -1099,8 +760,8 @@ public class MapperProxy<T> implements InvocationHandler, Serializable {
                     //参数值
                     Object value;
                     //获取参数值
-                    if (this.boundSql.hasAdditionalParameter(propertyName)) {
-                        value = this.boundSql.getAdditionalParameter(propertyName);
+                    if (this.boundSQL.hasAdditionalParameter(propertyName)) {
+                        value = this.boundSQL.getAdditionalParameter(propertyName);
                     } else if (this.parameterObject == null) {
                         value = null;
 
@@ -1186,19 +847,6 @@ public class MapperProxy<T> implements InvocationHandler, Serializable {
     }
 ````
 
-<<<<<<< HEAD:mybatis-learning/Mybatis.md
-算是完成了对mybatis执行过程的一个简单的源码分析吧,由于我功力浅薄,即使是分析出来了这么一个大致的运行流程,其中的大部分细节我仍然是不懂的,所以我会继续学习.
-
-#### mybatis总结:
-Mybatis最核心的对象莫过于Configuration了,Configuration在解析完配置文件和mapper文件后就一直流转于整个mybatis执行的生命周期内,首先由Configuration创建出Executor,从而创建DefaultSqlSession,
-又由Configuration内的MapperRegistry获取MapperProxy对象,执行Sql的时候,也由Configuration创建StatementHandler,几乎可以说Configuration是无处不在.
-
-然后说下Mybatis核心的组件:Executor:负责调度StatementHandler;StatementHandler负责调度ParameterHandler对Sql入参,执行Sql并调度ResultSetHandler对sql执行的结果做出封装,ParameterHandler负责sql的入参,
-ResultSetHandler负责sql执行后的处理工作.
-
-其实有很多人说mybatis不够智能化,但是我想说的是,我就喜欢mybatis这样的框架,他能帮做掉很多繁琐的事情,也能让你灵活的掌握Sql,听说Hibernate不需要写sql,我没学过,不好妄下定论.但是我觉得sql本身就不属于java语言这个范畴,如果连sql都不需要写,是什么ORM框架,又怎么谈Sql优化呢?
-在分析mybatis源码的过程中,我觉得的mybatis整个框架的设计和面向对象的思想是发挥的淋漓尽致的,并且我认为它在设计上是可以和Spring的设计相提并论的(好吧,其实它们都是给我看不懂感觉的神仙设计).
-=======
 算是完成了对mybatis执行过程的一个简单的源码分析吧,由于我功力浅薄,
 即使是分析出来了这么一个大致的运行流程,其中的大部分细节我仍然是不懂的,所以我会继续学习.
 
@@ -1228,4 +876,3 @@ ResultSetHandler负责Statement执行后的结果集处理.
 Mybatis帮我们做掉这么多繁琐的事情,还能让我们灵活的掌握SQL，在设计上实属np。
 听说Hibernate不需要写SQL,我没学过,不好妄下定论。
 但是我觉得SQL本身就不属于Java语言这个范畴,**如果连SQL都不需要写,是什么ORM框架,又怎么谈SQL优化呢?**
->>>>>>> upstream/dev:orm-learning/ORM.md

@@ -32,3 +32,5 @@ build/
 .mvn/
 DubboLearningPersonServiceConsumerApplication.java
 DubboLearningPersonServiceProviderApplication.java
+
+_book/

@@ -11,13 +11,20 @@
 个人能力有限，总结的知识可能不全且有遗漏和错误，敬请各位同学指教。
 ```
 
-PS: 本人XMind版本: Linux XMind 8 (XMind为Java所写，所以文件应该是通用的)
+为了良好的阅读体验，可以移步到本项目的GitBook网页阅读版:
+**[framework-learning](https://guang19.github.io/framework-learning/)** 
+
+网页阅读版的内容与本项目是同步的，请放心阅读。
+
+本人XMind版本: Linux XMind 8 (XMind为Java所写，所以文件应该是通用的)
+
+如果这份资料帮助到了各位同学，还请各位同学点个star(别下次一定呀 =^_^=),非常感谢...
 
 ### 知识点总览:
 
 ---
 
-Jdk&Jvm&Juc常见知识点一览:
+Jdk&Jvm&Juc知识点一览:
 
 ![Java知识梳理之JDK&JVM&JUC截图](img/Java知识梳理之JDK&JVM&JUC截图.png)
 
@@ -29,7 +36,7 @@ Jdk&Jvm&Juc常见知识点一览:
 
 关系型数据库常见知识点一览:
 
-![Java知识梳理之关系型数据库](img/Java知识梳理之关系型数据库截图.png)
+![Java知识梳理之关系型数据库截图](img/Java知识梳理之关系型数据库截图.png)
 
 #### [关系型数据库常见知识点](https://github.com/guang19/framework-learning/blob/dev/rdbms-learning/RDBMS.md)
 
@@ -37,6 +44,19 @@ Jdk&Jvm&Juc常见知识点一览:
 
 ---
 
+<<<<<<< HEAD
+=======
+非关系型数据库常见知识点一览:
+
+![Java知识梳理之非关系型数据库截图](img/Java知识梳理之非关系型数据库截图.png)
+
+#### [非关系型数据库常见知识点](https://github.com/guang19/framework-learning/blob/dev/nosql-learning/NoSQL.md)
+
+#### [Java知识梳理之非关系型数据库 - XMind](https://github.com/guang19/framework-learning/blob/dev/xmind_file/Java知识梳理之非关系型数据库.xmind)
+
+---
+
+>>>>>>> upstream/dev
 #### [数据结构与算法](https://github.com/guang19/framework-learning/blob/dev/datastructure_algorithm/DataStructure&Algorithm.md)(更新中)
 
 #### 推荐一个数据结构与算法的可视化网站，希望能够帮到正在学习数据结构与算法的同学: [数据结构与算法可视化](https://www.cs.usfca.edu/~galles/visualization/Algorithms.html)
@@ -49,7 +69,7 @@ Jdk&Jvm&Juc常见知识点一览:
 
 计算机网络常见知识点一览:
 
-![Java知识梳理之计算机网络](img/Java知识梳理之计算机网络截图.png)
+![Java知识梳理之计算机网络截图](img/Java知识梳理之计算机网络截图.png)
 
 #### [计算机网络常见知识点](https://github.com/guang19/framework-learning/blob/dev/computer-network/Computer-Network.md)
 
@@ -59,17 +79,29 @@ Jdk&Jvm&Juc常见知识点一览:
 
 Spring框架常见知识点一览:
 
-![Java知识梳理之Spring](img/Java知识梳理之Spring截图.png)
+![Java知识梳理之Spring截图](img/Java知识梳理之Spring截图.png)
 
-#### [Spring常见知识点](https://github.com/guang19/framework-learning/blob/dev/spring-learning/Spring.md)
+#### [Spring常见知识点](https://github.com/guang19/framework-learning/blob/dev/spring-learning/SpringFramework.md)
 
 #### [SpringMVC常见知识点和源码分析](https://github.com/guang19/framework-learning/blob/dev/springmvc-learning/SpringMVC.md)
+
+#### [SpringBoot常见知识点](https://github.com/guang19/framework-learning/blob/dev/springmvc-learning/SpringBoot.md)
 
 #### [Java知识梳理之Spring - XMind](https://github.com/guang19/framework-learning/blob/dev/xmind_file/Java知识梳理之Spring.xmind)
 
 ---
 
+<<<<<<< HEAD
 #### [Mybatis](https://github.com/guang19/framework-learning/blob/dev/mybatis-learning/Mybatis.md)(更新中)
+=======
+ORM常见知识点一览:
+
+![Java知识梳理之ORM截图](img/Java知识梳理之ORM截图.png)
+
+#### [ORM常见知识点](https://github.com/guang19/framework-learning/blob/dev/orm-learning/ORM.md)
+
+#### [Java知识梳理之ORM - XMind](https://github.com/guang19/framework-learning/blob/dev/xmind_file/Java知识梳理之ORM.xmind)
+>>>>>>> upstream/dev
 
 ---
 
@@ -82,4 +114,3 @@ Spring框架常见知识点一览:
 #### [Dubbo](https://github.com/guang19/framework-learning/blob/dev/dubbo-learning/Dubbo.md)(更新中)
 
 #### [Swagger](https://github.com/guang19/framework-learning/blob/dev/swagger-learning/Swagger.md)(更新中)
-
