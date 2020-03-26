@@ -39,6 +39,8 @@
   
   - [JVM调优相关内容](gitbook_doc/jdk_jvm_juc-learning/JVM调优相关内容.md)
 
+  - [Jdk新特性](gitbook_doc/jdk_jvm_juc-learning/Jdk新特性.md)
+
 
 ---
 
