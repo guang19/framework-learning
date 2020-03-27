@@ -59,7 +59,7 @@ CountDownLatch,Semaphore,ReentrantReadWriteLock的ReadLock都是共享锁。
 如果线程获取到了锁或线程已经拥有了锁才更改锁计数。
 
 #### CountDownLatch
->CountDownLatch允许count个线程阻塞在一个地方，直至所有线程的任务都执行完毕。
+>CountDownLatch允许多个线程阻塞在一个地方，直至count个线程执行完毕，然后unpark唤醒阻塞的线程。
 
 CountDownLatch是共享锁的一种实现,**它默认构造AQS的state为count。
 当线程使用countDown方法时,其实使用了tryReleaseShared方法以CAS的操作来减少state,
