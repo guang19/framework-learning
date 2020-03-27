@@ -1166,10 +1166,11 @@ CountDownLatch,Semaphore,ReentrantReadWriteLock的ReadLock都是共享锁。
 CountDownLatch是共享锁的一种实现,**它默认构造AQS的state为count。
 当线程使用countDown方法时,其实使用了tryReleaseShared方法以CAS的操作来减少state,
 直至state为0就代表所有的线程都调用了countDown方法。**
-当调用await方法的时候，如果state不为0，
-就代表仍然有线程没有调用countDown方法，那么就把已经调用过countDown的线程都放入阻塞队列Park,
-并自旋CAS判断state == 0，直至最后一个线程调用了countDown，使得state == 0，
-于是阻塞的线程便判断成功，全部往下执行。
+假如某线程A调用await方法时，如果state不为0，就代表还有线程未执行countDown方法，
+那么就把线程A放入阻塞队列Park，并自旋CAS判断state == 0。
+直至最后一个线程调用了countDown，使得state == 0，
+于是阻塞的线程判断成功，并被唤醒，就继续往下执行。
+
 
 #### Semaphore
 >Semaphore允许一次性最多(不是同时)permits个线程执行任务。
