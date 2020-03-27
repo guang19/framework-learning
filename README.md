@@ -6,9 +6,9 @@
 我把它们都做成Markdown的文章供各位同学参考，
 其中一些我也以XMind方式来对相应部分的知识进行梳理总结。
 
-其中没有更新完或待纠正的部分，我会持续更新，各位同学有好的建议也请issue或pr。
+其中没有更新完或待纠正的部分，我会持续更新，各位同学有好的建议也可以issue或pr。
 
-个人能力有限，总结的知识可能不全且有遗漏和错误，敬请各位同学指教。
+个人能力有限，总结的知识可能不全或有遗漏和错误，敬请各位同学指教。
 ```
 
 为了良好的阅读体验，可以移步到本项目的GitBook网页阅读版:
@@ -44,8 +44,6 @@ Jdk&Jvm&Juc知识点一览:
 
 ---
 
-<<<<<<< HEAD
-=======
 非关系型数据库常见知识点一览:
 
 ![Java知识梳理之非关系型数据库截图](img/Java知识梳理之非关系型数据库截图.png)
@@ -56,7 +54,6 @@ Jdk&Jvm&Juc知识点一览:
 
 ---
 
->>>>>>> upstream/dev
 #### [数据结构与算法](https://github.com/guang19/framework-learning/blob/dev/datastructure_algorithm/DataStructure&Algorithm.md)(更新中)
 
 #### 推荐一个数据结构与算法的可视化网站，希望能够帮到正在学习数据结构与算法的同学: [数据结构与算法可视化](https://www.cs.usfca.edu/~galles/visualization/Algorithms.html)
@@ -91,9 +88,6 @@ Spring框架常见知识点一览:
 
 ---
 
-<<<<<<< HEAD
-#### [Mybatis](https://github.com/guang19/framework-learning/blob/dev/mybatis-learning/Mybatis.md)(更新中)
-=======
 ORM常见知识点一览:
 
 ![Java知识梳理之ORM截图](img/Java知识梳理之ORM截图.png)
@@ -101,16 +95,23 @@ ORM常见知识点一览:
 #### [ORM常见知识点](https://github.com/guang19/framework-learning/blob/dev/orm-learning/ORM.md)
 
 #### [Java知识梳理之ORM - XMind](https://github.com/guang19/framework-learning/blob/dev/xmind_file/Java知识梳理之ORM.xmind)
->>>>>>> upstream/dev
 
 ---
 
 #### [Tomcat](https://github.com/guang19/framework-learning/blob/dev/tomcat-9.0.30-source/Tomcat.md)(待纠正)
 
+---
+
 #### [RabbitMQ](https://github.com/guang19/framework-learning/blob/dev/rabbitmq-learning/RabbitMQ.md)(更新中)
+
+---
 
 #### [Zookeeper](https://github.com/guang19/framework-learning/blob/dev/zookeeper-learning/Zookeeper.md)(待纠正)
 
+---
+
 #### [Dubbo](https://github.com/guang19/framework-learning/blob/dev/dubbo-learning/Dubbo.md)(更新中)
+
+---
 
 #### [Swagger](https://github.com/guang19/framework-learning/blob/dev/swagger-learning/Swagger.md)(更新中)
