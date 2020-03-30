@@ -381,7 +381,7 @@ ThreadLocal的原理还得从Thread线程类说起，
 **每个Thread类内部都有一个ThreadLocalMap，当使用ThreadLocal的get和remove操作的时候，
 就是使用每个线程的ThreadLocalMap的get和remove。**
 
-#### ThreadLocal引发的内存泄露:
+#### ThreadLocal引发的内存泄露
 **在ThreadLocalMap中，key是使用弱引用的ThreadLocal存储的。**
 弱引用是只要垃圾回收器开始回收，无论内存是否充足，都会回收掉弱引用对象，如此一来，
 当ThreadLocal被回收掉,那么ThreadLocalMap将可能出现Null Key 的 value。但是也不必太过担心，

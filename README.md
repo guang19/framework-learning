@@ -12,7 +12,7 @@
 ```
 
 为了良好的阅读体验，可以移步到本项目的GitBook网页阅读版:
-**[framework-learning](https://guang19.github.io/framework-learning/)** 
+**[framework-learning](https://qsjzwithguang19forever.gitee.io/framework-learning)** 
 
 网页阅读版的内容与本项目是同步的，请放心阅读。
 

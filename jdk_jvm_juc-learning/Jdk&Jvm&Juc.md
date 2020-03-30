@@ -527,7 +527,7 @@ jvm通过klass pointer判断对象属于哪个类。
  </dependency>
 ````
 
-相信各位同学可能还是对上面的概念优点迷糊，那就可以使用jol工具来查看一下
+相信各位同学可能还是对上面的概念有点迷糊，那就可以使用jol工具来查看一下
 对象的真实布局，在实践之前，请各位同学带着几个问题看下面的内容:
  
 - hashCode方法返回的真是对象内存地址吗?
@@ -1042,7 +1042,7 @@ ThreadLocal的原理还得从Thread线程类说起，
 **每个Thread类内部都有一个ThreadLocalMap，当使用ThreadLocal的get和remove操作的时候，
 就是使用每个线程的ThreadLocalMap的get和remove。**
 
-#### ThreadLocal引发的内存泄露:
+#### ThreadLocal引发的内存泄露
 **在ThreadLocalMap中，key是使用弱引用的ThreadLocal存储的。**
 弱引用是只要垃圾回收器开始回收，无论内存是否充足，都会回收掉弱引用对象，如此一来，
 当ThreadLocal被回收掉,那么ThreadLocalMap将可能出现Null Key 的 value。但是也不必太过担心，
@@ -1944,8 +1944,10 @@ PlatformClassLoader和AppClassLoader负责加载jdk提供的类，
 
 #### 类加载器的命名空间
 **每个类加载器实例都有自己的命名空间，命名空间由该加载器及其所有父加载器加载的所有的类组成。**
-在同一个命名空间中(一个类加载器实例)，不会出现全限定名(包括包名)相同的2个类(不会加载2个相同名称的类)。
-在不同的命名空间中(多个类加载器实例)，可能会出现全限定名(包括包名)相同的2个类(可能加载2个相同名称的类)。
+
+- 在同一个命名空间中(**一个类加载器实例**)，不会出现全限定名(包括包名)相同的2个类(**不会加载2个相同名称的类**)。
+
+- 在不同的命名空间中(**多个类加载器实例**)，可能会出现全限定名(包括包名)相同的2个类(**可能加载2个相同名称的类**)。
 
 **PS:见:[测试](https://github.com/guang19/framework-learning/blob/master/jdk_jvm_juc-learning/src/main/java/com/github/guang19/jvm/classloader/MyClassLoader.java)**
 
