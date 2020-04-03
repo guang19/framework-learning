@@ -40,7 +40,7 @@ Service的核心是Container和Connector，每个Service只有一个Container，
 
 Tomcat架构图:
 
-![Tomcat架构图](../img/tomcat/Tomcat架构.png)
+![Tomcat架构图](../../img/tomcat/Tomcat架构.png)
 
 Tomcat中的Connector连接器叫做Coyote,Container容器叫做Catalina。
 连接器的作用是把Socket请求Request转换为ServletRequest对象,
@@ -54,7 +54,7 @@ Container是Tomcat的Servlet容器,它包含了安全,会话,集群,Servlet实�
 
 一下是Tomcat的执行流程:
 
-![Tomcat执行流程](../img/tomcat/Tomcat执行流程.png)
+![Tomcat执行流程](../../img/tomcat/Tomcat执行流程.png)
 
 除了连接器和Servlet容器部分,Service还包含了Naming提供JNDI命名模块,Juli日志模块
   
@@ -78,7 +78,7 @@ Coyote由**ProtocolHandler和Adapter**这2部分组成
 Host之下又可以包含多个Context容器,一个Context容器代表一个Web程序,
 在Context里,就是若干的Wrapper(Servlet)
 
-![Webapps目录](../img/tomcat/Webapps目录.png)
+![Webapps目录](../../img/tomcat/Webapps目录.png)
 
 #### JSP解析引擎
 Tomcat中的JSP解析引擎是Jasper,所谓的JSP(JavaServer Page)经常被人说成可以写Java代码的Html,

@@ -7,11 +7,13 @@
 
 笔者联系方式:
 
-- github: [guang19](https://github.com/guang19)
+- Github: [guang19](https://github.com/guang19)
 
 - 微信:  yg1446125917
 
-- QQ: 2196927727@qq.com
+- 邮箱: 2196927727@qq.com
+
+- QQ/Tim: 2196927727
 
 项目地址: [framework-learning](https://github.com/guang19/framework-learning)
 

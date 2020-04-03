@@ -11,7 +11,6 @@
        * [SpringBoot 怎么切换生产环境和开发环境配置](#springboot-怎么切换生产环境和开发环境配置)
        * [SpringBoot是如何推断应用类型和main的](#springboot是如何推断应用类型和main的)
 
-
 <!-- /TOC -->
 
 

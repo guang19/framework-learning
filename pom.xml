@@ -32,6 +32,7 @@
         <module>computer-network</module>
         <module>datastructure_algorithm</module>
         <module>nosql-learning</module>
+        <module>linux-learning</module>
     </modules>
 
     <properties>
@@ -129,7 +130,12 @@
             <dependency>
                 <groupId>com.github.guang19</groupId>
                 <artifactId>nosql-learning</artifactId>
-                <version>1.0.0</version>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.guang19</groupId>
+                <artifactId>linux-learning</artifactId>
+                <version>${project.version}</version>
             </dependency>
 
             <!--SpringCloud-->
@@ -255,22 +261,26 @@
                 <artifactId>jsr250-api</artifactId>
                 <version>${jsr250.version}</version>
             </dependency>
-
-            <!--lombok-->
-            <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>${lombok.version}</version>
-            </dependency>
-
-            <!--junit-->
-            <dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
-                <version>${junit.version}</version>
-            </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <!--全局依赖-->
+    <dependencies>
+        <!--lombok-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+            <version>${lombok.version}</version>
+        </dependency>
+
+        <!--junit-->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+        </dependency>
+    </dependencies>
 
     <build>
         <plugins>
