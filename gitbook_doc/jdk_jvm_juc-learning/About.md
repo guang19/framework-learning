@@ -4,7 +4,7 @@
 jdk_jvm_juc-learning部分是对[jdk_jvm_juc-learning](https://github.com/guang19/framework-learning/blob/dev/jdk_jvm_juc-learning/Jdk&Jvm&Juc.md)
 模块更细分的讲解。
 
-#### jdk_jvm_juc-learning知识点
+#### jdk_jvm_juc-learning
 
 ![JDK&JVM&JUC截图](../../img/截图/JDK&JVM&JUC截图.png)
 

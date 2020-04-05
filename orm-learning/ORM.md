@@ -1,37 +1,37 @@
 <!-- TOC -->
     
    * [ORM(Object Relational Mapping)](#ormobject-relational-mapping)
-        * [什么是ORM?](#什么是orm)
-           * [JDBC的缺点](#jdbc的缺点)
-        * [Mybatis](#mybatis)
-           * [什么是Mybatis?](#什么是mybatis)
-              * [为什么说Mybatis是半ORM框架?](#为什么说mybatis是半orm框架)
-           * [Mybatis常见知识点](#mybatis常见知识点)
-              * [Mybatis优点](#mybatis优点)
-              * [Mybatis缺点](#mybatis缺点)
-              * [Mybatis适用场景](#mybatis适用场景)
-           * [Mybatis架构](#mybatis架构)
-           * [Mybatis SQL执行流程](#mybatis-sql执行流程)
-              * [Executor的类型](#executor的类型)
-              * [什么是延迟加载?](#什么是延迟加载)
-              * [延迟加载原理](#延迟加载原理)
-              * [${} 和 #{}的区别](#-和-的区别)
-              * [Mybatis 模糊查询LIKE怎么写](#mybatis-模糊查询like怎么写)
-              * [Mybatis是如何获取生成的主键的?](#mybatis是如何获取生成的主键的)
-              * [Mybatis动态SQL是什么?](#mybatis动态sql是什么)
-              * [Mybatis插件原理](#mybatis插件原理)
-              * [Mybatis一级缓存](#mybatis一级缓存)
-              * [一级缓存的原理](#一级缓存的原理)
-              * [使得Mybatis一级缓存失效的方法](#使得mybatis一级缓存失效的方法)
-              * [Mybatis二级缓存](#mybatis二级缓存)
-              * [Mybatis二级缓存的原理](#mybatis二级缓存的原理)
-              * [Mybatis缓存的缺点](#mybatis缓存的缺点)
-           * [Mybatis源码分析](#mybatis源码分析)
-              * [1. 解析配置文件，创建SQLSessionFactory](#1-解析配置文件创建sqlsessionfactory)
-              * [2. 开启java程序和数据库之间的会话：](#2-开启java程序和数据库之间的会话)
-              * [3. 获取mapper代理对象:](#3-获取mapper代理对象)
-              * [4. 执行mapper接口方法:](#4-执行mapper接口方法)
-              * [mybatis源码总结](#mybatis源码总结)
+      * [什么是ORM?](#什么是orm)
+            * [JDBC的缺点](#jdbc的缺点)
+      * [Mybatis](#mybatis)
+         * [什么是Mybatis?](#什么是mybatis)
+            * [为什么说Mybatis是半ORM框架?](#为什么说mybatis是半orm框架)
+         * [Mybatis常见知识点](#mybatis常见知识点)
+            * [Mybatis优点](#mybatis优点)
+            * [Mybatis缺点](#mybatis缺点)
+            * [Mybatis适用场景](#mybatis适用场景)
+         * [Mybatis架构](#mybatis架构)
+         * [Mybatis SQL执行流程](#mybatis-sql执行流程)
+            * [Executor的类型](#executor的类型)
+            * [什么是延迟加载?](#什么是延迟加载)
+            * [延迟加载原理](#延迟加载原理)
+            * [${} 和 #{}的区别](#-和-的区别)
+            * [Mybatis 模糊查询LIKE怎么写](#mybatis-模糊查询like怎么写)
+            * [Mybatis是如何获取生成的主键的?](#mybatis是如何获取生成的主键的)
+            * [Mybatis动态SQL是什么?](#mybatis动态sql是什么)
+            * [Mybatis插件原理](#mybatis插件原理)
+            * [Mybatis一级缓存](#mybatis一级缓存)
+            * [一级缓存的原理](#一级缓存的原理)
+            * [使得Mybatis一级缓存失效的方法](#使得mybatis一级缓存失效的方法)
+            * [Mybatis二级缓存](#mybatis二级缓存)
+            * [Mybatis二级缓存的原理](#mybatis二级缓存的原理)
+            * [Mybatis缓存的缺点](#mybatis缓存的缺点)
+         * [Mybatis源码分析](#mybatis源码分析)
+            * [1. 解析配置文件，创建SQLSessionFactory](#1-解析配置文件创建sqlsessionfactory)
+            * [2. 开启java程序和数据库之间的会话：](#2-开启java程序和数据库之间的会话)
+            * [3. 获取mapper代理对象:](#3-获取mapper代理对象)
+            * [4. 执行mapper接口方法:](#4-执行mapper接口方法)
+            * [mybatis源码总结](#mybatis源码总结)
   
 <!-- /TOC -->
 
@@ -192,7 +192,7 @@ SELECT * FROM table WHERE id = "1";
 
 - ${}属于拼接符，需要进行字符串拼接;#{} 属于占位符，需要预编译
 
-- ${} 则不能防止SQL注入;#{} 可以在很大程度上预防SQL注入
+- ${}不能防止SQL注入;#{} 可以在很大程度上预防SQL注入
 
 >假如有一条SQL:
 

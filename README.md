@@ -15,7 +15,7 @@
 
 ### 知识点总览
 
-#### Jdk&Jvm&Juc知识点
+#### Jdk&Jvm&Juc
 
 ![JDK&JVM&JUC截图](img/截图/JDK&JVM&JUC截图.png)
 
@@ -24,25 +24,25 @@
 [JDK&JVM&JUC - XMind](xmind_file/JDK&JVM&JUC.xmind)
 
 
-#### Linux常见知识点(更新中)
+#### Linux(更新中)
 
-[Linux常见知识点](https://github.com/guang19/framework-learning/blob/dev/linux-learning/Linux.md)
+[Linux](https://github.com/guang19/framework-learning/blob/dev/linux-learning/Linux.md)
 
 
-#### 关系型数据库常见知识点
+#### 关系型数据库
 
 ![关系型数据库截图](img/截图/关系型数据库截图.png)
 
-[关系型数据库常见知识点](https://github.com/guang19/framework-learning/blob/dev/rdbms-learning/RDBMS.md)
+[关系型数据库](https://github.com/guang19/framework-learning/blob/dev/rdbms-learning/RDBMS.md)
 
 [关系型数据库 - XMind](xmind_file/关系型数据库.xmind)
 
 
-#### 非关系型数据库常见知识点
+#### 非关系型数据库
 
 ![非关系型数据库截图](img/截图/非关系型数据库截图.png)
 
-[非关系型数据库常见知识点](https://github.com/guang19/framework-learning/blob/dev/nosql-learning/NoSQL.md)
+[非关系型数据库](https://github.com/guang19/framework-learning/blob/dev/nosql-learning/NoSQL.md)
 
 [非关系型数据库 - XMind](xmind_file/非关系型数据库.xmind)
 
@@ -54,38 +54,38 @@
 推荐一个数据结构与算法的可视化网站，希望能够帮到正在学习数据结构与算法的同学: [数据结构与算法可视化](https://www.cs.usfca.edu/~galles/visualization/Algorithms.html)
 
 
-#### 计算机网络常见知识点
+#### 计算机网络
 
 ![计算机网络截图](img/截图/计算机网络截图.png)
 
-[计算机网络常见知识点](https://github.com/guang19/framework-learning/blob/dev/computer-network/Computer-Network.md)
+[计算机网络](https://github.com/guang19/framework-learning/blob/dev/computer-network/Computer-Network.md)
 
 [计算机网络 - XMind](xmind_file/计算机网络.xmind)
 
 
-#### Spring框架常见知识点
+#### Spring框架
 
 ![Spring截图](img/截图/Spring截图.png)
 
-[Spring常见知识点](https://github.com/guang19/framework-learning/blob/dev/spring-learning/SpringFramework.md)
+[Spring](https://github.com/guang19/framework-learning/blob/dev/spring-learning/SpringFramework.md)
 
-[SpringMVC常见知识点和源码分析](https://github.com/guang19/framework-learning/blob/dev/springmvc-learning/SpringMVC.md)
+[SpringMVC源码分析](https://github.com/guang19/framework-learning/blob/dev/springmvc-learning/SpringMVC.md)
 
-[SpringBoot常见知识点](https://github.com/guang19/framework-learning/blob/dev/springmvc-learning/SpringBoot.md)
+[SpringBoot](https://github.com/guang19/framework-learning/blob/dev/springmvc-learning/SpringBoot.md)
 
 [Spring - XMind](xmind_file/Spring.xmind)
 
 
-#### ORM常见知识点
+#### ORM
 
 ![ORM截图](img/截图/ORM截图.png)
 
-[ORM常见知识点](https://github.com/guang19/framework-learning/blob/dev/orm-learning/ORM.md)
+[ORM](https://github.com/guang19/framework-learning/blob/dev/orm-learning/ORM.md)
 
 [ORM - XMind](xmind_file/ORM.xmind)
 
 
-#### Tomcat常见知识点
+#### Tomcat
 
 [Tomcat](https://github.com/guang19/framework-learning/blob/dev/tomcat-9.0.30-source/Tomcat.md)
 
@@ -100,7 +100,7 @@
 [RabbitMQ](https://github.com/guang19/framework-learning/blob/dev/rabbitmq-learning/RabbitMQ.md)
 
 
-#### Zookeeper(带重构)
+#### Zookeeper(待重构)
 
 [Zookeeper](https://github.com/guang19/framework-learning/blob/dev/zookeeper-learning/Zookeeper.md)
 
