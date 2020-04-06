@@ -45,6 +45,26 @@
 ---
 
 
+- [Linux部分](gitbook_doc/linux-learning/About.md)
+
+  - [操作系统的内核](gitbook_doc/linux-learning/操作系统的内核.md)
+
+  - [进程间通信](gitbook_doc/linux-learning/进程间通信.md)
+
+  - [Linux文件系统](gitbook_doc/linux-learning/Linux文件系统.md)
+
+  - [Linux用户权限](gitbook_doc/linux-learning/Linux用户权限.md)
+
+  - [Linux运行级别](gitbook_doc/linux-learning/Linux运行级别.md)
+
+  - [Shell](gitbook_doc/linux-learning/Shell.md)
+
+  - [Linux常用命令](gitbook_doc/linux-learning/Linux命令大全.md)
+
+
+---
+
+
 - [关系型数据库部分](gitbook_doc/rdbms-learning/About.md)
 
   - [RDBMS](gitbook_doc/rdbms-learning/RDBMS.md)
