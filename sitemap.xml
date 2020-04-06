@@ -17,6 +17,14 @@
 <url> <loc>https://guang19.github.io/gitbook_doc/jdk_jvm_juc-learning/GC.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://guang19.github.io/gitbook_doc/jdk_jvm_juc-learning/JVM调优相关内容.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://guang19.github.io/gitbook_doc/jdk_jvm_juc-learning/Jdk新特性.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://guang19.github.io/gitbook_doc/linux-learning/About.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://guang19.github.io/gitbook_doc/linux-learning/操作系统的内核.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://guang19.github.io/gitbook_doc/linux-learning/进程间通信.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://guang19.github.io/gitbook_doc/linux-learning/Linux文件系统.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://guang19.github.io/gitbook_doc/linux-learning/Linux用户权限.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://guang19.github.io/gitbook_doc/linux-learning/Linux运行级别.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://guang19.github.io/gitbook_doc/linux-learning/Shell.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://guang19.github.io/gitbook_doc/linux-learning/Linux命令大全.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://guang19.github.io/gitbook_doc/rdbms-learning/About.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://guang19.github.io/gitbook_doc/rdbms-learning/RDBMS.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://guang19.github.io/gitbook_doc/rdbms-learning/RDBMS常见知识点.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>

@@ -17,21 +17,17 @@
 
 #### Jdk&Jvm&Juc
 
-![JDK&JVM&JUC截图](img/截图/JDK&JVM&JUC截图.png)
-
 [Jdk&Jvm&Juc](https://github.com/guang19/framework-learning/blob/dev/jdk_jvm_juc-learning/Jdk&Jvm&Juc.md)
 
 [JDK&JVM&JUC - XMind](xmind_file/JDK&JVM&JUC.xmind)
 
 
-#### Linux(更新中)
+#### Linux
 
 [Linux](https://github.com/guang19/framework-learning/blob/dev/linux-learning/Linux.md)
 
 
 #### 关系型数据库
-
-![关系型数据库截图](img/截图/关系型数据库截图.png)
 
 [关系型数据库](https://github.com/guang19/framework-learning/blob/dev/rdbms-learning/RDBMS.md)
 
@@ -39,8 +35,6 @@
 
 
 #### 非关系型数据库
-
-![非关系型数据库截图](img/截图/非关系型数据库截图.png)
 
 [非关系型数据库](https://github.com/guang19/framework-learning/blob/dev/nosql-learning/NoSQL.md)
 
@@ -56,16 +50,12 @@
 
 #### 计算机网络
 
-![计算机网络截图](img/截图/计算机网络截图.png)
-
 [计算机网络](https://github.com/guang19/framework-learning/blob/dev/computer-network/Computer-Network.md)
 
 [计算机网络 - XMind](xmind_file/计算机网络.xmind)
 
 
 #### Spring框架
-
-![Spring截图](img/截图/Spring截图.png)
 
 [Spring](https://github.com/guang19/framework-learning/blob/dev/spring-learning/SpringFramework.md)
 
@@ -77,8 +67,6 @@
 
 
 #### ORM
-
-![ORM截图](img/截图/ORM截图.png)
 
 [ORM](https://github.com/guang19/framework-learning/blob/dev/orm-learning/ORM.md)
 
