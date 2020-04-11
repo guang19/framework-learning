@@ -26,7 +26,6 @@
         <module>dubbo-learning</module>
         <module>jdk_jvm_juc-learning</module>
         <module>swagger-learning</module>
-        <module>elasticsearch-learning</module>
         <module>design-pattern</module>
         <module>rdbms-learning</module>
         <module>computer-network</module>
@@ -56,88 +55,6 @@
 
     <dependencyManagement>
         <dependencies>
-            <!--children module-->
-          <dependency>
-            <groupId>com.github.guang19</groupId>
-            <artifactId>orm-learning</artifactId>
-            <version>${project.version}</version>
-          </dependency>
-          <dependency>
-            <groupId>com.github.guang19</groupId>
-            <artifactId>spring-learning</artifactId>
-            <version>${project.version}</version>
-          </dependency>
-          <dependency>
-            <groupId>com.github.guang19</groupId>
-            <artifactId>springmvc-learning</artifactId>
-            <version>${project.version}</version>
-          </dependency>
-            <dependency>
-                <groupId>com.github.guang19</groupId>
-                <artifactId>tomcat-9.0.30-source</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.guang19</groupId>
-                <artifactId>amqp-learning</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.guang19</groupId>
-                <artifactId>zookeeper-learning</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.guang19</groupId>
-                <artifactId>dubbo-learning</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.guang19</groupId>
-                <artifactId>swagger-learning</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.guang19</groupId>
-                <artifactId>elasticsearch-learning</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.guang19</groupId>
-                <artifactId>jdk_jvm_juc-learning</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.guang19</groupId>
-                <artifactId>design-pattern</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.guang19</groupId>
-                <artifactId>rdbms-learning</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.guang19</groupId>
-                <artifactId>computer-network</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.guang19</groupId>
-                <artifactId>datastructure_algorithm</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.guang19</groupId>
-                <artifactId>nosql-learning</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.guang19</groupId>
-                <artifactId>linux-learning</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-
             <!--SpringCloud-->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
