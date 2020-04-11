@@ -150,6 +150,18 @@
 
 ---
 
+
+- [AMQP部分](gitbook_doc/amqp-learning/About.md)
+
+  - [AMQP](gitbook_doc/amqp-learning/AMQP.md)
+  
+  - [RabbitMQ](gitbook_doc/amqp-learning/RabbitMQ.md)
+
+
+---
+
+
 - [Tomcat部分](gitbook_doc/tomcat/Tomcat.md)
+
 
 ---

@@ -8,13 +8,12 @@
 个人能力有限，总结的知识可能不全或有遗漏和错误，敬请各位同学指教。
 
 为了良好的阅读体验，可以移步到本项目的GitBook网页阅读版:
-**[framework-learning](https://qsjzwithguang19forever.gitee.io/framework-learning)** 
+[framework-learning](https://qsjzwithguang19forever.gitee.io/framework-learning)
 网页阅读版的内容与本项目是同步的，请放心阅读。
 
-ps:目前有很多知识我个人也在学习和复习之中，后面的push可能会稍微慢些，但一定会一直更新的。
-所以请各位同学放心，我一定不做太监。
+ps:目前有很多知识我个人也在学习和复习之中，后面的push可能会比较慢，但一定会一直更新的,所以请各位同学放心，我一定不做太监。
 
-如果这份资料帮助到了各位同学，还请各位同学点个star(别下次一定呀 =^_^=),非常感谢...
+如果这份资料帮助到了各位同学，还请各位同学不吝点个star(别下次一定呀 =^_^=),非常感谢...
 
 ### 知识点总览
 
@@ -76,6 +75,13 @@ ps:目前有很多知识我个人也在学习和复习之中，后面的push可�
 [ORM - XMind](xmind_file/ORM.xmind)
 
 
+#### AMQP
+
+[AMQP](https://github.com/guang19/framework-learning/blob/dev/amqp-learning/AMQP.md)
+
+[AMQP - XMind](xmind_file/AMQP.xmind)
+
+
 #### Tomcat
 
 [Tomcat](https://github.com/guang19/framework-learning/blob/dev/tomcat-9.0.30-source/Tomcat.md)
@@ -84,11 +90,6 @@ ps:目前有很多知识我个人也在学习和复习之中，后面的push可�
 #### 设计模式(更新中)
 
 [设计模式](https://github.com/guang19/framework-learning/blob/dev/design-pattern/DesignPattern.md)
-
-
-#### RabbitMQ(待重构)
-
-[RabbitMQ](https://github.com/guang19/framework-learning/blob/dev/rabbitmq-learning/RabbitMQ.md)
 
 
 #### Zookeeper(待重构)

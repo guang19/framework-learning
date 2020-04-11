@@ -20,7 +20,7 @@
         <module>orm-learning</module>
         <module>spring-learning</module>
         <module>springmvc-learning</module>
-        <module>rabbitmq-learning</module>
+        <module>amqp-learning</module>
         <module>tomcat-9.0.30-source</module>
         <module>zookeeper-learning</module>
         <module>dubbo-learning</module>
@@ -79,7 +79,7 @@
             </dependency>
             <dependency>
                 <groupId>com.github.guang19</groupId>
-                <artifactId>rabbitmq-learning</artifactId>
+                <artifactId>amqp-learning</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
