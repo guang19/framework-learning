@@ -58,5 +58,8 @@
 <url> <loc>https://guang19.github.io/gitbook_doc/orm-learning/Mybatis.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://guang19.github.io/gitbook_doc/orm-learning/Mybatis常见知识点.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://guang19.github.io/gitbook_doc/orm-learning/Mybatis源码分析.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://guang19.github.io/gitbook_doc/amqp-learning/About.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://guang19.github.io/gitbook_doc/amqp-learning/AMQP.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://guang19.github.io/gitbook_doc/amqp-learning/RabbitMQ.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://guang19.github.io/gitbook_doc/tomcat/Tomcat.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 </urlset>
