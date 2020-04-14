@@ -45,7 +45,7 @@ synchronized是jdk提供的jvm层面的同步机制。
 在被它修饰的方法或代码块同一时间只有一个线程执行。**
 
 java6之前的synchronized属于重量锁,性能较差,
-它的原理是基于操作系统的Mutex Lock互斥量实现的。
+它的是基于操作系统的Mutex Lock互斥量实现的。
 
 **因为java线程是映射到操作系统的线程之上的,
 所以暂停或唤醒线程都需要Java程序从用户态转换为内核态,这段转换时间消耗较长。**
@@ -73,8 +73,8 @@ java6之前的synchronized属于重量锁,性能较差,
 
 ![synchronized底层原理3](../../img/jdk_jvm_juc/synchronized底层原理3.png) 
 
-**其实真正的锁应该是这个monitor,synchronized锁的那个对象起到的只是关联monitor的作用。
-只不过我们身在java层面，无法感知到monitor的作用，所以才称synchronized的锁对象为锁。**
+**其实真正的锁应该是这个monitor cpp对象,synchronized锁的那个java对象起到的只是关联monitor的作用,
+只不过我们身在java层面，无法感知到jvm层面monitor的作用，所以才称synchronized的java锁对象为锁。**
 
 以下是monitorenter指令执行过程(见 InterpreterRuntime.cpp):
 
