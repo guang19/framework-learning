@@ -15,17 +15,17 @@
 
   - [Java常见基础知识点](gitbook_doc/jdk_jvm_juc-learning/Java常见基础知识点.md)
 
-  - [对象在内存中的布局](gitbook_doc/jdk_jvm_juc-learning/对象在内存中的布局.md)
+  - [IO](gitbook_doc/jdk_jvm_juc-learning/IO.md)
+  
+  - [Java集合](gitbook_doc/jdk_jvm_juc-learning/Java集合.md)
 
   - [Java多线程](gitbook_doc/jdk_jvm_juc-learning/Java多线程.md)
 
   - [Java并发](gitbook_doc/jdk_jvm_juc-learning/Java并发.md)
-
-  - [AQS](gitbook_doc/jdk_jvm_juc-learning/AQS.md)
-
-  - [Java集合](gitbook_doc/jdk_jvm_juc-learning/Java集合.md)
   
-  - [IO](gitbook_doc/jdk_jvm_juc-learning/IO.md)
+  - [AQS](gitbook_doc/jdk_jvm_juc-learning/AQS.md)
+  
+  - [对象在内存中的布局](gitbook_doc/jdk_jvm_juc-learning/对象在内存中的布局.md)
  
   - [JVM](gitbook_doc/jdk_jvm_juc-learning/JVM.md)
 

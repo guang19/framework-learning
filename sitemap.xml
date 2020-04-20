@@ -4,12 +4,12 @@
 <url> <loc>https://guang19.github.io/gitbook_doc/GitBook_Introduction.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://guang19.github.io/gitbook_doc/jdk_jvm_juc-learning/About.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://guang19.github.io/gitbook_doc/jdk_jvm_juc-learning/Java常见基础知识点.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://guang19.github.io/gitbook_doc/jdk_jvm_juc-learning/对象在内存中的布局.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://guang19.github.io/gitbook_doc/jdk_jvm_juc-learning/IO.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://guang19.github.io/gitbook_doc/jdk_jvm_juc-learning/Java集合.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://guang19.github.io/gitbook_doc/jdk_jvm_juc-learning/Java多线程.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://guang19.github.io/gitbook_doc/jdk_jvm_juc-learning/Java并发.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://guang19.github.io/gitbook_doc/jdk_jvm_juc-learning/AQS.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://guang19.github.io/gitbook_doc/jdk_jvm_juc-learning/Java集合.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://guang19.github.io/gitbook_doc/jdk_jvm_juc-learning/IO.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://guang19.github.io/gitbook_doc/jdk_jvm_juc-learning/对象在内存中的布局.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://guang19.github.io/gitbook_doc/jdk_jvm_juc-learning/JVM.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://guang19.github.io/gitbook_doc/jdk_jvm_juc-learning/简单了解类文件结构.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://guang19.github.io/gitbook_doc/jdk_jvm_juc-learning/类的生命周期.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
