@@ -3,7 +3,7 @@
  * [java基础知识(部分图源:<a href="https://github.com/Snailclimb/JavaGuide">JavaGuide</a>)](#java基础知识部分图源javaguide)
       * [面向对象和面向过程的区别](#面向对象和面向过程的区别)
       * [OracleJdk与OpenJdk的区别](#oraclejdk与openjdk的区别)
-      * [Java与C  的异同](#java与c的异同)
+      * [Java与C++的异同](#java与c++的异同)
       * [JVM,JDK和JRE的区别](#jvmjdk和jre的区别)
       * [Java语言的特点](#java语言的特点)
       * [面向对象的特征](#面向对象的特征)
@@ -55,9 +55,10 @@ OracleJdk是Oracle对Jdk的商业化版本,由Oracle发布并维护.
 
 - Java不提供指针来访问内存。C++允许指针访问内存。
 
-- 垃圾回收机制。Java无需开发者手动释放内存,因为Java有垃圾回收机制;C++则需要开发者手动释放内存。因此Java在内存管理上相对C++更安全。
+- 垃圾回收机制。Java无需开发者手动释放内存,因为Java有垃圾回收机制自动回收内存;
+C++则需要开发者手动释放内存。因此Java在内存管理上相对C++更安全。
 
-- Java不支持多继承，C++支持。
+- Java不支持多继承，而C++支持。
 
 #### JVM,JDK和JRE的区别
 
@@ -85,7 +86,7 @@ OracleJdk是Oracle对Jdk的商业化版本,由Oracle发布并维护.
 #### 面向对象的特征
 面向对象三大特征:封装,继承,多态。
 
-- 封装: 封装是隐藏对象属性和的实现细节,只对外提供可访问或修改的接口。
+- 封装: 封装是隐藏对象属性和实现细节,只对外提供可访问或修改的接口的技术。
 **封装的目的是为了简化编程和增加程序的安全性,使得使用者无需了解对象的具体实现细节。**
 
 - 继承: 继承是 在已存在的类上定义新的类的技术。
@@ -102,7 +103,7 @@ OracleJdk是Oracle对Jdk的商业化版本,由Oracle发布并维护.
 
 - 重载: 重载是描述一个类中有多个方法名相同的方法，但是它们的参数,类型,返回值,参数的顺序可能不同，表现形式也就不同。
 
-- 重写: 重写是描述子类对父类的某个方法的逻辑进行了重新编写,但变的只是方法的内容,
+- 重写: 重写是描述子类对父类的某个方法的逻辑进行了重新编写,但重写的只是方法的内容,
 方法名,参数,类型,顺序,返回值都是不变的。
 
 #### 接口与抽象类的区别
@@ -210,7 +211,7 @@ StringBuffer是安全的,因此单线程情况下考虑使用StringBuilder,多�
   
   - 传递性: 如果 x.equals(y) == true,并且 y.equals(z) == true,那么一定满足x.equals(z) == true
   
-  - 一致性: 如果x.equals(y) == true , 那么只要x和y的值不变,那么x.equals(y) == true　永远成立
+  - 一致性: 如果x.equals(y) == true , 那么只要x和y的值不变,那么x.equals(y) == true 永远成立
 
 - 为什么重写equals方法一定要重写hashcode方法?
 
@@ -222,7 +223,7 @@ StringBuffer是安全的,因此单线程情况下考虑使用StringBuilder,多�
   那么即使放入map,set(map)仍会存在重复数据。
 
 #### 深拷贝与浅拷贝
-**深拷贝: 拷贝所有的内容,除了基本数据类型的变量复制一份,连引用类型的的对象也复制一份。**
+**深拷贝: 拷贝所有的内容,除了基本数据类型的变量复制一份,连引用类型的变量也复制一份。**
 
 **浅拷贝: 复制基本数据类型的变量,对于引用类型的变量,直接返回这个引用本身。**
 
@@ -234,7 +235,7 @@ StringBuffer是安全的,因此单线程情况下考虑使用StringBuilder,多�
 
 #### 使用字节流还是字符流?
 考虑通用性,应该使用字节流。
-如果只是文本文件的操作,可以考虑使用字符流。
+如果只是文本文件的操作,可以使用字符流。
 
 #### BigDecimal
 BigDecimal是Java中表示大浮点数的类型。
@@ -249,12 +250,12 @@ BigDecimal是Java中表示大浮点数的类型。
  非运行时异常(CheckedException)。
   
   - RuntimeException: RuntimeException(运行时异常)是在程序运行时可能会发生的异常,如NullPointException,
-  这类异常往往是不可预料的,编译器也不会要求你手动try catch或throws。
+   这类异常往往是不可预料的,编译器也不会要求你手动try catch或throws。
   
   - CheckedException: CheckedException(非运行时异常)是RuntimeException以外的异常,如IOException，
-  这类异常要求必须显示的try catch或throws ， 如果不处理,那么编译就不会通过。
+   这类异常要求必须显示的try catch或throws ， 如果不处理,那么编译就不会通过。
 
-- Error: Error错误是程序无法处理的,表示程序或JVM出现了很严重的，无法解决问题。
+- Error: Error错误是程序无法处理的,表示程序或JVM出现了很严重的，无法解决的问题。
 
 
 #### Comparable和Comparator
@@ -276,10 +277,10 @@ Java中引用类型总共有四种: 强引用，软引用，弱引用，虚引�
 - 强引用(Strong Reference): Java程序中绝大部分都是强引用，一般使用new关键字创建的对象就是强引用。
   只要强引用存在，强引用的对象就不会被回收，除非不可达(参考jvm部分)
 
-- 软引用(Soft Reference): 软引用一般不会回收，但是当堆内存不够的时候，
-  比如几乎快要发生OOM的时候，就会发生回收掉软引用对象。
+- 软引用(Soft Reference): 软引用一般不会被回收，但是当堆内存不够的时候，
+  比如几乎快要发生OOM的时候，就会回收掉软引用对象。
 
-- 弱引用(Weak Reference): 只要垃圾回收开始，就会回收掉弱引用的对象
+- 弱引用(Weak Reference): 只要垃圾回收开始，就会回收掉弱引用的对象。
 
 - 虚引用(Phantom Reference,又称幽灵引用): 和其他几种引用不同，虚引用不决定对象的生命周期，
   它在任何时候都可能被回收掉。

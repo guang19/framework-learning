@@ -23,7 +23,6 @@
         <module>amqp-learning</module>
         <module>tomcat-9.0.30-source</module>
         <module>zookeeper-learning</module>
-        <module>dubbo-learning</module>
         <module>jdk_jvm_juc-learning</module>
         <module>swagger-learning</module>
         <module>design-pattern</module>
