@@ -1,4 +1,4 @@
-package com.github.anhTom2000.datastructure.队列;
+package com.github.anhTom2000.datastructure.queue;
 
 
 import java.util.Scanner;

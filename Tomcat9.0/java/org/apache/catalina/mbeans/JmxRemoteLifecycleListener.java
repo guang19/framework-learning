@@ -68,7 +68,7 @@ import org.apache.tomcat.util.res.StringManager;
  *             This listener will be removed in Tomcat 10 and may be removed
  *             from Tomcat 9.0.x some time after 2020-12-31.
  */
-@Deprecated
+//@Deprecated
 public class JmxRemoteLifecycleListener extends SSLHostConfig implements LifecycleListener {
 
     private static final long serialVersionUID = 1L;
@@ -448,20 +448,20 @@ public class JmxRemoteLifecycleListener extends SSLHostConfig implements Lifecyc
             cs.start();
             Remote jmxServer = server.toStub();
             // Create the RMI registry
-            try {
+//            try {
                 /*
                  * JmxRegistry is registered as a side-effect of creation.
                  * This object is here so we can tell the IDE it is OK for it
                  * not to be used.
                  */
-                @SuppressWarnings("unused")
-                JmxRegistry unused = new JmxRegistry(theRmiRegistryPort, registryCsf, registrySsf, "jmxrmi", jmxServer);
-            } catch (RemoteException e) {
-                log.error(sm.getString(
-                        "jmxRemoteLifecycleListener.createRegistryFailed",
-                        serverName, Integer.toString(theRmiRegistryPort)), e);
-                return null;
-            }
+//                @SuppressWarnings("unused")
+//                JmxRegistry unused = new JmxRegistry(theRmiRegistryPort, registryCsf, registrySsf, "jmxrmi", jmxServer);
+//            } catch (RemoteException e) {
+//                log.error(sm.getString(
+//                        "jmxRemoteLifecycleListener.createRegistryFailed",
+//                        serverName, Integer.toString(theRmiRegistryPort)), e);
+//                return null;
+//            }
             log.info(sm.getString("jmxRemoteLifecycleListener.start",
                     Integer.toString(theRmiRegistryPort),
                     Integer.toString(theRmiServerPort), serverName));
@@ -606,38 +606,38 @@ public class JmxRemoteLifecycleListener extends SSLHostConfig implements Lifecyc
     /*
      * Better to use the internal API than re-invent the wheel.
      */
-    @SuppressWarnings("restriction")
-    private static class JmxRegistry extends sun.rmi.registry.RegistryImpl {
-        private static final long serialVersionUID = -3772054804656428217L;
-        private final String jmxName;
-        private final Remote jmxServer;
-        public JmxRegistry(int port, RMIClientSocketFactory csf,
-                RMIServerSocketFactory ssf, String jmxName, Remote jmxServer) throws RemoteException {
-            super(port, csf, ssf);
-            this.jmxName = jmxName;
-            this.jmxServer = jmxServer;
-        }
-        @Override
-        public Remote lookup(String name)
-                throws RemoteException, NotBoundException {
-            return (jmxName.equals(name)) ? jmxServer : null;
-        }
-        @Override
-        public void bind(String name, Remote obj)
-                throws RemoteException, AlreadyBoundException, AccessException {
-        }
-        @Override
-        public void unbind(String name)
-                throws RemoteException, NotBoundException, AccessException {
-        }
-        @Override
-        public void rebind(String name, Remote obj)
-                throws RemoteException, AccessException {
-        }
-        @Override
-        public String[] list() throws RemoteException {
-            return new String[] { jmxName };
-        }
-    }
+//    @SuppressWarnings("restriction")
+//    private static class JmxRegistry extends sun.rmi.registry.RegistryImpl {
+//        private static final long serialVersionUID = -3772054804656428217L;
+//        private final String jmxName;
+//        private final Remote jmxServer;
+//        public JmxRegistry(int port, RMIClientSocketFactory csf,
+//                RMIServerSocketFactory ssf, String jmxName, Remote jmxServer) throws RemoteException {
+//            super(port, csf, ssf);
+//            this.jmxName = jmxName;
+//            this.jmxServer = jmxServer;
+//        }
+//        @Override
+//        public Remote lookup(String name)
+//                throws RemoteException, NotBoundException {
+//            return (jmxName.equals(name)) ? jmxServer : null;
+//        }
+//        @Override
+//        public void bind(String name, Remote obj)
+//                throws RemoteException, AlreadyBoundException, AccessException {
+//        }
+//        @Override
+//        public void unbind(String name)
+//                throws RemoteException, NotBoundException, AccessException {
+//        }
+//        @Override
+//        public void rebind(String name, Remote obj)
+//                throws RemoteException, AccessException {
+//        }
+//        @Override
+//        public String[] list() throws RemoteException {
+//            return new String[] { jmxName };
+//        }
+//    }
 
 }

@@ -14,9 +14,9 @@ public class BubbleSort
 {
     public static void main(String[] args)
     {
-        int[] arr = {3,5,0,-9,8,30,25};
+        int[] arr = {3,5,0,-9,8,30,25,8,10,32};
 
-        /****
+        /***
          *
          * 第一次：
          *  第一趟：3,5,0,-9,8,30,25

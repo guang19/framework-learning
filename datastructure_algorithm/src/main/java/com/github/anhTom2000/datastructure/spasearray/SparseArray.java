@@ -1,4 +1,4 @@
-package com.github.anhTom2000.datastructure.稀疏数组;
+package com.github.anhTom2000.datastructure.spasearray;
 
 
 /**

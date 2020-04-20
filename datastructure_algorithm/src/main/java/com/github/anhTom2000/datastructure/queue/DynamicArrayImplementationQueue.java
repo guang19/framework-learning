@@ -1,4 +1,4 @@
-package com.github.anhTom2000.datastructure.队列;
+package com.github.anhTom2000.datastructure.queue;
 
 /**
  * Created on 21:12  15/03/2020
