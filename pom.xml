@@ -21,7 +21,6 @@
         <module>spring-learning</module>
         <module>springmvc-learning</module>
         <module>amqp-learning</module>
-        <module>tomcat-9.0.30-source</module>
         <module>zookeeper-learning</module>
         <module>jdk_jvm_juc-learning</module>
         <module>swagger-learning</module>
@@ -31,6 +30,7 @@
         <module>datastructure_algorithm</module>
         <module>nosql-learning</module>
         <module>linux-learning</module>
+        <module>Tomcat9.0</module>
     </modules>
 
     <properties>

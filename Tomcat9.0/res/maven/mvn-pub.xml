@@ -1,0 +1,559 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<project name="Tomcat 9.0 Maven Deployment" default="" basedir="."
+         xmlns:artifact="urn:maven-artifact-ant"
+         xmlns:if="ant:if"
+         xmlns:unless="ant:unless">
+  <!--
+    Built for using Maven Ant Tasks (version 2.1.0 is known to work)
+  -->
+
+  <property file="${basedir}/mvn.properties"/>
+  <property file="${basedir}/mvn.properties.default"/>
+  <property name="local.repo" value="${user.home}/.m2/repository"/>
+
+  <target name="init-maven">
+    <antcall target="downloadfile">
+      <param name="sourcefile" value="${maven-ant-tasks.loc}"/>
+      <param name="destfile" value="${maven-ant-tasks.jar}"/>
+      <param name="destdir" value="${maven-ant-tasks.home}"/>
+    </antcall>
+
+    <typedef resource="org/apache/maven/artifact/ant/antlib.xml"
+             uri="urn:maven-artifact-ant">
+      <classpath>
+        <pathelement location="${maven-ant-tasks.jar}" />
+      </classpath>
+    </typedef>
+  </target>
+
+  <target name="maven-install" depends="init-maven">
+    <!--cleanup-->
+    <delete file="${pom}.tmp"/>
+
+    <!--replace the version in the pom-->
+    <copy file="${pom}" tofile="${pom}.tmp">
+      <filterset>
+        <filter token="MAVEN.DEPLOY.VERSION" value="${maven.deploy.version}"/>
+      </filterset>
+    </copy>
+
+    <artifact:install file="${file}">
+      <pom file="${pom}.tmp"/>
+    </artifact:install>
+
+    <delete file="${pom}.tmp"/>
+  </target>
+
+  <macrodef name="doMavenInstall">
+    <attribute name="artifactId"/>
+    <attribute name="jarFileName" default="@{artifactId}.jar" />
+    <attribute name="groupId" default="org.apache.tomcat" />
+    <attribute name="file" default="${tomcat.lib.path}/@{jarFileName}" />
+    <attribute name="pom" default="@{artifactId}.pom" />
+    <attribute name="srcJarFileName" default="@{artifactId}-src.jar" />
+    <attribute name="src" default="${tomcat.src.path}/@{srcJarFileName}" />
+    <sequential>
+      <antcall target="maven-install">
+        <param name="file" value="@{file}"/>
+        <param name="groupId" value="@{groupId}"/>
+        <param name="artifactId" value="@{artifactId}"/>
+        <param name="pom" value="${tomcat.pom.path}/@{pom}"/>
+        <param name="src" value="@{src}"/>
+        <param name="src.skip" value="@{src.skip}"/>
+        <param name="maven.deploy.version" value="${maven.asf.release.deploy.version}-dev"/>
+      </antcall>
+    </sequential>
+  </macrodef>
+
+  <target name="maven-deploy" depends="init-maven">
+    <!--cleanup-->
+    <delete file="${pom}.tmp"/>
+    <delete file="${pom}.asc"/>
+    <delete file="${file}.asc"/>
+    <delete file="${src}.asc"/>
+
+    <!--replace the version in the pom-->
+    <copy file="${pom}" tofile="${pom}.tmp">
+      <filterset>
+        <filter token="MAVEN.DEPLOY.VERSION" value="${maven.deploy.version}"/>
+      </filterset>
+    </copy>
+
+    <!--sign the jar, the source and the pom -->
+    <antcall target="-sign" >
+      <param name="file.in" value="${file}" />
+      <param name="file.out" value="${file}.asc" />
+    </antcall>
+    <antcall target="-sign" >
+      <param name="file.in" value="${src}" />
+      <param name="file.out" value="${src}.asc" />
+    </antcall>
+    <antcall target="-sign" >
+      <param name="file.in" value="${pom}.tmp" />
+      <param name="file.out" value="${pom}.asc" />
+    </antcall>
+
+    <artifact:deploy file="${file}">
+      <pom file="${pom}.tmp"/>
+      <remoteRepository id="${maven.repo.repositoryId}" url="${maven.repo.url}">
+        <authentication username="${asf.ldap.username}"
+                        password="${asf.ldap.password}"
+                        unless:set="maven.auth.useSettings" />
+      </remoteRepository>
+      <attach file="${file}.asc" type="jar.asc" if:set="gpg.passphrase"/>
+      <attach file="${src}" classifier="sources" type="jar"/>
+      <attach file="${src}.asc" classifier="sources" type="jar.asc" if:set="gpg.passphrase"/>
+      <attach file="${pom}.asc" type="pom.asc" if:set="gpg.passphrase"/>
+    </artifact:deploy>
+
+    <delete file="${pom}.tmp"/>
+    <delete file="${pom}.asc"/>
+    <delete file="${file}.asc"/>
+    <delete file="${src}.asc"/>
+  </target>
+
+  <macrodef name="doMavenDeploy">
+    <attribute name="artifactId"/>
+    <attribute name="jarFileName" default="@{artifactId}.jar" />
+    <attribute name="groupId" default="org.apache.tomcat" />
+    <attribute name="file" default="${tomcat.lib.path}/@{jarFileName}" />
+    <attribute name="pom" default="@{artifactId}.pom" />
+    <attribute name="srcJarFileName" default="@{artifactId}-src.jar" />
+    <attribute name="src" default="${tomcat.src.path}/@{srcJarFileName}" />
+    <sequential>
+      <antcall target="maven-deploy">
+        <param name="file" value="@{file}"/>
+        <param name="groupId" value="@{groupId}"/>
+        <param name="artifactId" value="@{artifactId}"/>
+        <param name="pom" value="${tomcat.pom.path}/@{pom}"/>
+        <param name="src" value="@{src}"/>
+        <param name="src.skip" value="@{src.skip}"/>
+      </antcall>
+    </sequential>
+  </macrodef>
+
+  <target name="maven-deploy-nosrc" depends="init-maven">
+    <!--cleanup-->
+    <delete file="${pom}.tmp"/>
+    <delete file="${pom}.asc"/>
+    <delete file="${file}.asc"/>
+
+    <!--replace the version in the pom-->
+    <copy file="${pom}" tofile="${pom}.tmp">
+      <filterset>
+        <filter token="MAVEN.DEPLOY.VERSION" value="${maven.deploy.version}"/>
+      </filterset>
+    </copy>
+
+    <!--sign the file and pom -->
+    <antcall target="-sign" >
+      <param name="file.in" value="${file}" />
+      <param name="file.out" value="${file}.asc" />
+    </antcall>
+    <antcall target="-sign" >
+      <param name="file.in" value="${pom}.tmp" />
+      <param name="file.out" value="${pom}.asc" />
+    </antcall>
+
+    <artifact:deploy file="${file}">
+      <pom file="${pom}.tmp"/>
+      <remoteRepository id="${maven.repo.repositoryId}" url="${maven.repo.url}">
+        <authentication username="${asf.ldap.username}"
+                        password="${asf.ldap.password}"
+                        unless:set="maven.auth.useSettings"/>
+      </remoteRepository>
+      <attach file="${file}.asc" type="jar.asc" if:set="gpg.passphrase"/>
+      <attach file="${pom}.asc" type="pom.asc" if:set="gpg.passphrase"/>
+    </artifact:deploy>
+
+    <delete file="${pom}.tmp"/>
+    <delete file="${pom}.asc"/>
+    <delete file="${file}.asc"/>
+  </target>
+
+  <macrodef name="doMavenDeployNoSrc">
+    <attribute name="artifactId"/>
+    <attribute name="jarFileName" default="@{artifactId}.jar" />
+    <attribute name="groupId" default="org.apache.tomcat" />
+    <attribute name="file" default="${tomcat.lib.path}/@{jarFileName}" />
+    <attribute name="pom" default="@{artifactId}.pom" />
+    <sequential>
+      <antcall target="maven-deploy-nosrc">
+        <param name="file" value="@{file}"/>
+        <param name="groupId" value="@{groupId}"/>
+        <param name="artifactId" value="@{artifactId}"/>
+        <param name="pom" value="${tomcat.pom.path}/@{pom}"/>
+      </antcall>
+    </sequential>
+  </macrodef>
+
+  <target name="maven-deploy-binaries" depends="init-maven">
+    <!--cleanup-->
+    <delete file="${pom}.tmp"/>
+    <delete file="${pom}.asc"/>
+    <delete file="${file}.zip.asc"/>
+    <delete file="${file}.tar.gz.asc"/>
+
+    <!--replace the version in the pom-->
+    <copy file="${pom}" tofile="${pom}.tmp">
+      <filterset>
+        <filter token="MAVEN.DEPLOY.VERSION" value="${maven.deploy.version}"/>
+      </filterset>
+    </copy>
+
+    <!--sign the zip, the tar.gz and the pom -->
+    <antcall target="-sign" >
+      <param name="file.in" value="${file}.zip" />
+      <param name="file.out" value="${file}.zip.asc" />
+    </antcall>
+    <antcall target="-sign" >
+      <param name="file.in" value="${file}.tar.gz" />
+      <param name="file.out" value="${file}.tar.gz.asc" />
+    </antcall>
+    <antcall target="-sign" >
+      <param name="file.in" value="${pom}.tmp" />
+      <param name="file.out" value="${pom}.asc" />
+    </antcall>
+
+    <artifact:deploy file="${pom}">
+      <pom file="${pom}.tmp"/>
+        <remoteRepository id="${maven.repo.repositoryId}" url="${maven.repo.url}">
+        <authentication username="${asf.ldap.username}"
+                        password="${asf.ldap.password}"
+                        unless:set="maven.auth.useSettings"/>
+      </remoteRepository>
+      <attach file="${file}.zip" type="zip"/>
+      <attach file="${file}.zip.asc" type="zip.asc" if:set="gpg.passphrase"/>
+      <attach file="${file}.tar.gz" type="tar.gz"/>
+      <attach file="${file}.tar.gz.asc" type="tar.gz.asc" if:set="gpg.passphrase"/>
+      <attach file="${pom}.asc" type="pom.asc" if:set="gpg.passphrase"/>
+    </artifact:deploy>
+
+    <delete file="${pom}.tmp"/>
+    <delete file="${pom}.asc"/>
+    <delete file="${file}.zip.asc"/>
+    <delete file="${file}.tar.gz.asc"/>
+  </target>
+
+  <macrodef name="doMavenDeployBinaries">
+    <attribute name="artifactId"/>
+    <attribute name="groupId" default="org.apache.tomcat" />
+    <attribute name="file" />
+    <attribute name="pom" default="@{artifactId}.pom" />
+    <sequential>
+      <antcall target="maven-deploy-binaries">
+        <param name="file" value="@{file}"/>
+        <param name="groupId" value="@{groupId}"/>
+        <param name="artifactId" value="@{artifactId}"/>
+        <param name="pom" value="${tomcat.pom.path}/@{pom}"/>
+      </antcall>
+    </sequential>
+  </macrodef>
+
+  <target name="generic-install" depends="init-maven">
+     <doMavenInstall artifactId="tomcat-juli"
+                          file="${tomcat.bin.path}/tomcat-juli.jar"/>
+
+     <!-- Standard jars in lib directory -->
+     <doMavenInstall artifactId="tomcat-annotations-api"
+                   jarFileName="annotations-api.jar"
+                srcJarFileName="annotations-api-src.jar"/>
+
+     <doMavenInstall artifactId="tomcat-catalina"
+                   jarFileName="catalina.jar"
+                srcJarFileName="catalina-src.jar"/>
+
+     <doMavenInstall artifactId="tomcat-catalina-ant"
+                   jarFileName="catalina-ant.jar"
+                srcJarFileName="catalina-ant-src.jar"/>
+
+     <doMavenInstall artifactId="tomcat-catalina-ha"
+                   jarFileName="catalina-ha.jar"
+                srcJarFileName="catalina-ha-src.jar"/>
+
+     <doMavenInstall artifactId="tomcat-tribes"
+                   jarFileName="catalina-tribes.jar"
+                srcJarFileName="catalina-tribes-src.jar"/>
+
+     <doMavenInstall artifactId="tomcat-ssi"
+                   jarFileName="catalina-ssi.jar"
+                srcJarFileName="catalina-ssi-src.jar"/>
+
+     <doMavenInstall artifactId="tomcat-storeconfig"
+                   jarFileName="catalina-storeconfig.jar"
+                srcJarFileName="catalina-storeconfig-src.jar"/>
+
+     <doMavenInstall artifactId="tomcat-jdbc"
+                   jarFileName="tomcat-jdbc.jar"
+                srcJarFileName="tomcat-jdbc-src.jar"/>
+
+     <doMavenInstall artifactId="tomcat-el-api"
+                   jarFileName="el-api.jar"
+                srcJarFileName="el-api-src.jar"/>
+
+     <doMavenInstall artifactId="tomcat-jasper"
+                   jarFileName="jasper.jar"
+                srcJarFileName="jasper-src.jar"/>
+
+     <doMavenInstall artifactId="tomcat-jasper-el"
+                   jarFileName="jasper-el.jar"
+                srcJarFileName="jasper-el-src.jar"/>
+
+     <doMavenInstall artifactId="tomcat-jsp-api"
+                   jarFileName="jsp-api.jar"
+                srcJarFileName="jsp-api-src.jar"/>
+
+     <doMavenInstall artifactId="tomcat-servlet-api"
+                   jarFileName="servlet-api.jar"
+                srcJarFileName="servlet-api-src.jar"/>
+
+     <doMavenInstall artifactId="tomcat-websocket-api"
+                   jarFileName="websocket-api.jar"
+                srcJarFileName="websocket-api-src.jar"/>
+
+     <doMavenInstall artifactId="tomcat-jaspic-api"
+                   jarFileName="jaspic-api.jar"
+                srcJarFileName="jaspic-api-src.jar"/>
+
+     <doMavenInstall artifactId="tomcat-api"/>
+     <doMavenInstall artifactId="tomcat-jni"/>
+     <doMavenInstall artifactId="tomcat-util"/>
+     <doMavenInstall artifactId="tomcat-util-scan"/>
+     <doMavenInstall artifactId="tomcat-coyote"/>
+     <doMavenInstall artifactId="tomcat-dbcp"/>
+     <doMavenInstall artifactId="tomcat-websocket"/>
+
+     <!-- Emedded jars -->
+     <doMavenInstall artifactId="tomcat-embed-core"
+         groupId="org.apache.tomcat.embed"
+         file="${tomcat.embed.path}/tomcat-embed-core.jar"
+         pom="tomcat-embed-core.pom"
+         src="${tomcat.embed.src.path}/tomcat-embed-core-src.jar"/>
+     <doMavenInstall artifactId="tomcat-embed-jasper"
+         groupId="org.apache.tomcat.embed"
+         file="${tomcat.embed.path}/tomcat-embed-jasper.jar"
+         pom="tomcat-embed-jasper.pom"
+         src="${tomcat.embed.src.path}/tomcat-embed-jasper-src.jar"/>
+     <doMavenInstall artifactId="tomcat-embed-el"
+         groupId="org.apache.tomcat.embed"
+         file="${tomcat.embed.path}/tomcat-embed-el.jar"
+         pom="tomcat-embed-el.pom"
+         src="${tomcat.embed.src.path}/tomcat-embed-el-src.jar"/>
+     <doMavenInstall artifactId="tomcat-embed-websocket"
+         groupId="org.apache.tomcat.embed"
+         file="${tomcat.embed.path}/tomcat-embed-websocket.jar"
+         pom="tomcat-embed-websocket.pom"
+         src="${tomcat.embed.src.path}/tomcat-embed-websocket-src.jar"/>
+  </target>
+
+  <target name="generic-deploy" depends="init-maven,init-gpg-1,init-gpg-2,init-ldap">
+    <!-- Standard jars in bin directory -->
+    <!-- Skip bootstrap.jar - it is just a subset of catalina.jar -->
+    <doMavenDeploy artifactId="tomcat-juli"
+                         file="${tomcat.bin.path}/tomcat-juli.jar"/>
+
+    <!-- Standard jars in lib directory -->
+    <doMavenDeploy artifactId="tomcat-annotations-api"
+                  jarFileName="annotations-api.jar"
+               srcJarFileName="annotations-api-src.jar"/>
+
+    <doMavenDeploy artifactId="tomcat-catalina"
+                  jarFileName="catalina.jar"
+               srcJarFileName="catalina-src.jar"/>
+
+    <doMavenDeploy artifactId="tomcat-catalina-ant"
+                  jarFileName="catalina-ant.jar"
+               srcJarFileName="catalina-ant-src.jar"/>
+
+    <doMavenDeploy artifactId="tomcat-catalina-ha"
+                  jarFileName="catalina-ha.jar"
+               srcJarFileName="catalina-ha-src.jar"/>
+
+    <doMavenDeploy artifactId="tomcat-tribes"
+                  jarFileName="catalina-tribes.jar"
+               srcJarFileName="catalina-tribes-src.jar"/>
+
+    <doMavenDeploy artifactId="tomcat-ssi"
+                  jarFileName="catalina-ssi.jar"
+               srcJarFileName="catalina-ssi-src.jar"/>
+
+    <doMavenDeploy artifactId="tomcat-storeconfig"
+                  jarFileName="catalina-storeconfig.jar"
+               srcJarFileName="catalina-storeconfig-src.jar"/>
+
+    <doMavenDeploy artifactId="tomcat-jdbc"
+                  jarFileName="tomcat-jdbc.jar"
+               srcJarFileName="tomcat-jdbc-src.jar"/>
+
+    <doMavenDeploy artifactId="tomcat-el-api"
+                  jarFileName="el-api.jar"
+               srcJarFileName="el-api-src.jar"/>
+
+    <doMavenDeploy artifactId="tomcat-jasper"
+                  jarFileName="jasper.jar"
+               srcJarFileName="jasper-src.jar"/>
+
+    <doMavenDeploy artifactId="tomcat-jasper-el"
+                  jarFileName="jasper-el.jar"
+               srcJarFileName="jasper-el-src.jar"/>
+
+    <doMavenDeploy artifactId="tomcat-jsp-api"
+                  jarFileName="jsp-api.jar"
+               srcJarFileName="jsp-api-src.jar"/>
+
+    <doMavenDeploy artifactId="tomcat-servlet-api"
+                  jarFileName="servlet-api.jar"
+               srcJarFileName="servlet-api-src.jar"/>
+
+    <doMavenDeploy artifactId="tomcat-websocket-api"
+                  jarFileName="websocket-api.jar"
+               srcJarFileName="websocket-api-src.jar"/>
+
+    <doMavenDeploy artifactId="tomcat-jaspic-api"
+                  jarFileName="jaspic-api.jar"
+               srcJarFileName="jaspic-api-src.jar"/>
+
+    <doMavenDeploy artifactId="tomcat-api"/>
+    <doMavenDeploy artifactId="tomcat-jni"/>
+    <doMavenDeploy artifactId="tomcat-util"/>
+    <doMavenDeploy artifactId="tomcat-util-scan"/>
+    <doMavenDeploy artifactId="tomcat-coyote"/>
+    <doMavenDeploy artifactId="tomcat-dbcp"/>
+    <doMavenDeploy artifactId="tomcat-websocket"/>
+    <doMavenDeployNoSrc artifactId="tomcat-i18n-cs"/>
+    <doMavenDeployNoSrc artifactId="tomcat-i18n-de"/>
+    <doMavenDeployNoSrc artifactId="tomcat-i18n-es"/>
+    <doMavenDeployNoSrc artifactId="tomcat-i18n-fr"/>
+    <doMavenDeployNoSrc artifactId="tomcat-i18n-ja"/>
+    <doMavenDeployNoSrc artifactId="tomcat-i18n-ko"/>
+    <doMavenDeployNoSrc artifactId="tomcat-i18n-pt-BR"/>
+    <doMavenDeployNoSrc artifactId="tomcat-i18n-ru"/>
+    <doMavenDeployNoSrc artifactId="tomcat-i18n-zh-CN"/>
+
+    <!-- Emedded jars -->
+    <!-- Skip DBCP - optional and can use standard ones above -->
+    <doMavenDeploy artifactId="tomcat-embed-core"
+        groupId="org.apache.tomcat.embed"
+        file="${tomcat.embed.path}/tomcat-embed-core.jar"
+        pom="tomcat-embed-core.pom"
+        src="${tomcat.embed.src.path}/tomcat-embed-core-src.jar"/>
+    <doMavenDeploy artifactId="tomcat-embed-jasper"
+        groupId="org.apache.tomcat.embed"
+        file="${tomcat.embed.path}/tomcat-embed-jasper.jar"
+        pom="tomcat-embed-jasper.pom"
+        src="${tomcat.embed.src.path}/tomcat-embed-jasper-src.jar"/>
+    <doMavenDeploy artifactId="tomcat-embed-el"
+        groupId="org.apache.tomcat.embed"
+        file="${tomcat.embed.path}/tomcat-embed-el.jar"
+        pom="tomcat-embed-el.pom"
+        src="${tomcat.embed.src.path}/tomcat-embed-el-src.jar"/>
+    <doMavenDeploy artifactId="tomcat-embed-websocket"
+        groupId="org.apache.tomcat.embed"
+        file="${tomcat.embed.path}/tomcat-embed-websocket.jar"
+        pom="tomcat-embed-websocket.pom"
+        src="${tomcat.embed.src.path}/tomcat-embed-websocket-src.jar"/>
+
+    <!-- Binaries -->
+    <doMavenDeployBinaries
+      artifactId="tomcat"
+      file="${tomcat.release.path}/v${maven.deploy.binary.version}/bin/apache-tomcat-${maven.deploy.binary.version}"/>
+
+  </target>
+
+  <target name="deploy-snapshot">
+    <antcall target="generic-deploy">
+      <param name="maven.repo.repositoryId"
+             value="${maven.snapshot.repo.repositoryId}"/>
+      <param name="maven.repo.url" value="${maven.snapshot.repo.url}"/>
+      <param name="maven.deploy.version" value="9.0-SNAPSHOT"/>
+      <param name="maven.deploy.binary.version"
+             value="${maven.asf.release.deploy.version}-dev"/>
+    </antcall>
+  </target>
+
+  <target name="deploy-release">
+    <antcall target="generic-deploy">
+      <param name="maven.repo.repositoryId"
+             value="${maven.asf.release.repo.repositoryId}"/>
+      <param name="maven.repo.url" value="${maven.asf.release.repo.url}"/>
+      <param name="maven.deploy.version"
+             value="${maven.asf.release.deploy.version}"/>
+      <param name="maven.deploy.binary.version"
+             value="${maven.asf.release.deploy.version}"/>
+    </antcall>
+  </target>
+
+  <target name="init-gpg-1">
+    <available file="${gpg.exec}" property="gpg.exec.available"/>
+  </target>
+
+  <target name="init-gpg-2" if="${gpg.exec.available}">
+    <input message="Enter GPG pass-phrase" addproperty="gpg.passphrase" >
+      <handler type="secure"/>
+    </input>
+  </target>
+
+  <target name="init-ldap" unless="maven.auth.useSettings">
+    <input message="Enter ASF LDAP (same as svn) password"
+           addproperty="asf.ldap.password" >
+      <handler type="secure"/>
+    </input>
+  </target>
+
+  <target name="-sign" if="gpg.passphrase">
+    <fail unless="file" />
+    <exec executable="${gpg.exec}" failonerror="true"
+          inputstring="${gpg.passphrase}">
+      <arg value="--batch"/>
+      <arg value="--pinentry-mode"/>
+      <arg value="loopback"/>
+      <arg value="--passphrase-fd"/>
+      <arg value="0"/>
+      <arg value="-a"/>
+      <arg value="-b"/>
+      <arg value="-o"/>
+      <arg value="${file.out}"/>
+      <arg value="${file.in}"/>
+    </exec>
+  </target>
+
+  <!-- =============== Utility Targets to support downloads ================ -->
+
+  <target name="setproxy" if="${proxy.use}">
+    <setproxy proxyhost="${proxy.host}" proxyport="${proxy.port}"
+              proxyuser="${proxy.user}" proxypassword="${proxy.password}" />
+    <echo message="Using ${proxy.host}:${proxy.port} to download ${sourcefile}"/>
+  </target>
+
+  <target name="testexist">
+    <echo message="Testing  for ${destfile}"/>
+    <available file="${destfile}" property="exist"/>
+  </target>
+
+  <target name="downloadfile" unless="exist" depends="testexist,setproxy">
+    <!-- Download the file -->
+    <local name="temp.file"/>
+    <mkdir dir="${base.path}"/>
+    <tempfile property="temp.file" destdir="${base.path}" prefix="download-" suffix=".tmp"/>
+    <get src="${sourcefile}" httpusecaches="${trydownload.httpusecaches}" dest="${temp.file}"/>
+    <mkdir dir="${destdir}"/>
+    <move file="${temp.file}" tofile="${destfile}"/>
+  </target>
+
+</project>
