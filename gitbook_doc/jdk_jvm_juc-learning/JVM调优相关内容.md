@@ -98,7 +98,7 @@
 * jps(个人认为非常重要)
 >jps 命令类似于 linux的 ps 命令，不过ps命令是用于查看系统进程的，
 >而jps用于查看当前系统运行的java进程。
->
+
 ````text
 jps -q 只输出java进程id
 jps -l 输出java进程main函数的详细路径
