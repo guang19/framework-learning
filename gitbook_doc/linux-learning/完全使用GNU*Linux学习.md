@@ -138,14 +138,16 @@ PS:欢迎各位同学在此处写下你遇到的问题和解决办法。
 这个问题的大概原因是：无线网络适配器被阻塞了，需要手动将电脑上的wifi开关打开，而在我的笔记本上并wifi开关，
 所以可以猜测是联想网络驱动的问题。
 可以使用 rfkill list all命令查询你的wlan是否被阻塞了，没有此命令的同学可以使用
-````shell script
+
+````text
 sudo apt-get install rfkill
 ````
+
 安装，当wlan显示Hard blocked: true , 就证明你的无线驱动被阻塞了。
 解决办法是将阻塞无限驱动的那个模块从内核中移除掉，直接在 /etc/modprobe.d
 目录下编辑 blacklist.conf文件，其内容为:
 
-````shell script
+````text
 blacklist ideapad_laptop
 ````
 
@@ -174,17 +176,20 @@ XMind是使用Java编写的，依赖于Openjdk8。所以在Linux上使用XMind�
 其次我们进入XMind_amd64目录下，32位系统的同学进入XMind_i386目录，
 我们创建并编辑 start.sh 脚本，其内容为:
 
-````shell script
+````text
 #!/bin/bash
 cd /home/guang19/SDK/xmind/XMind_amd64 (这个路径为你的XMind_amd64的路径)
 ./XMind
 ````
+
 这个脚本的内容很简单吧，当启动脚本的时候，进入目录，直接启动XMind。
 
 脚本写完后需要让它能够被执行，使用
-````shell script
+
+````text
 chmod +x start.sh
 ````
+
 命令start.sh被执行的权限。
 
 此时你可以尝试执行 ./start.sh 命令来启动XMind，启动成功的话，
@@ -198,7 +203,7 @@ chmod +x start.sh
 
 其内容为:
 
-````shell script
+````text
 [Desktop Entry]
 Encoding=UTF-8
 Name=XMind
