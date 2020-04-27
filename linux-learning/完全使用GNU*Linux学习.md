@@ -99,4 +99,128 @@ Windows是商业软件，这使它具备易用的性质。Linux是自由软件�
 一文把想说的话几乎都给说了，个人文笔有限，且本文主观意识太强，如果觉得本文不符合您的胃口，就当看个笑话吧。
 
 
+---
 
+
+**以下内容是我在Debian10 Buster下遇到的问题以及相关解决办法，
+使用Ubuntu和Debian其他版本的同学也可借鉴。**
+
+PS:欢迎各位同学在此处写下你遇到的问题和解决办法。
+
+### IDEA编辑Markdown预渲染问题
+这个问题花了我很长时间。
+
+当我安装IDEA后，使用它编辑markdown文件的时候，就出现了如下图所示的情况:
+
+![Debian10下IDEA的Markdown预渲染问题](../img/linux/Debian10下IDEA的Markdown预渲染问题.png)
+
+你可以看到右边渲染的画面明显有问题。刚开始的时候我一度怀疑是IDEA版本的问题，
+于是我又安装IDEA其他版本，但也没有任何作用，这时我怀疑是显卡的原因:
+
+![我的电脑配置](../img/linux/我的电脑配置.png)
+
+可以看到使用的是Intel的核显，于是当我查询相关资料，使用脚本将核显换为了独显，这里没留截图，当你换到独显后，
+图形会显示独显的配置，使用nvidia-smi命令可以查看独显使用状态。
+于是我满怀欣喜的打开IDEA，但还是无济于事。当我以为真的是Debian的Bug的时候，
+我又发现Bumblebee可以管理显卡，何不一试？于是我安装Bumblebee后，使用optirun命令启动IDEA，没想到啊，
+还真是可以:
+
+![Debian10下IDEA的Markdown预渲染解决后](../img/linux/Debian10下IDEA的Markdown预渲染解决后.png)
+
+我真的就很奇怪，同样是使用了独显，为什么optirun启动就可以正常显示。
+于是我后来又查询optirun是否开启了gpu加速，但很可惜，我并没有得到相关答案，不过这让我确定了这个问题出现在
+显卡上。如果有知道原因的同学，敬请告之，感激不尽。
+
+
+### wifi适配器找不到
+我猜(不确定)这个问题应该发生在大多数使用联想笔记本的同学的电脑上，不止Debian，且Ubuntu也有这个问题。
+当安装完系统后，我们打开设置会发现wifi一栏显示 “wifi适配器找不到” 此类的错误信息。
+这个问题的大概原因是：无线网络适配器被阻塞了，需要手动将电脑上的wifi开关打开，而在我的笔记本上并wifi开关，
+所以可以猜测是联想网络驱动的问题。
+可以使用 rfkill list all命令查询你的wlan是否被阻塞了，没有此命令的同学可以使用
+````shell script
+sudo apt-get install rfkill
+````
+安装，当wlan显示Hard blocked: true , 就证明你的无线驱动被阻塞了。
+解决办法是将阻塞无限驱动的那个模块从内核中移除掉，直接在 /etc/modprobe.d
+目录下编辑 blacklist.conf文件，其内容为:
+
+````shell script
+blacklist ideapad_laptop
+````
+
+文件名不一定要与我的一致，但是要以.conf结尾。
+你可以将modprobe.d目录下的文件理解为黑名单文件，
+当Linux启动时就不会加载conf文件指定的模块，
+这里的 <ideapad_laptop> 就是我们需要移除的那个无线模块。
+
+**后遗症：
+当我们移除 <ideapad_laptop> 模块后，以后开启的时候，有时会出现
+蓝牙适配器找不到的情况,之前在Ubuntu上却并未发现这种问题，
+看来Debian在驱动方面没有Ubuntu做的好，不过这也是可以理解的，
+毕竟大多数时候还是可以正常使用的-_-。**
+
+
+### XMind安装
+XMind是使用Java编写的，依赖于Openjdk8。所以在Linux上使用XMind，
+首先需要有Openjdk8的环境。
+其次启动的时候需要编写Shell脚本来启动，没想到吧，我也没想到，
+这也是我趟过很多坑才玩出来的。
+
+首先我们需要准备一场XMind的软件启动图片，
+这个我已经放到[目录](https://github.com/guang19/framework-learning/tree/dev/img/linux)
+下了,需要的同学请自取。
+
+其次我们进入XMind_amd64目录下，32位系统的同学进入XMind_i386目录，
+我们创建并编辑 start.sh 脚本，其内容为:
+
+````shell script
+#!/bin/bash
+cd /home/guang19/SDK/xmind/XMind_amd64 (这个路径为你的XMind_amd64的路径)
+./XMind
+````
+这个脚本的内容很简单吧，当启动脚本的时候，进入目录，直接启动XMind。
+
+脚本写完后需要让它能够被执行，使用
+````shell script
+chmod +x start.sh
+````
+命令start.sh被执行的权限。
+
+此时你可以尝试执行 ./start.sh 命令来启动XMind，启动成功的话，
+就已经完成了99%了，如果启动不成功，可以再检测下前面的步骤是否有误。
+
+如果以后你只想用Shell启动XMind的话，那么到此也就为止了，连上面所说的图片都不需要了。
+如果你想更方便的启动的话，那么就需要创建桌面文件启动。
+在Debian/Ubuntu下，你所看到的桌面文件，都存储在 /usr/share/applications
+目录下面，这个目录下文件全是以.desktop结尾。
+我们现在就需要在这个目录下创建xmind.desktop文件(名字可以不叫xmind)。
+
+其内容为:
+
+````shell script
+[Desktop Entry]
+Encoding=UTF-8
+Name=XMind
+Type=Application
+Exec=sh /home/guang19/SDK/xmind/XMind_amd64/start.sh
+Icon=/home/guang19/SDK/xmind/XMind.png
+````
+
+我们暂时只需要理解Icon和Exec属性。
+Icon就是你在桌面上看到的应用的图标，把Icon的路径改为你XMind.png的路径就行了。
+再看Exec属性,当我们在桌面上点击XMind的图标的时候，就会执行Exec对应的命令或脚本，
+我们把Exec改为start.sh文件的路径就行了，别掉了sh命令，因为start.sh是脚本，
+需要sh命令启动。
+
+
+### Fcitx候选框的定位问题
+这个问题我贴一张我处境的截图就明白了:
+
+![Fcitx候选框定位问题](../img/linux/Fcitx候选框定位问题.png)
+
+可以看到我的光标定位在第207行，但是我输入法的候选狂停留在IDEA的左下角。
+为什么我要说停留在IDEA的左下角？因为就目前我的使用而言，这个问题只在IDEA下存在，
+不仅是Debian，Ubuntu也存在这种问题，我个人认为这应该是IDEA的问题，
+查到的相关文章大部分都是说Java Swing的问题，看来这个问题还真是比较困难了。
+如果有同学知道解决办法，还请不吝分享，非常感谢。
