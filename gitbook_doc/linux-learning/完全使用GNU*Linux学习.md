@@ -52,7 +52,7 @@ Windows是商业软件，这使它具备易用的性质。Linux是自由软件�
 
 来看看基本的Linux目录吧：
 
-![Linux目录](../img/linux/Linux目录.png)
+![Linux目录](../../img/linux/Linux目录.png)
 
 这些目录你可能有很多都不认识，但没关系，因为这就是Linux系统(大部分)所有的目录了，你稍微了解下，就知道这些目录里放的是什么文件了。
 

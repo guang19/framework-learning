@@ -22,8 +22,7 @@
     "-lunr",
     "-search",
     "search-pro",
-    "sitemap",
-    "simple-page-toc"
+    "sitemap"
   ],
   "pluginsConfig": {
     "github": {

@@ -61,6 +61,8 @@
 
   - [Linux常用命令](gitbook_doc/linux-learning/Linux命令大全.md)
 
+  - [完全使用GNU/Linux学习](gitbook_doc/linux-learning/完全使用GNU*Linux学习.md)
+ 
 
 ---
 
