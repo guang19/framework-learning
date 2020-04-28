@@ -1,3 +1,18 @@
+<!-- TOC -->
+   * [完全使用GNU/Linux学习](#完全使用gnulinux学习)
+      * [为什么要写这篇文章?](#为什么要写这篇文章)
+      * [为什么我要从Windows切换到Linux?](#为什么我要从windows切换到linux)
+      * [Linux作为日常使用的缺点](#linux作为日常使用的缺点)
+         * [硬件驱动问题](#硬件驱动问题)
+         * [软件问题](#软件问题)
+      * [你真的需要完全使用Linux吗?](#你真的需要完全使用linux吗)
+            * [结尾:](#结尾)
+         * [IDEA编辑Markdown预渲染问题](#idea编辑markdown预渲染问题)
+         * [wifi适配器找不到](#wifi适配器找不到)
+         * [XMind安装](#xmind安装)
+         * [Fcitx候选框的定位问题](#fcitx候选框的定位问题)
+<!-- /TOC -->
+
 # 完全使用GNU/Linux学习
 
 喔，看到这个标题千万不要以为我要写和王垠前辈一样的内容啊，嘿嘿。不过在这里还是献上王垠前辈的那篇文章的链接吧:[完全用Linux工作](https://www.douban.com/group/topic/12121637/)。
@@ -169,7 +184,7 @@ XMind是使用Java编写的，依赖于Openjdk8。所以在Linux上使用XMind�
 其次启动的时候需要编写Shell脚本来启动，没想到吧，我也没想到，
 这也是我趟过很多坑才玩出来的。
 
-首先我们需要准备一场XMind的软件启动图片，
+首先我们需要准备一张XMind的软件启动图片，
 这个我已经放到[目录](https://github.com/guang19/framework-learning/tree/dev/img/linux)
 下了,需要的同学请自取。
 
@@ -190,7 +205,7 @@ cd /home/guang19/SDK/xmind/XMind_amd64 (这个路径为你的XMind_amd64的路�
 chmod +x start.sh
 ````
 
-命令start.sh被执行的权限。
+命令给予start.sh被执行的权限。
 
 此时你可以尝试执行 ./start.sh 命令来启动XMind，启动成功的话，
 就已经完成了99%了，如果启动不成功，可以再检测下前面的步骤是否有误。

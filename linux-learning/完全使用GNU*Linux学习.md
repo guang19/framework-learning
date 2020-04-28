@@ -1,3 +1,19 @@
+<!-- TOC -->
+   * [完全使用GNU/Linux学习](#完全使用gnulinux学习)
+      * [为什么要写这篇文章?](#为什么要写这篇文章)
+      * [为什么我要从Windows切换到Linux?](#为什么我要从windows切换到linux)
+      * [Linux作为日常使用的缺点](#linux作为日常使用的缺点)
+         * [硬件驱动问题](#硬件驱动问题)
+         * [软件问题](#软件问题)
+      * [你真的需要完全使用Linux吗?](#你真的需要完全使用linux吗)
+            * [结尾:](#结尾)
+         * [IDEA编辑Markdown预渲染问题](#idea编辑markdown预渲染问题)
+         * [wifi适配器找不到](#wifi适配器找不到)
+         * [XMind安装](#xmind安装)
+         * [Fcitx候选框的定位问题](#fcitx候选框的定位问题)
+<!-- /TOC -->
+
+
 # 完全使用GNU/Linux学习
 
 喔，看到这个标题千万不要以为我要写和王垠前辈一样的内容啊，嘿嘿。不过在这里还是献上王垠前辈的那篇文章的链接吧:[完全用Linux工作](https://www.douban.com/group/topic/12121637/)。
