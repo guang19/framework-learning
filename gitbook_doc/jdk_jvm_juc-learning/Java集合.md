@@ -78,7 +78,7 @@ hash % length == hash & (length - 1)
 #### ArrayList的特点
 - ArrayList底层使用Object数组实现。
 
-- ArrayList的容量默认为0,只有在第一次执行add操作时才会初始化容量为10。
+- ArrayList的容量默认为0,只有在第一次执行add操作时才会初始化容量为10，正常的扩容是为原来的1/2倍。
 
 - 由于ArrayList采用数组实现,它的容量是固定的,所以当添加新元素的时候,如果超出了数组的容量,
 那么此时add操作的时间复杂度将会是O(n-1)。

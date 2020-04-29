@@ -185,11 +185,11 @@
       * [Jdk新特性](#jdk新特性)
          * [Jdk8新特性](#jdk8新特性)
          * [Jdk9新特性](#jdk9新特性)
-         * [jdk10新特性](#jdk10新特性)
-         * [jdk11新特性](#jdk11新特性)
-         * [jdk12新特性](#jdk12新特性)
-         * [jdk13新特性](#jdk13新特性)
-         * [jdk14](#jdk14)
+         * [Jdk10新特性](#jdk10新特性)
+         * [Jk11新特性](#jdk11新特性)
+         * [Jdk12新特性](#jdk12新特性)
+         * [Jdk13新特性](#jdk13新特性)
+         * [Jdk14新特性](#jdk14新特性)
 
 <!-- /TOC -->
 
@@ -1317,7 +1317,7 @@ hash % length == hash & (length - 1)
 #### ArrayList的特点
 - ArrayList底层使用Object数组实现。
 
-- ArrayList的容量默认为0,只有在第一次执行add操作时才会初始化容量为10。
+- ArrayList的容量默认为0,只有在第一次执行add操作时才会初始化容量为10，正常的扩容是为原来的1/2倍。
 
 - 由于ArrayList采用数组实现,它的容量是固定的,所以当添加新元素的时候,如果超出了数组的容量,
 那么此时add操作的时间复杂度将会是O(n-1)。
@@ -1346,6 +1346,8 @@ hash % length == hash & (length - 1)
 
 - LinkedList的空间利用率虽然很高，但是它的每个Node可以说也是占用了较大空间的，
   因为每个Node需要保存它的前继和后继节点。
+
+- LinkedList不仅是List，还是Queue，Deque，还可作为Stack使用。
 
 **PS: 双向链表与双向循环链表的区别:
 双向链表:每个Node都保存了前后2个节点的引用，双向链表的first节点的前一个节点为null,
@@ -1807,7 +1809,7 @@ HotSpot移除了永久代，新增了元空间。
 **方法区在逻辑上是属于堆区的。在jdk8之前，堆区在GC时会回收永久代。
 但jdk8之后的元空间归属于物理内存，存储的都是常量，几乎不会发生GC。**
 
-**无论是永久代还是元空间，都有可能发生OOM。**</u>
+**无论是永久代还是元空间，都有可能发生OOM。**
 
 ### JavaVirtualMachineError
   
@@ -1822,6 +1824,11 @@ HotSpot移除了永久代，新增了元空间。
 * java heap space 
 >当需要为对象分配内存时，堆空间占用已经达到最大值，
 >无法继续为对象分配内存，可能会出现OOM: java heap space错误。 
+  
+* Requested array size exceeds VM limit
+>当为数组分配内存时，数组需要的容量超过了虚拟机的限制范围，
+>就会抛出OOM: Requested array size exceeds VM limit。
+>根据我的测试，Integer.MAX_VALUE - 2 是虚拟机能为数组分配的最大容量    
    
 * GC overhead limit exceed
 >垃圾回收器花费了很长时间GC,但是GC回收的内存非常少,
@@ -2593,7 +2600,7 @@ PS: jdk9应该是继jdk8之后，又一个重要的版本，后续jdk的迭代�
 
 PS: String类在jdk9后的每个版本，好像都会新增一些API，这个不再重复。
 
-### jdk10新特性
+### Jdk10新特性
 
 - var类型推断: 这一功能在其他语言中早有实现，比如我接触过的c++的auto,js中的var(当然，js并不是强类型语言)。
 其实我个人认为此特性意义不是特别重大，因为java本身就是强类型语言，var只能使用于局部变量推断。如果大量使用var,
@@ -2606,7 +2613,7 @@ PS: String类在jdk9后的每个版本，好像都会新增一些API，这个不
 
 jdk10的特性还是有很多的，但是并没有像模块化这样大的改动。
 
-### jdk11新特性
+### Jdk11新特性
 
 - java命令直接可以编译并运行java源文件
 
@@ -2616,7 +2623,7 @@ jdk10的特性还是有很多的，但是并没有像模块化这样大的改动
 
 - String类新增了许多好用的API，如: strip,isBlank等。
 
-### jdk12新特性
+### Jdk12新特性
 
 - switch语法糖
 
@@ -2624,13 +2631,13 @@ jdk10的特性还是有很多的，但是并没有像模块化这样大的改动
 
 ...
 
-### jdk13新特性
+### Jdk13新特性
 
 - 文本块
 
 - Socket API被重新实现
 
-### jdk14
+### Jdk14新特性
 
 - instanceof 模式匹配
 

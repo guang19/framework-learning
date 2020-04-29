@@ -196,7 +196,7 @@ HotSpot移除了永久代，新增了元空间。
 **方法区在逻辑上是属于堆区的。在jdk8之前，堆区在GC时会回收永久代。
 但jdk8之后的元空间归属于物理内存，存储的都是常量，几乎不会发生GC。**
 
-**无论是永久代还是元空间，都有可能发生OOM。**</u>
+**无论是永久代还是元空间，都有可能发生OOM。**
 
 ### JavaVirtualMachineError
   
@@ -211,6 +211,11 @@ HotSpot移除了永久代，新增了元空间。
 * java heap space 
 >当需要为对象分配内存时，堆空间占用已经达到最大值，
 >无法继续为对象分配内存，可能会出现OOM: java heap space错误。 
+   
+* Requested array size exceeds VM limit
+>当为数组分配内存时，数组需要的容量超过了虚拟机的限制范围，
+>就会抛出OOM: Requested array size exceeds VM limit。   
+>根据我的测试，Integer.MAX_VALUE - 2 是虚拟机能为数组分配的最大容量      
    
 * GC overhead limit exceed
 >垃圾回收器花费了很长时间GC,但是GC回收的内存非常少,

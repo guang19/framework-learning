@@ -7,6 +7,7 @@ import net.sf.cglib.proxy.MethodProxy;
 import java.lang.reflect.Method;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -39,12 +40,23 @@ public class OutOfMemoryErrorDemo {
      5:jdk8之后的Metaspace元空间也有可能抛出OOM,Metasapce受限于物理内存,它存储
      着类的元信息,当Metaspace里的类的信息过多时,Metaspace可能会发生OOM.
      这里是可以使用cglib的字节码生成类的技术测试的.
+
+     6:当为数组分配内存时，数组需要的容量超过了虚拟机的限制范围，
+       就会抛出OOM: Requested array size exceeds VM limit。
      */
 
     //测试java heap space错误的时候,把堆的max size 设置的小如:-Xmx30m, 会快一点,不然电脑的内存足够大,没有限制,很难出现OutOfMemory
     public static void heapSpace()
     {
         byte[] bytes = new byte[1024 * 1024 * 2000];
+    }
+
+
+    //当为数组分配容量时，分配的容量超出了VM虚拟机的范围，会抛出: Requested array size exceeds VM limit。
+    public static void arraySize()
+    {
+        Object[] objects = new Object[Integer.MAX_VALUE];
+        System.out.println(Arrays.toString(objects));
     }
 
     //测试第2中情况这里可能与jdk版本或垃圾收集器或Xmx分配的内存有关,我的机器始终没有出现GC overhead limit exceeded
@@ -128,11 +140,15 @@ public class OutOfMemoryErrorDemo {
     private static final Enhancer enhancer = new Enhancer();
 
 
+
+
     public static void main(String[] args) {
 //        heapSpace();
 //        overHeadLimitExceeded();
 //        directBufferMemoryError();
 //        unableCreateNewNativeThread();
 //        metaspace();
+
+//        arraySize();
     }
 }
