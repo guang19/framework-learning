@@ -60,10 +60,6 @@ public class BubbleSort
          *       所以从这点就可以看出来是有优化空间的
          *
          *
-         *
-         *
-         *
-         *
          */
 
         int temp;

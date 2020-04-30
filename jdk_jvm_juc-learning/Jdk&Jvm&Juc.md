@@ -206,13 +206,12 @@ openjdk8u:
 * hotspot:[hotspot](http://hg.openjdk.java.net/jdk8u/hs-dev/hotspot/archive/tip.tar.gz)
 * openjdk:[jdk](https://hg.openjdk.java.net/jdk8u/hs-dev/jdk/archive/tip.tar.gz)
 
+**JVM部分参考了《深入理解Java虚拟机 - 第二版》(周志明).
+个人认为《深入理解Java虚拟机 - 第二版》上的部分内容已经过时
+有些知识请各位同学明鉴，此外我后续会根据 《深入理解Java虚拟机 - 第三版》的内容来做更新和修改。**
+
+
 ## java基础知识
-
-**PS:以下部分内容希望各位同学下载openjdk的源码,亲自实践。**
-
-openjdk8u:
-* hotspot:[hotspot](http://hg.openjdk.java.net/jdk8u/hs-dev/hotspot/archive/tip.tar.gz)
-* openjdk:[jdk](https://hg.openjdk.java.net/jdk8u/hs-dev/jdk/archive/tip.tar.gz)
 
 ### Java常见基础知识点
 
@@ -1634,13 +1633,6 @@ Java中的IO模型，也只是换汤不换药。
 ---
 
 ## JVM
-
-**JVM部分参考了《深入理解Java虚拟机》(周志明)**
-
-```text
-个人认为《深入理解Java虚拟机》上的部分内容已经过时
-有些知识请各位同学明鉴
-```
 
 ### JVM运行时内存分区
 >以HotSpot为例:
