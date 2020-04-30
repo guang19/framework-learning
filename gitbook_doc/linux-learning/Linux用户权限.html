@@ -1,0 +1,1344 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Linux用户权限 · framework-learning</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-lightbox/css/lightbox.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Linux运行级别.html" />
+    
+    
+    <link rel="prev" href="Linux文件系统.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"guang19","repo":"framework-learning","type":"star","size":"small"},{"user":"guang19","repo":"framework-learning","type":"fork","size":"small"},{"user":"guang19","type":"follow","width":"230","size":"small"}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+    
+
+    
+
+    
+        
+        <li class="header">介绍</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    关于framework-learning
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../GitBook_Introduction.html">
+            
+                <a href="../GitBook_Introduction.html">
+            
+                    
+                    关于本电子书
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">内容</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../jdk_jvm_juc-learning/About.html">
+            
+                <a href="../jdk_jvm_juc-learning/About.html">
+            
+                    
+                    jdk_jvm_juc部分
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../jdk_jvm_juc-learning/Java常见基础知识点.html">
+            
+                <a href="../jdk_jvm_juc-learning/Java常见基础知识点.html">
+            
+                    
+                    Java常见基础知识点
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../jdk_jvm_juc-learning/IO.html">
+            
+                <a href="../jdk_jvm_juc-learning/IO.html">
+            
+                    
+                    IO
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="../jdk_jvm_juc-learning/Java集合.html">
+            
+                <a href="../jdk_jvm_juc-learning/Java集合.html">
+            
+                    
+                    Java集合
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="../jdk_jvm_juc-learning/Java多线程.html">
+            
+                <a href="../jdk_jvm_juc-learning/Java多线程.html">
+            
+                    
+                    Java多线程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="../jdk_jvm_juc-learning/Java并发.html">
+            
+                <a href="../jdk_jvm_juc-learning/Java并发.html">
+            
+                    
+                    Java并发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="../jdk_jvm_juc-learning/AQS.html">
+            
+                <a href="../jdk_jvm_juc-learning/AQS.html">
+            
+                    
+                    AQS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7" data-path="../jdk_jvm_juc-learning/对象在内存中的布局.html">
+            
+                <a href="../jdk_jvm_juc-learning/对象在内存中的布局.html">
+            
+                    
+                    对象在内存中的布局
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8" data-path="../jdk_jvm_juc-learning/JVM.html">
+            
+                <a href="../jdk_jvm_juc-learning/JVM.html">
+            
+                    
+                    JVM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.9" data-path="../jdk_jvm_juc-learning/简单了解类文件结构.html">
+            
+                <a href="../jdk_jvm_juc-learning/简单了解类文件结构.html">
+            
+                    
+                    简单了解类文件结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.10" data-path="../jdk_jvm_juc-learning/类的生命周期.html">
+            
+                <a href="../jdk_jvm_juc-learning/类的生命周期.html">
+            
+                    
+                    类的生命周期(类加载)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.11" data-path="../jdk_jvm_juc-learning/JVM常量池.html">
+            
+                <a href="../jdk_jvm_juc-learning/JVM常量池.html">
+            
+                    
+                    JVM常量池
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.12" data-path="../jdk_jvm_juc-learning/GC.html">
+            
+                <a href="../jdk_jvm_juc-learning/GC.html">
+            
+                    
+                    GC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.13" data-path="../jdk_jvm_juc-learning/JVM调优相关内容.html">
+            
+                <a href="../jdk_jvm_juc-learning/JVM调优相关内容.html">
+            
+                    
+                    JVM调优相关内容
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.14" data-path="../jdk_jvm_juc-learning/Jdk新特性.html">
+            
+                <a href="../jdk_jvm_juc-learning/Jdk新特性.html">
+            
+                    
+                    Jdk新特性
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="About.html">
+            
+                <a href="About.html">
+            
+                    
+                    Linux部分
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="操作系统的内核.html">
+            
+                <a href="操作系统的内核.html">
+            
+                    
+                    操作系统的内核
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="进程间通信.html">
+            
+                <a href="进程间通信.html">
+            
+                    
+                    进程间通信
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="Linux文件系统.html">
+            
+                <a href="Linux文件系统.html">
+            
+                    
+                    Linux文件系统
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="3.1.4" data-path="Linux用户权限.html">
+            
+                <a href="Linux用户权限.html">
+            
+                    
+                    Linux用户权限
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.5" data-path="Linux运行级别.html">
+            
+                <a href="Linux运行级别.html">
+            
+                    
+                    Linux运行级别
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.6" data-path="Shell.html">
+            
+                <a href="Shell.html">
+            
+                    
+                    Shell
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.7" data-path="Linux命令大全.html">
+            
+                <a href="Linux命令大全.html">
+            
+                    
+                    Linux常用命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.8" data-path="完全使用GNU*Linux学习.html">
+            
+                <a href="完全使用GNU*Linux学习.html">
+            
+                    
+                    完全使用GNU/Linux学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../rdbms-learning/About.html">
+            
+                <a href="../rdbms-learning/About.html">
+            
+                    
+                    关系型数据库部分
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../rdbms-learning/RDBMS.html">
+            
+                <a href="../rdbms-learning/RDBMS.html">
+            
+                    
+                    RDBMS
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1.1" data-path="../rdbms-learning/RDBMS常见知识点.html">
+            
+                <a href="../rdbms-learning/RDBMS常见知识点.html">
+            
+                    
+                    RDBMS常见知识点
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" data-path="../rdbms-learning/索引.html">
+            
+                <a href="../rdbms-learning/索引.html">
+            
+                    
+                    索引
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3" data-path="../rdbms-learning/Mysql.html">
+            
+                <a href="../rdbms-learning/Mysql.html">
+            
+                    
+                    Mysql
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.3.1" data-path="../rdbms-learning/Mysql存储引擎.html">
+            
+                <a href="../rdbms-learning/Mysql存储引擎.html">
+            
+                    
+                    Mysql存储引擎
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3.2" data-path="../rdbms-learning/事务.html">
+            
+                <a href="../rdbms-learning/事务.html">
+            
+                    
+                    事务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3.3" data-path="../rdbms-learning/数据库锁.html">
+            
+                <a href="../rdbms-learning/数据库锁.html">
+            
+                    
+                    数据库锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3.4" data-path="../rdbms-learning/Mysql日志.html">
+            
+                <a href="../rdbms-learning/Mysql日志.html">
+            
+                    
+                    Mysql日志
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3.5" data-path="../rdbms-learning/Mysql优化.html">
+            
+                <a href="../rdbms-learning/Mysql优化.html">
+            
+                    
+                    Mysql优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3.6" data-path="../rdbms-learning/Mysql数据类型.html">
+            
+                <a href="../rdbms-learning/Mysql数据类型.html">
+            
+                    
+                    Mysql数据类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../nosql-learning/About.html">
+            
+                <a href="../nosql-learning/About.html">
+            
+                    
+                    非关系型数据库部分
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1" data-path="../nosql-learning/NoSQL.html">
+            
+                <a href="../nosql-learning/NoSQL.html">
+            
+                    
+                    NoSQL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2" data-path="../nosql-learning/Redis.html">
+            
+                <a href="../nosql-learning/Redis.html">
+            
+                    
+                    Redis
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.2.1" data-path="../nosql-learning/Redis常见知识点.html">
+            
+                <a href="../nosql-learning/Redis常见知识点.html">
+            
+                    
+                    Redis常见知识点
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2.2" data-path="../nosql-learning/Redis数据结构.html">
+            
+                <a href="../nosql-learning/Redis数据结构.html">
+            
+                    
+                    Redis数据结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2.3" data-path="../nosql-learning/Redis事务.html">
+            
+                <a href="../nosql-learning/Redis事务.html">
+            
+                    
+                    Redis事务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2.4" data-path="../nosql-learning/Redis缓存淘汰策略.html">
+            
+                <a href="../nosql-learning/Redis缓存淘汰策略.html">
+            
+                    
+                    Redis缓存淘汰策略
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2.5" data-path="../nosql-learning/Redis持久化策略.html">
+            
+                <a href="../nosql-learning/Redis持久化策略.html">
+            
+                    
+                    Redis持久化策略
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../computer-network/About.html">
+            
+                <a href="../computer-network/About.html">
+            
+                    
+                    计算机网络部分
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.1" data-path="../computer-network/OSI七层模型.html">
+            
+                <a href="../computer-network/OSI七层模型.html">
+            
+                    
+                    OSI七层模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.2" data-path="../computer-network/TCP_IP.html">
+            
+                <a href="../computer-network/TCP_IP.html">
+            
+                    
+                    TCP/IP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.3" data-path="../computer-network/HTTP.html">
+            
+                <a href="../computer-network/HTTP.html">
+            
+                    
+                    HTTP
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../datastructure_algorithm/About.html">
+            
+                <a href="../datastructure_algorithm/About.html">
+            
+                    
+                    数据结构与算法部分
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1.1" data-path="../datastructure_algorithm/数据结构与算法.html">
+            
+                <a href="../datastructure_algorithm/数据结构与算法.html">
+            
+                    
+                    数据结构与算法
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1.1.1" data-path="../datastructure_algorithm/数据结构.html">
+            
+                <a href="../datastructure_algorithm/数据结构.html">
+            
+                    
+                    数据结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.1.2" data-path="../datastructure_algorithm/算法.html">
+            
+                <a href="../datastructure_algorithm/算法.html">
+            
+                    
+                    算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="8.1" data-path="../spring-learning/About.html">
+            
+                <a href="../spring-learning/About.html">
+            
+                    
+                    Spring框架部分
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.1.1" data-path="../spring-learning/SpringFramework常见知识点.html">
+            
+                <a href="../spring-learning/SpringFramework常见知识点.html">
+            
+                    
+                    SpringFramework常见知识点
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.2" data-path="../spring-learning/SpringMVC常见知识点.html">
+            
+                <a href="../spring-learning/SpringMVC常见知识点.html">
+            
+                    
+                    SpringMVC常见知识点
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.1.2.1" data-path="../spring-learning/SpringMVC源码分析.html">
+            
+                <a href="../spring-learning/SpringMVC源码分析.html">
+            
+                    
+                    SpringMVC源码分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.3" data-path="../spring-learning/SpringBoot常见知识点.html">
+            
+                <a href="../spring-learning/SpringBoot常见知识点.html">
+            
+                    
+                    SpringBoot常见知识点
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="9.1" data-path="../orm-learning/About.html">
+            
+                <a href="../orm-learning/About.html">
+            
+                    
+                    ORM框架部分
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="9.1.1" data-path="../orm-learning/ORM.html">
+            
+                <a href="../orm-learning/ORM.html">
+            
+                    
+                    ORM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="9.1.2" data-path="../orm-learning/Mybatis.html">
+            
+                <a href="../orm-learning/Mybatis.html">
+            
+                    
+                    Mybatis
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="9.1.2.1" data-path="../orm-learning/Mybatis常见知识点.html">
+            
+                <a href="../orm-learning/Mybatis常见知识点.html">
+            
+                    
+                    Mybatis常见知识点
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="9.1.2.2" data-path="../orm-learning/Mybatis源码分析.html">
+            
+                <a href="../orm-learning/Mybatis源码分析.html">
+            
+                    
+                    Mybatis源码分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="10.1" data-path="../amqp-learning/About.html">
+            
+                <a href="../amqp-learning/About.html">
+            
+                    
+                    AMQP部分
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="10.1.1" data-path="../amqp-learning/AMQP.html">
+            
+                <a href="../amqp-learning/AMQP.html">
+            
+                    
+                    AMQP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.1.2" data-path="../amqp-learning/RabbitMQ.html">
+            
+                <a href="../amqp-learning/RabbitMQ.html">
+            
+                    
+                    RabbitMQ
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="11.1" data-path="../tomcat/Tomcat.html">
+            
+                <a href="../tomcat/Tomcat.html">
+            
+                    
+                    Tomcat部分
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >Linux用户权限</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="linux&#x7528;&#x6237;&#x6743;&#x9650;">Linux&#x7528;&#x6237;&#x6743;&#x9650;</h1>
+<p>Linux&#x7528;&#x6237;&#x7684;&#x6743;&#x9650;&#x4E5F;&#x5C31;&#x662F;&#x7528;&#x6237;&#x5BF9;&#x6587;&#x4EF6;&#x7684;&#x8BBF;&#x95EE;&#x6743;&#x9650;&#x3002;<strong>Linux&#x4E0B;&#x6587;&#x4EF6;&#x7684;&#x6743;&#x9650;&#x4E00;&#x822C;&#x5305;&#x62EC;&#x8BFB;&#xFF0C;&#x5199;&#xFF0C;&#x6267;&#x884C;&#x4E09;&#x79CD;&#xFF0C;&#x5BF9;&#x5E94;&#x5B57;&#x6BCD;:r,w,x&#x3002; Linux&#x7684;&#x6743;&#x9650;&#x89D2;&#x8272;&#x6709; &#x62E5;&#x6709;&#x8005;&#xFF0C;&#x7FA4;&#x7EC4;&#xFF0C;&#x5176;&#x4ED6;&#x4E09;&#x79CD;&#x3002;&#x6BCF;&#x4E2A;&#x6587;&#x4EF6;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x8FD9;&#x4E09;&#x79CD;&#x7C92;&#x5EA6;&#x8BBE;&#x7F6E;&#x4E0D;&#x540C;&#x7684;&#x6743;&#x9650;&#x3002;</strong> &#x901A;&#x5E38;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x53EA;&#x80FD;&#x5F52;&#x5C5E;&#x4E00;&#x4E2A;&#x7528;&#x6237;&#x548C;&#x7528;&#x6237;&#x7EC4;&#x3002;&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x7528;&#x6237;&#x60F3;&#x8981;&#x62E5;&#x6709;&#x5BF9;&#x67D0;&#x4E2A;&#x6587;&#x4EF6;&#x7684;&#x6743;&#x9650;&#xFF0C;&#x53EF;&#x4EE5;&#x628A;&#x8FD9;&#x4E2A;&#x7528;&#x6237;&#x6DFB;&#x52A0;&#x5230;&#x5177;&#x5907;&#x6743;&#x9650;&#x7684;&#x7528;&#x6237;&#x7EC4;&#xFF0C;&#x4E00;&#x4E2A;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x62E5;&#x6709;&#x591A;&#x4E2A;&#x7528;&#x6237;&#x7EC4;&#x3002;Linux&#x7CFB;&#x7EDF;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;chmod&#x547D;&#x4EE4;&#x8FDB;&#x884C;&#x6743;&#x9650;&#x64CD;&#x4F5C;,&#x4F7F;&#x7528;chown&#x53EF;&#x4EE5;&#x66F4;&#x6539;&#x6587;&#x4EF6;&#x62E5;&#x6709;&#x8005;&#x3002;</p>
+<h3 id="chmod&#x6743;&#x9650;&#x6A21;&#x5F0F;">chmod&#x6743;&#x9650;&#x6A21;&#x5F0F;</h3>
+<p>chmod&#x7684;&#x6743;&#x9650;&#x6A21;&#x5F0F;&#x4E3A;: [ugoa...][+-=][rwx...][files]</p>
+<ul>
+<li><p>u&#x4EE3;&#x8868;&#x6587;&#x4EF6;&#x62E5;&#x6709;&#x8005;&#xFF0C;g&#x4EE3;&#x8868;&#x4E0E;&#x8BE5;&#x6587;&#x4EF6;&#x62E5;&#x6709;&#x8005;&#x5C5E;&#x4E8E;&#x540C;&#x4E00;&#x4E2A;&#x7528;&#x6237;&#x7EC4;&#x7684;&#x7528;&#x6237;&#xFF0C;o&#x4EE3;&#x8868;&#x5176;&#x4ED6;&#x4EBA;&#xFF0C;a&#x8868;&#x793A;ugo&#x7684;&#x7F29;&#x5199;&#x3002;</p>
+</li>
+<li><p>+&#x4EE3;&#x8868;&#x7ED9;&#x6307;&#x5B9A;&#x7684;&#x89D2;&#x8272;&#x589E;&#x52A0;&#x6743;&#x9650; , -&#x4EE3;&#x8868;&#x53D6;&#x6D88;&#x6307;&#x5B9A;&#x7684;&#x89D2;&#x8272;&#x7684;&#x6743;&#x9650; , =&#x4EE3;&#x8868;&#x7ED9;&#x6307;&#x5B9A;&#x7684;&#x89D2;&#x8272;&#x8D4B;&#x4E88;&#x6307;&#x5B9A;&#x7684;&#x6743;&#x9650;</p>
+</li>
+<li><p>rwx&#x4EE3;&#x8868;&#x6743;&#x9650; &#xFF0C; &#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x6570;&#x5B57;&#x6807;&#x8BC6; r  = 4 , w = 2 , x = 1&#xFF0C; &#x6240;&#x4EE5;rwx=7 , rw = 6 , rx=5 , wx=3&#x3002;</p>
+</li>
+</ul>
+<h4 id="&#x4F7F;&#x7528;chmode&#x66F4;&#x6539;&#x6587;&#x4EF6;&#x6743;&#x9650;">&#x4F7F;&#x7528;chmode&#x66F4;&#x6539;&#x6587;&#x4EF6;&#x6743;&#x9650;</h4>
+<p>&#x6211;&#x4EEC;&#x5148;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x540D;&#x53EB;a.txt&#x7684;&#x6587;&#x4EF6;,&#x5B83;&#x521A;&#x88AB;&#x521B;&#x5EFA;&#x540E;&#x7684;&#x6743;&#x9650;&#x5982;&#x4E0B;:</p>
+<p><a href="../../img/linux/&#x66F4;&#x6539;&#x6587;&#x4EF6;&#x6743;&#x9650;1.png" data-lightbox="da3bd304-7527-4003-8d14-1398a7821330" data-title="&#x66F4;&#x6539;&#x6587;&#x4EF6;&#x6743;&#x9650;1"><img src="../../img/linux/&#x66F4;&#x6539;&#x6587;&#x4EF6;&#x6743;&#x9650;1.png" alt="&#x66F4;&#x6539;&#x6587;&#x4EF6;&#x6743;&#x9650;1"></a></p>
+<p>&#x5F53;&#x4F7F;&#x7528;chmod&#x66F4;&#x6539;a.txt&#x7684;&#x6743;&#x9650;&#x540E;&#x5982;&#x4E0B;:</p>
+<p><a href="../../img/linux/&#x66F4;&#x6539;&#x6587;&#x4EF6;&#x6743;&#x9650;2.png" data-lightbox="f0f4e0da-9a3c-454c-b796-71e89f431b22" data-title="&#x66F4;&#x6539;&#x6587;&#x4EF6;&#x6743;&#x9650;2"><img src="../../img/linux/&#x66F4;&#x6539;&#x6587;&#x4EF6;&#x6743;&#x9650;2.png" alt="&#x66F4;&#x6539;&#x6587;&#x4EF6;&#x6743;&#x9650;2"></a></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Linux文件系统.html" class="navigation navigation-prev " aria-label="Previous page: Linux文件系统">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Linux运行级别.html" class="navigation navigation-next " aria-label="Next page: Linux运行级别">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Linux用户权限","level":"3.1.4","depth":2,"next":{"title":"Linux运行级别","level":"3.1.5","depth":2,"path":"gitbook_doc/linux-learning/Linux运行级别.md","ref":"gitbook_doc/linux-learning/Linux运行级别.md","articles":[]},"previous":{"title":"Linux文件系统","level":"3.1.3","depth":2,"path":"gitbook_doc/linux-learning/Linux文件系统.md","ref":"gitbook_doc/linux-learning/Linux文件系统.md","articles":[]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","expandable-chapters","code","prism","github","github-buttons","splitter","pageview-count","lightbox","theme-comscore","-lunr","-search","search-pro","sitemap","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/guang19/framework-learning"},"livereload":{},"simple-page-toc":{"maxDepth":4,"skipFirstH1":false},"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"https://guang19.github.io/framework-learning"},"lightbox":{"jquery":true,"sameUuid":false},"theme-comscore":{},"back-to-top-button":{},"pageview-count":{},"github-buttons":{"buttons":[{"user":"guang19","repo":"framework-learning","type":"star","size":"small"},{"user":"guang19","repo":"framework-learning","type":"fork","size":"small"},{"user":"guang19","type":"follow","width":"230","size":"small"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author:":"qsjzwithguang19forever","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"framework-learning","language":"zh-hans","links":{"sidebar":{}},"gitbook":"*","description":"Java方向的开发者学习的资料"},"file":{"path":"gitbook_doc/linux-learning/Linux用户权限.md","mtime":"2020-04-30T09:19:52.822Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-04-30T09:27:33.920Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lightbox/js/lightbox.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+
