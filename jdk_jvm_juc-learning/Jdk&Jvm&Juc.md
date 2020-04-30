@@ -1338,7 +1338,7 @@ hash % length == hash & (length - 1)
 3. Vector是当它的扩容增量大于0时，会扩容为原来的容量+扩容增量，否则扩容为原来的2倍。
 
 #### LinkedList的特点
-- LinkedList底层使用双向链表实现。
+- LinkedList底层使用**双端链表**实现。
 
 - LinkedList的add操作只需要改变尾节点的引用就行了。
   但是如果需要在指定位置进行add操作的话，那么时间复杂度也是比较高的,为O(n)，
@@ -1349,14 +1349,15 @@ hash % length == hash & (length - 1)
 
 - LinkedList不仅是List，还是Queue，Deque，还可作为Stack使用。
 
-**PS: 双向链表与双向循环链表的区别:
-双向链表:每个Node都保存了前后2个节点的引用，双向链表的first节点的前一个节点为null,
+**PS: 双端链表与双向链表的区别:
+双端链表:每个Node都保存了前后2个节点的引用，双向链表的first节点的前一个节点为null,
  last节点的后一个节点为null。**
 
-**双向循环链表: 每个Node都保存了前后2个节点的引用，
-双向循环链表的first节点的前一个节点指向last节点，
+**双向链表: 每个Node都保存了前后2个节点的引用，
+双向链表的first节点的前一个节点指向last节点，
 last节点的最后一个节点指向first节点。**
- 
+
+
 #### Set
 为啥不单独说HashSet，我目前看到的JDK所有的Set,都是使用Map实现的,
 除了CopyOnWriteArraySet(底层是CopyOnWriteArrayList)。

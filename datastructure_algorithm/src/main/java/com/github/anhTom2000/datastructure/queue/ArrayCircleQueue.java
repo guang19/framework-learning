@@ -46,7 +46,7 @@ public class ArrayCircleQueue<T>
      * 添加元素到队列尾，如果队列已满，将抛出异常
      * @param element   要添加的元素
      */
-   public void add(T element)
+   public void offer(T element)
    {
        if(isFull())
        {
@@ -129,10 +129,10 @@ public class ArrayCircleQueue<T>
    public static void main(String[] args)
    {
        ArrayCircleQueue<Integer> queue1 = new ArrayCircleQueue<>();
-       queue1.add(1);
-       queue1.add(2);
-       queue1.add(3);
-       queue1.add(4);
+       queue1.offer(1);
+       queue1.offer(2);
+       queue1.offer(3);
+       queue1.offer(4);
 //       System.out.println(queue1.poll());
 
        System.out.println(queue1.isEmpty());
