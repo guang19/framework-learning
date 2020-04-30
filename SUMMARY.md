@@ -62,6 +62,7 @@
   - [Linux常用命令](gitbook_doc/linux-learning/Linux命令大全.md)
 
   - [完全使用GNU/Linux学习](gitbook_doc/linux-learning/完全使用GNU*Linux学习.md)
+ 
 
 ---
 
@@ -119,6 +120,18 @@
   - [TCP/IP](gitbook_doc/computer-network/TCP_IP.md)
   
   - [HTTP](gitbook_doc/computer-network/HTTP.md)
+
+
+---
+
+ 
+- [数据结构与算法部分](gitbook_doc/datastructure_algorithm/About.md)
+
+  - [数据结构与算法](gitbook_doc/datastructure_algorithm/数据结构与算法.md)
+  
+    - [数据结构](gitbook_doc/datastructure_algorithm/数据结构.md)
+  
+    - [算法](gitbook_doc/datastructure_algorithm/算法.md)
 
 
 ---

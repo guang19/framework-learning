@@ -42,13 +42,6 @@ PS:目前有很多知识我个人也在学习和复习之中，后面的push可�
 [非关系型数据库 - XMind](xmind_file/非关系型数据库.xmind)
 
 
-#### 数据结构与算法(更新中)
-
-[数据结构与算法](https://github.com/guang19/framework-learning/blob/dev/datastructure_algorithm/DataStructure&Algorithm.md)
-
-推荐一个数据结构与算法的可视化网站，希望能够帮到正在学习数据结构与算法的同学: [数据结构与算法可视化](https://www.cs.usfca.edu/~galles/visualization/Algorithms.html)
-
-
 #### 计算机网络
 
 [计算机网络](https://github.com/guang19/framework-learning/blob/dev/computer-network/Computer-Network.md)
@@ -86,6 +79,13 @@ PS:目前有很多知识我个人也在学习和复习之中，后面的push可�
 [Tomcat](https://github.com/guang19/framework-learning/blob/dev/tomcat-9.0.30-source/Tomcat.md)
 
 
+#### 数据结构与算法(更新中)
+
+[数据结构与算法](https://github.com/guang19/framework-learning/blob/dev/datastructure_algorithm/DataStructure&Algorithm.md)
+
+推荐一个数据结构与算法的可视化网站，希望能够帮到正在学习数据结构与算法的同学: [数据结构与算法可视化](https://www.cs.usfca.edu/~galles/visualization/Algorithms.html)
+
+
 #### 设计模式(更新中)
 
 [设计模式](https://github.com/guang19/framework-learning/blob/dev/design-pattern/DesignPattern.md)
@@ -94,11 +94,6 @@ PS:目前有很多知识我个人也在学习和复习之中，后面的push可�
 #### Zookeeper(待重构)
 
 [Zookeeper](https://github.com/guang19/framework-learning/blob/dev/zookeeper-learning/Zookeeper.md)
-
-
-#### Dubbo(待重构)
-
-[Dubbo](https://github.com/guang19/framework-learning/blob/dev/dubbo-learning/Dubbo.md)
 
 
 #### Swagger(更新中)
@@ -111,31 +106,30 @@ PS:目前有很多知识我个人也在学习和复习之中，后面的push可�
 
 - [ ] Git
 
-- [ ] SpringCloud
-
 - [ ] Netty
 
 
-### 如何对本项目做出补充
+### 如何对本文档做出补充?
 这里主要讲讲本项目的目录结构吧。
 
-- img: img目录存放所有的图片，这个各位同学稍微看看就知道了。Github有一个特点(好处)就是:
+- img: 此目录存放所有的图片，这个各位同学稍微看看就知道了。Github有一个特点(好处)就是:
 当我们在markdown文件之中指定了本地图片时，
 它能自动把我们的图片上传到它的服务器上，这也是为什么你会在我的markdown之中看到这样的内容: 
+
 ````text
-![图片](../img/图片名.png) 
+![图片名](../img/图片名.png) 
 ````
 
-- xmind_file: xmind_file目录存放了每个模块对应的xmind文件。
-本项目的每一个模块就是一块知识内容,每个模块下都有一个md文件，如:
+- xmind_file: 此目录存放了每个模块对应的xmind文件。
+
+- 本项目的每一个模块就是一块知识内容,每个模块下都有一个md文件，如:
 
   - amqp-learning
   
-    - AMQP.md
-  
-AMQP.md 就是对AMQP知识的总结。 各位同学如果做补充的话，也是对md文件做出修改。
+    - AMQP.md: AMQP.md 就是对AMQP知识的总结。 **各位同学如果做补充的话，也是对md文件做出修改。**
 
-其他的目录文件,如:gitbook_doc 这块内容由我亲自修改，并不需要改动。
+其他的目录的文件,如:gitbook_doc 由我亲自修改，并不需要改动。
+
 各位同学有好的建议提issue或pr就行了，感谢各位同学的支持！
 
 
