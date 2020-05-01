@@ -80,6 +80,7 @@ public class BubbleSort
                 break;
             }
         }
+        System.out.println("冒泡排序后的数组: ");
         System.out.println(Arrays.toString(arr));
     }
 }

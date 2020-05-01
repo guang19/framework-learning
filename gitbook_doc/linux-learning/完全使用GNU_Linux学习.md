@@ -1,5 +1,6 @@
 <!-- TOC -->
-   * [完全使用GNU/Linux学习](#完全使用gnulinux学习)
+
+ * [完全使用GNU/Linux学习](#完全使用gnulinux学习)
       * [为什么要写这篇文章?](#为什么要写这篇文章)
       * [为什么我要从Windows切换到Linux?](#为什么我要从windows切换到linux)
       * [Linux作为日常使用的缺点](#linux作为日常使用的缺点)
@@ -7,10 +8,13 @@
          * [软件问题](#软件问题)
       * [你真的需要完全使用Linux吗?](#你真的需要完全使用linux吗)
             * [结尾:](#结尾)
+      * [我使用Debian/Ubuntu时遇到的问题](#我使用debianubuntu时遇到的问题)
          * [IDEA编辑Markdown预渲染问题](#idea编辑markdown预渲染问题)
          * [wifi适配器找不到](#wifi适配器找不到)
          * [XMind安装](#xmind安装)
          * [Fcitx候选框的定位问题](#fcitx候选框的定位问题)
+
+
 <!-- /TOC -->
 
 # 完全使用GNU/Linux学习
@@ -116,6 +120,7 @@ Windows是商业软件，这使它具备易用的性质。Linux是自由软件�
 
 ---
 
+## 我使用Debian/Ubuntu时遇到的问题
 
 **以下内容是我在Debian10 Buster下遇到的问题以及相关解决办法，
 使用Ubuntu和Debian其他版本的同学也可借鉴。**
