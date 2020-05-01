@@ -61,7 +61,5 @@ public class SelectionSort
             }
         }
 
-        System.out.println("选择排序后的数组为: ");
-        System.out.println(Arrays.toString(arr));
     }
 }

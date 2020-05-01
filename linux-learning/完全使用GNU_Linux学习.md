@@ -1,13 +1,13 @@
 <!-- TOC -->
 
  * [完全使用GNU/Linux学习](#完全使用gnulinux学习)
-      * [为什么要写这篇文章?](#为什么要写这篇文章)
-      * [为什么我要从Windows切换到Linux?](#为什么我要从windows切换到linux)
+      * [为什么要写这篇文章?](#为什么要写这篇文章?)
+      * [为什么我要从Windows切换到Linux?](#为什么我要从windows切换到linux?)
       * [Linux作为日常使用的缺点](#linux作为日常使用的缺点)
          * [硬件驱动问题](#硬件驱动问题)
          * [软件问题](#软件问题)
-      * [你真的需要完全使用Linux吗?](#你真的需要完全使用linux吗)
-            * [结尾:](#结尾)
+      * [你真的需要完全使用Linux吗?](#你真的需要完全使用linux吗?)
+         * [结尾](#结尾)
       * [我使用Debian/Ubuntu时遇到的问题](#我使用debianubuntu时遇到的问题)
          * [IDEA编辑Markdown预渲染问题](#idea编辑markdown预渲染问题)
          * [wifi适配器找不到](#wifi适配器找不到)
@@ -71,7 +71,7 @@ Windows是商业软件，这使它具备易用的性质。Linux是自由软件�
 
 来看看基本的Linux目录吧：
 
-![Linux目录](../../img/linux/Linux目录.png)
+![Linux目录](../img/linux/Linux目录.png)
 
 这些目录你可能有很多都不认识，但没关系，因为这就是Linux系统(大部分)所有的目录了，你稍微了解下，就知道这些目录里放的是什么文件了。
 
@@ -113,7 +113,7 @@ Windows是商业软件，这使它具备易用的性质。Linux是自由软件�
 
 
 
-#### 结尾:
+#### 结尾
 
 一文把想说的话几乎都给说了，个人文笔有限，且本文主观意识太强，如果觉得本文不符合您的胃口，就当看个笑话吧。
 
@@ -132,20 +132,20 @@ PS:欢迎各位同学在此处写下你遇到的问题和解决办法。
 
 当我安装IDEA后，使用它编辑markdown文件的时候，就出现了如下图所示的情况:
 
-![Debian10下IDEA的Markdown预渲染问题](../../img/linux/Debian10下IDEA的Markdown预渲染问题.png)
+![Debian10下IDEA的Markdown预渲染问题](../img/linux/Debian10下IDEA的Markdown预渲染问题.png)
 
 你可以看到右边渲染的画面明显有问题。刚开始的时候我一度怀疑是IDEA版本的问题，
 于是我又安装IDEA其他版本，但也没有任何作用，这时我怀疑是显卡的原因:
 
-![我的电脑配置](../../img/linux/我的电脑配置.png)
+![我的电脑配置](../img/linux/我的电脑配置.png)
 
 可以看到使用的是Intel的核显，于是当我查询相关资料，使用脚本将核显换为了独显，这里没留截图，当你换到独显后，
 图形会显示独显的配置，使用nvidia-smi命令可以查看独显使用状态。
-于是我满怀欣喜的打开IDEA，但还是无济于事。当我以为真的是Debian的Bug的时候，
+于是我满怀期待的打开IDEA，但还是无济于事。当我以为真的是Debian的Bug的时候，
 我又发现Bumblebee可以管理显卡，何不一试？于是我安装Bumblebee后，使用optirun命令启动IDEA，没想到啊，
 还真是可以:
 
-![Debian10下IDEA的Markdown预渲染解决后](../../img/linux/Debian10下IDEA的Markdown预渲染解决后.png)
+![Debian10下IDEA的Markdown预渲染解决后](../img/linux/Debian10下IDEA的Markdown预渲染解决后.png)
 
 我真的就很奇怪，同样是使用了独显，为什么optirun启动就可以正常显示。
 于是我后来又查询optirun是否开启了gpu加速，但很可惜，我并没有得到相关答案，不过这让我确定了这个问题出现在
@@ -198,7 +198,7 @@ XMind是使用Java编写的，依赖于Openjdk8。所以在Linux上使用XMind�
 
 ````text
 #!/bin/bash
-cd /home/guang19/SDK/xmind/XMind_amd64 (这个路径为你的XMind_amd64的路径)
+cd /home/guang19/SDK/xmind/XMind_amd64 (这个路径为你的XMind脚本的路径)
 ./XMind
 ````
 
@@ -242,9 +242,9 @@ Icon就是你在桌面上看到的应用的图标，把Icon的路径改为你XMi
 ### Fcitx候选框的定位问题
 这个问题我贴一张我处境的截图就明白了:
 
-![Fcitx候选框定位问题](../../img/linux/Fcitx候选框定位问题.png)
+![Fcitx候选框定位问题](../img/linux/Fcitx候选框定位问题.png)
 
-可以看到我的光标定位在第207行，但是我输入法的候选狂停留在IDEA的左下角。
+可以看到我的光标定位在第207行，但是我输入法的候选框停留在IDEA的左下角。
 为什么我要说停留在IDEA的左下角？因为就目前我的使用而言，这个问题只在IDEA下存在，
 不仅是Debian，Ubuntu也存在这种问题，我个人认为这应该是IDEA的问题，
 查到的相关文章大部分都是说Java Swing的问题，看来这个问题还真是比较困难了。

@@ -163,7 +163,7 @@ last节点的最后一个节点指向first节点。
 
 排序算法的作用是将一系列无序的数据，按照某种规则(从大到小或从小到大)将这些无序的数据调整成与规则相符的有序的数据。
 
-常见排序算法有10种:
+常见排序算法有10种,这里借用一张图总结下:
 
 ![十大排序算法总结](../img/datastructure_algorithm/十大排序算法总结.png)
 
@@ -171,3 +171,6 @@ last节点的最后一个节点指向first节点。
 
 选择排序源码: [SelectionSort](https://github.com/guang19/framework-learning/blob/dev/datastructure_algorithm/src/main/java/com/github/anhTom2000/algorithm/sort/SelectionSort.java)
 
+插入排序源码: [InsertionSort](https://github.com/guang19/framework-learning/blob/dev/datastructure_algorithm/src/main/java/com/github/anhTom2000/algorithm/sort/InsertionSort.java)
+
+希尔排序源码: [ShellSort](https://github.com/guang19/framework-learning/blob/dev/datastructure_algorithm/src/main/java/com/github/anhTom2000/algorithm/sort/ShellSort.java)
