@@ -182,3 +182,41 @@ last节点的最后一个节点指向first节点。
 基数排序源码: [RadixSort](https://github.com/guang19/framework-learning/blob/dev/datastructure_algorithm/src/main/java/com/github/anhTom2000/algorithm/sort/RadixSort.java)
 
 计数排序源码: [CountingSort](https://github.com/guang19/framework-learning/blob/dev/datastructure_algorithm/src/main/java/com/github/anhTom2000/algorithm/sort/CountingSort.java)
+
+### 双索引算法---快慢指针
+
+双指针，指的是在遍历对象的过程中，不是普通的使用单个指针进行访问，而是使用两个相同方向的指针进行扫描，从而达到相应的目的。
+
+个人认为此算法就是充分利用数组有序这一特征，将本来需要两次遍历的操作简化为一次遍历，从而大大提高的程序的效率
+
+下面用图来简单解释一下这个算法：
+
+以leetcode第283题为例，需要看源码的小伙伴我会放链接在下方
+
+首先我们定义两个指针，一个名为left，一个名为right
+
+![双指针算法图示](../img/datastructure_algorithm/双指针算法图示1.png)
+
+一开始left指针不动，right指针向后搜索，遇到一个非0的数字，将其覆盖到left指针位置上的元素，之后left指针的也向后移动
+
+![双指针算法图示](../img/datastructure_algorithm/双指针算法图示2.png)
+
+继续搜索，以不断的将非0元素往前挪，当right指针达到数组末端后，搜索结束
+
+可以看到，我们已经将所有非0元素都移动到数组的头部了，接下来对left+1位之后的元素全都赋值为0即可
+
+![双指针算法图示](../img/datastructure_algorithm/双指针算法图示3.png)
+
+最终效果如下
+
+![双指针算法图示](../img/datastructure_algorithm/双指针算法图示4.png)
+
+leetcode.283题 移动零源码：[MoveZero](https://github.com/guang19/framework-learning/blob/dev/datastructure_algorithm/src/main/java/com/github/anhTom2000/algorithm/collisionPointer/MoveZero.java)
+
+leetcode.26题 删除数组的重复项源码：[DeleteDuplicate](https://github.com/guang19/framework-learning/blob/dev/datastructure_algorithm/src/main/java/com/github/anhTom2000/algorithm/collisionPointer/DeleteDuplicate.java)
+
+leetcode.27题 移除元素源码：[RemoveElement](https://github.com/guang19/framework-learning/blob/dev/datastructure_algorithm/src/main/java/com/github/anhTom2000/algorithm/collisionPointer/RemoveElement.java)
+
+
+
+
