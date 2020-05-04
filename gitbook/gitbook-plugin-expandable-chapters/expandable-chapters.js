@@ -1,4 +1,15 @@
 require(['gitbook', 'jQuery'], function(gitbook, $) {
+
+  //创建网易云音乐外链
+  let music = document.createElement("iframe");
+  music.src="https://music.163.com/outchain/player?type=2&id=1491585&auto=0&height=66";
+  music.setAttribute("style","width:250px;height: 86px;position: fixed; bottom:25px; left: 300px;z-index:99;");
+  music.setAttribute("frameborder","no");
+  music.setAttribute("border","0");
+  music.setAttribute("marginwidth","0");
+  music.setAttribute("marginheight","0");
+  document.body.appendChild(music)
+
   var TOGGLE_CLASSNAME = 'expanded',
       CHAPTER = '.chapter',
       ARTICLES = '.articles',
