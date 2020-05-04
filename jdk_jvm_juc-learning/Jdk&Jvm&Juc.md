@@ -1273,11 +1273,11 @@ CountDownLatch虽然可以令多个线程阻塞在同一代码处，但只能awa
 - HashMap在我当前的jdk版本(11)的默认容量为0,在第一次添加元素的时候才初始化容量为 16,
 之后才扩容为原来的2倍。
 
-- HashMap的扩容是根据 threshold决定的 : threshold = loadfactory * capacity。 
+- HashMap的扩容是根据 threshold决定的 : threshold = loadFactor * capacity。 
   当 size 大于 threshold 时,扩容。
 
 - **当每个桶的元素数量达到默认的阈值TREEIFY_THRESHOLD(8)时,那么这个桶的链表将会转为红黑树。
-  当红黑树节点的数量低于默认的阈值UNTREEIFY_THRSHOLD(6)时，那么这个桶的红黑树将转为链表**
+  当红黑树节点的数量低于默认的阈值UNTREEIFY_THRSHOLD(6)时，那么这个桶的红黑树将转为链表。**
 
 #### HashMap的长度(容量)为什么要设计成2的幂？
 >这就不得不佩服大师们的设计。

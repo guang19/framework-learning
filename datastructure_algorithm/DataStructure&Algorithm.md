@@ -112,6 +112,7 @@ last节点的最后一个节点指向first节点。
 **PS:关于队列，可以参考: [掘金 - 队列](https://juejin.im/post/5d5fb74fe51d45620346b8d0) , 写得很详细。**
 
 
+
 #### 栈
 栈(stack)是一种后进先出(LIFO)的数据结构，即最后进入栈中的元素，最先出栈。
 栈有两个主要的操作: 入栈(push) 和 出栈(pop)。
@@ -121,9 +122,7 @@ last节点的最后一个节点指向first节点。
 
 栈同样可以由数组和链表实现，对于数组实现的栈来说，其容量肯定也有限制，所以个人认为实现栈的较好的方式是链表。
 
-栈实现源码：
-
-- [栈](https://github.com/guang19/framework-learning/blob/dev/datastructure_algorithm/src/main/java/com/github/anhTom2000/datastructure/list/LinkedList.java)
+栈实现源码：[栈](https://github.com/guang19/framework-learning/blob/dev/datastructure_algorithm/src/main/java/com/github/anhTom2000/datastructure/list/LinkedList.java)
 
 
 
@@ -134,7 +133,7 @@ last节点的最后一个节点指向first节点。
 常见的非线性数据结构主要有矩阵(多维数组)，广义表，树，图等。
 
 #### 稀疏数组
-稀疏数组又被成为稀疏矩阵，它本质上是一个二维数组。
+稀疏数组又被称为稀疏矩阵，它本质上是一个二维数组。
 当一个数组中大部分元素都未被使用，仅有少部分被占用，这就造成了空间的浪费。
 为了解决这种问题，可以使用稀疏数组来保存该数组的数据，稀疏数组可以理解为原数组被压缩后的数组。
 
@@ -148,20 +147,29 @@ last节点的最后一个节点指向first节点。
 
 ![稀疏数组2](../img/datastructure_algorithm/稀疏数组2.png)
 
-稀疏数组源码:
 
-[稀疏数组](https://github.com/guang19/framework-learning/blob/dev/datastructure_algorithm/src/main/java/com/github/anhTom2000/datastructure/spasearray/SparseArray.java)
+稀疏数组源码: [稀疏数组](https://github.com/guang19/framework-learning/blob/dev/datastructure_algorithm/src/main/java/com/github/anhTom2000/datastructure/spasearray/SparseArray.java)
 
+
+#### Hash表
+Hash表是一种能够快速访问，快速删除与修改的数据结构。我们知道数组的访问速度非常快，链表的增删改等操作的效率也是
+非常高的，那有没有一种数据结构能够融合数组和链表的优点呢?可以说Hash表就是这样一种数据结构。
+
+Hash表是通过关键码(key)进行访问，通过Hash表存储数据的数据结构，它通过某种映射函数将关键码映射到
+Hash表的某个位置从而进行快速定位。 其中映射函数被称为散列函数(Hash函数)，Hash表被称为散列表。
+
+
+![Hash表](../img/datastructure_algorithm/Hash表.png)
+
+
+Hash表源码: [HashTable](https://github.com/guang19/framework-learning/blob/dev/datastructure_algorithm/src/main/java/com/github/anhTom2000/datastructure/hash/HashTable.java)
 
 ---
-
 
 
 ## 算法
 
 ### 排序算法
-
-排序算法的作用是将一系列无序的数据，按照某种规则(从大到小或从小到大)将这些无序的数据调整成与规则相符的有序的数据。
 
 常见排序算法有10种,这里借用一张图总结下:
 
@@ -183,7 +191,17 @@ last节点的最后一个节点指向first节点。
 
 计数排序源码: [CountingSort](https://github.com/guang19/framework-learning/blob/dev/datastructure_algorithm/src/main/java/com/github/anhTom2000/algorithm/sort/CountingSort.java)
 
-### 双索引算法---快慢指针
+
+### 查找算法
+
+二分查找算法源码: [BinarySearch](https://github.com/guang19/framework-learning/blob/dev/datastructure_algorithm/src/main/java/com/github/anhTom2000/algorithm/search/BinarySearch.java)
+
+插值查找算法源码: [InterpolationSearch](https://github.com/guang19/framework-learning/blob/dev/datastructure_algorithm/src/main/java/com/github/anhTom2000/algorithm/search/InterpolationSearch.java)
+
+斐波那契查找算法源码: [FibonacciSearch](https://github.com/guang19/framework-learning/blob/dev/datastructure_algorithm/src/main/java/com/github/anhTom2000/algorithm/search/FibonacciSearch.java)
+
+
+### 双索引算法-快慢指针(leetcode)
 
 双指针，指的是在遍历对象的过程中，不是普通的使用单个指针进行访问，而是使用两个相同方向的指针进行扫描，从而达到相应的目的。
 
@@ -201,21 +219,21 @@ last节点的最后一个节点指向first节点。
 
 ![双指针算法图示](../img/datastructure_algorithm/双指针算法图示2.png)
 
-继续搜索，以不断的将非0元素往前挪，当right指针达到数组末端后，搜索结束
+继续搜索，以不断的将非0元素往前挪，当right指针达到数组末端后，搜索结束。
 
-可以看到，我们已经将所有非0元素都移动到数组的头部了，接下来对left+1位之后的元素全都赋值为0即可
+可以看到，我们已经将所有非0元素都移动到数组的头部了，接下来对left+1位之后的元素全都赋值为0即可。
 
 ![双指针算法图示](../img/datastructure_algorithm/双指针算法图示3.png)
 
-最终效果如下
+最终效果如下:
 
 ![双指针算法图示](../img/datastructure_algorithm/双指针算法图示4.png)
 
-leetcode.283题 移动零源码：[MoveZero](https://github.com/guang19/framework-learning/blob/dev/datastructure_algorithm/src/main/java/com/github/anhTom2000/algorithm/collisionPointer/MoveZero.java)
+leetcode-283题: 移动零源码：[MoveZero](https://github.com/guang19/framework-learning/blob/dev/datastructure_algorithm/src/main/java/com/github/anhTom2000/algorithm/collisionPointer/MoveZero.java)
 
-leetcode.26题 删除数组的重复项源码：[DeleteDuplicate](https://github.com/guang19/framework-learning/blob/dev/datastructure_algorithm/src/main/java/com/github/anhTom2000/algorithm/collisionPointer/DeleteDuplicate.java)
+leetcode-26题: 删除数组的重复项源码：[DeleteDuplicate](https://github.com/guang19/framework-learning/blob/dev/datastructure_algorithm/src/main/java/com/github/anhTom2000/algorithm/collisionPointer/DeleteDuplicate.java)
 
-leetcode.27题 移除元素源码：[RemoveElement](https://github.com/guang19/framework-learning/blob/dev/datastructure_algorithm/src/main/java/com/github/anhTom2000/algorithm/collisionPointer/RemoveElement.java)
+leetcode-27题: 移除元素源码：[RemoveElement](https://github.com/guang19/framework-learning/blob/dev/datastructure_algorithm/src/main/java/com/github/anhTom2000/algorithm/collisionPointer/RemoveElement.java)
 
 
 
