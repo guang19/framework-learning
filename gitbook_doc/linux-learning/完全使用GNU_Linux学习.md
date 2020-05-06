@@ -174,22 +174,22 @@ blacklist ideapad_laptop
 文件名不一定要与我的一致，但是要以.conf结尾。
 你可以将modprobe.d目录下的文件理解为黑名单文件，
 当Linux启动时就不会加载conf文件指定的模块，
-这里的 <ideapad_laptop> 就是我们需要移除的那个无线模块。
+这里的 ideapad_laptop 就是我们需要移除的那个无线模块。
 
 **后遗症：
-当我们移除 <ideapad_laptop> 模块后，以后开启的时候，有时会出现
+当我们移除 ideapad_laptop 模块后，以后开机的时候，有时会出现
 蓝牙适配器找不到的情况,之前在Ubuntu上却并未发现这种问题，
 看来Debian在驱动方面没有Ubuntu做的好，不过这也是可以理解的，
-毕竟大多数时候还是可以正常使用的-_-。**
+而且大多数时候还是可以正常使用的-_-。**
 
 
 ### XMind安装
 XMind是使用Java编写的，依赖于Openjdk8。所以在Linux上使用XMind，
 首先需要有Openjdk8的环境。
-其次启动的时候需要编写Shell脚本来启动，没想到吧，我也没想到，
+其次启动的时候需要编写Shell脚本来启动(不是唯一办法，但却是非常简单的办法)，没想到吧，我也没想到，
 这也是我趟过很多坑才玩出来的。
 
-首先我们需要准备一张XMind的软件启动图片，
+首先我们需要准备一张XMind的软件启动图片:XMind.png，
 这个我已经放到[目录](https://github.com/guang19/framework-learning/tree/dev/img/linux)
 下了,需要的同学请自取。
 
@@ -210,7 +210,7 @@ cd /home/guang19/SDK/xmind/XMind_amd64 (这个路径为你的XMind脚本的路�
 chmod +x start.sh
 ````
 
-命令给予start.sh被执行的权限。
+命令让start.sh可以被执行。
 
 此时你可以尝试执行 ./start.sh 命令来启动XMind，启动成功的话，
 就已经完成了99%了，如果启动不成功，可以再检测下前面的步骤是否有误。
@@ -218,7 +218,7 @@ chmod +x start.sh
 如果以后你只想用Shell启动XMind的话，那么到此也就为止了，连上面所说的图片都不需要了。
 如果你想更方便的启动的话，那么就需要创建桌面文件启动。
 在Debian/Ubuntu下，你所看到的桌面文件，都存储在 /usr/share/applications
-目录下面，这个目录下文件全是以.desktop结尾。
+目录下面(也有的在.local/share/applications目录下)，这个目录下文件全是以.desktop结尾。
 我们现在就需要在这个目录下创建xmind.desktop文件(名字可以不叫xmind)。
 
 其内容为:
@@ -238,14 +238,16 @@ Icon就是你在桌面上看到的应用的图标，把Icon的路径改为你XMi
 我们把Exec改为start.sh文件的路径就行了，别掉了sh命令，因为start.sh是脚本，
 需要sh命令启动。
 
+以上步骤完成，保存desktop文件后，你就可以在桌面上看到XMind应用了。
+
 
 ### Fcitx候选框的定位问题
-这个问题我贴一张我处境的截图就明白了:
+这个问题贴一张我处境的截图就明白了:
 
 ![Fcitx候选框定位问题](../../img/linux/Fcitx候选框定位问题.png)
 
 可以看到我的光标定位在第207行，但是我输入法的候选框停留在IDEA的左下角。
 为什么我要说停留在IDEA的左下角？因为就目前我的使用而言，这个问题只在IDEA下存在，
 不仅是Debian，Ubuntu也存在这种问题，我个人认为这应该是IDEA的问题，
-查到的相关文章大部分都是说Java Swing的问题，看来这个问题还真是比较困难了。
+查到的相关文章大部分都是说Swing的问题，看来这个问题还真是比较困难了。
 如果有同学知道解决办法，还请不吝分享，非常感谢。

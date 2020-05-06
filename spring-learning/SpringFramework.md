@@ -197,9 +197,12 @@ BeanFactoryAware,ApplicationContextAware等扩展的setXXX方法
 
 - Setter方法注入的循环依赖可以通过缓存解决。
 三级缓存：
-1. 初始化完成的Bean池；
-2. 实例化完成，但是没有填充属性的Bean池；
-3. 刚刚实例化完成的Bean的工厂缓存，用于提前曝光Bean。
+
+  1. 初始化完成的Bean池。
+  
+  2. 实例化完成，但是没有填充属性的Bean池。
+  
+  3. 刚刚实例化完成的Bean的工厂缓存，用于提前曝光Bean。
 
 ![Spring3级缓存](../img/spring/Spring三级缓存.png)
 

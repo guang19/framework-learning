@@ -99,7 +99,7 @@ BLACKHOLE 黑洞引擎。
 
 >在普通的主从架构下，slave节点直接连接master节点进行binlog同步压力是比较大的，
 >可以让BLACKHOLE引擎的数据库节点与master进行搭配，
->再让其他slave节点与BLAKHOLE节点进行同步，这样就降低了master的压力。
+>再让其他slave节点与BLACKHOLE节点进行同步，这样就降低了master的压力。
 
 
 #### CSV
