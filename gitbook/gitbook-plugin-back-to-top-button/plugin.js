@@ -1,6 +1,7 @@
 var gitbook = window.gitbook;
 
 gitbook.events.on('page.change', function() {
+	
 	var back_to_top_button = ['<div class="back-to-top"><i class="fa fa-arrow-up"></i></div>'].join("");
 	$(".book").append(back_to_top_button)
 
