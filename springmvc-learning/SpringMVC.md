@@ -88,11 +88,11 @@ HandlerExceptionResolver就负责处理Handler执行请求过程中的异常。
 - HandlerInterceptor: Spring MVC拦截器是Spring MVC提供的对用户请求的目标资源做出拦截扩展的处理器。
 它允许在目标方法执行前后以及View渲染后做出处理。
 
-Servlet Filter: Filter是Servlet提供的过滤器，它会在目标方法执行前后做出拦截处理。
+- Servlet Filter: Filter是Servlet提供的过滤器，它会在目标方法执行前后做出拦截处理。
 
 ```text
 要说Servlet Filter和HandlerInterceptor有啥区别，
-个人认为除了它们提供的拦截时间不同，目的都是相同的，没啥区别。
+个人认为除了它们提供的拦截时机不同，目的都是相同的，没啥区别。
 ```
 
 #### @Component @Controller @Service @Repository 区别?

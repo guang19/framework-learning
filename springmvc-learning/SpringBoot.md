@@ -30,7 +30,7 @@ SpringBoot是Spring开源组织Pivotal为Spring应用提供的一站式解决方
 
 - 开箱即用，习惯大于配置: 即使你不做任何配置，也能够跑起来一个HelloWorld。
 
-- 天然集成SpringCloud微服务
+- 天然集成SpringCloud微服务。
 
 #### SpringBoot缺点
 
