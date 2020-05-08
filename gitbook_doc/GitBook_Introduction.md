@@ -9,8 +9,6 @@
 
 - Github: [guang19](https://github.com/guang19)
 
-- 微信:  yg1446125917
-
 - 邮箱: 2196927727@qq.com
 
 - QQ/Tim: 2196927727

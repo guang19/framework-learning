@@ -285,7 +285,7 @@ public class HashTable<K,V>
             {
                 threshold = (int)(loadFactor * newCap);
             }
-            //遍历原来的 table ， 将原table中的节点全部赋予心table
+            //遍历原来的 table ， 将原table中的节点全部赋予新table
             newTab = new Node[newCap];
             Node<K,V> temp, newTemp , next;
             int index;
@@ -346,7 +346,6 @@ public class HashTable<K,V>
                     temp = temp.next;
                 }
             }
-            return tableStr.toString();
         }
         return tableStr.toString();
     }

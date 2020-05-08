@@ -205,6 +205,15 @@ Hash表源码: [HashTable](https://github.com/guang19/framework-learning/blob/de
 
 二叉树有许多不同的种类，如: 满二叉树，完全二叉树，排序二叉树(二叉搜索树，二插查找树)，平衡二叉树等。
 
+和线性表一样，二叉树也有链表(节点)实现和数组实现，数组实现的二叉树被称为 **顺序存储的二叉树。**
+
+二叉树实现:
+
+- [BinaryTree](https://github.com/guang19/framework-learning/blob/dev/datastructure_algorithm/src/main/java/com/github/anhTom2000/datastructure/tree/BinaryTree.java)
+
+- [ArrayBinaryTree](https://github.com/guang19/framework-learning/blob/dev/datastructure_algorithm/src/main/java/com/github/anhTom2000/datastructure/tree/ArrayBinaryTree.java)
+
+
 #### 满二叉树
 满二叉树除了叶子节点，其他的节点的子树都为2,即除了叶子节点外，
 它的每个节点的度都为2。
@@ -215,9 +224,52 @@ Hash表源码: [HashTable](https://github.com/guang19/framework-learning/blob/de
 
 - 满二叉树的第 i 层的节点有 2(i-1) 个。
 
-- 满二叉树的深度为 d ， 那么二叉树必须有: (2^d)-1 个节点。
+- 满二叉树的深度为 d ， 那么此满二叉树必须有: (2^d)-1 个节点。
 
 - 具有 n 个节点的满二叉树的深度为: log2(n+1)。
+
+
+#### 完全二叉树
+如果一棵二叉树除去最后一层节点外是满二叉树，且最后一层节点是从左到右紧密分布的，那么此二叉树是一棵
+完全二叉树。
+
+![完全二叉树](../img/datastructure_algorithm/完全二叉树.png)
+
+
+#### 二叉查找树(BST)
+二叉查找树(Binary Search Tree)也被称为为二插排序树(Binary Sort Tree)。
+二叉排序树具有如下性质：
+
+- 若根节点的左子树不为空，那么其左子树的所有节点的值必将小于根节点的值。
+
+- 若根节点的右子树不为空，那么其右子树的所有节点的值必将小于根节点的值。
+
+- 左右子树也都是二叉查找树。
+
+BST的左子节点的值小于根节点的值小于右子节点的值，这代表着如果对一棵BST进行中序遍历，那么即可得到
+一个有序的数列。
+
+![二叉搜索树](../img/datastructure_algorithm/二叉搜索树.png)
+
+二叉查找树实现: [BinarySearchTree](https://github.com/guang19/framework-learning/blob/dev/datastructure_algorithm/src/main/java/com/github/anhTom2000/datastructure/tree/ArrayBinaryTree.java)
+
+
+**关于BST的操作，我觉得这里需要讲解一下他的删除操作。**
+BST的删除操作的节点需要分为三种情况，这里只探讨: 要删除的节点既有左子树也有右子树的情况。
+当BST需要执行删除操作的时候，如果要删除的节点既有左子节点，也有右子节点，那么就需要找到这个节点的
+前驱节点或者后继节点，然后使用前驱节点或后继节点替换掉要删除的节点，**这里的前驱节点和后继节点并不是指
+前一个或下一个，而是指按二叉树的中序遍历顺序来讲，遍历这个节点时，它的前一个节点和后一个节点。**
+
+如下图，要删除的节点为 47:
+
+![二叉搜索树删除节点](../img/datastructure_algorithm/二叉搜索树删除节点.png)
+
+那么当中序遍历此BST时，47的前驱节点为37,后继节点为48，当使用前驱节点或后继节点替换掉要删除的节点后，
+那么会有如下2种结果:
+
+![二叉搜索树删除节点后](../img/datastructure_algorithm/二叉搜索树删除节点后.png)
+
+至于使用前驱还是后继，这个可以自行选择。
 
 
 ---
