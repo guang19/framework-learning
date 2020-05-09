@@ -24,7 +24,6 @@ require(['gitbook', 'jQuery'], function(gitbook, $) {
     expand(activeChapter);
     expand(activeChapter.parents(CHAPTER));
 
-
     if(!isMobile())
     {
       //移除之前设置的
@@ -35,8 +34,8 @@ require(['gitbook', 'jQuery'], function(gitbook, $) {
       }
       //创建网易云音乐外链
       let music = document.createElement("iframe");
-      music.src="https://music.163.com/outchain/player?type=2&id=1491585&auto=0&height=66";
-      music.setAttribute("style","width:250px;height: 86px;position: fixed; bottom:25px; left: 300px;z-index:99;");
+      music.src="http://music.163.com/outchain/player?type=2&id=33166602&auto=0&height=66";
+      music.setAttribute("style","width:300px;height=86;position: fixed; bottom:20px; left: 300px;z-index:99;");
       music.setAttribute("frameborder","no");
       music.setAttribute("border","0");
       music.setAttribute("marginwidth","0");

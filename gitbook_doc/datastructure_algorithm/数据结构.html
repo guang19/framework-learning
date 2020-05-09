@@ -81,7 +81,6 @@
         
     
     
-    
     <meta name="HandheldFriendly" content="true"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -95,17 +94,6 @@
     
     <link rel="prev" href="数据结构与算法.html" />
     
-
-    <style>
-    @media only screen and (max-width: 640px) {
-        .book-header .hidden-mobile {
-            display: none;
-        }
-    }
-    </style>
-    <script>
-        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"guang19","repo":"framework-learning","type":"star","size":"small"},{"user":"guang19","repo":"framework-learning","type":"fork","size":"small"},{"user":"guang19","type":"follow","width":"230","size":"small"}]};
-    </script>
 
     </head>
     <body>
@@ -1214,6 +1202,7 @@
                                 <section class="normal markdown-section">
                                 
                                 <ul>
+<li><a href="#&#x6570;&#x636E;&#x7ED3;&#x6784;&#x4E0E;&#x7B97;&#x6CD5;">&#x6570;&#x636E;&#x7ED3;&#x6784;&#x4E0E;&#x7B97;&#x6CD5;</a><ul>
 <li><a href="#&#x6570;&#x636E;&#x7ED3;&#x6784;">&#x6570;&#x636E;&#x7ED3;&#x6784;</a><ul>
 <li><a href="#&#x7EBF;&#x6027;&#x6570;&#x636E;&#x7ED3;&#x6784;">&#x7EBF;&#x6027;&#x6570;&#x636E;&#x7ED3;&#x6784;</a><ul>
 <li><a href="#&#x7EBF;&#x6027;&#x8868;">&#x7EBF;&#x6027;&#x8868;</a></li>
@@ -1227,6 +1216,10 @@
 <li><a href="#&#x6811;">&#x6811;</a></li>
 <li><a href="#&#x4E8C;&#x53C9;&#x6811;">&#x4E8C;&#x53C9;&#x6811;</a></li>
 <li><a href="#&#x6EE1;&#x4E8C;&#x53C9;&#x6811;">&#x6EE1;&#x4E8C;&#x53C9;&#x6811;</a></li>
+<li><a href="#&#x5B8C;&#x5168;&#x4E8C;&#x53C9;&#x6811;">&#x5B8C;&#x5168;&#x4E8C;&#x53C9;&#x6811;</a></li>
+<li><a href="#&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;bst">&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;(BST)</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -1237,7 +1230,7 @@
 <h2 id="&#x7EBF;&#x6027;&#x6570;&#x636E;&#x7ED3;&#x6784;">&#x7EBF;&#x6027;&#x6570;&#x636E;&#x7ED3;&#x6784;</h2>
 <p><strong>&#x7EBF;&#x6027;&#x6570;&#x636E;&#x7ED3;&#x6784;</strong>&#x662F;&#x4E00;&#x4E2A;&#x6709;&#x5E8F;&#x6570;&#x636E;&#x5143;&#x7D20;&#x7684;&#x96C6;&#x5408;&#xFF0C;&#x5176;&#x4E2D;&#x6570;&#x636E;&#x5143;&#x7D20;&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x7CFB;&#x662F;&#x4E00;&#x5BF9;&#x4E00;&#x7684;&#x5173;&#x7CFB;&#x3002;
 &#x5E38;&#x89C1;&#x7684;&#x7EBF;&#x6027;&#x7ED3;&#x6784;&#x6709;&#xFF1A;<strong>&#x7EBF;&#x6027;&#x8868;&#xFF0C;&#x6808;&#xFF0C;&#x961F;&#x5217;&#xFF0C;&#x6570;&#x7EC4;</strong>&#x7B49;&#x3002;</p>
-<h4 id="&#x7EBF;&#x6027;&#x8868;">&#x7EBF;&#x6027;&#x8868;</h4>
+<h3 id="&#x7EBF;&#x6027;&#x8868;">&#x7EBF;&#x6027;&#x8868;</h3>
 <p>&#x7EBF;&#x6027;&#x8868;(list)&#x662F;&#x6700;&#x57FA;&#x672C;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#xFF0C;&#x5B83;&#x662F;&#x7531;&#x96F6;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x6570;&#x636E;&#x5143;&#x7D20;&#x7EC4;&#x6210;&#x7684;&#x6709;&#x5E8F;&#x96C6;&#x5408;&#xFF0C;
 &#x8FD9;&#x4E2A;&#x6709;&#x5E8F;&#x4E0D;&#x662F;&#x6307;&#x7684;&#x6392;&#x5E8F;&#x540E;&#x7684;&#x6709;&#x5E8F;&#xFF0C;&#x800C;&#x662F;&#x6307;&#x6DFB;&#x52A0;&#x5143;&#x7D20;&#x7684;&#x987A;&#x5E8F;&#xFF0C;&#x5047;&#x5982;2&#x5728;1&#x4E4B;&#x524D;&#x88AB;&#x653E;&#x5165;&#x4E86;&#x96C6;&#x5408;&#x4E2D;&#xFF0C;&#x90A3;&#x4E48;2&#x80AF;&#x5B9A;&#x5728;1&#x524D;&#x9762;&#xFF0C;&#x4E0D;&#x4F1A;&#x56E0;&#x4E3A;&#x5927;&#x5C0F;&#x539F;&#x56E0;&#x800C;
 &#x6539;&#x53D8;&#x4ED6;&#x4EEC;&#x5728;&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x987A;&#x5E8F;&#x3002;</p>
@@ -1255,7 +1248,7 @@ last&#x8282;&#x70B9;&#x7684;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#x6
 <p>&#x65E0;&#x8BBA;&#x662F;&#x5355;&#x94FE;&#x8868;&#x548C;&#x53CC;&#x94FE;&#x8868;&#xFF0C;&#x56E0;&#x4E3A;&#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x90FD;&#x4FDD;&#x5B58;&#x4E86;&#x5176;&#x4ED6;&#x8282;&#x70B9;&#x7684;&#x5F15;&#x7528;&#xFF0C;&#x6240;&#x4EE5;&#x662F;&#x6BD4;&#x8F83;&#x6D88;&#x8017;&#x5185;&#x5B58;&#x7684;&#x3002;</p>
 <p>&#x94FE;&#x8868;&#x5B9E;&#x73B0;&#x7684;&#x7EBF;&#x6027;&#x8868;&#xFF0C;&#x589E;&#x5220;&#x6539;&#x64CD;&#x4F5C;&#x7684;&#x6027;&#x80FD;&#x662F;&#x5176;&#x6700;&#x5927;&#x7684;&#x4F18;&#x70B9;&#xFF0C;&#x4F46;&#x94FE;&#x8868;&#x5E76;&#x4E0D;&#x652F;&#x6301;&#x4E0B;&#x6807;&#x8FD9;&#x79CD;RandomAccess&#x968F;&#x673A;&#x8BBF;&#x95EE;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;
 &#x6240;&#x4EE5;&#x94FE;&#x8868;&#x5B9E;&#x73B0;&#x7684;&#x7EBF;&#x6027;&#x8868;&#x9002;&#x7528;&#x4E8E;&#x5199;&#x591A;&#x8BFB;&#x5C11;&#x7684;&#x73AF;&#x5883;&#x3002;</p>
-<p><a href="../../img/datastructure_algorithm/&#x5355;&#x5411;&#x94FE;&#x8868;&#x548C;&#x53CC;&#x5411;&#x94FE;&#x8868;.png" data-lightbox="a28012dd-b145-4d3f-979f-345537774489" data-title="&#x5355;&#x5411;&#x94FE;&#x8868;&#x548C;&#x53CC;&#x5411;&#x94FE;&#x8868;"><img src="../../img/datastructure_algorithm/&#x5355;&#x5411;&#x94FE;&#x8868;&#x548C;&#x53CC;&#x5411;&#x94FE;&#x8868;.png" alt="&#x5355;&#x5411;&#x94FE;&#x8868;&#x548C;&#x53CC;&#x5411;&#x94FE;&#x8868;"></a></p>
+<p><a href="../../img/datastructure_algorithm/&#x5355;&#x5411;&#x94FE;&#x8868;&#x548C;&#x53CC;&#x5411;&#x94FE;&#x8868;.png" data-lightbox="5511597d-8ab6-4022-ab2d-e169922d6dbb" data-title="&#x5355;&#x5411;&#x94FE;&#x8868;&#x548C;&#x53CC;&#x5411;&#x94FE;&#x8868;"><img src="../../img/datastructure_algorithm/&#x5355;&#x5411;&#x94FE;&#x8868;&#x548C;&#x53CC;&#x5411;&#x94FE;&#x8868;.png" alt="&#x5355;&#x5411;&#x94FE;&#x8868;&#x548C;&#x53CC;&#x5411;&#x94FE;&#x8868;"></a></p>
 <p>&#x7EBF;&#x6027;&#x8868;&#x5B9E;&#x73B0;&#x6E90;&#x7801;(&#x94FE;&#x5F0F;&#x961F;&#x5217;&#x4F7F;&#x7528;&#x7684;&#x662F;&#x53CC;&#x7AEF;&#x94FE;&#x8868;&#x5B9E;&#x73B0;&#x7684;):</p>
 <ul>
 <li><p><a href="https://github.com/guang19/framework-learning/blob/dev/datastructure_algorithm/src/main/java/com/github/anhTom2000/datastructure/list/ArrayList.java" target="_blank">ArrayList</a></p>
@@ -1263,13 +1256,13 @@ last&#x8282;&#x70B9;&#x7684;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#x6
 <li><p><a href="https://github.com/guang19/framework-learning/blob/dev/datastructure_algorithm/src/main/java/com/github/anhTom2000/datastructure/list/LinkedList.java" target="_blank">LinkedList</a></p>
 </li>
 </ul>
-<h4 id="&#x961F;&#x5217;">&#x961F;&#x5217;</h4>
+<h3 id="&#x961F;&#x5217;">&#x961F;&#x5217;</h3>
 <p>&#x961F;&#x5217;&#xFF08;queue&#xFF09;&#x662F;&#x4E00;&#x79CD;&#x91C7;&#x7528;&#x5148;&#x8FDB;&#x5148;&#x51FA;(FIFO)&#x7B56;&#x7565;&#x7684;&#x62BD;&#x8C61;&#x6570;&#x636E;&#x7ED3;&#x6784;&#xFF0C;&#x5373;&#x6700;&#x5148;&#x8FDB;&#x961F;&#x5217;&#x7684;&#x6570;&#x636E;&#x5143;&#x7D20;&#xFF0C;
 &#x540C;&#x6837;&#x8981;&#x6700;&#x5148;&#x51FA;&#x961F;&#x5217;&#x3002;&#x961F;&#x5217;&#x8DDF;&#x6211;&#x4EEC;&#x6392;&#x961F;&#x4E70;&#x7968;&#x4E00;&#x6837;&#xFF0C;&#x5148;&#x6765;&#x6392;&#x961F;&#x7684;&#x80AF;&#x5B9A;&#x5148;&#x4E70;&#x7968;&#xFF0C;&#x540E;&#x6765;&#x6392;&#x961F;&#x7684;&#x7684;&#x540E;&#x4E70;&#x5230;&#x7968;&#x3002;</p>
 <p>&#x961F;&#x5217;&#x6709;&#x4E24;&#x4E2A;&#x91CD;&#x8981;&#x7684;&#x6982;&#x5FF5;&#xFF0C;&#x4E00;&#x4E2A;&#x53EB;&#x961F;&#x9996;&#xFF0C;&#x4E00;&#x4E2A;&#x53EB;&#x961F;&#x5C3E;&#xFF0C;&#x961F;&#x9996;&#x6307;&#x5411;&#x7684;&#x662F;&#x7B2C;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#xFF0C;&#x800C;&#x961F;&#x5C3E;&#x6307;&#x5411;&#x7684;&#x662F;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x3002;
 &#x961F;&#x5217;&#x6709;&#x4E24;&#x4E2A;&#x4E3B;&#x8981;&#x7684;&#x64CD;&#x4F5C;&#xFF1A;&#x5165;&#x961F;(enqueue)&#x64CD;&#x4F5C; &#x548C; &#x51FA;&#x961F;(dequeue)&#x3002;
 &#x5165;&#x961F;&#x64CD;&#x4F5C;&#x662F;&#x5C06;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x6DFB;&#x52A0;&#x5230;&#x961F;&#x5C3E;&#xFF0C;&#x51FA;&#x961F;&#x64CD;&#x4F5C;&#x5C31;&#x662F;&#x53D6;&#x51FA;&#x961F;&#x9996;&#x7684;&#x5143;&#x7D20;&#x3002;</p>
-<p><a href="../../img/datastructure_algorithm/&#x7B80;&#x5355;&#x961F;&#x5217;.png" data-lightbox="a404eade-fb58-4914-aef4-579d2123f426" data-title="&#x7B80;&#x5355;&#x961F;&#x5217;"><img src="../../img/datastructure_algorithm/&#x7B80;&#x5355;&#x961F;&#x5217;.png" alt="&#x7B80;&#x5355;&#x961F;&#x5217;"></a></p>
+<p><a href="../../img/datastructure_algorithm/&#x7B80;&#x5355;&#x961F;&#x5217;.png" data-lightbox="10c77782-6289-487c-aadd-7511ea7e8d8a" data-title="&#x7B80;&#x5355;&#x961F;&#x5217;"><img src="../../img/datastructure_algorithm/&#x7B80;&#x5355;&#x961F;&#x5217;.png" alt="&#x7B80;&#x5355;&#x961F;&#x5217;"></a></p>
 <p>&#x961F;&#x5217;&#x7684;&#x5E95;&#x5C42;&#x53EF;&#x4EE5;&#x7528;&#x6570;&#x7EC4;&#x548C;&#x94FE;&#x8868;&#x5B9E;&#x73B0;&#x3002;</p>
 <p>&#x5BF9;&#x4E8E;&#x6570;&#x7EC4;&#x5B9E;&#x73B0;&#x7684;&#x961F;&#x5217;&#x6765;&#x8BF4;&#xFF0C;&#x5176;&#x5BB9;&#x91CF;&#x80AF;&#x5B9A;&#x662F;&#x6709;&#x9650;&#x5236;&#x7684;&#xFF0C;&#x5F53;&#x961F;&#x5217;&#x6EE1;&#x4E86;&#x4E4B;&#x540E;&#xFF0C;&#x5982;&#x4F55;&#x80FD;&#x591F;&#x518D;&#x6B21;&#x4F7F;&#x7528;&#x5462;&#xFF1F;
 &#x8FD9;&#x5C31;&#x662F;&#x5FAA;&#x73AF;&#x961F;&#x5217;&#x7684;&#x4F5C;&#x7528;&#x4E86;&#x3002;</p>
@@ -1281,40 +1274,37 @@ last&#x8282;&#x70B9;&#x7684;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#x6
 </li>
 </ul>
 <p><strong>PS:&#x5173;&#x4E8E;&#x961F;&#x5217;&#xFF0C;&#x53EF;&#x4EE5;&#x53C2;&#x8003;: <a href="https://juejin.im/post/5d5fb74fe51d45620346b8d0" target="_blank">&#x6398;&#x91D1; - &#x961F;&#x5217;</a> , &#x5199;&#x5F97;&#x5F88;&#x8BE6;&#x7EC6;&#x3002;</strong></p>
-<h4 id="&#x6808;">&#x6808;</h4>
+<h3 id="&#x6808;">&#x6808;</h3>
 <p>&#x6808;(stack)&#x662F;&#x4E00;&#x79CD;&#x540E;&#x8FDB;&#x5148;&#x51FA;(LIFO)&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#xFF0C;&#x5373;&#x6700;&#x540E;&#x8FDB;&#x5165;&#x6808;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#xFF0C;&#x6700;&#x5148;&#x51FA;&#x6808;&#x3002;
 &#x6808;&#x6709;&#x4E24;&#x4E2A;&#x4E3B;&#x8981;&#x7684;&#x64CD;&#x4F5C;: &#x5165;&#x6808;(push) &#x548C; &#x51FA;&#x6808;(pop)&#x3002;
 &#x5165;&#x6808;&#x64CD;&#x4F5C;&#x662F;&#x5C06;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x7F6E;&#x4E8E;&#x6808;&#x9876;&#xFF0C;&#x51FA;&#x6808;&#x64CD;&#x4F5C;&#x662F;&#x5C06;&#x6808;&#x9876;&#x5143;&#x7D20;&#x53D6;&#x51FA;&#x3002;</p>
-<p><a href="../../img/datastructure_algorithm/&#x6808;.png" data-lightbox="1f603542-18c0-4952-8f1b-9536af62e6b9" data-title="&#x6808;"><img src="../../img/datastructure_algorithm/&#x6808;.png" alt="&#x6808;"></a></p>
+<p><a href="../../img/datastructure_algorithm/&#x6808;.png" data-lightbox="5fedad21-413b-49af-be59-98104505bc01" data-title="&#x6808;"><img src="../../img/datastructure_algorithm/&#x6808;.png" alt="&#x6808;"></a></p>
 <p>&#x6808;&#x540C;&#x6837;&#x53EF;&#x4EE5;&#x7531;&#x6570;&#x7EC4;&#x548C;&#x94FE;&#x8868;&#x5B9E;&#x73B0;&#xFF0C;&#x5BF9;&#x4E8E;&#x6570;&#x7EC4;&#x5B9E;&#x73B0;&#x7684;&#x6808;&#x6765;&#x8BF4;&#xFF0C;&#x5176;&#x5BB9;&#x91CF;&#x80AF;&#x5B9A;&#x4E5F;&#x6709;&#x9650;&#x5236;&#xFF0C;&#x6240;&#x4EE5;&#x4E2A;&#x4EBA;&#x8BA4;&#x4E3A;&#x5B9E;&#x73B0;&#x6808;&#x7684;&#x8F83;&#x597D;&#x7684;&#x65B9;&#x5F0F;&#x662F;&#x94FE;&#x8868;&#x3002;</p>
-<p>&#x6808;&#x5B9E;&#x73B0;&#x6E90;&#x7801;&#xFF1A;</p>
-<ul>
-<li><a href="https://github.com/guang19/framework-learning/blob/dev/datastructure_algorithm/src/main/java/com/github/anhTom2000/datastructure/list/LinkedList.java" target="_blank">&#x6808;</a></li>
-</ul>
-<h2 id="&#x975E;&#x7EBF;&#x6027;&#x6570;&#x636E;&#x7ED3;&#x6784;">&#x975E;&#x7EBF;&#x6027;&#x6570;&#x636E;&#x7ED3;&#x6784;</h2>
+<p>&#x6808;&#x5B9E;&#x73B0;&#x6E90;&#x7801;&#xFF1A;<a href="https://github.com/guang19/framework-learning/blob/dev/datastructure_algorithm/src/main/java/com/github/anhTom2000/datastructure/list/LinkedList.java" target="_blank">&#x6808;</a></p>
+<h3 id="&#x975E;&#x7EBF;&#x6027;&#x6570;&#x636E;&#x7ED3;&#x6784;">&#x975E;&#x7EBF;&#x6027;&#x6570;&#x636E;&#x7ED3;&#x6784;</h3>
 <p><strong>&#x975E;&#x7EBF;&#x6027;&#x6570;&#x636E;&#x7ED3;&#x6784;</strong>&#x4E2D;&#x5404;&#x4E2A;&#x6570;&#x636E;&#x5143;&#x7D20;&#x4E0D;&#x518D;&#x4FDD;&#x6301;&#x5728;&#x4E00;&#x4E2A;&#x7EBF;&#x6027;&#x5E8F;&#x5217;&#x4E2D;&#xFF0C;&#x6BCF;&#x4E2A;&#x6570;&#x636E;&#x5143;&#x7D20;&#x53EF;&#x80FD;&#x4E0E;&#x96F6;&#x4E2A;&#x6216;&#x8005;&#x591A;&#x4E2A;&#x5176;&#x4ED6;&#x6570;&#x636E;&#x5143;&#x7D20;&#x53D1;&#x751F;&#x8054;&#x7CFB;&#x3002;
-&#x6839;&#x636E;&#x5173;&#x7CFB;&#x7684;&#x4E0D;&#x540C;&#xFF0C;&#x53EF;&#x5206;&#x4E3A;&#x5C42;&#x6B21;&#x7ED3;&#x6784;&#x548C;&#x7FA4;&#x7ED3;&#x6784;&#x3002;&#x5E38;&#x89C1;&#x7684;&#x975E;&#x7EBF;&#x6027;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x4E3B;&#x8981;&#x6709;&#x77E9;&#x9635;(&#x591A;&#x7EF4;&#x6570;&#x7EC4;)&#xFF0C;&#x5E7F;&#x4E49;&#x8868;&#xFF0C;&#x6811;&#xFF0C;&#x56FE;&#x7B49;&#x3002;</p>
-<h4 id="&#x7A00;&#x758F;&#x6570;&#x7EC4;">&#x7A00;&#x758F;&#x6570;&#x7EC4;</h4>
-<p>&#x7A00;&#x758F;&#x6570;&#x7EC4;&#x53C8;&#x88AB;&#x6210;&#x4E3A;&#x7A00;&#x758F;&#x77E9;&#x9635;&#xFF0C;&#x5B83;&#x672C;&#x8D28;&#x4E0A;&#x662F;&#x4E00;&#x4E2A;&#x4E8C;&#x7EF4;&#x6570;&#x7EC4;&#x3002;
+&#x6839;&#x636E;&#x5173;&#x7CFB;&#x7684;&#x4E0D;&#x540C;&#xFF0C;&#x53EF;&#x5206;&#x4E3A;&#x5C42;&#x6B21;&#x7ED3;&#x6784;&#x548C;&#x7FA4;&#x7ED3;&#x6784;&#x3002;</p>
+<p>&#x5E38;&#x89C1;&#x7684;&#x975E;&#x7EBF;&#x6027;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x4E3B;&#x8981;&#x6709;&#x77E9;&#x9635;(&#x591A;&#x7EF4;&#x6570;&#x7EC4;)&#xFF0C;&#x5E7F;&#x4E49;&#x8868;&#xFF0C;&#x6811;&#xFF0C;&#x56FE;&#x7B49;&#x3002;</p>
+<h3 id="&#x7A00;&#x758F;&#x6570;&#x7EC4;">&#x7A00;&#x758F;&#x6570;&#x7EC4;</h3>
+<p>&#x7A00;&#x758F;&#x6570;&#x7EC4;&#x53C8;&#x88AB;&#x79F0;&#x4E3A;&#x7A00;&#x758F;&#x77E9;&#x9635;&#xFF0C;&#x5B83;&#x672C;&#x8D28;&#x4E0A;&#x662F;&#x4E00;&#x4E2A;&#x4E8C;&#x7EF4;&#x6570;&#x7EC4;&#x3002;
 &#x5F53;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x4E2D;&#x5927;&#x90E8;&#x5206;&#x5143;&#x7D20;&#x90FD;&#x672A;&#x88AB;&#x4F7F;&#x7528;&#xFF0C;&#x4EC5;&#x6709;&#x5C11;&#x90E8;&#x5206;&#x88AB;&#x5360;&#x7528;&#xFF0C;&#x8FD9;&#x5C31;&#x9020;&#x6210;&#x4E86;&#x7A7A;&#x95F4;&#x7684;&#x6D6A;&#x8D39;&#x3002;
 &#x4E3A;&#x4E86;&#x89E3;&#x51B3;&#x8FD9;&#x79CD;&#x95EE;&#x9898;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x7A00;&#x758F;&#x6570;&#x7EC4;&#x6765;&#x4FDD;&#x5B58;&#x8BE5;&#x6570;&#x7EC4;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x7A00;&#x758F;&#x6570;&#x7EC4;&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;&#x539F;&#x6570;&#x7EC4;&#x88AB;&#x538B;&#x7F29;&#x540E;&#x7684;&#x6570;&#x7EC4;&#x3002;</p>
 <p>&#x5982;&#x56FE;&#x6240;&#x793A;&#xFF0C;&#x6709;&#x5927;&#x90E8;&#x5206;&#x7684;&#x7A7A;&#x95F4;&#x662F;&#x65E0;&#x7528;&#x7684;:</p>
-<p><a href="../../img/datastructure_algorithm/&#x7A00;&#x758F;&#x6570;&#x7EC4;.png" data-lightbox="f2245083-c0df-46ec-a492-d03f41ff76b3" data-title="&#x7A00;&#x758F;&#x6570;&#x7EC4;"><img src="../../img/datastructure_algorithm/&#x7A00;&#x758F;&#x6570;&#x7EC4;.png" alt="&#x7A00;&#x758F;&#x6570;&#x7EC4;"></a></p>
+<p><a href="../../img/datastructure_algorithm/&#x7A00;&#x758F;&#x6570;&#x7EC4;.png" data-lightbox="4e7ee726-dfb8-47e0-aca6-9ab1efb16fb3" data-title="&#x7A00;&#x758F;&#x6570;&#x7EC4;"><img src="../../img/datastructure_algorithm/&#x7A00;&#x758F;&#x6570;&#x7EC4;.png" alt="&#x7A00;&#x758F;&#x6570;&#x7EC4;"></a></p>
 <p>&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x7A00;&#x758F;&#x6570;&#x7EC4;&#x8FDB;&#x884C;&#x538B;&#x7F29;,&#x7A00;&#x758F;&#x6570;&#x7EC4;&#x7684;&#x7B2C;&#x4E00;&#x90E8;&#x5206;&#x6240;&#x8BB0;&#x5F55;&#x7684;&#x662F;&#x539F;&#x6570;&#x7EC4;&#x7684;&#x884C;&#x6570;&#x548C;&#x5217;&#x6570;&#xFF0C;&#x5373;&#x5143;&#x6570;&#x636E;&#x3002;
 &#x7B2C;&#x4E8C;&#x90E8;&#x5206;&#x8BB0;&#x5F55;&#x539F;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x6709;&#x6548;&#x503C;&#x7684;&#x4F4D;&#x7F6E;&#x548C;&#x503C;&#x3002;&#x8FD9;&#x6837;&#x7ECF;&#x8FC7;&#x538B;&#x7F29;&#x540E;&#x7684;&#x6570;&#x7EC4;&#x4E0D;&#x518D;&#x9700;&#x8981;&#x5206;&#x914D;&#x539F;&#x6570;&#x7EC4;&#x90A3;&#x4E48;&#x5927;&#x7684;&#x7A7A;&#x95F4;&#xFF0C;&#x89E3;&#x51B3;&#x4E86;&#x7A7A;&#x95F4;&#x6D6A;&#x8D39;&#x7684;&#x95EE;&#x9898;&#x3002;</p>
-<p><a href="../../img/datastructure_algorithm/&#x7A00;&#x758F;&#x6570;&#x7EC4;2.png" data-lightbox="5f168894-bc6e-47dc-bdd9-f73c09e27b35" data-title="&#x7A00;&#x758F;&#x6570;&#x7EC4;2"><img src="../../img/datastructure_algorithm/&#x7A00;&#x758F;&#x6570;&#x7EC4;2.png" alt="&#x7A00;&#x758F;&#x6570;&#x7EC4;2"></a></p>
-<p>&#x7A00;&#x758F;&#x6570;&#x7EC4;&#x6E90;&#x7801;:</p>
-<p><a href="https://github.com/guang19/framework-learning/blob/dev/datastructure_algorithm/src/main/java/com/github/anhTom2000/datastructure/spasearray/SparseArray.java" target="_blank">&#x7A00;&#x758F;&#x6570;&#x7EC4;</a></p>
-<h4 id="hash&#x8868;">Hash&#x8868;</h4>
+<p><a href="../../img/datastructure_algorithm/&#x7A00;&#x758F;&#x6570;&#x7EC4;2.png" data-lightbox="5141400e-42ad-448e-876e-c6b16cf50d49" data-title="&#x7A00;&#x758F;&#x6570;&#x7EC4;2"><img src="../../img/datastructure_algorithm/&#x7A00;&#x758F;&#x6570;&#x7EC4;2.png" alt="&#x7A00;&#x758F;&#x6570;&#x7EC4;2"></a></p>
+<p>&#x7A00;&#x758F;&#x6570;&#x7EC4;&#x6E90;&#x7801;: <a href="https://github.com/guang19/framework-learning/blob/dev/datastructure_algorithm/src/main/java/com/github/anhTom2000/datastructure/spasearray/SparseArray.java" target="_blank">&#x7A00;&#x758F;&#x6570;&#x7EC4;</a></p>
+<h3 id="hash&#x8868;">Hash&#x8868;</h3>
 <p>Hash&#x8868;&#x662F;&#x4E00;&#x79CD;&#x80FD;&#x591F;&#x5FEB;&#x901F;&#x8BBF;&#x95EE;&#xFF0C;&#x5FEB;&#x901F;&#x5220;&#x9664;&#x4E0E;&#x4FEE;&#x6539;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x3002;&#x6211;&#x4EEC;&#x77E5;&#x9053;&#x6570;&#x7EC4;&#x7684;&#x8BBF;&#x95EE;&#x901F;&#x5EA6;&#x975E;&#x5E38;&#x5FEB;&#xFF0C;&#x94FE;&#x8868;&#x7684;&#x589E;&#x5220;&#x6539;&#x7B49;&#x64CD;&#x4F5C;&#x7684;&#x6548;&#x7387;&#x4E5F;&#x662F;
 &#x975E;&#x5E38;&#x9AD8;&#x7684;&#xFF0C;&#x90A3;&#x6709;&#x6CA1;&#x6709;&#x4E00;&#x79CD;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x80FD;&#x591F;&#x878D;&#x5408;&#x6570;&#x7EC4;&#x548C;&#x94FE;&#x8868;&#x7684;&#x4F18;&#x70B9;&#x5462;?&#x53EF;&#x4EE5;&#x8BF4;Hash&#x8868;&#x5C31;&#x662F;&#x8FD9;&#x6837;&#x4E00;&#x79CD;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x3002;</p>
 <p>Hash&#x8868;&#x662F;&#x901A;&#x8FC7;&#x5173;&#x952E;&#x7801;(key)&#x8FDB;&#x884C;&#x8BBF;&#x95EE;&#xFF0C;&#x901A;&#x8FC7;Hash&#x8868;&#x5B58;&#x50A8;&#x6570;&#x636E;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#xFF0C;&#x5B83;&#x901A;&#x8FC7;&#x67D0;&#x79CD;&#x6620;&#x5C04;&#x51FD;&#x6570;&#x5C06;&#x5173;&#x952E;&#x7801;&#x6620;&#x5C04;&#x5230;
 Hash&#x8868;&#x7684;&#x67D0;&#x4E2A;&#x4F4D;&#x7F6E;&#x4ECE;&#x800C;&#x8FDB;&#x884C;&#x5FEB;&#x901F;&#x5B9A;&#x4F4D;&#x3002; &#x5176;&#x4E2D;&#x6620;&#x5C04;&#x51FD;&#x6570;&#x88AB;&#x79F0;&#x4E3A;&#x6563;&#x5217;&#x51FD;&#x6570;(Hash&#x51FD;&#x6570;)&#xFF0C;Hash&#x8868;&#x88AB;&#x79F0;&#x4E3A;&#x6563;&#x5217;&#x8868;&#x3002;</p>
-<p><a href="../../img/datastructure_algorithm/Hash&#x8868;.png" data-lightbox="caaf830d-5185-4b7f-96ac-f4198b79bf59" data-title="Hash&#x8868;"><img src="../../img/datastructure_algorithm/Hash&#x8868;.png" alt="Hash&#x8868;"></a></p>
+<p><a href="../../img/datastructure_algorithm/Hash&#x8868;.png" data-lightbox="e520d331-56e1-441e-9d14-f82bd44a15b0" data-title="Hash&#x8868;"><img src="../../img/datastructure_algorithm/Hash&#x8868;.png" alt="Hash&#x8868;"></a></p>
 <p>Hash&#x8868;&#x6E90;&#x7801;: <a href="https://github.com/guang19/framework-learning/blob/dev/datastructure_algorithm/src/main/java/com/github/anhTom2000/datastructure/hash/HashTable.java" target="_blank">HashTable</a></p>
-<h4 id="&#x6811;">&#x6811;</h4>
+<h3 id="&#x6811;">&#x6811;</h3>
 <p>&#x6811;&#x662F;&#x4E00;&#x79CD;&#x62BD;&#x8C61;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;&#xFF0C;&#x5B83;&#x662F;&#x7531;n&#x4E2A;&#x6709;&#x9650;&#x8282;&#x70B9;&#x7EC4;&#x6210;&#x7684;&#x4E00;&#x4E2A;&#x5177;&#x6709;&#x5C42;&#x6B21;&#x5173;&#x7CFB;&#x7684;&#x96C6;&#x5408;&#xFF0C;&#x56E0;&#x5176;&#x7ED3;&#x6784;&#x50CF;&#x4E00;&#x68F5;&#x5012;&#x72B6;&#x7684;&#x6811;&#xFF0C;&#x6240;&#x4EE5;&#x79F0;&#x5176;&#x4E3A;&#x6811;&#x7ED3;&#x6784;&#x3002;</p>
-<p><a href="../../img/datastructure_algorithm/&#x6811;&#x7ED3;&#x6784;.png" data-lightbox="26e8b570-42e7-49bf-aa24-6589a68be048" data-title="&#x6811;&#x7ED3;&#x6784;"><img src="../../img/datastructure_algorithm/&#x6811;&#x7ED3;&#x6784;.png" alt="&#x6811;&#x7ED3;&#x6784;"></a></p>
+<p><a href="../../img/datastructure_algorithm/&#x6811;&#x7ED3;&#x6784;.png" data-lightbox="3e710222-d3c4-4ccd-afe9-8712d3950b33" data-title="&#x6811;&#x7ED3;&#x6784;"><img src="../../img/datastructure_algorithm/&#x6811;&#x7ED3;&#x6784;.png" alt="&#x6811;&#x7ED3;&#x6784;"></a></p>
 <p>&#x6811;&#x7684;&#x91CD;&#x8981;&#x7684;&#x6982;&#x5FF5;</p>
 <ul>
 <li><p>&#x8282;&#x70B9;(&#x7ED3;&#x70B9;): &#x5728;&#x6811;&#x7ED3;&#x6784;&#x4E2D;&#xFF0C;&#x5B58;&#x50A8;&#x6570;&#x636E;&#x7684;&#x6BCF;&#x4E2A;&#x5143;&#x7D20;&#x90FD;&#x88AB;&#x79F0;&#x4E3A;&#x8282;&#x70B9;&#xFF0C;&#x5982;&#x4E0A;&#x56FE;&#x4E2D;&#x7684;A&#xFF0C;B&#xFF0C;C&#x7B49;&#x90FD;&#x662F;&#x8282;&#x70B9;&#x3002;</p>
@@ -1337,9 +1327,9 @@ Hash&#x8868;&#x7684;&#x67D0;&#x4E2A;&#x4F4D;&#x7F6E;&#x4ECE;&#x800C;&#x8FDB;&#x8
 <li><p>&#x68EE;&#x6797;: &#x7531;m&#x68F5;&#x4E92;&#x4E0D;&#x76F8;&#x4EA4;&#x7684;&#x6811;&#x7EC4;&#x6210;&#x7684;&#x96C6;&#x5408;&#x88AB;&#x79F0;&#x4E3A;&#x68EE;&#x6797;&#xFF0C;&#x4E0A;&#x56FE;&#x4E2D;&#xFF0C;&#x4EE5;B&#xFF0C;C&#xFF0C;D&#x4E3A;&#x6839;&#x8282;&#x70B9;&#x7684;&#x4E09;&#x68F5;&#x5B50;&#x6811;&#x5C31;&#x7EC4;&#x6210;&#x4E86;&#x68EE;&#x6797;&#x3002;</p>
 </li>
 </ul>
-<h4 id="&#x4E8C;&#x53C9;&#x6811;">&#x4E8C;&#x53C9;&#x6811;</h4>
+<h3 id="&#x4E8C;&#x53C9;&#x6811;">&#x4E8C;&#x53C9;&#x6811;</h3>
 <p>&#x4E8C;&#x53C9;&#x6811;&#x662F;&#x4E00;&#x79CD;&#x7279;&#x6B8A;&#x7684;&#x6811;&#x7ED3;&#x6784;&#xFF0C;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x6700;&#x591A;&#x6709;2&#x68F5;&#x5B50;&#x6811;&#xFF0C;&#x5373;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x8282;&#x70B9;&#x7684;&#x5EA6;&#x6700;&#x5927;&#x4E3A;2&#x3002;</p>
-<p><a href="../../img/datastructure_algorithm/&#x4E8C;&#x53C9;&#x6811;.png" data-lightbox="f47ecec7-4b12-431a-a48d-ba6311822fa7" data-title="&#x4E8C;&#x53C9;&#x6811;"><img src="../../img/datastructure_algorithm/&#x4E8C;&#x53C9;&#x6811;.png" alt="&#x4E8C;&#x53C9;&#x6811;"></a></p>
+<p><a href="../../img/datastructure_algorithm/&#x4E8C;&#x53C9;&#x6811;.png" data-lightbox="bd97882c-4424-401d-9788-f21ae4e5a3a4" data-title="&#x4E8C;&#x53C9;&#x6811;"><img src="../../img/datastructure_algorithm/&#x4E8C;&#x53C9;&#x6811;.png" alt="&#x4E8C;&#x53C9;&#x6811;"></a></p>
 <p>&#x4E8C;&#x53C9;&#x6811;&#x4E3B;&#x8981;&#x6709;&#x5982;&#x4E0B;&#x6027;&#x8D28;:</p>
 <ul>
 <li><p>&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x7B2C; i &#x5C42;&#x6700;&#x591A;&#x6709; 2^(i-1) &#x4E2A;&#x8282;&#x70B9;&#x3002;</p>
@@ -1348,19 +1338,57 @@ Hash&#x8868;&#x7684;&#x67D0;&#x4E2A;&#x4F4D;&#x7F6E;&#x4ECE;&#x800C;&#x8FDB;&#x8
 </li>
 </ul>
 <p>&#x4E8C;&#x53C9;&#x6811;&#x6709;&#x8BB8;&#x591A;&#x4E0D;&#x540C;&#x7684;&#x79CD;&#x7C7B;&#xFF0C;&#x5982;: &#x6EE1;&#x4E8C;&#x53C9;&#x6811;&#xFF0C;&#x5B8C;&#x5168;&#x4E8C;&#x53C9;&#x6811;&#xFF0C;&#x6392;&#x5E8F;&#x4E8C;&#x53C9;&#x6811;(&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;&#xFF0C;&#x4E8C;&#x63D2;&#x67E5;&#x627E;&#x6811;)&#xFF0C;&#x5E73;&#x8861;&#x4E8C;&#x53C9;&#x6811;&#x7B49;&#x3002;</p>
-<h4 id="&#x6EE1;&#x4E8C;&#x53C9;&#x6811;">&#x6EE1;&#x4E8C;&#x53C9;&#x6811;</h4>
+<p>&#x548C;&#x7EBF;&#x6027;&#x8868;&#x4E00;&#x6837;&#xFF0C;&#x4E8C;&#x53C9;&#x6811;&#x4E5F;&#x6709;&#x94FE;&#x8868;(&#x8282;&#x70B9;)&#x5B9E;&#x73B0;&#x548C;&#x6570;&#x7EC4;&#x5B9E;&#x73B0;&#xFF0C;&#x6570;&#x7EC4;&#x5B9E;&#x73B0;&#x7684;&#x4E8C;&#x53C9;&#x6811;&#x88AB;&#x79F0;&#x4E3A; <strong>&#x987A;&#x5E8F;&#x5B58;&#x50A8;&#x7684;&#x4E8C;&#x53C9;&#x6811;&#x3002;</strong></p>
+<p>&#x4E8C;&#x53C9;&#x6811;&#x5B9E;&#x73B0;:</p>
+<ul>
+<li><p><a href="https://github.com/guang19/framework-learning/blob/dev/datastructure_algorithm/src/main/java/com/github/anhTom2000/datastructure/tree/BinaryTree.java" target="_blank">BinaryTree</a></p>
+</li>
+<li><p><a href="https://github.com/guang19/framework-learning/blob/dev/datastructure_algorithm/src/main/java/com/github/anhTom2000/datastructure/tree/ArrayBinaryTree.java" target="_blank">ArrayBinaryTree</a></p>
+</li>
+</ul>
+<h3 id="&#x6EE1;&#x4E8C;&#x53C9;&#x6811;">&#x6EE1;&#x4E8C;&#x53C9;&#x6811;</h3>
 <p>&#x6EE1;&#x4E8C;&#x53C9;&#x6811;&#x9664;&#x4E86;&#x53F6;&#x5B50;&#x8282;&#x70B9;&#xFF0C;&#x5176;&#x4ED6;&#x7684;&#x8282;&#x70B9;&#x7684;&#x5B50;&#x6811;&#x90FD;&#x4E3A;2,&#x5373;&#x9664;&#x4E86;&#x53F6;&#x5B50;&#x8282;&#x70B9;&#x5916;&#xFF0C;
 &#x5B83;&#x7684;&#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x7684;&#x5EA6;&#x90FD;&#x4E3A;2&#x3002;</p>
-<p><a href="../../img/datastructure_algorithm/&#x6EE1;&#x4E8C;&#x53C9;&#x6811;.png" data-lightbox="c5fadc59-808d-48ae-915e-726c28b05083" data-title="&#x6EE1;&#x4E8C;&#x53C9;&#x6811;"><img src="../../img/datastructure_algorithm/&#x6EE1;&#x4E8C;&#x53C9;&#x6811;.png" alt="&#x6EE1;&#x4E8C;&#x53C9;&#x6811;"></a></p>
+<p><a href="../../img/datastructure_algorithm/&#x6EE1;&#x4E8C;&#x53C9;&#x6811;.png" data-lightbox="c7d8a1b3-1163-42d1-936e-970cb1d4ae40" data-title="&#x6EE1;&#x4E8C;&#x53C9;&#x6811;"><img src="../../img/datastructure_algorithm/&#x6EE1;&#x4E8C;&#x53C9;&#x6811;.png" alt="&#x6EE1;&#x4E8C;&#x53C9;&#x6811;"></a></p>
 <p>&#x6EE1;&#x4E8C;&#x53C9;&#x6811;&#x4E3B;&#x8981;&#x6709;&#x5982;&#x4E0B;&#x6027;&#x8D28;:</p>
 <ul>
 <li><p>&#x6EE1;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x7B2C; i &#x5C42;&#x7684;&#x8282;&#x70B9;&#x6709; 2(i-1) &#x4E2A;&#x3002;</p>
 </li>
-<li><p>&#x6EE1;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x6DF1;&#x5EA6;&#x4E3A; d &#xFF0C; &#x90A3;&#x4E48;&#x4E8C;&#x53C9;&#x6811;&#x5FC5;&#x987B;&#x6709;: (2^d)-1 &#x4E2A;&#x8282;&#x70B9;&#x3002;</p>
+<li><p>&#x6EE1;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x6DF1;&#x5EA6;&#x4E3A; d &#xFF0C; &#x90A3;&#x4E48;&#x6B64;&#x6EE1;&#x4E8C;&#x53C9;&#x6811;&#x5FC5;&#x987B;&#x6709;: (2^d)-1 &#x4E2A;&#x8282;&#x70B9;&#x3002;</p>
 </li>
 <li><p>&#x5177;&#x6709; n &#x4E2A;&#x8282;&#x70B9;&#x7684;&#x6EE1;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x6DF1;&#x5EA6;&#x4E3A;: log2(n+1)&#x3002;</p>
 </li>
 </ul>
+<h3 id="&#x5B8C;&#x5168;&#x4E8C;&#x53C9;&#x6811;">&#x5B8C;&#x5168;&#x4E8C;&#x53C9;&#x6811;</h3>
+<p>&#x5982;&#x679C;&#x4E00;&#x68F5;&#x4E8C;&#x53C9;&#x6811;&#x9664;&#x53BB;&#x6700;&#x540E;&#x4E00;&#x5C42;&#x8282;&#x70B9;&#x5916;&#x662F;&#x6EE1;&#x4E8C;&#x53C9;&#x6811;&#xFF0C;&#x4E14;&#x6700;&#x540E;&#x4E00;&#x5C42;&#x8282;&#x70B9;&#x662F;&#x4ECE;&#x5DE6;&#x5230;&#x53F3;&#x7D27;&#x5BC6;&#x5206;&#x5E03;&#x7684;&#xFF0C;&#x90A3;&#x4E48;&#x6B64;&#x4E8C;&#x53C9;&#x6811;&#x662F;&#x4E00;&#x68F5;
+&#x5B8C;&#x5168;&#x4E8C;&#x53C9;&#x6811;&#x3002;</p>
+<p><a href="../../img/datastructure_algorithm/&#x5B8C;&#x5168;&#x4E8C;&#x53C9;&#x6811;.png" data-lightbox="11f8a5c3-03fd-415b-bef0-74b91e510bf7" data-title="&#x5B8C;&#x5168;&#x4E8C;&#x53C9;&#x6811;"><img src="../../img/datastructure_algorithm/&#x5B8C;&#x5168;&#x4E8C;&#x53C9;&#x6811;.png" alt="&#x5B8C;&#x5168;&#x4E8C;&#x53C9;&#x6811;"></a></p>
+<h3 id="&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;bst">&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;(BST)</h3>
+<p>&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;(Binary Search Tree)&#x4E5F;&#x88AB;&#x79F0;&#x4E3A;&#x4E3A;&#x4E8C;&#x63D2;&#x6392;&#x5E8F;&#x6811;(Binary Sort Tree)&#x3002;
+&#x4E8C;&#x53C9;&#x6392;&#x5E8F;&#x6811;&#x5177;&#x6709;&#x5982;&#x4E0B;&#x6027;&#x8D28;&#xFF1A;</p>
+<ul>
+<li><p>&#x82E5;&#x6839;&#x8282;&#x70B9;&#x7684;&#x5DE6;&#x5B50;&#x6811;&#x4E0D;&#x4E3A;&#x7A7A;&#xFF0C;&#x90A3;&#x4E48;&#x5176;&#x5DE6;&#x5B50;&#x6811;&#x7684;&#x6240;&#x6709;&#x8282;&#x70B9;&#x7684;&#x503C;&#x5FC5;&#x5C06;&#x5C0F;&#x4E8E;&#x6839;&#x8282;&#x70B9;&#x7684;&#x503C;&#x3002;</p>
+</li>
+<li><p>&#x82E5;&#x6839;&#x8282;&#x70B9;&#x7684;&#x53F3;&#x5B50;&#x6811;&#x4E0D;&#x4E3A;&#x7A7A;&#xFF0C;&#x90A3;&#x4E48;&#x5176;&#x53F3;&#x5B50;&#x6811;&#x7684;&#x6240;&#x6709;&#x8282;&#x70B9;&#x7684;&#x503C;&#x5FC5;&#x5C06;&#x5C0F;&#x4E8E;&#x6839;&#x8282;&#x70B9;&#x7684;&#x503C;&#x3002;</p>
+</li>
+<li><p>&#x5DE6;&#x53F3;&#x5B50;&#x6811;&#x4E5F;&#x90FD;&#x662F;&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;&#x3002;</p>
+</li>
+</ul>
+<p>BST&#x7684;&#x5DE6;&#x5B50;&#x8282;&#x70B9;&#x7684;&#x503C;&#x5C0F;&#x4E8E;&#x6839;&#x8282;&#x70B9;&#x7684;&#x503C;&#x5C0F;&#x4E8E;&#x53F3;&#x5B50;&#x8282;&#x70B9;&#x7684;&#x503C;&#xFF0C;&#x8FD9;&#x4EE3;&#x8868;&#x7740;&#x5982;&#x679C;&#x5BF9;&#x4E00;&#x68F5;BST&#x8FDB;&#x884C;&#x4E2D;&#x5E8F;&#x904D;&#x5386;&#xFF0C;&#x90A3;&#x4E48;&#x5373;&#x53EF;&#x5F97;&#x5230;
+&#x4E00;&#x4E2A;&#x6709;&#x5E8F;&#x7684;&#x6570;&#x5217;&#x3002;</p>
+<p><a href="../../img/datastructure_algorithm/&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;.png" data-lightbox="4b4e4702-94bd-4bb2-81b9-c1ed5ccfe4ee" data-title="&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;"><img src="../../img/datastructure_algorithm/&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;.png" alt="&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;"></a></p>
+<p><strong>&#x5173;&#x4E8E;BST&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x6211;&#x89C9;&#x5F97;&#x8FD9;&#x91CC;&#x9700;&#x8981;&#x8BB2;&#x89E3;&#x4E00;&#x4E0B;&#x4ED6;&#x7684;&#x5220;&#x9664;&#x64CD;&#x4F5C;&#x3002;</strong>
+BST&#x7684;&#x5220;&#x9664;&#x64CD;&#x4F5C;&#x7684;&#x8282;&#x70B9;&#x9700;&#x8981;&#x5206;&#x4E3A;&#x4E09;&#x79CD;&#x60C5;&#x51B5;&#xFF0C;&#x8FD9;&#x91CC;&#x53EA;&#x63A2;&#x8BA8;: &#x8981;&#x5220;&#x9664;&#x7684;&#x8282;&#x70B9;&#x65E2;&#x6709;&#x5DE6;&#x5B50;&#x6811;&#x4E5F;&#x6709;&#x53F3;&#x5B50;&#x6811;&#x7684;&#x60C5;&#x51B5;&#x3002;
+&#x5F53;BST&#x9700;&#x8981;&#x6267;&#x884C;&#x5220;&#x9664;&#x64CD;&#x4F5C;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5982;&#x679C;&#x8981;&#x5220;&#x9664;&#x7684;&#x8282;&#x70B9;&#x65E2;&#x6709;&#x5DE6;&#x5B50;&#x8282;&#x70B9;&#xFF0C;&#x4E5F;&#x6709;&#x53F3;&#x5B50;&#x8282;&#x70B9;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x9700;&#x8981;&#x627E;&#x5230;&#x8FD9;&#x4E2A;&#x8282;&#x70B9;&#x7684;
+&#x524D;&#x9A71;&#x8282;&#x70B9;&#x6216;&#x8005;&#x540E;&#x7EE7;&#x8282;&#x70B9;&#xFF0C;&#x7136;&#x540E;&#x4F7F;&#x7528;&#x524D;&#x9A71;&#x8282;&#x70B9;&#x6216;&#x540E;&#x7EE7;&#x8282;&#x70B9;&#x66FF;&#x6362;&#x6389;&#x8981;&#x5220;&#x9664;&#x7684;&#x8282;&#x70B9;&#xFF0C;<strong>&#x8FD9;&#x91CC;&#x7684;&#x524D;&#x9A71;&#x8282;&#x70B9;&#x548C;&#x540E;&#x7EE7;&#x8282;&#x70B9;&#x5E76;&#x4E0D;&#x662F;&#x6307;
+&#x524D;&#x4E00;&#x4E2A;&#x6216;&#x4E0B;&#x4E00;&#x4E2A;&#xFF0C;&#x800C;&#x662F;&#x6307;&#x6309;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x4E2D;&#x5E8F;&#x904D;&#x5386;&#x987A;&#x5E8F;&#x6765;&#x8BB2;&#xFF0C;&#x904D;&#x5386;&#x8FD9;&#x4E2A;&#x8282;&#x70B9;&#x65F6;&#xFF0C;&#x5B83;&#x7684;&#x524D;&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#x548C;&#x540E;&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#x3002;</strong></p>
+<p>&#x5982;&#x4E0B;&#x56FE;&#xFF0C;&#x8981;&#x5220;&#x9664;&#x7684;&#x8282;&#x70B9;&#x4E3A; 47:</p>
+<p><a href="../../img/datastructure_algorithm/&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;&#x5220;&#x9664;&#x8282;&#x70B9;.png" data-lightbox="e797a0f4-3246-47d4-bc79-f25e5366e6e8" data-title="&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;&#x5220;&#x9664;&#x8282;&#x70B9;"><img src="../../img/datastructure_algorithm/&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;&#x5220;&#x9664;&#x8282;&#x70B9;.png" alt="&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;&#x5220;&#x9664;&#x8282;&#x70B9;"></a></p>
+<p>&#x90A3;&#x4E48;&#x5F53;&#x4E2D;&#x5E8F;&#x904D;&#x5386;&#x6B64;BST&#x65F6;&#xFF0C;47&#x7684;&#x524D;&#x9A71;&#x8282;&#x70B9;&#x4E3A;37,&#x540E;&#x7EE7;&#x8282;&#x70B9;&#x4E3A;48&#xFF0C;&#x5F53;&#x4F7F;&#x7528;&#x524D;&#x9A71;&#x8282;&#x70B9;&#x6216;&#x540E;&#x7EE7;&#x8282;&#x70B9;&#x66FF;&#x6362;&#x6389;&#x8981;&#x5220;&#x9664;&#x7684;&#x8282;&#x70B9;&#x540E;&#xFF0C;
+&#x90A3;&#x4E48;&#x4F1A;&#x6709;&#x5982;&#x4E0B;2&#x79CD;&#x7ED3;&#x679C;:</p>
+<p><a href="../../img/datastructure_algorithm/&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;&#x5220;&#x9664;&#x8282;&#x70B9;&#x540E;.png" data-lightbox="5df3a647-f3f8-44ab-8988-ec3c940f42d8" data-title="&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;&#x5220;&#x9664;&#x8282;&#x70B9;&#x540E;"><img src="../../img/datastructure_algorithm/&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;&#x5220;&#x9664;&#x8282;&#x70B9;&#x540E;.png" alt="&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;&#x5220;&#x9664;&#x8282;&#x70B9;&#x540E;"></a></p>
+<p>&#x81F3;&#x4E8E;&#x4F7F;&#x7528;&#x524D;&#x9A71;&#x8FD8;&#x662F;&#x540E;&#x7EE7;&#xFF0C;&#x8FD9;&#x4E2A;&#x53EF;&#x4EE5;&#x81EA;&#x884C;&#x9009;&#x62E9;&#x3002;</p>
+<p>&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;&#x5B9E;&#x73B0;: <a href="https://github.com/guang19/framework-learning/blob/dev/datastructure_algorithm/src/main/java/com/github/anhTom2000/datastructure/tree/ArrayBinaryTree.java" target="_blank">BinarySearchTree</a></p>
 
                                 
                                 </section>
@@ -1404,7 +1432,7 @@ Hash&#x8868;&#x7684;&#x67D0;&#x4E2A;&#x4F4D;&#x7F6E;&#x4ECE;&#x800C;&#x8FDB;&#x8
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"数据结构","level":"7.1.1.1","depth":3,"next":{"title":"算法","level":"7.1.1.2","depth":3,"path":"gitbook_doc/datastructure_algorithm/算法.md","ref":"gitbook_doc/datastructure_algorithm/算法.md","articles":[]},"previous":{"title":"数据结构与算法","level":"7.1.1","depth":2,"path":"gitbook_doc/datastructure_algorithm/数据结构与算法.md","ref":"gitbook_doc/datastructure_algorithm/数据结构与算法.md","articles":[{"title":"数据结构","level":"7.1.1.1","depth":3,"path":"gitbook_doc/datastructure_algorithm/数据结构.md","ref":"gitbook_doc/datastructure_algorithm/数据结构.md","articles":[]},{"title":"算法","level":"7.1.1.2","depth":3,"path":"gitbook_doc/datastructure_algorithm/算法.md","ref":"gitbook_doc/datastructure_algorithm/算法.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","expandable-chapters","code","prism","github","github-buttons","splitter","pageview-count","lightbox","theme-comscore","-lunr","-search","search-pro","sitemap","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/guang19/framework-learning"},"livereload":{},"simple-page-toc":{"maxDepth":4,"skipFirstH1":false},"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"https://guang19.github.io/framework-learning"},"lightbox":{"jquery":true,"sameUuid":false},"theme-comscore":{},"back-to-top-button":{},"pageview-count":{},"github-buttons":{"buttons":[{"user":"guang19","repo":"framework-learning","type":"star","size":"small"},{"user":"guang19","repo":"framework-learning","type":"fork","size":"small"},{"user":"guang19","type":"follow","width":"230","size":"small"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author:":"qsjzwithguang19forever","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"framework-learning","language":"zh-hans","links":{"sidebar":{}},"gitbook":"*","description":"Java方向的开发者学习的资料"},"file":{"path":"gitbook_doc/datastructure_algorithm/数据结构.md","mtime":"2020-05-06T07:34:51.816Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-06T07:36:23.717Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"数据结构","level":"7.1.1.1","depth":3,"next":{"title":"算法","level":"7.1.1.2","depth":3,"path":"gitbook_doc/datastructure_algorithm/算法.md","ref":"gitbook_doc/datastructure_algorithm/算法.md","articles":[]},"previous":{"title":"数据结构与算法","level":"7.1.1","depth":2,"path":"gitbook_doc/datastructure_algorithm/数据结构与算法.md","ref":"gitbook_doc/datastructure_algorithm/数据结构与算法.md","articles":[{"title":"数据结构","level":"7.1.1.1","depth":3,"path":"gitbook_doc/datastructure_algorithm/数据结构.md","ref":"gitbook_doc/datastructure_algorithm/数据结构.md","articles":[]},{"title":"算法","level":"7.1.1.2","depth":3,"path":"gitbook_doc/datastructure_algorithm/算法.md","ref":"gitbook_doc/datastructure_algorithm/算法.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","expandable-chapters","code","prism","github","splitter","pageview-count","lightbox","theme-comscore","-lunr","-search","search-pro","sitemap","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/guang19/framework-learning"},"livereload":{},"simple-page-toc":{"maxDepth":4,"skipFirstH1":false},"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"https://guang19.github.io/framework-learning"},"lightbox":{"jquery":true,"sameUuid":false},"theme-comscore":{},"back-to-top-button":{},"pageview-count":{},"github-buttons":{"buttons":[{"user":"guang19","repo":"framework-learning","type":"star","size":"small"},{"user":"guang19","repo":"framework-learning","type":"fork","size":"small"},{"user":"guang19","type":"follow","width":"230","size":"small"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author:":"qsjzwithguang19forever","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"framework-learning","language":"zh-hans","links":{"sidebar":{}},"gitbook":"*","description":"Java方向的开发者学习的资料"},"file":{"path":"gitbook_doc/datastructure_algorithm/数据结构.md","mtime":"2020-05-09T13:16:44.133Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-09T13:20:10.579Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1427,10 +1455,6 @@ Hash&#x8868;&#x7684;&#x67D0;&#x4E2A;&#x4F4D;&#x7F6E;&#x4ECE;&#x800C;&#x8FDB;&#x8
     
         
         <script src="../../gitbook/gitbook-plugin-github/plugin.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
         
     
         

@@ -81,7 +81,6 @@
         
     
     
-    
     <meta name="HandheldFriendly" content="true"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -93,17 +92,6 @@
     
     <link rel="prev" href="../amqp-learning/RabbitMQ.html" />
     
-
-    <style>
-    @media only screen and (max-width: 640px) {
-        .book-header .hidden-mobile {
-            display: none;
-        }
-    }
-    </style>
-    <script>
-        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"guang19","repo":"framework-learning","type":"star","size":"small"},{"user":"guang19","repo":"framework-learning","type":"fork","size":"small"},{"user":"guang19","type":"follow","width":"230","size":"small"}]};
-    </script>
 
     </head>
     <body>
@@ -1247,7 +1235,7 @@ APR&#x4E5F;&#x662F;Tomcat&#x5E94;&#x5BF9;&#x9AD8;&#x5E76;&#x53D1;&#x7684;&#x9996
 &#x4E00;&#x4E2A;Server&#x81F3;&#x5C11;&#x5305;&#x542B;&#x4E00;&#x4E2A;Service&#xFF0C;&#x53EF;&#x4EE5;&#x5305;&#x542B;&#x591A;&#x4E2A;Service&#xFF0C;&#x6709;&#x4E86;Service&#x5C31;&#x53EF;&#x4EE5;&#x5411;&#x5916;&#x63D0;&#x4F9B;&#x670D;&#x52A1;&#x4E86;&#x3002;
 Service&#x7684;&#x6838;&#x5FC3;&#x662F;Container&#x548C;Connector&#xFF0C;&#x6BCF;&#x4E2A;Service&#x53EA;&#x6709;&#x4E00;&#x4E2A;Container&#xFF0C;&#x4F46;&#x53EF;&#x4EE5;&#x5305;&#x542B;&#x591A;&#x4E2A;Connector&#x3002;</p>
 <p>Tomcat&#x67B6;&#x6784;&#x56FE;:</p>
-<p><a href="../../img/tomcat/Tomcat&#x67B6;&#x6784;.png" data-lightbox="87fed4a5-9470-4c4b-9d25-4dcf120e21f0" data-title="Tomcat&#x67B6;&#x6784;&#x56FE;"><img src="../../img/tomcat/Tomcat&#x67B6;&#x6784;.png" alt="Tomcat&#x67B6;&#x6784;&#x56FE;"></a></p>
+<p><a href="../../img/tomcat/Tomcat&#x67B6;&#x6784;.png" data-lightbox="8749fe3c-4bb6-475c-ab05-b8c0d4356688" data-title="Tomcat&#x67B6;&#x6784;&#x56FE;"><img src="../../img/tomcat/Tomcat&#x67B6;&#x6784;.png" alt="Tomcat&#x67B6;&#x6784;&#x56FE;"></a></p>
 <p>Tomcat&#x4E2D;&#x7684;Connector&#x8FDE;&#x63A5;&#x5668;&#x53EB;&#x505A;Coyote,Container&#x5BB9;&#x5668;&#x53EB;&#x505A;Catalina&#x3002;
 &#x8FDE;&#x63A5;&#x5668;&#x7684;&#x4F5C;&#x7528;&#x662F;&#x628A;Socket&#x8BF7;&#x6C42;Request&#x8F6C;&#x6362;&#x4E3A;ServletRequest&#x5BF9;&#x8C61;,
 &#x5E76;&#x628A;&#x8FD9;&#x4E2A;ServletRequest&#x5BF9;&#x8C61;&#x4EA4;&#x7531;Container&#x5BB9;&#x5668;(Catalina)&#x3002;
@@ -1257,7 +1245,7 @@ Container&#x5BB9;&#x5668;&#x9009;&#x62E9;&#x5BF9;&#x5E94;&#x7684;Servlet&#x5904;
 &#x540C;&#x65F6;&#x4E5F;&#x662F;Tomcat &#x7684;&#x542F;&#x52A8;&#x5165;&#x53E3;(Bootstrap),&#x5B83;&#x662F;Tomcat&#x7684;&#x6838;&#x5FC3;,&#x5176;&#x6A21;&#x5757;&#x90FD;&#x662F;&#x4E3A;Catalina&#x6A21;&#x5757;
 &#x670D;&#x52A1;&#x7684;&#x3002;</p>
 <p>&#x4E00;&#x4E0B;&#x662F;Tomcat&#x7684;&#x6267;&#x884C;&#x6D41;&#x7A0B;:</p>
-<p><a href="../../img/tomcat/Tomcat&#x6267;&#x884C;&#x6D41;&#x7A0B;.png" data-lightbox="9642c25e-e24d-4466-bad2-e4484ee779ac" data-title="Tomcat&#x6267;&#x884C;&#x6D41;&#x7A0B;"><img src="../../img/tomcat/Tomcat&#x6267;&#x884C;&#x6D41;&#x7A0B;.png" alt="Tomcat&#x6267;&#x884C;&#x6D41;&#x7A0B;"></a></p>
+<p><a href="../../img/tomcat/Tomcat&#x6267;&#x884C;&#x6D41;&#x7A0B;.png" data-lightbox="46aae6b0-42eb-4ffc-a067-99ab55fe3065" data-title="Tomcat&#x6267;&#x884C;&#x6D41;&#x7A0B;"><img src="../../img/tomcat/Tomcat&#x6267;&#x884C;&#x6D41;&#x7A0B;.png" alt="Tomcat&#x6267;&#x884C;&#x6D41;&#x7A0B;"></a></p>
 <p>&#x9664;&#x4E86;&#x8FDE;&#x63A5;&#x5668;&#x548C;Servlet&#x5BB9;&#x5668;&#x90E8;&#x5206;,Service&#x8FD8;&#x5305;&#x542B;&#x4E86;Naming&#x63D0;&#x4F9B;JNDI&#x547D;&#x540D;&#x6A21;&#x5757;,Juli&#x65E5;&#x5FD7;&#x6A21;&#x5757;</p>
 <h4 id="connector&#x8FDE;&#x63A5;&#x5668;">Connector&#x8FDE;&#x63A5;&#x5668;</h4>
 <p>Tomcat&#x4E2D;&#x7684;&#x8FDE;&#x63A5;&#x5668;&#x53EB;Coyote,&#x56E0;&#x4E3A;&#x8FDE;&#x63A5;&#x5668;&#x66F4;&#x591A;&#x7684;&#x662F;&#x5904;&#x7406;Socket&#x534F;&#x8BAE;&#x548C;Socket&#x6D41;&#x65B9;&#x9762;&#x7684;&#x529F;&#x80FD;,
@@ -1275,7 +1263,7 @@ Container&#x5BB9;&#x5668;&#x9009;&#x62E9;&#x5BF9;&#x5E94;&#x7684;Servlet&#x5904;
 &#x4E00;&#x4E2A;Host&#x5BB9;&#x5668;&#x4EE3;&#x8868;&#x4E00;&#x4E2A;&#x865A;&#x62DF;&#x4E3B;&#x673A;,&#x4E5F;&#x53EF;&#x4EE5;&#x8BF4;&#x662F;Host&#x662F;&#x4E00;&#x4E2A;&#x7AD9;&#x70B9;&#x3002;
 Host&#x4E4B;&#x4E0B;&#x53C8;&#x53EF;&#x4EE5;&#x5305;&#x542B;&#x591A;&#x4E2A;Context&#x5BB9;&#x5668;,&#x4E00;&#x4E2A;Context&#x5BB9;&#x5668;&#x4EE3;&#x8868;&#x4E00;&#x4E2A;Web&#x7A0B;&#x5E8F;,
 &#x5728;Context&#x91CC;,&#x5C31;&#x662F;&#x82E5;&#x5E72;&#x7684;Wrapper(Servlet)</p>
-<p><a href="../../img/tomcat/Webapps&#x76EE;&#x5F55;.png" data-lightbox="cdae3e92-69ec-4e26-a456-2992b3456ba2" data-title="Webapps&#x76EE;&#x5F55;"><img src="../../img/tomcat/Webapps&#x76EE;&#x5F55;.png" alt="Webapps&#x76EE;&#x5F55;"></a></p>
+<p><a href="../../img/tomcat/Webapps&#x76EE;&#x5F55;.png" data-lightbox="1906d0e2-f55d-4bbb-9b1b-a5e3a805d18c" data-title="Webapps&#x76EE;&#x5F55;"><img src="../../img/tomcat/Webapps&#x76EE;&#x5F55;.png" alt="Webapps&#x76EE;&#x5F55;"></a></p>
 <h4 id="jsp&#x89E3;&#x6790;&#x5F15;&#x64CE;">JSP&#x89E3;&#x6790;&#x5F15;&#x64CE;</h4>
 <p>Tomcat&#x4E2D;&#x7684;JSP&#x89E3;&#x6790;&#x5F15;&#x64CE;&#x662F;Jasper,&#x6240;&#x8C13;&#x7684;JSP(JavaServer Page)&#x7ECF;&#x5E38;&#x88AB;&#x4EBA;&#x8BF4;&#x6210;&#x53EF;&#x4EE5;&#x5199;Java&#x4EE3;&#x7801;&#x7684;Html,
 &#x6211;&#x89C9;&#x5F97;&#x8FD9;&#x8BDD;&#x8BF4;&#x53CD;&#x4E86;,&#x5E94;&#x8BE5;&#x8BF4;&#x662F;&#x53EF;&#x4EE5;&#x5199;Html&#x7684;Java&#x7C7B;(Servlet)&#x3002;
@@ -1322,7 +1310,7 @@ Host&#x4E4B;&#x4E0B;&#x53C8;&#x53EF;&#x4EE5;&#x5305;&#x542B;&#x591A;&#x4E2A;Cont
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Tomcat部分","level":"11.1","depth":1,"previous":{"title":"RabbitMQ","level":"10.1.2","depth":2,"path":"gitbook_doc/amqp-learning/RabbitMQ.md","ref":"gitbook_doc/amqp-learning/RabbitMQ.md","articles":[]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","expandable-chapters","code","prism","github","github-buttons","splitter","pageview-count","lightbox","theme-comscore","-lunr","-search","search-pro","sitemap","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/guang19/framework-learning"},"livereload":{},"simple-page-toc":{"maxDepth":4,"skipFirstH1":false},"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"https://guang19.github.io/framework-learning"},"lightbox":{"jquery":true,"sameUuid":false},"theme-comscore":{},"back-to-top-button":{},"pageview-count":{},"github-buttons":{"buttons":[{"user":"guang19","repo":"framework-learning","type":"star","size":"small"},{"user":"guang19","repo":"framework-learning","type":"fork","size":"small"},{"user":"guang19","type":"follow","width":"230","size":"small"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author:":"qsjzwithguang19forever","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"framework-learning","language":"zh-hans","links":{"sidebar":{}},"gitbook":"*","description":"Java方向的开发者学习的资料"},"file":{"path":"gitbook_doc/tomcat/Tomcat.md","mtime":"2020-05-06T07:30:39.223Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-06T07:36:23.717Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Tomcat部分","level":"11.1","depth":1,"previous":{"title":"RabbitMQ","level":"10.1.2","depth":2,"path":"gitbook_doc/amqp-learning/RabbitMQ.md","ref":"gitbook_doc/amqp-learning/RabbitMQ.md","articles":[]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","expandable-chapters","code","prism","github","splitter","pageview-count","lightbox","theme-comscore","-lunr","-search","search-pro","sitemap","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/guang19/framework-learning"},"livereload":{},"simple-page-toc":{"maxDepth":4,"skipFirstH1":false},"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"https://guang19.github.io/framework-learning"},"lightbox":{"jquery":true,"sameUuid":false},"theme-comscore":{},"back-to-top-button":{},"pageview-count":{},"github-buttons":{"buttons":[{"user":"guang19","repo":"framework-learning","type":"star","size":"small"},{"user":"guang19","repo":"framework-learning","type":"fork","size":"small"},{"user":"guang19","type":"follow","width":"230","size":"small"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author:":"qsjzwithguang19forever","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"framework-learning","language":"zh-hans","links":{"sidebar":{}},"gitbook":"*","description":"Java方向的开发者学习的资料"},"file":{"path":"gitbook_doc/tomcat/Tomcat.md","mtime":"2020-05-09T13:16:44.133Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-09T13:20:10.579Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1345,10 +1333,6 @@ Host&#x4E4B;&#x4E0B;&#x53C8;&#x53EF;&#x4EE5;&#x5305;&#x542B;&#x591A;&#x4E2A;Cont
     
         
         <script src="../../gitbook/gitbook-plugin-github/plugin.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
         
     
         
