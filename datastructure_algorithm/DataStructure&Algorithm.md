@@ -1,6 +1,6 @@
 <!-- TOC -->
 
-   * [数据结构与算法](#数据结构与算法)
+ * [数据结构与算法](#数据结构与算法)
       * [数据结构](#数据结构)
          * [线性数据结构](#线性数据结构)
             * [线性表](#线性表)
@@ -8,8 +8,16 @@
             * [栈](#栈)
          * [非线性数据结构](#非线性数据结构)
             * [稀疏数组](#稀疏数组)
+            * [Hash表](#hash表)
+            * [树](#树)
+            * [二叉树](#二叉树)
+            * [满二叉树](#满二叉树)
+            * [完全二叉树](#完全二叉树)
+            * [二叉查找树(BST)](#二叉查找树bst)
       * [算法](#算法)
          * [排序算法](#排序算法)
+         * [查找算法](#查找算法)
+         * [双索引算法-快慢指针(leetcode)](#双索引算法-快慢指针leetcode)
 
 <!-- /TOC -->
 
@@ -251,9 +259,6 @@ BST的左子节点的值小于根节点的值小于右子节点的值，这代�
 
 ![二叉搜索树](../img/datastructure_algorithm/二叉搜索树.png)
 
-二叉查找树实现: [BinarySearchTree](https://github.com/guang19/framework-learning/blob/dev/datastructure_algorithm/src/main/java/com/github/anhTom2000/datastructure/tree/ArrayBinaryTree.java)
-
-
 **关于BST的操作，我觉得这里需要讲解一下他的删除操作。**
 BST的删除操作的节点需要分为三种情况，这里只探讨: 要删除的节点既有左子树也有右子树的情况。
 当BST需要执行删除操作的时候，如果要删除的节点既有左子节点，也有右子节点，那么就需要找到这个节点的
@@ -271,6 +276,7 @@ BST的删除操作的节点需要分为三种情况，这里只探讨: 要删除
 
 至于使用前驱还是后继，这个可以自行选择。
 
+二叉查找树实现: [BinarySearchTree](https://github.com/guang19/framework-learning/blob/dev/datastructure_algorithm/src/main/java/com/github/anhTom2000/datastructure/tree/ArrayBinaryTree.java)
 
 ---
 
