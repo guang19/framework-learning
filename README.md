@@ -1,8 +1,8 @@
 # framework-learning
 
 
->以下是我在学习Java以及相关生态知识的过程中整理的一些资料，部分参考了网上一些大神的文章。
->我把它们都做成Markdown的文章供各位同学参考，其中一些我也以XMind方式来对相应部分的知识进行梳理总结。
+以下是我在学习Java以及相关生态知识的过程中整理的一些资料，部分参考了网上一些大神的文章。
+我把它们都做成Markdown的文章供各位同学参考，其中一些我也以XMind方式来对相应部分的知识进行梳理总结。
 
 个人能力有限，总结的知识可能不全或有遗漏和错误，敬请各位同学指教。
 
@@ -10,9 +10,9 @@
 [framework-learning](https://qsjzwithguang19forever.gitee.io/framework-learning)
 网页阅读版的内容与本项目是同步的，请放心阅读。
 
-目前有很多知识我个人也在学习和复习之中，后面的push可能会比较慢，但不会断更,所以请各位同学放心，我一定不做太监。
+目前有很多知识我个人也在学习和复习之中，后面的push可能会比较慢,但是请各位同学放心，我一定不做太监。
 
-如果这份资料帮助到了各位同学，还请各位同学不吝点个star(别下次一定呀 =^_^=)或者转发一下,非常感谢...
+如果这份资料帮助到了各位同学，还请各位同学不吝点个star或者转发一下(别下次一定呀 =^_^=),非常感谢...
 
 ### 知识点总览
 
@@ -49,6 +49,13 @@
 [计算机网络 - XMind](xmind_file/计算机网络.xmind)
 
 
+#### 数据结构与算法(持续更新)
+
+[数据结构与算法](https://github.com/guang19/framework-learning/blob/dev/datastructure_algorithm/DataStructure&Algorithm.md)
+
+推荐一个数据结构与算法的可视化网站，希望能够帮到正在学习数据结构与算法的同学: [数据结构与算法可视化](https://www.cs.usfca.edu/~galles/visualization/Algorithms.html)
+
+
 #### Spring框架
 
 [Spring](https://github.com/guang19/framework-learning/blob/dev/spring-learning/SpringFramework.md)
@@ -76,14 +83,7 @@
 
 #### Tomcat
 
-[Tomcat](https://github.com/guang19/framework-learning/blob/dev/tomcat-9.0.30-source/Tomcat.md)
-
-
-#### 数据结构与算法(更新中)
-
-[数据结构与算法](https://github.com/guang19/framework-learning/blob/dev/datastructure_algorithm/DataStructure&Algorithm.md)
-
-推荐一个数据结构与算法的可视化网站，希望能够帮到正在学习数据结构与算法的同学: [数据结构与算法可视化](https://www.cs.usfca.edu/~galles/visualization/Algorithms.html)
+[Tomcat](https://github.com/guang19/framework-learning/blob/dev/Tomcat9.0/Tomcat.md)
 
 
 #### 设计模式(更新中)
@@ -133,5 +133,3 @@
 其他的目录的文件,如:gitbook_doc 由我亲自修改，并不需要改动。
 
 各位同学有好的建议提issue或pr就行了，感谢各位同学的支持！
-
-
