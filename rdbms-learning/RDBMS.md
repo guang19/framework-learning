@@ -1,6 +1,6 @@
 <!-- TOC -->
 
-   * [RDBMS(Relational Database Manager System)](#rdbmsrelational-database-manager-system)
+ * [RDBMS(Relational Database Manager System)](#rdbmsrelational-database-manager-system)
       * [什么是RDBMS?](#什么是rdbms)
          * [什么是关系型数据库?](#什么是关系型数据库)
             * [关系型数据库(SQL)与非关系型数据库(NoSQL)的区别](#关系型数据库sql与非关系型数据库nosql的区别)
@@ -89,6 +89,9 @@
             * [CHAR 和 VARCHAR](#char-和-varchar)
             * [TIMESTAMP 和 DATETIME](#timestamp-和-datetime)
             * [如何在TIMESTAMP和DATETIME之中选择?](#如何在timestamp和datetime之中选择)
+         * [SQL Practice](#sql-practice)
+            * [1](#1)
+            * [2](#2)
 
 <!-- /TOC -->
 
