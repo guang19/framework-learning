@@ -30,7 +30,7 @@
         <module>datastructure_algorithm</module>
         <module>nosql-learning</module>
         <module>linux-learning</module>
-        <module>Tomcat9.0</module>
+        <module>tomcat9.0-source</module>
     </modules>
 
     <properties>

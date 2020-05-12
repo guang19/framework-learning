@@ -46,6 +46,7 @@ RDB是Redis默认的持久化策略，这种策略是把内存的数据以二进
 
 #### AOF(Append Only File)
 
+AOF策略是把已经执行过的命令追加到AOF文件的末尾，通过这种方式来记录数据的变化。
 AOF默认情况下是关闭的，当配置选项 appendonly 设置为yes后才会进行AOF的持久化。
 
 appendfsync指定了AOF的同步策略，它有三个可选值。

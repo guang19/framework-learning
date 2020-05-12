@@ -10,8 +10,8 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>Tomcat9.0</artifactId>
-    <name>Tomcat9</name>
+    <artifactId>tomcat9.0-source</artifactId>
+    <name>tomcat9.0-source</name>
     <version>9.0</version>
 
     <build>
