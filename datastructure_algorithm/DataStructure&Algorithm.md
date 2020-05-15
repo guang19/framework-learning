@@ -352,5 +352,8 @@ leetcode-26题: 删除数组的重复项源码：[DeleteDuplicate](https://githu
 leetcode-27题: 移除元素源码：[RemoveElement](https://github.com/guang19/framework-learning/blob/dev/datastructure_algorithm/src/main/java/com/github/anhTom2000/algorithm/collisionPointer/RemoveElement.java)
 
 
+### 字符串匹配算法
 
+暴力匹配算法源码: [ViolenceMatch](https://github.com/guang19/framework-learning/blob/dev/datastructure_algorithm/src/main/java/com/github/anhTom2000/algorithm/strmatch/ViolenceMatch.java)
 
+kmp匹配算法源码: [KMPMatch](https://github.com/guang19/framework-learning/blob/dev/datastructure_algorithm/src/main/java/com/github/anhTom2000/algorithm/strmatch/KMPMatch.java)
