@@ -49,8 +49,8 @@ public class ViolenceMatch
             }
             else
             {
+                i = i - j + 1;
                 j = 0;
-                i = (i - j) + 1;
             }
         }
         if (j == tLen)
