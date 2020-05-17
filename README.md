@@ -1,18 +1,18 @@
 # framework-learning
 
-
 以下是我在学习Java以及相关生态知识的过程中整理的一些资料，部分参考了网上一些大神的文章。
 我把它们都做成Markdown的文章供各位同学参考，其中一些我也以XMind方式来对相应部分的知识进行梳理总结。
 
 个人能力有限，总结的知识可能不全或有遗漏和错误，敬请各位同学指教。
 
 为了良好的阅读体验，可以移步到本项目的GitBook网页阅读版:
-[framework-learning](https://qsjzwithguang19forever.gitee.io/framework-learning)
+[framework-learning](https://qsjzwithguang19forever.gitee.io/framework-learning) 。
 网页阅读版的内容与本项目是同步的，请放心阅读。
 
 目前有很多知识我个人也在学习和复习之中，后面的push可能会比较慢,但是请各位同学放心，我一定不做太监。
 
 如果这份资料帮助到了各位同学，还请各位同学不吝点个star或者转发一下(别下次一定呀 =^_^=),非常感谢...
+
 
 ### 知识点总览
 
@@ -23,23 +23,24 @@
 [JDK&JVM&JUC - XMind](xmind_file/JDK&JVM&JUC.xmind)
 
 
+
 #### Linux
 
 [Linux](https://github.com/guang19/framework-learning/blob/dev/linux-learning/Linux.md)
 
 
-#### 关系型数据库
 
-[关系型数据库](https://github.com/guang19/framework-learning/blob/dev/rdbms-learning/RDBMS.md)
+#### 数据结构与算法(持续更新)
 
-[关系型数据库 - XMind](xmind_file/关系型数据库.xmind)
+[数据结构与算法](https://github.com/guang19/framework-learning/blob/dev/datastructure_algorithm/DataStructure&Algorithm.md)
+
+推荐一个数据结构与算法的可视化网站，希望能够帮到正在学习数据结构与算法的同学: [数据结构与算法可视化](https://www.cs.usfca.edu/~galles/visualization/Algorithms.html)
 
 
-#### 非关系型数据库
 
-[非关系型数据库](https://github.com/guang19/framework-learning/blob/dev/nosql-learning/NoSQL.md)
+#### 设计模式(更新中)
 
-[非关系型数据库 - XMind](xmind_file/非关系型数据库.xmind)
+[设计模式](https://github.com/guang19/framework-learning/blob/dev/design-pattern/DesignPattern.md)
 
 
 #### 计算机网络
@@ -49,11 +50,21 @@
 [计算机网络 - XMind](xmind_file/计算机网络.xmind)
 
 
-#### 数据结构与算法(持续更新)
 
-[数据结构与算法](https://github.com/guang19/framework-learning/blob/dev/datastructure_algorithm/DataStructure&Algorithm.md)
+#### 关系型数据库
 
-推荐一个数据结构与算法的可视化网站，希望能够帮到正在学习数据结构与算法的同学: [数据结构与算法可视化](https://www.cs.usfca.edu/~galles/visualization/Algorithms.html)
+[关系型数据库](https://github.com/guang19/framework-learning/blob/dev/rdbms-learning/RDBMS.md)
+
+[关系型数据库 - XMind](xmind_file/关系型数据库.xmind)
+
+
+
+#### 非关系型数据库
+
+[非关系型数据库](https://github.com/guang19/framework-learning/blob/dev/nosql-learning/NoSQL.md)
+
+[非关系型数据库 - XMind](xmind_file/非关系型数据库.xmind)
+
 
 
 #### Spring框架
@@ -67,11 +78,13 @@
 [Spring - XMind](xmind_file/Spring.xmind)
 
 
+
 #### ORM
 
 [ORM](https://github.com/guang19/framework-learning/blob/dev/orm-learning/ORM.md)
 
 [ORM - XMind](xmind_file/ORM.xmind)
+
 
 
 #### AMQP
@@ -81,19 +94,17 @@
 [AMQP - XMind](xmind_file/AMQP.xmind)
 
 
+
 #### Tomcat
 
 [Tomcat](https://github.com/guang19/framework-learning/blob/dev/tomcat9.0-source/Tomcat.md)
 
 
-#### 设计模式(更新中)
-
-[设计模式](https://github.com/guang19/framework-learning/blob/dev/design-pattern/DesignPattern.md)
-
 
 #### Zookeeper(待重构)
 
 [Zookeeper](https://github.com/guang19/framework-learning/blob/dev/zookeeper-learning/Zookeeper.md)
+
 
 
 #### Swagger(更新中)
@@ -133,3 +144,5 @@
 其他的目录的文件,如:gitbook_doc 由我亲自修改，并不需要改动。
 
 各位同学有好的建议提issue或pr就行了，感谢各位同学的支持！
+
+

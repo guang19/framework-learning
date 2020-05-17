@@ -66,6 +66,40 @@
 
 ---
 
+ 
+- [数据结构与算法部分](gitbook_doc/datastructure_algorithm/About.md)
+
+  - [数据结构与算法](gitbook_doc/datastructure_algorithm/数据结构与算法.md)
+  
+    - [数据结构](gitbook_doc/datastructure_algorithm/数据结构.md)
+  
+    - [算法](gitbook_doc/datastructure_algorithm/算法.md)
+
+
+---
+
+
+- [设计模式部分](gitbook_doc/design-pattern/About.md)
+
+  - [设计模式](gitbook_doc/design-pattern/DesignPattern.md)
+
+
+---
+
+
+- [计算机网络部分](gitbook_doc/computer-network/About.md)
+
+  - [OSI七层模型](gitbook_doc/computer-network/OSI七层模型.md)
+  
+  - [TCP/IP](gitbook_doc/computer-network/TCP_IP.md)
+  
+  - [HTTP](gitbook_doc/computer-network/HTTP.md)
+
+
+
+
+---
+
 
 - [关系型数据库部分](gitbook_doc/rdbms-learning/About.md)
 
@@ -110,28 +144,20 @@
     - [Redis持久化策略](gitbook_doc/nosql-learning/Redis持久化策略.md)
 
 
----
-
-
-- [计算机网络部分](gitbook_doc/computer-network/About.md)
-
-  - [OSI七层模型](gitbook_doc/computer-network/OSI七层模型.md)
-  
-  - [TCP/IP](gitbook_doc/computer-network/TCP_IP.md)
-  
-  - [HTTP](gitbook_doc/computer-network/HTTP.md)
-
 
 ---
 
- 
-- [数据结构与算法部分](gitbook_doc/datastructure_algorithm/About.md)
 
-  - [数据结构与算法](gitbook_doc/datastructure_algorithm/数据结构与算法.md)
+- [ORM框架部分](gitbook_doc/orm-learning/About.md)
+
+  - [ORM](gitbook_doc/orm-learning/ORM.md)
   
-    - [数据结构](gitbook_doc/datastructure_algorithm/数据结构.md)
+  - [Mybatis](gitbook_doc/orm-learning/Mybatis.md)
   
-    - [算法](gitbook_doc/datastructure_algorithm/算法.md)
+    - [Mybatis常见知识点](gitbook_doc/orm-learning/Mybatis常见知识点.md)
+   
+    - [Mybatis源码分析](gitbook_doc/orm-learning/Mybatis源码分析.md)
+
 
 
 ---
@@ -148,21 +174,9 @@
   - [SpringBoot常见知识点](gitbook_doc/spring-learning/SpringBoot常见知识点.md)
 
 
----
-
-
-- [ORM框架部分](gitbook_doc/orm-learning/About.md)
-
-  - [ORM](gitbook_doc/orm-learning/ORM.md)
-  
-  - [Mybatis](gitbook_doc/orm-learning/Mybatis.md)
-  
-    - [Mybatis常见知识点](gitbook_doc/orm-learning/Mybatis常见知识点.md)
-   
-    - [Mybatis源码分析](gitbook_doc/orm-learning/Mybatis源码分析.md)
-
 
 ---
+
 
 
 - [AMQP部分](gitbook_doc/amqp-learning/About.md)
@@ -176,6 +190,3 @@
 
 
 - [Tomcat部分](gitbook_doc/tomcat/Tomcat.md)
-
-
----
