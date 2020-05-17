@@ -176,11 +176,10 @@ blacklist ideapad_laptop
 当Linux启动时就不会加载conf文件指定的模块，
 这里的 ideapad_laptop 就是我们需要移除的那个无线模块。
 
-**后遗症：
-当我们移除 ideapad_laptop 模块后，以后开机的时候，有时会出现
+后遗症： 当我们移除 ideapad_laptop 模块后，以后开机的时候，有时会出现
 蓝牙适配器找不到的情况,之前在Ubuntu上却并未发现这种问题，
 看来Debian在驱动方面没有Ubuntu做的好，不过这也是可以理解的，
-而且大多数时候还是可以正常使用的-_-。**
+而且大多数时候还是可以正常使用的-_-。
 
 
 ### XMind安装

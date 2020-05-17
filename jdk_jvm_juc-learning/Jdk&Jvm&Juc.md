@@ -206,7 +206,7 @@ openjdk8u:
 * hotspot:[hotspot](http://hg.openjdk.java.net/jdk8u/hs-dev/hotspot/archive/tip.tar.gz)
 * openjdk:[jdk](https://hg.openjdk.java.net/jdk8u/hs-dev/jdk/archive/tip.tar.gz)
 
-**JVM部分参考了《深入理解Java虚拟机 - 第二版》(周志明).
+**PS:JVM部分参考了《深入理解Java虚拟机 - 第二版》(周志明).
 个人认为《深入理解Java虚拟机 - 第二版》上的部分内容已经过时
 有些知识请各位同学明鉴，此外我后续会根据 《深入理解Java虚拟机 - 第三版》的内容来做更新和修改。**
 
