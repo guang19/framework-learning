@@ -24,7 +24,7 @@ public class Lazy
     private Lazy(){}
 
     //懒汉式只在第一次获取的时候创建单例
-    public static Lazy getLazy()
+    public static Lazy getInstance()
     {
         if (lazy == null)
         {

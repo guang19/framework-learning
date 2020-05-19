@@ -9,7 +9,7 @@ public enum  EnumSingleton
 {
     INSTANCE;
 
-    public EnumSingleton getInstance()
+    public static EnumSingleton getInstance()
     {
         return INSTANCE;
     }
