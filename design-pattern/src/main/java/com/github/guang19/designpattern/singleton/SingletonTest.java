@@ -18,4 +18,5 @@ public class SingletonTest
 
         StaticInnerClass staticInnerClass = StaticInnerClass.getInstance();
     }
+
 }
