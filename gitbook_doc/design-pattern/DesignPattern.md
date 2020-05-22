@@ -195,7 +195,7 @@ GOF中总共有23种设计模式，**这些设计模式并不是孤立存在的�
 
 工厂方法模式: 
 
-![工厂方法模式](../img/design-pattern/工厂方法模式.png)
+![工厂方法模式](../../img/design-pattern/工厂方法模式.png)
 
 工厂方法模式实例: [FactoryMethodTest](https://github.com/guang19/framework-learning/blob/dev/design-pattern/src/main/java/com/github/guang19/designpattern/factorymethod/FactoryMethodTest.java)
 
@@ -206,7 +206,7 @@ GOF中总共有23种设计模式，**这些设计模式并不是孤立存在的�
 而在现实中许多工厂是综合性的工厂，一家工厂可能既生产空调，又生产冰箱，这也是抽象工厂与工厂方法的区别，
 抽象工厂考虑多类产品的生产，同一个工厂生产的位于不同等级的一组产品称为这个工厂的产品族。
 
-![抽象工厂-产品族](../img/design-pattern/抽象工厂-产品族.png)
+![抽象工厂-产品族](../../img/design-pattern/抽象工厂-产品族.png)
 
 抽象工厂模式的意图是 定义一个创建一组相关或相互依赖的工厂接口，使得用户可以使用这一个工厂就可以获取到不同的产品。
 抽象工厂是工厂方法的升级版本，工厂方法只生产一个等级的产品，抽象工厂可以生产多个等级的产品。
@@ -216,7 +216,7 @@ GOF中总共有23种设计模式，**这些设计模式并不是孤立存在的�
 
 抽象工厂模式:
 
-![抽象工厂模式](../img/design-pattern/抽象工厂模式.png)
+![抽象工厂模式](../../img/design-pattern/抽象工厂模式.png)
 
 抽象工厂实例:[AbstractFactoryTest](https://github.com/guang19/framework-learning/blob/dev/design-pattern/src/main/java/com/github/guang19/designpattern/abstractfactory/AbstractFactoryTest.java)
 
@@ -231,7 +231,7 @@ GOF中总共有23种设计模式，**这些设计模式并不是孤立存在的�
 
 单例模式:
 
-![单例模式](../img/design-pattern/单例模式.png)
+![单例模式](../../img/design-pattern/单例模式.png)
 
 单例模式实例: [Singleton](https://github.com/guang19/framework-learning/blob/dev/design-pattern/src/main/java/com/github/guang19/designpattern/singleton)
 
@@ -300,7 +300,7 @@ GOF中总共有23种设计模式，**这些设计模式并不是孤立存在的�
 
 建造者模式: 
 
-![建造者模式](../img/design-pattern/建造者模式.png)
+![建造者模式](../../img/design-pattern/建造者模式.png)
 
 建造者实例: [BuilderTest](https://github.com/guang19/framework-learning/blob/dev/design-pattern/src/main/java/com/github/guang19/designpattern/builder/BuilderTest.java)
 
@@ -318,7 +318,7 @@ GOF中总共有23种设计模式，**这些设计模式并不是孤立存在的�
 
 原型模式:
 
-![原型模式](../img/design-pattern/原型模式.png)
+![原型模式](../../img/design-pattern/原型模式.png)
 
 原型模式实例:[PrototypeTest](https://github.com/guang19/framework-learning/blob/dev/design-pattern/src/main/java/com/github/guang19/designpattern/prototype/PrototypeTest.java)
 
@@ -344,7 +344,7 @@ GOF中总共有23种设计模式，**这些设计模式并不是孤立存在的�
 
 代理模式:
 
-![代理模式](../img/design-pattern/代理模式.png)
+![代理模式](../../img/design-pattern/代理模式.png)
 
 代理模式实例:
 [ProxyTest](https://github.com/guang19/framework-learning/blob/dev/design-pattern/src/main/java/com/github/guang19/designpattern/proxy/ProxyTest.java)
