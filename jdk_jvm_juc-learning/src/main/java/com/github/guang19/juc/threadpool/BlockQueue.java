@@ -1,5 +1,6 @@
 package com.github.guang19.juc.threadpool;
 
+import java.util.UUID;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TimeUnit;
@@ -10,12 +11,11 @@ import java.util.concurrent.TimeUnit;
  * @Date :      2019/11/21
  */
 public class BlockQueue {
-
     
     public static void main(String[] args) throws Exception
     {
 
-        BlockingQueue<String> arrayBlockQueue = new ArrayBlockingQueue<>(3);
+//        BlockingQueue<String> arrayBlockQueue = new ArrayBlockingQueue<>(3);
         //add remove element 抛出异常
 //        System.out.println(arrayBlockQueue.add("a"));
 //        System.out.println(arrayBlockQueue.add("b"));

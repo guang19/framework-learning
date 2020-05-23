@@ -1373,7 +1373,7 @@ ConcurrentSkipListSet --> ConcurrentSkipListMap
 
 Set是如何保证元素不会重复,这个得看各自Map的实现了。
 
-拿HashMap来讲，它就是先判断key的hashcode是否相等，然后才使用equals判断2个对象是否相等。
+拿HashMap来讲，它先判断key的hash是否相等，然后才使用equals判断2个对象是否相等。
 
 
 #### ConcurrentModificationException异常  

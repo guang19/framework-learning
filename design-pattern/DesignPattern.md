@@ -348,3 +348,11 @@ GOF中总共有23种设计模式，**这些设计模式并不是孤立存在的�
 
 代理模式实例:
 [ProxyTest](https://github.com/guang19/framework-learning/blob/dev/design-pattern/src/main/java/com/github/guang19/designpattern/proxy/ProxyTest.java)
+
+
+#### 适配器模式
+适配器模式的意图是 将一个接口转换成客户希望或需要的另一个接口，使得原本由于接口不兼容而不能一起工作的那些类能一起工作。
+比如一个播放器只能播放 .mp4 格式的视频，如果是 .flv 格式的视频这个播放器就不能播放了，此时我们就可以
+创建一个视频适配器，将 .flv 格式的视频适配成播放器所需的格式的视频。
+
+适配器模式实例: [AdapterTest](https://github.com/guang19/framework-learning/blob/dev/design-pattern/src/main/java/com/github/guang19/designpattern/adapter/AdapterTest.java)

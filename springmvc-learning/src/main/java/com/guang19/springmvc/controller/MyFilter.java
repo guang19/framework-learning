@@ -23,7 +23,7 @@ public class MyFilter implements Filter
     {
         FilterRegistrationBean<MyFilter> filterRegistrationBean = new FilterRegistrationBean<>();
         filterRegistrationBean.setFilter(new MyFilter());
-        filterRegistrationBean.addUrlPatterns("/test");
+//        filterRegistrationBean.addUrlPatterns("/test");
         return filterRegistrationBean;
     }
 

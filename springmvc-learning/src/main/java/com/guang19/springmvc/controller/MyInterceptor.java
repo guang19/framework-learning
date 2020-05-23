@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
  * @date 2020/3/9
  * @description <p></p>
  */
-@Configuration
+//@Configuration
 public class MyInterceptor extends WebMvcConfigurationSupport implements HandlerInterceptor
 {
     @Override
