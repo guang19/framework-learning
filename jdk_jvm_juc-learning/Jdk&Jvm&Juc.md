@@ -1226,7 +1226,7 @@ CountDownLatch虽然可以令多个线程阻塞在同一代码处，但只能awa
 #### ReentrantReadWriteLock如何区分读写锁的?
 
 **Sync既有写锁，又有读锁，因此一个state不够用，
-所以使用state的高16为表示读锁，低位16表示写锁.**
+所以使用state的高16位表示读锁，低16位表示写锁.**
 
 ````text
 

@@ -90,9 +90,6 @@
             * [CHAR 和 VARCHAR](#char-和-varchar)
             * [TIMESTAMP 和 DATETIME](#timestamp-和-datetime)
             * [如何在TIMESTAMP和DATETIME之中选择?](#如何在timestamp和datetime之中选择)
-         * [SQL Practice](#sql-practice)
-            * [1](#1)
-            * [2](#2)
 
 <!-- /TOC -->
 
@@ -847,8 +844,7 @@ PERFORMANCE_SCHEMA系统存储引擎，**它是Mysql的一个特性,**
 要么全部失败，不会出现一个操作成功，一个操作失败的情况。
 
 - **一致性(Consistency)**: 一致性指事务对数据库操作前后，数据的完整性没有被破坏。
-
->如用户A给用户B转账，无论转账是否成功，A和B的财产总和是不变的。
+如用户A给用户B转账，无论转账是否成功，A和B的财产总和是不变的。
 
 - **隔离性(Isolation)**: 隔离性指事务与事务之间是相互独立的，互不干扰的，
 一个事务的失败，不会影响另一个事务。
