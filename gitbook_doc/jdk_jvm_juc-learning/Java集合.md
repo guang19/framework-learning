@@ -38,8 +38,9 @@
 - HashMap的扩容是根据 threshold决定的 : threshold = loadFactor * capacity。 
   当 size 大于 threshold 时,扩容。
 
-- **当每个桶的元素数量达到默认的阈值TREEIFY_THRESHOLD(8)时,那么这个桶的链表将会转为红黑树。
-  当红黑树节点的数量低于默认的阈值UNTREEIFY_THRSHOLD(6)时，那么这个桶的红黑树将转为链表。**
+- **当每个桶的元素数量达到默认的阈值TREEIFY_THRESHOLD(8)时，HashMap会判断当前数组的
+长度是否大于MIN_TREEIFY_CAPACITY(64),如果大于，那么这个桶的链表将会转为红黑树，否则HashMap将会扩容。
+当红黑树节点的数量小于等于默认的阈值UNTREEIFY_THRESHOLD(6)时，那么在扩容的时候，这个桶的红黑树将转为链表。**
 
 #### HashMap的长度(容量)为什么要设计成2的幂？
 >这就不得不佩服大师们的设计。
