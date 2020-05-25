@@ -3,7 +3,7 @@ package com.github.guang19.designpattern.adapter;
 /**
  * @author guang19
  * @date 2020/5/24
- * @description
+ * @description 适配器模式测试
  * @since 1.0.0
  */
 public class AdapterTest

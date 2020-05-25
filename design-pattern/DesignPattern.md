@@ -84,8 +84,6 @@ GOF中总共有23种设计模式，**这些设计模式并不是孤立存在的�
    - 外观模式
    
    - 享元模式
-   
-   - 过滤器模式(不存于GOF中)
 
 3. **行为型设计模式(Behavioral Pattern)**: 行为型设计模式描述的是 "类或对象之间怎样相互协作以及怎样分配各自的职责，完成单个类或对象无法完成的任务"。
 行为型设计模式有:
@@ -111,9 +109,6 @@ GOF中总共有23种设计模式，**这些设计模式并不是孤立存在的�
    - 备忘录模式
    
    - 状态模式
-   
-   - 空对象模式(不存于GOF中)
-
 
 
 ### 设计模式7大原则
@@ -377,3 +372,24 @@ GOF中总共有23种设计模式，**这些设计模式并不是孤立存在的�
 ![装饰器模式](../img/design-pattern/装饰器模式.png)
 
 装饰器模式实例: [DecoratorTest](https://github.com/guang19/framework-learning/blob/dev/design-pattern/src/main/java/com/github/guang19/designpattern/decorator/DecoratorTest.java)
+
+
+#### 桥接模式
+桥接模式的意图是将抽象部分与实现部分分离，使得他们都可以独立的变化。桥接模式主要解决了在有多种变化的情况下，
+泛滥使用继承的问题。某些对象具有多个方面的变化，如 有不同颜色和大小的字，有不同功率和品牌的小轿车等等。
+
+桥接模式主要由: 抽象化角色，扩展抽象化角色，实现化角色，具体实现化角色组成：
+
+- 抽象化角色： 定义抽象类，并包含一个对实现化对象的引用 ，比如 字拥有对颜色的引用。
+
+- 扩展抽象化角色： 是对抽象化角色的扩展，比如 小字，大字，中等大小的字。
+
+- 实现化角色： 是定义实现化角色的接口，供抽象化角色使用，如 颜色。
+
+- 具体实现化角色： 是实现化角色的实现，如 黑色，红色。
+
+桥接模式:
+
+![桥接模式](../img/design-pattern/桥接模式.png)
+
+桥接模式实例: [BridgePatternTest](https://github.com/guang19/framework-learning/blob/dev/design-pattern/src/main/java/com/github/guang19/deignpattern/bridge/BridgePatternTest.java)
