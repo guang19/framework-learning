@@ -6,7 +6,7 @@ package com.github.guang19.designpattern.combination;
  * @description 组合模式测试
  * @since 1.0.0
  */
-public class CombinationTest
+public class CompositeTest
 {
     public static void main(String[] args)
     {

@@ -1,6 +1,6 @@
 <!-- TOC -->
 
-  * [设计模式](#设计模式)
+ * [设计模式](#设计模式)
       * [什么是GOF?](#什么是gof)
          * [设计模式的分类](#设计模式的分类)
          * [设计模式7大原则](#设计模式7大原则)
@@ -12,12 +12,18 @@
             * [迪米特法则](#迪米特法则)
             * [合成复用原则](#合成复用原则)
          * [23种设计模式](#23种设计模式)
-            * [工厂方法模式](#工厂方法模式)
-            * [抽象工厂模式](#抽象工厂模式)
-            * [单例模式](#单例模式)
-            * [建造者模式](#建造者模式)
-            * [原型模式](#原型模式)
-            * [代理模式](#代理模式)
+            * [工厂方法模式(Factory Method)](#工厂方法模式factory-method)
+            * [抽象工厂模式(Abstract Factory)](#抽象工厂模式abstract-factory)
+            * [单例模式(Singleton)](#单例模式singleton)
+            * [建造者模式(Builder)](#建造者模式builder)
+            * [原型模式(Prototype)](#原型模式prototype)
+            * [代理模式(Proxy)](#代理模式proxy)
+            * [适配器模式(Adapter)](#适配器模式adapter)
+            * [装饰器模式(Decorator)](#装饰器模式decorator)
+            * [桥接模式(Bridge)](#桥接模式bridge)
+            * [组合模式(Composite)](#组合模式composite)
+            * [外观模式(Facade)](#外观模式facade)
+            * [享元模式(Flyweight)](#享元模式flyweight)
 
 <!-- /TOC -->
 
@@ -168,7 +174,7 @@ GOF中总共有23种设计模式，**这些设计模式并不是孤立存在的�
 ### 23种设计模式
 
 
-#### 工厂方法模式
+#### 工厂方法模式(Factory Method)
 工厂方法模式的意图是 定义一个创建产品对象的工厂接口，将产品对象的创建延迟到具体子工厂类中，这满足创建型模式中对象的创建和使用分离
 的原则。
 工厂方法模式由 抽象工厂，具体工厂，抽象产品，具体产品等要素组成，
@@ -196,7 +202,7 @@ GOF中总共有23种设计模式，**这些设计模式并不是孤立存在的�
 
 
 
-#### 抽象工厂模式
+#### 抽象工厂模式(Abstract Factory)
 工厂方法模式考虑的是同一类产品的生产，如汽车工厂只生产汽车，空调工厂只生产空调。
 而在现实中许多工厂是综合性的工厂，一家工厂可能既生产空调，又生产冰箱，这也是抽象工厂与工厂方法的区别，
 抽象工厂考虑多类产品的生产，同一个工厂生产的位于不同等级的一组产品称为这个工厂的产品族。
@@ -217,7 +223,7 @@ GOF中总共有23种设计模式，**这些设计模式并不是孤立存在的�
 
 
 
-#### 单例模式
+#### 单例模式(Singleton)
 单例模式确保一个类只有一个实例，且该类提供访问这个唯一实例的方式。
 单例模式有三个特点:
 1. 单例类只有一个实例。
@@ -276,7 +282,7 @@ GOF中总共有23种设计模式，**这些设计模式并不是孤立存在的�
 所以 "饿汉式的单实例在类加载阶段就实例化了"，"饿汉式单例浪费内存空间" 此类观点就不攻自破了。
 
 
-#### 建造者模式
+#### 建造者模式(Builder)
 创建者模式的定义是将一个复杂对象的构造与它的表示分离，使用同样的构建过程可以创建不同的表述。简单理解就是
 创建者模式将一个复杂对象，分解为多个简单的对象，然后通过这些简单对象再构造成最终的目标对象。
 比如一台计算机由很多部件组成，如cpu，gpu，主板等等，我们不可能从一家厂商那里购买到所有的部件(不考虑整机)，
@@ -300,7 +306,7 @@ GOF中总共有23种设计模式，**这些设计模式并不是孤立存在的�
 建造者实例: [BuilderTest](https://github.com/guang19/framework-learning/blob/dev/design-pattern/src/main/java/com/github/guang19/designpattern/builder/BuilderTest.java)
 
 
-#### 原型模式
+#### 原型模式(Prototype)
 原型模式的定义是用一个已经创建的对象实例作为原型，通过复制该原型对象来创建一个和原型相同或相似的新对象。
 在有的应用程序中，存在着一些相同或相似的对象，如果这些相同或相似的对象都使用构造函数来创建，可能会比较消耗资源，
 而用原型模式就可以快速创建与原对象相同的对象。
@@ -321,7 +327,7 @@ GOF中总共有23种设计模式，**这些设计模式并不是孤立存在的�
 [CSDN - Java中的clone方法 - 原型模式](https://blog.csdn.net/zhangjg_blog/article/details/18369201)
 
 
-#### 代理模式
+#### 代理模式(Proxy)
 代理模式的意图是 为目标对象提供一种代理，用以控制客户端对于目标对象的访问。
 举个栗子: 我(客户端)需要访问某个网站的服务器，但是目标网站的服务器的IP又不可能直接暴露在公网之上，
 所以目标服务器通过提供代理服务器来解决这种问题。我们访问目标网站时，实际请求的是代理服务器，然后再由代理服务器
@@ -345,7 +351,7 @@ GOF中总共有23种设计模式，**这些设计模式并不是孤立存在的�
 [ProxyTest](https://github.com/guang19/framework-learning/blob/dev/design-pattern/src/main/java/com/github/guang19/designpattern/proxy/ProxyTest.java)
 
 
-#### 适配器模式
+#### 适配器模式(Adapter)
 适配器模式的意图是 将一个接口转换成客户希望或需要的另一个接口，使得原本由于接口不兼容而不能一起工作的那些类能一起工作。
 比如一个播放器只能播放 .mp4 格式的视频，如果是 .flv 格式的视频这个播放器就不能播放了，此时我们就可以
 创建一个视频适配器，将 .flv 格式的视频适配成播放器所需的格式的视频。
@@ -353,7 +359,7 @@ GOF中总共有23种设计模式，**这些设计模式并不是孤立存在的�
 适配器模式实例: [AdapterTest](https://github.com/guang19/framework-learning/blob/dev/design-pattern/src/main/java/com/github/guang19/designpattern/adapter/AdapterTest.java)
 
 
-#### 装饰器模式
+#### 装饰器模式(Decorator)
 装饰器模式的意图是 在不改变原有系统结构的情况下，能够动态的给系统添加一些新的职责和功能。
 比如我买了一辆车，我想给这辆车添加一个尾翼，添加尾翼后，并没有对原来的车身的其他地方做出修改。
 
@@ -374,7 +380,7 @@ GOF中总共有23种设计模式，**这些设计模式并不是孤立存在的�
 装饰器模式实例: [DecoratorTest](https://github.com/guang19/framework-learning/blob/dev/design-pattern/src/main/java/com/github/guang19/designpattern/decorator/DecoratorTest.java)
 
 
-#### 桥接模式
+#### 桥接模式(Bridge)
 桥接模式的意图是将抽象部分与实现部分分离，使得他们都可以独立的变化。桥接模式主要解决了在有多种变化的情况下，
 泛滥使用继承的问题。某些对象具有多个方面的变化，如 有不同颜色和大小的字，有不同功率和品牌的小轿车等等。
 
@@ -395,7 +401,7 @@ GOF中总共有23种设计模式，**这些设计模式并不是孤立存在的�
 桥接模式实例: [BridgePatternTest](https://github.com/guang19/framework-learning/blob/dev/design-pattern/src/main/java/com/github/guang19/deignpattern/bridge/BridgePatternTest.java)
 
 
-#### 组合模式
+#### 组合模式(Composite)
 组合模式又称为 部分-整体模式，它是一种将对象组合成树状的层次结构的模式，用来表示“部分-整体”的关系。
 比如一棵树上有许多树枝，每枝树枝上又有许多树叶，这就属于层次结构，我个人倾向于把它理解为 “一对多的关系”，
 如何把这种关系合理的表现出来呢？就可以使用到我们的组合模式了。
@@ -408,9 +414,36 @@ GOF中总共有23种设计模式，**这些设计模式并不是孤立存在的�
 
 - 树叶构件： 树叶构件也实现了抽象构件声明的接口，它是组合中的叶子构件，没有子部件。
 
-组合模式实例: [CombinationTest](https://github.com/guang19/framework-learning/blob/dev/design-pattern/src/main/java/com/github/guang19/deignpattern/combination/CombinationTest.java)
+组合模式实例: [CompositeTest](https://github.com/guang19/framework-learning/blob/dev/design-pattern/src/main/java/com/github/guang19/deignpattern/composite/CompositeTest.java)
+
+
+#### 外观模式(Facade)
+外观模式又被称为门面模式，外观模式的意图是通过为多个复杂的子系统提供一个一致的接口，使得这些子系统能够更容易的
+被访问，客户端也不必关注内部子系统的实现细节，大大降低了应用程序的复杂度。 假设我们的某个系统有一个生成唯一ID
+的接口，而生成唯一ID的方案有很多种，如雪花ID，UUID，自增ID等等，客户端只需要调用那一个生成ID的接口获取ID就行了，
+无需关注这个接口到底使用的是哪种生成ID的方案。
+
+外观模式实例：[FacadeTest](https://github.com/guang19/framework-learning/blob/dev/design-pattern/src/main/java/com/github/guang19/deignpattern/facade/FacadeTest.java)
 
 
 
+#### 享元模式(Flyweight)
+享元模式的意图是 运用共享技术来支持大量细粒度对象的复用，以此达到节约内存，提高系统性能的目的。
+在我们的应用中，有时需要创建一些相同或具有共同部分的对象，比如拥有相同姓名的用户，具有相同像素的屏幕等等。
 
+享元模式由 抽象享元角色，具体享元角色，非享元角色，享元工厂等要素组成:
 
+- 抽象享元角色： 抽象享元角色是所有具体享元角色的基类，为具体享元角色定义公共属性和接口 ，如Person。
+
+- 具体享元角色： 具体享元角色实现了抽象享元角色定义的规范，如Programmer,Writer，
+
+- 非享元角色： 非享元角色是不可共享的外部状态，如Person的age，height都可能不同，就不能共享，这些可以归纳为
+Person的基本信息BasicInfo
+
+- 享元工厂：  享元工厂负责创建和管理享元角色。
+
+享元模式：
+
+![享元模式](../img/design-pattern/享元模式.png)
+
+享元模式实例：[FlyweightTest](https://github.com/guang19/framework-learning/blob/dev/design-pattern/src/main/java/com/github/guang19/deignpattern/flyweight/FlyweightTest.java)
