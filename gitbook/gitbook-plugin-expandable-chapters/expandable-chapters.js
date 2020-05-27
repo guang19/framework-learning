@@ -24,7 +24,6 @@ require(['gitbook', 'jQuery'], function(gitbook, $) {
     expand(activeChapter);
     expand(activeChapter.parents(CHAPTER));
 
-
     if(!isMobile())
     {
       //移除之前设置的
@@ -44,6 +43,7 @@ require(['gitbook', 'jQuery'], function(gitbook, $) {
       music.id = "musicFrame";
       document.body.appendChild(music)
     }
+
   }
 
   //判断设备是否为PC端
