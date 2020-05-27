@@ -6,7 +6,7 @@ package com.github.guang19.designpattern.bridge;
  * @description 桥接模式测试
  * @since 1.0.0
  */
-public class BridgePatternTest
+public class BridgeTest
 {
     public static void main(String[] args)
     {

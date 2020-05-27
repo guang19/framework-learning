@@ -398,7 +398,7 @@ GOF中总共有23种设计模式，**这些设计模式并不是孤立存在的�
 
 ![桥接模式](../../img/design-pattern/桥接模式.png)
 
-桥接模式实例: [BridgePatternTest](https://github.com/guang19/framework-learning/blob/dev/design-pattern/src/main/java/com/github/guang19/deignpattern/bridge/BridgePatternTest.java)
+桥接模式实例: [BridgeTest](https://github.com/guang19/framework-learning/blob/dev/design-pattern/src/main/java/com/github/guang19/designpattern/bridge/BridgeTest.java)
 
 
 #### 组合模式(Composite)
@@ -414,7 +414,7 @@ GOF中总共有23种设计模式，**这些设计模式并不是孤立存在的�
 
 - 树叶构件： 树叶构件也实现了抽象构件声明的接口，它是组合中的叶子构件，没有子部件。
 
-组合模式实例: [CompositeTest](https://github.com/guang19/framework-learning/blob/dev/design-pattern/src/main/java/com/github/guang19/deignpattern/composite/CompositeTest.java)
+组合模式实例: [CompositeTest](https://github.com/guang19/framework-learning/blob/dev/design-pattern/src/main/java/com/github/guang19/designpattern/composite/CompositeTest.java)
 
 
 #### 外观模式(Facade)
@@ -423,7 +423,7 @@ GOF中总共有23种设计模式，**这些设计模式并不是孤立存在的�
 的接口，而生成唯一ID的方案有很多种，如雪花ID，UUID，自增ID等等，客户端只需要调用那一个生成ID的接口获取ID就行了，
 无需关注这个接口到底使用的是哪种生成ID的方案。
 
-外观模式实例：[FacadeTest](https://github.com/guang19/framework-learning/blob/dev/design-pattern/src/main/java/com/github/guang19/deignpattern/facade/FacadeTest.java)
+外观模式实例：[FacadeTest](https://github.com/guang19/framework-learning/blob/dev/design-pattern/src/main/java/com/github/guang19/designpattern/facade/FacadeTest.java)
 
 
 
@@ -446,4 +446,4 @@ Person的基本信息BasicInfo
 
 ![享元模式](../../img/design-pattern/享元模式.png)
 
-享元模式实例：[FlyweightTest](https://github.com/guang19/framework-learning/blob/dev/design-pattern/src/main/java/com/github/guang19/deignpattern/flyweight/FlyweightTest.java)
+享元模式实例：[FlyweightTest](https://github.com/guang19/framework-learning/blob/dev/design-pattern/src/main/java/com/github/guang19/designpattern/flyweight/FlyweightTest.java)
