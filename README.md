@@ -3,15 +3,11 @@
 以下是我在学习Java以及相关生态知识的过程中整理的一些资料，部分参考了网上一些大神的文章。
 我把它们都做成Markdown的文章供各位同学参考，其中一些我也以XMind方式来对相应部分的知识进行梳理总结。
 
-个人能力有限，总结的知识可能不全或有遗漏和错误，敬请各位同学指教。
-
 为了良好的阅读体验，可以移步到本项目的GitBook网页阅读版:
 [framework-learning](https://qsjzwithguang19forever.gitee.io/framework-learning) 。
 网页阅读版的内容与本项目是同步的，请放心阅读。
 
-目前有很多知识我个人也在学习和复习之中，后面的push可能会比较慢,但是请各位同学放心，我一定不做太监。
-
-如果这份资料帮助到了各位同学，还请各位同学不吝点个star或者转发一下(别下次一定呀 =^_^=),非常感谢...
+目前有很多知识我个人也在学习和复习之中，后面的push可能会比较慢,所以请各位同学理解。
 
 
 ### 知识点总览
@@ -43,6 +39,7 @@
 [设计模式](https://github.com/guang19/framework-learning/blob/dev/design-pattern/DesignPattern.md)
 
 
+
 #### 计算机网络
 
 [计算机网络](https://github.com/guang19/framework-learning/blob/dev/computer-network/Computer-Network.md)
@@ -67,6 +64,14 @@
 
 
 
+#### AMQP
+
+[AMQP](https://github.com/guang19/framework-learning/blob/dev/amqp-learning/AMQP.md)
+
+[AMQP - XMind](xmind_file/AMQP.xmind)
+
+
+
 #### Spring框架
 
 [Spring](https://github.com/guang19/framework-learning/blob/dev/spring-learning/SpringFramework.md)
@@ -84,14 +89,6 @@
 [ORM](https://github.com/guang19/framework-learning/blob/dev/orm-learning/ORM.md)
 
 [ORM - XMind](xmind_file/ORM.xmind)
-
-
-
-#### AMQP
-
-[AMQP](https://github.com/guang19/framework-learning/blob/dev/amqp-learning/AMQP.md)
-
-[AMQP - XMind](xmind_file/AMQP.xmind)
 
 
 
@@ -122,6 +119,7 @@
 - [ ] JVM部分后续会根据《深入理解Java虚拟机 - 第三版》更新
 
 
+
 ### 如何对本文档做出补充?
 这里主要讲讲本项目的目录结构吧。
 
@@ -141,8 +139,22 @@
   
     - AMQP.md: AMQP.md 就是对AMQP知识的总结。 **各位同学如果做补充的话，也是对md文件做出修改。**
 
-其他的目录的文件,如:gitbook_doc 由我亲自修改，并不需要改动。
+其他的目录的文件,如:gitbook_doc/* 由我亲自修改，并不需要改动。
 
 各位同学有好的建议提issue或pr就行了，感谢各位同学的支持！
 
 
+
+### LICENSE
+这份资料的很多文章都是我从网上搜寻，从专业书籍摘抄，再加上我自己的学习总结而成，目的还是希望为各位同学
+提供较为明确的学习方式。
+
+本项目遵循GPL协议，这代表着本项目是自由的，你可以将本项目随意复制，传播，修改，但是你需要保证修改的部分
+也遵循GPL协议，不能闭源。
+
+
+### 这次一定
+
+个人能力有限，总结的知识可能不全或有遗漏和错误，敬请各位同学指教。
+
+如果这份资料帮助到了各位同学，还请各位同学不吝点个star或者转发一下(别下次一定呀 =^_^=),非常感谢...
