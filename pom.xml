@@ -22,12 +22,12 @@
         <module>springmvc-learning</module>
         <module>amqp-learning</module>
         <module>zookeeper-learning</module>
-        <module>jdk_jvm_juc-learning</module>
+        <module>jdk-jvm-juc</module>
         <module>swagger-learning</module>
-        <module>design-pattern</module>
+        <module>design_pattern</module>
         <module>rdbms-learning</module>
-        <module>computer-network</module>
-        <module>datastructure_algorithm</module>
+        <module>computer_network</module>
+        <module>datastructure-algorithm</module>
         <module>nosql-learning</module>
         <module>linux-learning</module>
         <module>tomcat9.0-source</module>

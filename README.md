@@ -14,7 +14,7 @@
 
 #### Jdk&Jvm&Juc
 
-[Jdk&Jvm&Juc](https://github.com/guang19/framework-learning/blob/dev/jdk_jvm_juc-learning/Jdk&Jvm&Juc.md)
+[Jdk&Jvm&Juc](https://github.com/guang19/framework-learning/blob/dev/jdk-jvm-juc/Jdk&Jvm&Juc.md)
 
 [JDK&JVM&JUC - XMind](xmind_file/JDK&JVM&JUC.xmind)
 
@@ -28,7 +28,7 @@
 
 #### 数据结构与算法(持续更新)
 
-[数据结构与算法](https://github.com/guang19/framework-learning/blob/dev/datastructure_algorithm/DataStructure&Algorithm.md)
+[数据结构与算法](https://github.com/guang19/framework-learning/blob/dev/datastructure-algorithm/DataStructure&Algorithm.md)
 
 推荐一个数据结构与算法的可视化网站，希望能够帮到正在学习数据结构与算法的同学: [数据结构与算法可视化](https://www.cs.usfca.edu/~galles/visualization/Algorithms.html)
 
@@ -36,13 +36,13 @@
 
 #### 设计模式(更新中)
 
-[设计模式](https://github.com/guang19/framework-learning/blob/dev/design-pattern/DesignPattern.md)
+[设计模式](https://github.com/guang19/framework-learning/blob/dev/design_pattern/DesignPattern.md)
 
 
 
 #### 计算机网络
 
-[计算机网络](https://github.com/guang19/framework-learning/blob/dev/computer-network/Computer-Network.md)
+[计算机网络](https://github.com/guang19/framework-learning/blob/dev/computer_network/ComputerNetwork.md)
 
 [计算机网络 - XMind](xmind_file/计算机网络.xmind)
 

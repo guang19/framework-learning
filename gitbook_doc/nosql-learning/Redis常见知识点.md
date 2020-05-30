@@ -93,7 +93,7 @@ Redis IO模型按Redis的版本可以分为Redis 6之前和Redis 6之后。
 
 #### Redis 6 之前
 Redis是基于多路复用IO模型处理Socket请求的，关于多路复用的知识，我在
-[Linux五种IO模型中](https://github.com/guang19/framework-learning/blob/dev/jdk_jvm_juc-learning/Jdk&Jvm&Juc.md#%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8io%E7%BD%91%E7%BB%9Cio%E6%A8%A1%E5%9E%8B)
+[Linux五种IO模型中](https://github.com/guang19/framework-learning/blob/dev/jdk-jvm-juc/Jdk&Jvm&Juc.md#%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8io%E7%BD%91%E7%BB%9Cio%E6%A8%A1%E5%9E%8B)
 已经说过了:
 多路复用IO模型依赖于操作系统的select/poll/epoll函数，
 epoll函数使得内核不断轮询客户端socket，

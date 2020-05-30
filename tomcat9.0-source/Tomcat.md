@@ -22,7 +22,7 @@ Tomcat是apache开源的一款优秀的Servlet容器,
 2. NIO模式
 3. APR模式
 
-关于BIO和NIO我已经在[IO](https://qsjzwithguang19forever.gitee.io/framework-learning/gitbook_doc/jdk_jvm_juc-learning/IO.html)
+关于BIO和NIO我已经在[IO](https://qsjzwithguang19forever.gitee.io/framework-learning/gitbook_doc/jdk-jvm-juc/IO.html)
 中讲到过了,不熟悉或忘了的同学可以去看一下，这里比较陌生的就是APR模式了。
 
 APR(Apache Portable Runtime)模式是异步IO模式。
