@@ -1,4 +1,4 @@
-package com.github.elasticsearchlearning.bean;
+package com.github.anTom2000.elasticsearch.bean;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,7 +17,7 @@ import java.io.Serializable;
  * @Date : 2020/05/31
  */
 
-@Document(indexName = "docbean",type = "bean",shards = 1,replicas = 0)
+@Document(indexName = "docbean",type = "com/github/anTom2000/elasticsearch/bean",shards = 1,replicas = 0)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

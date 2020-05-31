@@ -31,6 +31,7 @@
         <module>nosql-learning</module>
         <module>linux-learning</module>
         <module>tomcat9.0-source</module>
+        <module>elasticsearch-learning</module>
     </modules>
 
     <properties>

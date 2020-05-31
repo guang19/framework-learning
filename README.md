@@ -34,7 +34,7 @@
 
 
 
-#### 设计模式(更新中)
+#### 设计模式
 
 [设计模式](https://github.com/guang19/framework-learning/blob/dev/design_pattern/DesignPattern.md)
 

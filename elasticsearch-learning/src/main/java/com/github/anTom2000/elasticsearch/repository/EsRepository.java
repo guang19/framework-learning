@@ -1,6 +1,6 @@
-package com.github.elasticsearchlearning.repository;
+package com.github.anTom2000.elasticsearch.repository;
 
-import com.github.elasticsearchlearning.bean.DocBean;
+import com.github.anTom2000.elasticsearch.bean.DocBean;
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 
 /**

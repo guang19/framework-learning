@@ -1,72 +1,69 @@
-### ElasticSearch
 <!-- TOC -->
 
-- [ElasticSearch](#elasticsearch)
-  * [什么是ElasticSearch](#什么是ElasticSearch)
-  * [基本概念](#基本概念)
-- [ElasticSearch查询语法](#ElasticSearch查询语法)
-  * [_cat API](#_cat API)
-  * [Search API](#search-api)
-  * [Query and filter context](#query-and-filter-context)
-- [ElasticSearch查询示例](#ElasticSearch查询示例)
-  * [_Cat API查询示例](#_Cat API查询示例)
-    + [_Cat API查询集群的健康情况](#_Cat API查询集群的健康情况)
-  * [_Search API查询示例](#_Search API查询示例)
-    + [创建索引](#创建索引)
-    + [插入数据](#插入数据)
-    + [查询数据](#查询数据)
-      - [查询所有](#查询所有)
-      - [查询特定字段，并按照某个字段进行排序](#查询特定字段，并按照某个字段进行排序)
-      - [查询特定字段，并指定输出字段](#查询特定字段，并指定输出字段)
-      - [bool组合复杂查询](#bool组合复杂查询)
-      - [聚合查询](#聚合查询)
+   * [ElasticSearch](#elasticsearch)
+      * [什么是ElasticSearch?](#什么是elasticsearch)
+         * [基本概念](#基本概念)
+         * [ElasticSearch查询语法](#elasticsearch查询语法)
+            * [_cat API](#_cat-api)
+            * [Search API](#search-api)
+            * [Query and filter context](#query-and-filter-context)
+         * [ElasticSearch查询示例](#elasticsearch查询示例)
+            * [_Cat API查询示例](#_cat-api查询示例)
+            * [_Search API查询示例](#_search-api查询示例)
 
 <!-- /TOC -->
 
-#### 什么是ElasticSearch
+# ElasticSearch
+
+## 什么是ElasticSearch?
+
 目前全文搜索引擎的首选。
 
 它可以快速地储存、搜索和分析海量数据。维基百科、Stack Overflow、Github 都采用它。
 
 Elastic 的底层是开源库 Lucene。但是，你没法直接用 Lucene，必须自己写代码去调用它的接口。Elastic 是 Lucene 的封装，提供了 REST API 的操作接口，开箱即用。
 
-#### 基本概念
 
-* Index：一系列文档的集合，类似于mysql中的数据库
-* Type：在Index里面可以定义不同的type，type的概念类似于mysql中的表。
-* Document：文档的概念类似于mysql中的一条存储记录，并且为json格式，在Index下的不同type下，可以有许多的document
-* Shards：在数据量很大的时候，进行水平的扩展，提高搜索性能
-* Replicas：防止某个分片的数据丢失，可以并行在备份数据里及搜索提高性能
+### 基本概念
+
+- Index：一系列文档的集合，类似于mysql中的数据库
+- Type：在Index里面可以定义不同的type，type的概念类似于mysql中的表。
+- Document：文档的概念类似于mysql中的一条存储记录，并且为json格式，在Index下的不同type下，可以有许多的document
+- Shards：在数据量很大的时候，进行水平的扩展，提高搜索性能
+- Replicas：防止某个分片的数据丢失，可以并行在备份数据里及搜索提高性能
+
+
 
 ### ElasticSearch查询语法
 
- #### _cat API
+#### _cat API
 
-* cat：输出_cat api中所有支持的查询命令
-* cat health：检查es集群运行的情况
-* cat count：可以快速的查询集群或者index中文档的数量
-* cat indices: 查询当前集群中所有index的数据，包括index的分片数、document的数量、存储所用的空间大小...
-* 其他cat api参考官方文档: https://www.elastic.co/guide/en/elasticsearch/reference/5.5/cat.html
+- cat：输出_cat api中所有支持的查询命令
+- cat health：检查es集群运行的情况
+- cat count：可以快速的查询集群或者index中文档的数量
+- cat indices: 查询当前集群中所有index的数据，包括index的分片数、document的数量、存储所用的空间大小...
+- 其他cat api参考官方文档: https://www.elastic.co/guide/en/elasticsearch/reference/5.5/cat.html
+
 
 #### Search API
 
 查询方式：
 
-**REST request URI**：轻便快速的URI查询语法
+- **REST request URI**：轻便快速的URI查询语法。
 
-**REST request body**：可以有许多限制条件的json格式查询方法
+- **REST request body**：可以有许多限制条件的json格式查询方法。
 
-"query"：请求体中的`query`允许我们用`Query DSL`的方式查询。
+  - "query"：请求体中的`query`允许我们用`Query DSL`的方式查询。
+  
+  - "term"：查询时判断某个document是否包含某个具体的值，不会对被查询的值进行分词查询。
 
-​	“term”：查询时判断某个document是否包含某个具体的值，不会对被查询的值进行分词查询
+  - "match" : 将被查询值进行分词，然后用评分机制（TF/IDF）进行打分。
 
-​	“match” : 将被查询值进行分词，然后用评分机制（TF/IDF）进行打分
-
-​	"match_phrase"：查询指定段落
-
-​	"Bool"：结合其他真值查询，通常和[`must should mustnot`]（与或非）一起组合出复杂的查询
-
-​	"range"：查询时指定某个字段在某个特定的范围
+  - "match_phrase"：查询指定段落。
+  
+  - "Bool"：结合其他真值查询，通常和[`must should mustnot`]（与或非）一起组合出复杂的查询
+  
+  - "range"：查询时指定某个字段在某个特定的范围
 
 ```text
 "range": {
@@ -107,26 +104,28 @@ Elastic 的底层是开源库 Lucene。但是，你没法直接用 Lucene，必�
   }
 ```
 
+
 #### Query and filter context
 
  查询语句的性为取决于它是使用查询型上下文还是过滤型上下文
 
-* Query context：在这种上下文环境中，查询语句的返回结果是**”结果和查询语句的匹配程序如何“**，返回的结果数据中都会带上`_score`值，象征匹配程度。
-* Filter context：过滤型上下文环境中，查询语句则表面匹配与否（yes or no）。es内置式为`filter context`保存缓存用来提高查询性能，因此`filter context`比`query context`查询的速度快
+- Query context：在这种上下文环境中，查询语句的返回结果是**”结果和查询语句的匹配程序如何“**，返回的结果数据中都会带上`_score`值，象征匹配程度。
+- Filter context：过滤型上下文环境中，查询语句则表面匹配与否（yes or no）。es内置式为`filter context`保存缓存用来提高查询性能，因此`filter context`比`query context`查询的速度快
+
+
 
 ### ElasticSearch查询示例
 
 #### _Cat API查询示例
 
-##### _Cat API查询集群的健康情况
+_Cat API查询集群的健康情况
 
 ![postman发送请求测试](../img/elasticsearch/elasticsearch.png)
 
+
 #### _Search API查询示例
 
-##### 创建索引
-
-URI
+**创建索引:**
 
 ```text
 PUT localhost:9200/test
@@ -142,9 +141,8 @@ Output
 }
 ```
 
-##### 插入数据
 
-URI
+**插入数据:**
 
 ```
 PUT localhost:9200/test/user/1
@@ -180,11 +178,10 @@ Output
 }
 ```
 
-##### 查询数据
+**查询数据:**
 
-###### 查询所有
+- **查询所有:**
 
-URI
 
 ```
 GET localhost:9200/test/user/_search?q=*
@@ -237,9 +234,7 @@ Output
 }
 ```
 
-###### 查询特定字段，并按照某个字段进行排序
-
-URI
+- **查询特定字段，并按照某个字段进行排序:**
 
 ```
 GET localhost:9200/test/user/_search?q=username:张三&&sort=yyyymmdd:asc
@@ -265,7 +260,7 @@ GET localhost:9200/test/user/_search
 }
 ```
 
-###### 查询特定字段，并指定输出字段
+- **查询特定字段，并指定输出字段:**
 
 RequestBody
 
@@ -331,7 +326,7 @@ Output
 }
 ```
 
-###### bool组合复杂查询
+- **bool组合复杂查询:**
 
 Request Body
 
@@ -424,7 +419,7 @@ Output
 }
 ```
 
-###### 聚合查询
+- **聚合查询:**
 
 下例是类似于sql中的聚合查询，查询每天不同类型对应的intall总量
 
@@ -515,8 +510,9 @@ Output
               }
 ```
 
-**script查询** 
- 下例通过document中的click,install字段，计算出文档中不存在的数据。
+- **script查询:** 
+
+下例通过document中的click,install字段，计算出文档中不存在的数据。
 
 ```text
 GET /rta_daily_report/campaign/_search?pretty

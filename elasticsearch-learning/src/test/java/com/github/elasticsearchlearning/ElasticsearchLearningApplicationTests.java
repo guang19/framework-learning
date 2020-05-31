@@ -1,7 +1,7 @@
 package com.github.elasticsearchlearning;
 
-import com.github.elasticsearchlearning.bean.DocBean;
-import com.github.elasticsearchlearning.repository.EsRepository;
+import com.github.anTom2000.elasticsearch.bean.DocBean;
+import com.github.anTom2000.elasticsearch.repository.EsRepository;
 import org.elasticsearch.index.query.MatchQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.search.sort.SortBuilders;
