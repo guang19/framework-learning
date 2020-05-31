@@ -207,7 +207,7 @@ GOF中总共有23种设计模式，**这些设计模式并不是孤立存在的�
 
 工厂方法模式: 
 
-![工厂方法模式](../img/design_pattern/工厂方法模式.png)
+![工厂方法模式](../../img/design_pattern/工厂方法模式.png)
 
 工厂方法模式实例: [FactoryMethodTest](https://github.com/guang19/framework-learning/blob/dev/design_pattern/src/main/java/com/github/guang19/designpattern/factorymethod/FactoryMethodTest.java)
 
@@ -218,7 +218,7 @@ GOF中总共有23种设计模式，**这些设计模式并不是孤立存在的�
 而在现实中许多工厂是综合性的工厂，一家工厂可能既生产空调，又生产冰箱，这也是抽象工厂与工厂方法的区别，
 抽象工厂考虑多类产品的生产，同一个工厂生产的位于不同等级的一组产品称为这个工厂的产品族。
 
-![抽象工厂-产品族](../img/design_pattern/抽象工厂-产品族.png)
+![抽象工厂-产品族](../../img/design_pattern/抽象工厂-产品族.png)
 
 抽象工厂模式的意图是 定义一个创建一组相关或相互依赖的工厂接口，使得用户可以使用这一个工厂就可以获取到不同的产品。
 抽象工厂是工厂方法的升级版本，工厂方法只生产一个等级的产品，抽象工厂可以生产多个等级的产品。
@@ -228,7 +228,7 @@ GOF中总共有23种设计模式，**这些设计模式并不是孤立存在的�
 
 抽象工厂模式:
 
-![抽象工厂模式](../img/design_pattern/抽象工厂模式.png)
+![抽象工厂模式](../../img/design_pattern/抽象工厂模式.png)
 
 抽象工厂实例:[AbstractFactoryTest](https://github.com/guang19/framework-learning/blob/dev/design_pattern/src/main/java/com/github/guang19/designpattern/abstractfactory/AbstractFactoryTest.java)
 
@@ -243,7 +243,7 @@ GOF中总共有23种设计模式，**这些设计模式并不是孤立存在的�
 
 单例模式:
 
-![单例模式](../img/design_pattern/单例模式.png)
+![单例模式](../../img/design_pattern/单例模式.png)
 
 单例模式实例: [Singleton](https://github.com/guang19/framework-learning/blob/dev/design_pattern/src/main/java/com/github/guang19/designpattern/singleton)
 
@@ -312,7 +312,7 @@ GOF中总共有23种设计模式，**这些设计模式并不是孤立存在的�
 
 建造者模式: 
 
-![建造者模式](../img/design_pattern/建造者模式.png)
+![建造者模式](../../img/design_pattern/建造者模式.png)
 
 建造者实例: [BuilderTest](https://github.com/guang19/framework-learning/blob/dev/design_pattern/src/main/java/com/github/guang19/designpattern/builder)
 
@@ -330,7 +330,7 @@ GOF中总共有23种设计模式，**这些设计模式并不是孤立存在的�
 
 原型模式:
 
-![原型模式](../img/design_pattern/原型模式.png)
+![原型模式](../../img/design_pattern/原型模式.png)
 
 原型模式实例:[PrototypeTest](https://github.com/guang19/framework-learning/blob/dev/design_pattern/src/main/java/com/github/guang19/designpattern/prototype)
 
@@ -356,7 +356,7 @@ GOF中总共有23种设计模式，**这些设计模式并不是孤立存在的�
   
 代理模式:
 
-![代理模式](../img/design_pattern/代理模式.png)
+![代理模式](../../img/design_pattern/代理模式.png)
 
 代理模式实例:
 [ProxyTest](https://github.com/guang19/framework-learning/blob/dev/design_pattern/src/main/java/com/github/guang19/designpattern/proxy)
@@ -386,7 +386,7 @@ GOF中总共有23种设计模式，**这些设计模式并不是孤立存在的�
 
 装饰器模式:
 
-![装饰器模式](../img/design_pattern/装饰器模式.png)
+![装饰器模式](../../img/design_pattern/装饰器模式.png)
 
 装饰器模式实例: [DecoratorTest](https://github.com/guang19/framework-learning/blob/dev/design_pattern/src/main/java/com/github/guang19/designpattern/decorator)
 
@@ -407,7 +407,7 @@ GOF中总共有23种设计模式，**这些设计模式并不是孤立存在的�
 
 桥接模式:
 
-![桥接模式](../img/design_pattern/桥接模式.png)
+![桥接模式](../../img/design_pattern/桥接模式.png)
 
 桥接模式实例: [BridgeTest](https://github.com/guang19/framework-learning/blob/dev/design_pattern/src/main/java/com/github/guang19/designpattern/bridge)
 
@@ -455,7 +455,7 @@ Person的基本信息BasicInfo
 
 享元模式：
 
-![享元模式](../img/design_pattern/享元模式.png)
+![享元模式](../../img/design_pattern/享元模式.png)
 
 享元模式实例：[FlyweightTest](https://github.com/guang19/framework-learning/blob/dev/design_pattern/src/main/java/com/github/guang19/designpattern/flyweight)
 
@@ -480,7 +480,7 @@ Person的基本信息BasicInfo
 
 观察者模式:
 
-![观察者模式](../img/design_pattern/观察者模式.png)
+![观察者模式](../../img/design_pattern/观察者模式.png)
 
 观察者模式实例：[ObserverTest](https://github.com/guang19/framework-learning/blob/dev/design_pattern/src/main/java/com/github/guang19/designpattern/observer)
    
@@ -512,7 +512,7 @@ Person的基本信息BasicInfo
 
 模板方法模式：
 
-![模板方法模式](../img/design_pattern/模板方法模式.png)
+![模板方法模式](../../img/design_pattern/模板方法模式.png)
 
 模板方法实例：[TemplateMethodTest](https://github.com/guang19/framework-learning/blob/dev/design_pattern/src/main/java/com/github/guang19/designpattern/templatemethod)
 
@@ -534,7 +534,7 @@ Person的基本信息BasicInfo
 
 策略模式：
 
-![策略模式](../img/design_pattern/策略模式.png)
+![策略模式](../../img/design_pattern/策略模式.png)
 
 策略模式实例：[StrategyTest](https://github.com/guang19/framework-learning/blob/dev/design_pattern/src/main/java/com/github/guang19/designpattern/strategy)
 
@@ -553,11 +553,11 @@ Person的基本信息BasicInfo
 
 责任链模式：
 
-![责任链模式](../img/design_pattern/责任链模式.png)
+![责任链模式](../../img/design_pattern/责任链模式.png)
 
 责任链请求处理流程:
 
-![责任链请求处理流程](../img/design_pattern/责任链请求处理流程.png)
+![责任链请求处理流程](../../img/design_pattern/责任链请求处理流程.png)
 
 责任链模式实例: [ResponsibilityChainTest](https://github.com/guang19/framework-learning/blob/dev/design_pattern/src/main/java/com/github/guang19/designpattern/responsibilitychain)
 
@@ -581,7 +581,7 @@ Person的基本信息BasicInfo
 
 中介者模式：
 
-![中介者模式](../img/design_pattern/中介者模式.png)
+![中介者模式](../../img/design_pattern/中介者模式.png)
 
 
 中介者模式实例： [MediatorTest](https://github.com/guang19/framework-learning/blob/dev/design_pattern/src/main/java/com/github/guang19/designpattern/mediator)
@@ -607,7 +607,7 @@ Person的基本信息BasicInfo
 
 访问者模式：
 
-![访问者模式](../img/design_pattern/访问者模式.png)
+![访问者模式](../../img/design_pattern/访问者模式.png)
 
 访问者模式实例： [VisitorTest](https://github.com/guang19/framework-learning/blob/dev/design_pattern/src/main/java/com/github/guang19/designpattern/visitor)
 
@@ -629,7 +629,7 @@ Person的基本信息BasicInfo
 
 命令模式：
 
-![命令模式](../img/design_pattern/命令模式.png)
+![命令模式](../../img/design_pattern/命令模式.png)
 
 命令模式实例： [CommandTest](https://github.com/guang19/framework-learning/blob/dev/design_pattern/src/main/java/com/github/guang19/designpattern/command)
 
@@ -662,7 +662,7 @@ Person的基本信息BasicInfo
 
 备忘录模式：
 
-![备忘录模式](../img/design_pattern/备忘录模式.png)
+![备忘录模式](../../img/design_pattern/备忘录模式.png)
 
 备忘录模式实例：[MementoTest](https://github.com/guang19/framework-learning/blob/dev/design_pattern/src/main/java/com/github/guang19/designpattern/memento)
 
@@ -682,7 +682,7 @@ Person的基本信息BasicInfo
 
 状态模式：
 
-![状态模式](../img/design_pattern/状态模式.png)
+![状态模式](../../img/design_pattern/状态模式.png)
 
 
 状态模式实例：[StateTest](https://github.com/guang19/framework-learning/blob/dev/design_pattern/src/main/java/com/github/guang19/designpattern/state)
