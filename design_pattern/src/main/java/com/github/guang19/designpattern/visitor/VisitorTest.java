@@ -1,5 +1,6 @@
 package com.github.guang19.designpattern.visitor;
 
+
 /**
  * @author guang19
  * @date 2020/5/30
@@ -8,7 +9,7 @@ package com.github.guang19.designpattern.visitor;
  */
 public class VisitorTest
 {
-    public static void main(String[] args)
+    public static void main(String[] args) throws Exception
     {
         ObjectStructure objectStructure = new ObjectStructure();
         objectStructure.add(new ConcreteElement1());

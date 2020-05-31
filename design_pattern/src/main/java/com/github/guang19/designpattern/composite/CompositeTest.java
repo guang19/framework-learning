@@ -1,4 +1,4 @@
-package com.github.guang19.designpattern.combination;
+package com.github.guang19.designpattern.composite;
 
 /**
  * @author guang19
