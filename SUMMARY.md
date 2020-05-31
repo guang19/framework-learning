@@ -11,35 +11,35 @@
 
 ## 内容
 
-- [jdk_jvm_juc部分](gitbook_doc/jdk_jvm_juc-learning/About.md)
+- [jdk-jvm-juc部分](gitbook_doc/jdk-jvm-juc/About.md)
 
-  - [Java常见基础知识点](gitbook_doc/jdk_jvm_juc-learning/Java常见基础知识点.md)
+  - [Java常见基础知识点](gitbook_doc/jdk-jvm-juc/Java常见基础知识点.md)
 
-  - [IO](gitbook_doc/jdk_jvm_juc-learning/IO.md)
+  - [IO](gitbook_doc/jdk-jvm-juc/IO.md)
   
-  - [Java集合](gitbook_doc/jdk_jvm_juc-learning/Java集合.md)
+  - [Java集合](gitbook_doc/jdk-jvm-juc/Java集合.md)
 
-  - [Java多线程](gitbook_doc/jdk_jvm_juc-learning/Java多线程.md)
+  - [Java多线程](gitbook_doc/jdk-jvm-juc/Java多线程.md)
 
-  - [Java并发](gitbook_doc/jdk_jvm_juc-learning/Java并发.md)
+  - [Java并发](gitbook_doc/jdk-jvm-juc/Java并发.md)
   
-  - [AQS](gitbook_doc/jdk_jvm_juc-learning/AQS.md)
+  - [AQS](gitbook_doc/jdk-jvm-juc/AQS.md)
   
-  - [对象在内存中的布局](gitbook_doc/jdk_jvm_juc-learning/对象在内存中的布局.md)
+  - [对象在内存中的布局](gitbook_doc/jdk-jvm-juc/对象在内存中的布局.md)
  
-  - [JVM](gitbook_doc/jdk_jvm_juc-learning/JVM.md)
+  - [JVM](gitbook_doc/jdk-jvm-juc/JVM.md)
 
-  - [简单了解类文件结构](gitbook_doc/jdk_jvm_juc-learning/简单了解类文件结构.md)
+  - [简单了解类文件结构](gitbook_doc/jdk-jvm-juc/简单了解类文件结构.md)
   
-  - [类的生命周期(类加载)](gitbook_doc/jdk_jvm_juc-learning/类的生命周期.md)
+  - [类的生命周期(类加载)](gitbook_doc/jdk-jvm-juc/类的生命周期.md)
  
-  - [JVM常量池](gitbook_doc/jdk_jvm_juc-learning/JVM常量池.md)
+  - [JVM常量池](gitbook_doc/jdk-jvm-juc/JVM常量池.md)
   
-  - [GC](gitbook_doc/jdk_jvm_juc-learning/GC.md) 
+  - [GC](gitbook_doc/jdk-jvm-juc/GC.md) 
   
-  - [JVM调优相关内容](gitbook_doc/jdk_jvm_juc-learning/JVM调优相关内容.md)
+  - [JVM调优相关内容](gitbook_doc/jdk-jvm-juc/JVM调优相关内容.md)
 
-  - [Jdk新特性](gitbook_doc/jdk_jvm_juc-learning/Jdk新特性.md)
+  - [Jdk新特性](gitbook_doc/jdk-jvm-juc/Jdk新特性.md)
 
 
 ---
@@ -67,33 +67,33 @@
 ---
 
  
-- [数据结构与算法部分](gitbook_doc/datastructure_algorithm/About.md)
+- [数据结构与算法部分](gitbook_doc/datastructure-algorithm/About.md)
 
-  - [数据结构与算法](gitbook_doc/datastructure_algorithm/数据结构与算法.md)
+  - [数据结构与算法](gitbook_doc/datastructure-algorithm/数据结构与算法.md)
   
-    - [数据结构](gitbook_doc/datastructure_algorithm/数据结构.md)
+    - [数据结构](gitbook_doc/datastructure-algorithm/数据结构.md)
   
-    - [算法](gitbook_doc/datastructure_algorithm/算法.md)
+    - [算法](gitbook_doc/datastructure-algorithm/算法.md)
 
 
 ---
 
 
-- [设计模式部分](gitbook_doc/design-pattern/About.md)
+- [设计模式部分](gitbook_doc/design_pattern/About.md)
 
-  - [设计模式](gitbook_doc/design-pattern/DesignPattern.md)
+  - [设计模式](gitbook_doc/design_pattern/DesignPattern.md)
 
 
 ---
 
 
-- [计算机网络部分](gitbook_doc/computer-network/About.md)
+- [计算机网络部分](gitbook_doc/computer_network/About.md)
 
-  - [OSI七层模型](gitbook_doc/computer-network/OSI七层模型.md)
+  - [OSI七层模型](gitbook_doc/computer_network/OSI七层模型.md)
   
-  - [TCP/IP](gitbook_doc/computer-network/TCP_IP.md)
+  - [TCP/IP](gitbook_doc/computer_network/TCP_IP.md)
   
-  - [HTTP](gitbook_doc/computer-network/HTTP.md)
+  - [HTTP](gitbook_doc/computer_network/HTTP.md)
 
 
 
