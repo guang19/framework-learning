@@ -12,6 +12,7 @@
 
 ### 知识点总览
 
+
 #### Jdk&Jvm&Juc
 
 [Jdk&Jvm&Juc](https://github.com/guang19/framework-learning/blob/dev/jdk-jvm-juc/Jdk&Jvm&Juc.md)
@@ -101,12 +102,6 @@
 #### Zookeeper(待重构)
 
 [Zookeeper](https://github.com/guang19/framework-learning/blob/dev/zookeeper-learning/Zookeeper.md)
-
-
-
-#### Swagger(更新中)
-
-[Swagger](https://github.com/guang19/framework-learning/blob/dev/swagger-learning/Swagger.md)
 
 
 

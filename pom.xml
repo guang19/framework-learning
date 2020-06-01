@@ -23,7 +23,6 @@
         <module>amqp-learning</module>
         <module>zookeeper-learning</module>
         <module>jdk-jvm-juc</module>
-        <module>swagger-learning</module>
         <module>design_pattern</module>
         <module>rdbms-learning</module>
         <module>computer_network</module>
