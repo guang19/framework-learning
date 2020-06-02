@@ -1843,10 +1843,7 @@ HotSpot移除了永久代，新增了元空间。
    
 * Metaspace
 >当加载到元空间中的类的信息太多，就有可能导致 OOM : Metaspace。
-
-**PS:
-使用cglib的库，可以动态生成class，
-所以可以使用cglib测试此错误(Metaspace)**
+>**使用cglib的库，可以动态生成class，所以可以使用cglib测试此错误。**
 
 ---
 
