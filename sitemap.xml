@@ -31,7 +31,9 @@
 <url> <loc>https://guang19.github.io/gitbook_doc/datastructure-algorithm/数据结构.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://guang19.github.io/gitbook_doc/datastructure-algorithm/算法.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://guang19.github.io/gitbook_doc/design_pattern/About.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://guang19.github.io/gitbook_doc/design_pattern/DesignPattern.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://guang19.github.io/gitbook_doc/design_pattern/设计模式.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://guang19.github.io/gitbook_doc/design_pattern/七大原则.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://guang19.github.io/gitbook_doc/design_pattern/二十三种设计模式.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://guang19.github.io/gitbook_doc/computer_network/About.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://guang19.github.io/gitbook_doc/computer_network/OSI七层模型.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://guang19.github.io/gitbook_doc/computer_network/TCP_IP.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>

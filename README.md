@@ -12,6 +12,7 @@
 
 ### 知识点总览
 
+
 #### Jdk&Jvm&Juc
 
 [Jdk&Jvm&Juc](https://github.com/guang19/framework-learning/blob/dev/jdk-jvm-juc/Jdk&Jvm&Juc.md)
@@ -72,6 +73,11 @@
 
 
 
+#### Netty(更新中)
+[Netty](https://github.com/guang19/framework-learning/blob/dev/netty-learning/Netty.md)
+
+
+
 #### Spring框架
 
 [Spring](https://github.com/guang19/framework-learning/blob/dev/spring-learning/SpringFramework.md)
@@ -104,19 +110,13 @@
 
 
 
-#### Swagger(更新中)
-
-[Swagger](https://github.com/guang19/framework-learning/blob/dev/swagger-learning/Swagger.md)
-
-
-
 ### 待办(绝对不会鸽)
 
 - [ ] Git
 
-- [ ] Netty
-
 - [ ] JVM部分后续会根据《深入理解Java虚拟机 - 第三版》更新
+
+- [ ] ~~Netty~~ (更新中)
 
 
 

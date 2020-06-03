@@ -581,9 +581,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="5.1.1" data-path="../design_pattern/DesignPattern.html">
+        <li class="chapter " data-level="5.1.1" data-path="../design_pattern/设计模式.html">
             
-                <a href="../design_pattern/DesignPattern.html">
+                <a href="../design_pattern/设计模式.html">
             
                     
                     设计模式
@@ -591,6 +591,38 @@
                 </a>
             
 
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1.1" data-path="../design_pattern/七大原则.html">
+            
+                <a href="../design_pattern/七大原则.html">
+            
+                    
+                    七大原则
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.1.2" data-path="../design_pattern/二十三种设计模式.html">
+            
+                <a href="../design_pattern/二十三种设计模式.html">
+            
+                    
+                    二十三种设计模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
             
         </li>
     
@@ -1289,7 +1321,7 @@
 </li>
 <li><p>&#x4F18;&#x79C0;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;: Redis&#x867D;&#x7136;&#x652F;&#x6301;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x4F17;&#x591A;&#xFF0C;&#x4F46;&#x662F;&#x5B83;&#x7684;&#x6BCF;&#x79CD;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x90FD;&#x662F;&#x4E13;&#x95E8;&#x8BBE;&#x8BA1;&#x548C;&#x4F18;&#x5316;&#x8FC7;&#x7684;&#x3002;</p>
 </li>
-<li><p>&#x591A;&#x8DEF;&#x590D;&#x7528;IO: Redis&#x6574;&#x4F53;&#x91C7;&#x7528;&#x591A;&#x8DEF;&#x590D;&#x7528;IO&#x6A21;&#x578B;&#xFF0C;&#x6838;&#x5FC3;&#x64CD;&#x4F5C;&#x4F7F;&#x7528;&#x5355;&#x7EBF;&#x7A0B;&#x5904;&#x7406;&#x3002;</p>
+<li><p>IO&#x591A;&#x8DEF;&#x590D;&#x7528;: Redis&#x6574;&#x4F53;&#x91C7;&#x7528;IO&#x591A;&#x8DEF;&#x590D;&#x7528;&#x6A21;&#x578B;&#xFF0C;&#x6838;&#x5FC3;&#x64CD;&#x4F5C;&#x4F7F;&#x7528;&#x5355;&#x7EBF;&#x7A0B;&#x5904;&#x7406;&#x3002;</p>
 </li>
 </ul>
 <h4 id="redis&#x5E94;&#x7528;&#x573A;&#x666F;">Redis&#x5E94;&#x7528;&#x573A;&#x666F;</h4>
@@ -1319,7 +1351,7 @@ Memcached&#x53EA;&#x5728;&#x5185;&#x5B58;&#x4E2D;&#x5B58;&#x50A8;&#x6570;&#x636E
 &#x4F46;&#x5B83;&#x7EC6;&#x5206;&#x53EF;&#x4EE5;&#x652F;&#x6301;String&#xFF0C;Hash&#xFF0C;List&#xFF0C;Set&#xFF0C;Sorted Set&#x7B49;&#x6570;&#x636E;&#x7C7B;&#x578B;&#xFF1B;
 Memcached&#x53EA;&#x652F;&#x6301;K-V&#x7C7B;&#x578B;&#x7684;&#x5B58;&#x50A8;&#x7ED3;&#x6784;&#x3002;</p>
 </li>
-<li><p>IO&#x6A21;&#x578B;: Redis&#x662F;&#x4EE5;&#x591A;&#x8DEF;&#x590D;&#x7528;IO&#x4E3A;&#x6A21;&#x578B;&#x7684;&#x8BBE;&#x8BA1;&#xFF1B;
+<li><p>IO&#x6A21;&#x578B;: Redis&#x662F;&#x4EE5;IO&#x591A;&#x8DEF;&#x590D;&#x7528;&#x4E3A;&#x6A21;&#x578B;&#x7684;&#x8BBE;&#x8BA1;&#xFF1B;
 Memached&#x662F;&#x4EE5;&#x975E;&#x963B;&#x585E;IO&#x4E3A;&#x6A21;&#x578B;&#x7684;&#x8BBE;&#x8BA1;&#x3002;</p>
 </li>
 <li><p>&#x4E8B;&#x4EF6;&#x5E93;: Redis&#x91C7;&#x7528;&#x81EA;&#x5236;&#x7684;AeEven&#x4E8B;&#x4EF6;&#x5E93;&#x5904;&#x7406;Socket&#x4E8B;&#x4EF6;;
@@ -1334,19 +1366,19 @@ Memcached&#x5219;&#x9002;&#x7528;&#x4E8E;&#x9AD8;&#x5E76;&#x53D1;&#x548C;&#x53EA
 <h4 id="redis-io&#x6A21;&#x578B;">Redis IO&#x6A21;&#x578B;</h4>
 <p>Redis IO&#x6A21;&#x578B;&#x6309;Redis&#x7684;&#x7248;&#x672C;&#x53EF;&#x4EE5;&#x5206;&#x4E3A;Redis 6&#x4E4B;&#x524D;&#x548C;Redis 6&#x4E4B;&#x540E;&#x3002;</p>
 <h4 id="redis-6-&#x4E4B;&#x524D;">Redis 6 &#x4E4B;&#x524D;</h4>
-<p>Redis&#x662F;&#x57FA;&#x4E8E;&#x591A;&#x8DEF;&#x590D;&#x7528;IO&#x6A21;&#x578B;&#x5904;&#x7406;Socket&#x8BF7;&#x6C42;&#x7684;&#xFF0C;&#x5173;&#x4E8E;&#x591A;&#x8DEF;&#x590D;&#x7528;&#x7684;&#x77E5;&#x8BC6;&#xFF0C;&#x6211;&#x5728;
+<p>Redis&#x662F;&#x57FA;&#x4E8E;IO&#x591A;&#x8DEF;&#x590D;&#x7528;&#x6A21;&#x578B;&#x5904;&#x7406;Socket&#x8BF7;&#x6C42;&#x7684;&#xFF0C;&#x5173;&#x4E8E;&#x591A;&#x8DEF;&#x590D;&#x7528;&#x7684;&#x77E5;&#x8BC6;&#xFF0C;&#x6211;&#x5728;
 <a href="https://github.com/guang19/framework-learning/blob/dev/jdk-jvm-juc/Jdk&amp;Jvm&amp;Juc.md#%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8io%E7%BD%91%E7%BB%9Cio%E6%A8%A1%E5%9E%8B" target="_blank">Linux&#x4E94;&#x79CD;IO&#x6A21;&#x578B;&#x4E2D;</a>
 &#x5DF2;&#x7ECF;&#x8BF4;&#x8FC7;&#x4E86;:
-&#x591A;&#x8DEF;&#x590D;&#x7528;IO&#x6A21;&#x578B;&#x4F9D;&#x8D56;&#x4E8E;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7684;select/poll/epoll&#x51FD;&#x6570;&#xFF0C;
+IO&#x591A;&#x8DEF;&#x590D;&#x7528;&#x6A21;&#x578B;&#x4F9D;&#x8D56;&#x4E8E;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7684;select/poll/epoll&#x51FD;&#x6570;&#xFF0C;
 epoll&#x51FD;&#x6570;&#x4F7F;&#x5F97;&#x5185;&#x6838;&#x4E0D;&#x65AD;&#x8F6E;&#x8BE2;&#x5BA2;&#x6237;&#x7AEF;socket&#xFF0C;
 &#x7528;&#x6237;&#x8FDB;&#x7A0B;(&#x7EBF;&#x7A0B;)&#x4E5F;&#x9700;&#x8981;&#x963B;&#x585E;&#x5728;&#x5BF9;epoll&#x51FD;&#x6570;&#x7684;&#x8C03;&#x7528;&#x4E0A;&#xFF0C;&#x5F53;Socket&#x6709;&#x4E8B;&#x4EF6;&#x65F6;&#xFF0C;
 &#x7528;&#x6237;&#x7EBF;&#x7A0B;&#x4FBF;&#x53D1;&#x8D77;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#xFF0C;&#x5904;&#x7406;Socket&#x4E8B;&#x4EF6;&#x3002;</p>
-<p>&#x591A;&#x8DEF;&#x590D;&#x7528;IO&#x6A21;&#x578B;&#x7B80;&#x5355;&#x7406;&#x89E3;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x5904;&#x7406;&#x591A;&#x4E2A;Socket&#x8FDE;&#x63A5;&#x3002;
+<p>IO&#x591A;&#x8DEF;&#x590D;&#x7528;&#x6A21;&#x578B;&#x7B80;&#x5355;&#x7406;&#x89E3;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x5904;&#x7406;&#x591A;&#x4E2A;Socket&#x8FDE;&#x63A5;&#x3002;
 &#x6240;&#x4EE5;<strong>&#x53EF;&#x4EE5;&#x628A;Redis&#x770B;&#x6210;&#x662F;&#x5355;&#x7EBF;&#x7A0B;&#x6A21;&#x578B;&#xFF0C;&#x4F46;&#x5E76;&#x4E0D;&#x662F;&#x8BF4;Redis&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#xFF0C;
 &#x800C;&#x662F;&#x8BF4;&#x5B83;&#x6267;&#x884C;&#x6838;&#x5FC3;&#x64CD;&#x4F5C;&#x7684;&#x7EBF;&#x7A0B;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#xFF0C;&#x5B83;&#x8FD8;&#x6709;&#x5176;&#x4ED6;&#x8F85;&#x52A9;&#x7EBF;&#x7A0B;&#x5B8C;&#x6210;&#x5176;&#x5B83;&#x529F;&#x80FD;&#x3002;
 Redis&#x8FD9;&#x6837;&#x8BBE;&#x8BA1;&#x5C31;&#x907F;&#x514D;&#x4E86;&#x591A;&#x7EBF;&#x7A0B;&#x5207;&#x6362;&#x7684;&#x5F00;&#x9500;&#x548C;&#x7B80;&#x5316;&#x4E86;Redis&#x7684;&#x8BBE;&#x8BA1;&#x3002;</strong></p>
 <p>Redis IO&#x6A21;&#x578B;:</p>
-<p><a href="../../img/database/redis/Redis%206&#x4E4B;&#x524D;IO&#x6A21;&#x578B;.png" data-lightbox="cd807e05-aead-44cd-a3c1-abe05a1f0fff" data-title="Redis 6&#x4E4B;&#x524D;IO&#x6A21;&#x578B;"><img src="../../img/database/redis/Redis 6&#x4E4B;&#x524D;IO&#x6A21;&#x578B;.png" alt="Redis 6&#x4E4B;&#x524D;IO&#x6A21;&#x578B;"></a></p>
+<p><a href="../../img/database/redis/Redis%206&#x4E4B;&#x524D;IO&#x6A21;&#x578B;.png" data-lightbox="85515ebf-1915-4009-aba1-fcda3036d837" data-title="Redis 6&#x4E4B;&#x524D;IO&#x6A21;&#x578B;"><img src="../../img/database/redis/Redis 6&#x4E4B;&#x524D;IO&#x6A21;&#x578B;.png" alt="Redis 6&#x4E4B;&#x524D;IO&#x6A21;&#x578B;"></a></p>
 <h4 id="redis-6-&#x4E4B;&#x540E;">Redis 6 &#x4E4B;&#x540E;</h4>
 <p>Redis 6 &#x4E4B;&#x524D;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x5904;&#x7406;&#x6240;&#x6709;&#x7684;Socket&#x548C;&#x6838;&#x5FC3;&#x64CD;&#x4F5C;&#xFF0C;
 &#x8FD9;&#x6837;&#x505A;&#x7684;&#x597D;&#x5904;&#x5C31;&#x662F;&#x5355;&#x7EBF;&#x7A0B;&#x65E0;&#x9700;&#x8003;&#x8651;&#x50CF;&#x591A;&#x7EBF;&#x7A0B;&#x5207;&#x6362;&#x5E26;&#x6765;&#x7684;&#x56F0;&#x6270;&#xFF0C;
@@ -1361,7 +1393,7 @@ Redis 6 &#x6B63;&#x662F;&#x901A;&#x8FC7;&#x65B0;&#x589E;&#x76D1;&#x542C;&#x7EBF;
 &#x518D;&#x4EA4;&#x7531;main&#x7EBF;&#x7A0B;&#x5904;&#x7406;&#x3002;
 &#x6240;&#x4EE5;<strong>&#x6574;&#x4F53;&#x6765;&#x8BF4;&#xFF0C;Redis 6 &#x5728;&#x5904;&#x7406;Socket&#x4E8B;&#x4EF6;&#x4E0A;&#x7531;&#x5355;&#x7EBF;&#x7A0B;&#x4F18;&#x5316;&#x6210;&#x4E86;&#x591A;&#x7EBF;&#x7A0B;&#xFF0C;&#x4F46;&#x6838;&#x5FC3;&#x64CD;&#x4F5C;&#x8FD8;&#x662F;&#x7531;&#x5355;&#x7EBF;&#x7A0B;&#x6267;&#x884C;&#x3002;</strong></p>
 <p>Redis 6 IO&#x6A21;&#x578B;&#xFF1A;</p>
-<p><a href="../../img/database/redis/Redis%206%20IO&#x6A21;&#x578B;.png" data-lightbox="91db18bf-6ffd-4516-9ddf-f746c2a65908" data-title="Redis 6 IO&#x6A21;&#x578B;"><img src="../../img/database/redis/Redis 6 IO&#x6A21;&#x578B;.png" alt="Redis 6 IO&#x6A21;&#x578B;"></a></p>
+<p><a href="../../img/database/redis/Redis%206%20IO&#x6A21;&#x578B;.png" data-lightbox="1fc0f8ab-7fad-4f77-beeb-32fac59158dc" data-title="Redis 6 IO&#x6A21;&#x578B;"><img src="../../img/database/redis/Redis 6 IO&#x6A21;&#x578B;.png" alt="Redis 6 IO&#x6A21;&#x578B;"></a></p>
 
                                 
                                 </section>
@@ -1405,7 +1437,7 @@ Redis 6 &#x6B63;&#x662F;&#x901A;&#x8FC7;&#x65B0;&#x589E;&#x76D1;&#x542C;&#x7EBF;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Redis常见知识点","level":"8.1.2.1","depth":3,"next":{"title":"Redis数据结构","level":"8.1.2.2","depth":3,"path":"gitbook_doc/nosql-learning/Redis数据结构.md","ref":"gitbook_doc/nosql-learning/Redis数据结构.md","articles":[]},"previous":{"title":"Redis","level":"8.1.2","depth":2,"path":"gitbook_doc/nosql-learning/Redis.md","ref":"gitbook_doc/nosql-learning/Redis.md","articles":[{"title":"Redis常见知识点","level":"8.1.2.1","depth":3,"path":"gitbook_doc/nosql-learning/Redis常见知识点.md","ref":"gitbook_doc/nosql-learning/Redis常见知识点.md","articles":[]},{"title":"Redis数据结构","level":"8.1.2.2","depth":3,"path":"gitbook_doc/nosql-learning/Redis数据结构.md","ref":"gitbook_doc/nosql-learning/Redis数据结构.md","articles":[]},{"title":"Redis事务","level":"8.1.2.3","depth":3,"path":"gitbook_doc/nosql-learning/Redis事务.md","ref":"gitbook_doc/nosql-learning/Redis事务.md","articles":[]},{"title":"Redis缓存淘汰策略","level":"8.1.2.4","depth":3,"path":"gitbook_doc/nosql-learning/Redis缓存淘汰策略.md","ref":"gitbook_doc/nosql-learning/Redis缓存淘汰策略.md","articles":[]},{"title":"Redis持久化策略","level":"8.1.2.5","depth":3,"path":"gitbook_doc/nosql-learning/Redis持久化策略.md","ref":"gitbook_doc/nosql-learning/Redis持久化策略.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","expandable-chapters","code","prism","github","splitter","pageview-count","lightbox","theme-comscore","-lunr","-search","search-pro","sitemap","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/guang19/framework-learning"},"livereload":{},"simple-page-toc":{"maxDepth":4,"skipFirstH1":false},"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"https://guang19.github.io/framework-learning"},"lightbox":{"jquery":true,"sameUuid":false},"theme-comscore":{},"back-to-top-button":{},"pageview-count":{},"github-buttons":{"buttons":[{"user":"guang19","repo":"framework-learning","type":"star","size":"small"},{"user":"guang19","repo":"framework-learning","type":"fork","size":"small"},{"user":"guang19","type":"follow","width":"230","size":"small"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author:":"qsjzwithguang19forever","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"framework-learning","language":"zh-hans","links":{"sidebar":{}},"gitbook":"*","description":"Java方向的开发者学习的资料"},"file":{"path":"gitbook_doc/nosql-learning/Redis常见知识点.md","mtime":"2020-05-31T14:47:45.527Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-31T14:50:10.292Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Redis常见知识点","level":"8.1.2.1","depth":3,"next":{"title":"Redis数据结构","level":"8.1.2.2","depth":3,"path":"gitbook_doc/nosql-learning/Redis数据结构.md","ref":"gitbook_doc/nosql-learning/Redis数据结构.md","articles":[]},"previous":{"title":"Redis","level":"8.1.2","depth":2,"path":"gitbook_doc/nosql-learning/Redis.md","ref":"gitbook_doc/nosql-learning/Redis.md","articles":[{"title":"Redis常见知识点","level":"8.1.2.1","depth":3,"path":"gitbook_doc/nosql-learning/Redis常见知识点.md","ref":"gitbook_doc/nosql-learning/Redis常见知识点.md","articles":[]},{"title":"Redis数据结构","level":"8.1.2.2","depth":3,"path":"gitbook_doc/nosql-learning/Redis数据结构.md","ref":"gitbook_doc/nosql-learning/Redis数据结构.md","articles":[]},{"title":"Redis事务","level":"8.1.2.3","depth":3,"path":"gitbook_doc/nosql-learning/Redis事务.md","ref":"gitbook_doc/nosql-learning/Redis事务.md","articles":[]},{"title":"Redis缓存淘汰策略","level":"8.1.2.4","depth":3,"path":"gitbook_doc/nosql-learning/Redis缓存淘汰策略.md","ref":"gitbook_doc/nosql-learning/Redis缓存淘汰策略.md","articles":[]},{"title":"Redis持久化策略","level":"8.1.2.5","depth":3,"path":"gitbook_doc/nosql-learning/Redis持久化策略.md","ref":"gitbook_doc/nosql-learning/Redis持久化策略.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","expandable-chapters","code","prism","github","splitter","pageview-count","lightbox","theme-comscore","-lunr","-search","search-pro","sitemap","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/guang19/framework-learning"},"livereload":{},"simple-page-toc":{"maxDepth":4,"skipFirstH1":false},"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"https://guang19.github.io/framework-learning"},"lightbox":{"jquery":true,"sameUuid":false},"theme-comscore":{},"back-to-top-button":{},"pageview-count":{},"github-buttons":{"buttons":[{"user":"guang19","repo":"framework-learning","type":"star","size":"small"},{"user":"guang19","repo":"framework-learning","type":"fork","size":"small"},{"user":"guang19","type":"follow","width":"230","size":"small"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author:":"qsjzwithguang19forever","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"framework-learning","language":"zh-hans","links":{"sidebar":{}},"gitbook":"*","description":"Java方向的开发者学习的资料"},"file":{"path":"gitbook_doc/nosql-learning/Redis常见知识点.md","mtime":"2020-06-03T11:55:37.931Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-06-03T11:58:57.752Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

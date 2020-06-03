@@ -81,8 +81,11 @@
 
 - [设计模式部分](gitbook_doc/design_pattern/About.md)
 
-  - [设计模式](gitbook_doc/design_pattern/DesignPattern.md)
+  - [设计模式](gitbook_doc/design_pattern/设计模式.md)
 
+    - [七大原则](gitbook_doc/design_pattern/七大原则.md)
+ 
+    - [二十三种设计模式](gitbook_doc/design_pattern/二十三种设计模式.md)
 
 ---
 
