@@ -147,7 +147,7 @@ NoSQL数据库泛指非关系型数据库，与关系型数据库不同，非关
 
 - 优秀的数据结构: Redis虽然支持的数据结构众多，但是它的每种数据结构都是专门设计和优化过的。
 
-- 多路复用IO: Redis整体采用多路复用IO模型，核心操作使用单线程处理。
+- IO多路复用: Redis整体采用IO多路复用模型，核心操作使用单线程处理。
 
 #### Redis应用场景     
 
@@ -179,7 +179,7 @@ List存储有序的数据，Set还有交集，并集，差集等功能。
   但它细分可以支持String，Hash，List，Set，Sorted Set等数据类型；
   Memcached只支持K-V类型的存储结构。
 
-- IO模型: Redis是以多路复用IO为模型的设计；
+- IO模型: Redis是以IO多路复用为模型的设计；
   Memached是以非阻塞IO为模型的设计。
 
 - 事件库: Redis采用自制的AeEven事件库处理Socket事件;
@@ -195,15 +195,15 @@ List存储有序的数据，Set还有交集，并集，差集等功能。
 Redis IO模型按Redis的版本可以分为Redis 6之前和Redis 6之后。
 
 #### Redis 6 之前
-Redis是基于多路复用IO模型处理Socket请求的，关于多路复用的知识，我在
+Redis是基于IO多路复用模型处理Socket请求的，关于多路复用的知识，我在
 [Linux五种IO模型中](https://github.com/guang19/framework-learning/blob/dev/jdk-jvm-juc/Jdk&Jvm&Juc.md#%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8io%E7%BD%91%E7%BB%9Cio%E6%A8%A1%E5%9E%8B)
 已经说过了:
-多路复用IO模型依赖于操作系统的select/poll/epoll函数，
+IO多路复用模型依赖于操作系统的select/poll/epoll函数，
 epoll函数使得内核不断轮询客户端socket，
 用户进程(线程)也需要阻塞在对epoll函数的调用上，当Socket有事件时，
 用户线程便发起系统调用，处理Socket事件。
 
-多路复用IO模型简单理解就是一个线程处理多个Socket连接。
+IO多路复用模型简单理解就是一个线程处理多个Socket连接。
 所以**可以把Redis看成是单线程模型，但并不是说Redis只有一个线程，
 而是说它执行核心操作的线程只有一个，它还有其他辅助线程完成其它功能。
 Redis这样设计就避免了多线程切换的开销和简化了Redis的设计。**

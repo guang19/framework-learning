@@ -73,6 +73,11 @@
 
 
 
+#### Netty(更新中)
+[Netty](https://github.com/guang19/framework-learning/blob/dev/netty-learning/Netty.md)
+
+
+
 #### Spring框架
 
 [Spring](https://github.com/guang19/framework-learning/blob/dev/spring-learning/SpringFramework.md)
@@ -109,9 +114,9 @@
 
 - [ ] Git
 
-- [ ] Netty
-
 - [ ] JVM部分后续会根据《深入理解Java虚拟机 - 第三版》更新
+
+- [ ] ~~Netty~~ (更新中)
 
 
 

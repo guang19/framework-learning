@@ -31,6 +31,7 @@
         <module>linux-learning</module>
         <module>tomcat9.0-source</module>
         <module>elasticsearch-learning</module>
+        <module>netty-learning</module>
     </modules>
 
     <properties>
