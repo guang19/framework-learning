@@ -49,6 +49,7 @@
         <openjdk-jol.version>0.10</openjdk-jol.version>
         <cglib.version>3.3.0</cglib.version>
         <jsr250.version>1.0</jsr250.version>
+        <netty.version>4.1.50.Final</netty.version>
         <lombok.version>1.18.10</lombok.version>
         <junit.version>4.12</junit.version>
     </properties>
@@ -64,6 +65,13 @@
                 <scope>import</scope>
             </dependency>
 
+            <!--netty-->
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-all</artifactId>
+                <version>${netty.version}</version>
+            </dependency>
+
             <!--mybatis-->
             <dependency>
                 <groupId>org.mybatis</groupId>
@@ -76,44 +84,6 @@
                 <artifactId>mysql-connector-java</artifactId>
                 <version>${mysql.version}</version>
             </dependency>
-            <!--spring-->
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-context</artifactId>
-                <version>${spring.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-core</artifactId>
-                <version>${spring.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-beans</artifactId>
-                <version>${spring.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-aop</artifactId>
-                <version>${spring.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-tx</artifactId>
-                <version>${spring.version}</version>
-            </dependency>
-            <!--web mvc-->
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-web</artifactId>
-                <version>${spring.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-webmvc</artifactId>
-                <version>${spring.version}</version>
-            </dependency>
-
             <!-- dubbo -->
             <dependency>
                 <groupId>org.apache.dubbo</groupId>
