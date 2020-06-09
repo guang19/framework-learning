@@ -25,6 +25,7 @@
             * [BigDecimal](#bigdecimal)
             * [Java异常体系结构](#java异常体系结构)
             * [Comparable和Comparator](#comparable和comparator)
+             * [什么是泛型，什么是类型擦除](#什么是泛型，什么是类型擦除)
             * [为什么要慎用 Arrays.asList()?](#为什么要慎用-arraysaslist)
             * [Java中引用的类型](#java中引用的类型)
       * [对象在内存中的布局(64位)](#对象在内存中的布局64位)
@@ -444,6 +445,188 @@ BigDecimal是Java中表示大浮点数的类型。
 
 - Comparator: 外部比较器。无需让需要排序的对象实现排序逻辑，而是根据Comparator定义的逻辑来排序。
   Comparator相较于Comparable更加的灵活。
+    
+#### 什么是泛型，什么是类型擦除
+
+ Java泛型(Generics) 是JDK5中引入的一个新特性，泛型提供了编译时类型安全检测机制，该机制允许程序员在编译时检测到非法的类型。泛型的本质是参数化类型，也就是说所操作的数据类型被指定为一个参数。
+ 
+ Java中的**泛型**是**伪泛型**，在Java编译期间，所有的泛型信息都会被擦除，这就是通常所说的类型擦除。
+ 
+ ```text
+ List<Integer> list = new ArrayList<>();
+ 
+ list.add(12);
+ //这里直接添加会报错
+ list.add("a");
+ Class<? extends List> clazz = list.getClass();
+ Method add = clazz.getDeclaredMethod("add", Object.class);
+ //但是通过反射添加，是可以的
+ add.invoke(list, "kl");
+ 
+ System.out.println(list)
+ ```
+ 
+ #### 泛型通配符
+ 
+ ##### 常用的 T，E，K，V，？
+ 
+ - ？ 表示不确定的 java 类型
+ - T (type) 表示具体的一个java类型
+ - K V (key value) 分别代表java键值中的Key Value
+ - E (element) 代表Element
+ 
+ ##### ？ 无界通配符
+ 
+ 一个抽象父类Animal和子类Dog，现在需要一个动物列表，我的第一反应是这样的：
+ 
+ ```text
+ List<Animal> listAnimals
+ ```
+ 
+ 但是老板的想法却是这样的：
+ 
+ ```text
+ List<? extends Animal> listAnimals
+ ```
+ 
+ 通配符在声明局部变量时是没有什么意义的，但是当你为一个方法设置声明一个参数时，它是非常重要的。
+ 
+ ```text
+   public static void main(String[] args) {
+         List<Dog> dogs = new ArrayList<>();
+ 
+         countLegs(dogs);
+         /*编译器会会报错，显示类型不匹配*/
+         //countLegs1(dogs);
+     }
+ 
+     static int countLegs(List<? extends Animal> animals){
+         int reVal = 0;
+         for (Animal animal : animals) {
+             reVal+= animal.getLegs();
+         }
+         return reVal;
+     }
+ 
+     static int countLegs1(List<Animal> animals){
+         int reVal = 0;
+         for (Animal animal : animals) {
+             reVal+= animal.getLegs();
+         }
+         return reVal;
+     }
+ ```
+ 
+ 所以，对于不确定或者不关心实际要操作的类型，可以使用无限制通配符(**<?>**)，表示可以持有任意类型。像countLegs方法，规定了参数传入的上界，但是并不关心具体类型是什么，对于传入的参数，只要是`Animal`的子类，就都可以支持，而countLegs1方法不行。
+ 
+ 为什么countLegs1方法就不行呢？`Dog`不是`Animal`的子类吗，根据多态的角度来讲，理论上应该是可以的，但是，在泛型的继承体系中，`Dog`并不算`Animal`的一个子类。
+ 
+ 假设我们有以下代码：
+ 
+ animals的泛型是父类对象`Animal`，dogs的泛型是子类对象`Dog`，那么dogs转换animals能成功吗，我们知道子类对象转父类对象是可以的，但是子类泛型转父类泛型能成功吗，我们假设能成功。
+ 
+ ```text
+  public static void main(String[] args) {
+         List<Animal> animals = new ArrayList<Animal>();
+         List<Dog> dogs = new ArrayList<Dog>();
+         
+         animals = dogs;
+     }
+ ```
+ 
+那么animals就指向了一个泛型为`Dog`的集合容器，但是现在这个集合容器的泛型是`Animal`，看上去可以将另一个子类`Cat`加进容器中。
+
+```text
+ public static void main(String[] args) {
+        List<Animal> animals = new ArrayList<Animal>();
+        List<Dog> dogs = new ArrayList<Dog>();
+
+        animals = dogs;
+        animals.add(new Cat(4));
+    }
+```
+
+这段代码看上去好像没什么问题，但是仔细想想。现在animals指向的是一个泛型为Dog的容器，现在又将Cat放进容器中，就相当于在一堆狗里面放进一只猫，这就矛盾了。所以子类泛型**不能**转换为父类泛型，反过来也是一样。
+
+#### 上界通配符 <? extend E>
+
+> 上界：用extend关键字指定，表示所指定的类型只能是某个类的子类或者这个类本身
+
+```text
+ static <K extends Comparable,E extends Serializable> K test(K arg1,E arg2){
+        K result = arg1;
+        arg1.compareTo(arg2);
+
+        return result;
+    }
+```
+
+```text
+ // 表示既要实现Comparable接口，又要实现Serializable接口
+static <K extends Comparable & Serializable> K test(K arg1) {
+        K result = arg1;
+        return result;
+    }
+```
+
+
+
+> 有多个限定类型用"&"隔开，有多个类型变量用","逗号隔开
+
+#### 下界通配符 <? super E>
+
+> 下界：用super关键字指定，表示所指定的类型只能是这个类本身或者某个类的父类，直至Object
+
+```text
+static <T> void  test1(List<? super  T> dst ,List<T> list){
+        for (T t : list) {
+            dst.add(t);
+        }
+    }
+```
+
+#### ？和 T的区别
+
+？表示不确定的类型，常用于泛型方法的调用代码和形参，不能用于定义泛型类、泛型方法和泛型变量。
+
+T 表示一个具体的类型，常用于泛型类和泛型方法的定义，可以定义泛型变量。
+
+##### 利用T来保证泛型的一致性
+
+```text
+// 通过 T 来 确保 泛型参数的一致性,通常我们需要先声明
+public <T extends Number> void
+test(List<T> dest, List<T> src)
+
+//通配符是 不确定的，所以这个方法不能保证两个 List 具有相同的元素类型，不需要提前声明
+public void
+test(List<? extends Number> dest, List<? extends Number> src)
+```
+
+##### 类型参数可以多重限定而通配符不行
+
+```text
+ static <T extends Comparable & Serializable> T test(T arg1) {
+        T result = arg1;
+
+        return result;
+    }
+```
+
+##### ？可以使用下界限定，但T不行
+
+类型参数 T 只具有 一种 类型限定方式：
+
+```text
+T extends A
+```
+
+但是通配符 ? 可以进行 两种限定：
+
+```text
+? extends A
+? super A
+```
                
 #### 为什么要慎用 Arrays.asList()?
 **因为Arrays.asList这个方法返回的根本就不是我们期盼的ArrayList,
