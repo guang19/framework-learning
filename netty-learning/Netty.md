@@ -69,15 +69,46 @@ ServerBootstrap作为服务端引导，它将服务端进程绑定到制定的�
 Bootstrap和ServerBootstrap除了职责不同，它们所需的EventLoopGroup的数量也不同，
 Bootstrap引导客户端只需要一个EventLoopGroup，而ServerBootstrap则需要两个EventLoopGroup
 (2个EventLoopGroup可以是同一个实例)，至于原因嘛，后续再讲 * _ * 。
-
+    
+![Bootstrap引导类功能](../img/netty/Bootstrap引导类功能.png)
 
 #### Channel
 在我们使用某种语言，如c/c++,java,go等，进行网络编程的时候，我们通常会使用到Socket，
-Socket是对底层操作系统I/O操作(如read,write,bind,connect等)的封装，
+Socket是对底层操作系统IO操作(如read,write,bind,connect等)的封装，
 因此我们必须去学习Socket才能完成网络编程，而Socket的操作其实是比较复杂的，想要使用好它有一定难度，
-所以Netty提供了更加方便的对于底层I/O操作的API供我们使用。
+所以Netty提供了Channel，更加方便我们处理IO事件。
 
 
+#### EventLoop
+EventLoop用于服务端与客户端连接的生命周期中所发生的事件。 
+EventLoop 与 EventLoopGroup，Channel的关系模型如下：
+
+![EventLoop模型](../img/netty/EventLoop模型.png)
+
+一个EventLoopGroup通常包含一个或多个EventLoop，一个EventLoop可以处理多个Channel的IO事件，
+一个Channel也只会被注册到一个EventLoop上。在EventLoop的生命周期中，它只会和一个Thread线程绑定，这个
+EventLoop处理的IO事件都将在与它绑定的Thread内被处理。
+
+
+#### ChannelFuture
+在Netty中，所有的IO操作都是异步执行的，所以一个操作会立刻返回，但是如何获取操作执行完的结果呢？
+Netty就提供了ChannelFuture接口，它的addListener方法会向Channel注册ChannelFutureListener，
+以便在某个操作完成时得到通知结果。
+
+
+#### ChannelHandler
+我们知道Netty是一个款基于事件驱动的网络框架，当特定事件触发时，我们能够按照自定义的逻辑去处理数据。
+**ChannelHandler则正是用于处理入站和出站数据钩子**，它可以处理几乎所有类型的动作，所以ChannelHandler会是
+我们开发者更为关注的一个接口。
+
+
+#### ChannelPipeline
+上面介绍了ChannelHandler的作用，它使我们更关注于特定事件的数据处理，但如何使我们自定义的
+ChannelHandler能够在事件触发时被使用呢？ Netty提供了ChannelPipeline接口，它
+提供了存放ChannelHandler链的容器，且ChannelPipeline定义了在这条ChannelHandler链上
+管理入站和出站事件流的API。
+当一个Channel被初始化时，会使用ChannelInitializer接口的initChannel方法，ChannelInitializer
+会在ChannelPipeline中添加一组自定义的ChannelHandler。
 
 
 
