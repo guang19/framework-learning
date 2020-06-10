@@ -56,9 +56,9 @@ Netty作为一款优秀的网络框架，自然有令人折服的特点：
 
 
 
-### Netty架构模型
+### Netty组件介绍
 Netty有 Bootstrap/ServerBootstrap,Channel,EventLoop,ChannelFuture,
-ChannelHandler,ChannelPipeline等核心组件。   
+ChannelHandler,ChannelPipeline,编码器和解码器等核心组件。   
 
 
 #### Bootstrap/ServerBootstrap
@@ -74,7 +74,7 @@ Bootstrap引导客户端只需要一个EventLoopGroup，而ServerBootstrap则需
 
 #### Channel
 在我们使用某种语言，如c/c++,java,go等，进行网络编程的时候，我们通常会使用到Socket，
-Socket是对底层操作系统IO操作(如read,write,bind,connect等)的封装，
+Socket是对底层操作系统网络IO操作(如read,write,bind,connect等)的封装，
 因此我们必须去学习Socket才能完成网络编程，而Socket的操作其实是比较复杂的，想要使用好它有一定难度，
 所以Netty提供了Channel，更加方便我们处理IO事件。
 
@@ -100,6 +100,17 @@ Netty就提供了ChannelFuture接口，它的addListener方法会向Channel注�
 我们知道Netty是一个款基于事件驱动的网络框架，当特定事件触发时，我们能够按照自定义的逻辑去处理数据。
 **ChannelHandler则正是用于处理入站和出站数据钩子**，它可以处理几乎所有类型的动作，所以ChannelHandler会是
 我们开发者更为关注的一个接口。
+ChannelHandler主要分为处理入站数据的 ChannelInboundHandler 和 出站数据的 ChannelOutboundHandler 接口。
+
+![ChannelHandler接口层次图](../img/netty/ChannelHandler接口层次图.png)
+
+Netty以适配器的形式提供了大量默认的 ChannelHandler实现，主要目的是为了简化程序开发的过程，我们只需要
+重写我们关注的事件和方法就可以了。 通常我们会以继承的方式使用以下适配器和抽象:
+
+- ChannelHandlerAdapter
+- ChannelInboundHandlerAdapter
+- ChannelDuplexHandler
+- ChannelOutboundHandlerAdapter
 
 
 #### ChannelPipeline
@@ -107,9 +118,7 @@ Netty就提供了ChannelFuture接口，它的addListener方法会向Channel注�
 ChannelHandler能够在事件触发时被使用呢？ Netty提供了ChannelPipeline接口，它
 提供了存放ChannelHandler链的容器，且ChannelPipeline定义了在这条ChannelHandler链上
 管理入站和出站事件流的API。
-当一个Channel被初始化时，会使用ChannelInitializer接口的initChannel方法，ChannelInitializer
-会在ChannelPipeline中添加一组自定义的ChannelHandler。
-
-
+当一个Channel被初始化时，会使用ChannelInitializer接口的initChannel方法在ChannelPipeline中
+添加一组自定义的ChannelHandler。
 
 
