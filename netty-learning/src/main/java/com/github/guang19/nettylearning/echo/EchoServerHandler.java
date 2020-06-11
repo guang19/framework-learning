@@ -11,7 +11,7 @@ import java.nio.charset.StandardCharsets;
 /**
  * @author guang19
  * @date 2020/6/3
- * @description 基于netty的一个简单的echo服务器 Handler
+ * @description 基于netty的一个简单的echo服务器Handler
  * @since 1.0.0
  */
 public class EchoServerHandler extends ChannelInboundHandlerAdapter
