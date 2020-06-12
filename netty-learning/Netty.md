@@ -1,7 +1,7 @@
 
 # Netty
 
-**本文章摘抄自 《Netty in Action》(Netty实战)，再根据本人实际学习体验总结而成，
+**本文章部分摘抄自 《Netty in Action》(Netty实战)，再根据本人实际学习体验总结而成，
 所以本文内容可能不那么全面，但是我尽量挑选Netty中我认为比较重要的部分做讲解。**
 
 学习Netty，相信大部分同学都会选择 《Netty in Action》 ， 这里我推荐它的一个Gitbook精髓版本的，
@@ -76,6 +76,7 @@ Bootstrap引导客户端只需要一个EventLoopGroup，而ServerBootstrap则需
     
 ![Bootstrap引导类功能](../img/netty/Bootstrap引导类功能.png)
 
+
 #### Channel
 在我们使用某种语言，如c/c++,java,go等，进行网络编程的时候，我们通常会使用到Socket，
 Socket是对底层操作系统网络IO操作(如read,write,bind,connect等)的封装，
@@ -147,8 +148,29 @@ ChannelHandler能够在事件触发时被使用呢？ Netty提供了ChannelPipel
 鉴于入站操作和出站操作是不同的，可能有同学会疑惑：为什么入站ChannelHandler和出站ChannelHandler的数据
 不会窜流呢(为什么入站的数据不会到出站ChannelHandler链中)？ 因为Netty可以区分ChannelInboundHandler和
 ChannelOutboundHandler的实现，并确保**数据只在两个相同类型的ChannelHandler直接传递，即数据要么在
-ChannelInboundHandler之间流动，要么在ChannelOutboundHandler之间流动。**
+ChannelInboundHandler链之间流动，要么在ChannelOutboundHandler链之间流动。**
 
 **当ChannelHandler被添加到ChannelPipeline中后，它会被分配一个ChannelHandlerContext，
 它代表了ChannelHandler和ChannelPipeline之间的绑定。 我们可以使用ChannelHandlerContext
 获取底层的Channel，但它最主要的作用还是用于写出数据。**
+
+
+#### 编码器和解码器
+当我们通过Netty发送(出站)或接收(入站)一个消息时，就会发生一次数据的转换，因为数据在网络中总是通过字节传输的，
+所以当数据入站时，Netty会解码数据，即把数据从字节转为为另一种格式(通常是一个Java对象)，
+当数据出站时，Netty会编码数据，即把数据从它当前格式转为为字节。
+
+Netty为编码器和解码器提供了不同类型的抽象，这些编码器和解码器其实都是ChannelHandler的实现，
+它们的名称通常是ByteToMessageDecoder和MessageToByteEncoder。
+
+对于入站数据来说，解码其实是解码器通过重写ChannelHandler的read事件，然后调用它们自己的
+decode方法完成的。
+对于出站数据来说，编码则是编码器通过重写ChannelHandler的write事件，然后调用它们自己的
+encode方法完成的。
+
+**为什么编码器和解码器被设计为ChannelHandler的实现呢?**
+
+我觉得这很符合Netty的设计，上面已经介绍过Netty是一个事件驱动的框架，其事件由特定的ChannelHandler
+完成，我们从用户的角度看，编码和解码其实是属于应用逻辑的，按照应用逻辑实现自定义的编码器和解码器就是
+理所应当的。
+
