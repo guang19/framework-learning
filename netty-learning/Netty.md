@@ -64,6 +64,9 @@ ChannelHandler，ChannelPipeline，编码器和解码器等核心组件。
 **在学习Netty组件之前建议各位同学先编写一个Netty的Demo，你不必了解这个Demo的细节，
 只需要让它在你的脑海中留下一个记忆，然后对照Demo来学习以下组件，会事半功倍。** 
 
+[Demo](https://github.com/guang19/framework-learning/tree/dev/netty-learning/src/main/java/com/github/guang19/nettylearning/echo)
+
+
 
 #### Bootstrap/ServerBootstrap
 Bootstrap和ServerBootstrap是Netty应用程序的引导类，它提供了用于应用程序网络层的配置。
@@ -174,3 +177,22 @@ encode方法完成的。
 完成，我们从用户的角度看，编码和解码其实是属于应用逻辑的，按照应用逻辑实现自定义的编码器和解码器就是
 理所应当的。
 
+
+#### SimpleChannelInboundHandler
+在我们编写Netty应用程序时，会使用某个ChannelHandler来接受入站消息，非常简单的一种方式
+是继承SimpleChannelInboundHandler<T>，T是我们需要处理消息的类型。 继承SimpleChannelInboundHandler
+后，我们只需要重写其中一个或多个方法就可以完成我们的逻辑。
+
+
+---
+
+
+### 传输(Transport)
+在网络中传递的数据总是具有相同的类型：字节。 这些字节流动的细节取决于网络传输，它是一个帮我们抽象
+底层数据传输机制的概念，我们不需要关心字节流动的细节，只需要确保字节被可靠的接收和发送。
+
+当我们使用Java网络编程时，可能会接触到多种不同的网络IO模型，如NIO，BIO，AIO等，我们可能因为
+使用这些不同的API而遇到问题。 
+Netty则为这些不同的IO模型实现了一个通用的API，我们使用这个通用的API比直接使用JDK提供的API要
+简单的多，且避免了由于使用不同API而带来的问题，大大提高了代码的可读性。
+在传输这一部分，我们将主要学习这个通用的API，以及它与JDK之间的对比。
