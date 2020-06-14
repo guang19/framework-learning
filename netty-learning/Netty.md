@@ -1,3 +1,23 @@
+<-- TOC -->
+
+   * [Netty](#netty)
+      * [Netty是什么?](#netty是什么)
+         * [Netty的特点](#netty的特点)
+         * [Netty组件介绍](#netty组件介绍)
+            * [Bootstrap/ServerBootstrap](#bootstrapserverbootstrap)
+            * [Channel](#channel)
+            * [EventLoop](#eventloop)
+            * [ChannelFuture](#channelfuture)
+            * [ChannelHandler](#channelhandler)
+            * [ChannelPipeline](#channelpipeline)
+            * [入站事件和出站事件的流向](#入站事件和出站事件的流向)
+            * [进一步了解ChannelHandler](#进一步了解channelhandler)
+            * [编码器和解码器](#编码器和解码器)
+            * [SimpleChannelInboundHandler](#simplechannelinboundhandler)
+         * [传输(Transport)](#传输transport)
+
+<!-- /TOC -->
+
 
 # Netty
 
