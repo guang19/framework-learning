@@ -1,4 +1,4 @@
-<-- TOC -->
+<!-- TOC -->
 
    * [Netty](#netty)
       * [Netty是什么?](#netty是什么)
@@ -104,7 +104,7 @@ Bootstrap引导客户端只需要一个EventLoopGroup，而ServerBootstrap则需
 在我们使用某种语言，如c/c++,java,go等，进行网络编程的时候，我们通常会使用到Socket，
 Socket是对底层操作系统网络IO操作(如read,write,bind,connect等)的封装，
 因此我们必须去学习Socket才能完成网络编程，而Socket的操作其实是比较复杂的，想要使用好它有一定难度，
-所以Netty提供了Channel，更加方便我们处理IO事件。
+所以Netty提供了Channel(io.netty.Channel，而非java nio的Channel)，更加方便我们处理IO事件。
 
 
 #### EventLoop
@@ -200,7 +200,7 @@ encode方法完成的。
 
 #### SimpleChannelInboundHandler
 在我们编写Netty应用程序时，会使用某个ChannelHandler来接受入站消息，非常简单的一种方式
-是继承SimpleChannelInboundHandler<T>，T是我们需要处理消息的类型。 继承SimpleChannelInboundHandler
+是扩展SimpleChannelInboundHandler< T >，T是我们需要处理消息的类型。 继承SimpleChannelInboundHandler
 后，我们只需要重写其中一个或多个方法就可以完成我们的逻辑。
 
 
@@ -211,8 +211,56 @@ encode方法完成的。
 在网络中传递的数据总是具有相同的类型：字节。 这些字节流动的细节取决于网络传输，它是一个帮我们抽象
 底层数据传输机制的概念，我们不需要关心字节流动的细节，只需要确保字节被可靠的接收和发送。
 
-当我们使用Java网络编程时，可能会接触到多种不同的网络IO模型，如NIO，BIO，AIO等，我们可能因为
+当我们使用Java网络编程时，可能会接触到多种不同的网络IO模型，如NIO，BIO(OIO: Old IO)，AIO等，我们可能因为
 使用这些不同的API而遇到问题。 
 Netty则为这些不同的IO模型实现了一个通用的API，我们使用这个通用的API比直接使用JDK提供的API要
 简单的多，且避免了由于使用不同API而带来的问题，大大提高了代码的可读性。
 在传输这一部分，我们将主要学习这个通用的API，以及它与JDK之间的对比。
+
+
+#### 传输API
+传输API的核心是Channel(io.netty.Channel，而非java nio的Channel)接口，它被用于所有的IO操作。
+
+Channel结构层次：
+
+![Channel接口层次](../img/netty/Channel接口层次.png)
+
+每个Channel都会被分配一个ChannelPipeline和ChannelConfig，
+ChannelConfig包含了该Channel的所有配置，并允许在运行期间更新它们。
+
+ChannelPipeline在上面已经介绍过了，它存储了所有用于处理出站和入站数据的ChannelHandler，
+我们可以在运行时根据自己的需求添加或删除ChannelPipeline中的ChannelHandler。
+
+此外，Channel还有以下方法值得留意：
+
+| 方法名 | 描述 |
+| :---: | :---: |
+| eventLoop | 返回当前Channel注册到的EventLoop |
+| pipeline  | 返回分配给Channel的ChannelPipeline |
+| isActive  | 判断当前Channel是活动的，如果是则返回true。 此处活动的意义依赖于底层的传输，如果底层传输是TCP Socket，那么客户端与服务端保持连接便是活动的；如果底层传输是UDP Datagram，那么Datagram传输被打开就是活动的。 |
+| localAddress | 返回本地SocketAddress |
+| remoteAddress | 返回远程的SocketAddress |
+| write     | 将数据写入远程主机，数据将会通过ChannelPipeline传输 |
+| flush     | 将之前写入的数据刷新到底层传输 |
+| writeFlush | 等同于调用 write 写入数据后再调用 flush 刷新数据 |
+
+
+#### Netty内置的传输
+Netty内置了一些开箱即用的传输，我们上面介绍了传输的核心API是Channel，那么这些已经封装好的
+传输也是基于Channel的。
+
+Netty内置Channel接口层次：
+
+![Netty内置Channel接口层次](../img/netty/Netty内置Channel接口层次.png)
+
+| 名称    |  包   | 描述 |
+| :---:  | :---: | :---| 
+| NIO    | io.netty.channel.socket.nio | NIO Channel基于java.nio.channels，其io模型为IO多路复用 |
+| Epoll  | io.netty.channel.epoll      | Epoll Channel基于操作系统的epoll函数，其io模型为IO多路复用，不过Epoll模型只支持在Linux上的多种特性，比NIO性能更好 |
+| KQueue | io.netty.channel.kqueue     | KQueue 与 Epoll 相似，它主要被用于 FreeBSD 系统上，如Mac等 |
+| OIO(Old Io) | io.netty.channel.socket.oio | OIO Channel基于java.net包，其io模型是阻塞的，且此传输被Netty标记为deprecated，故不推荐使用，最好使用NIO / EPOLL / KQUEUE 等传输 |
+| Local       | io.netty.channel.local      | Local Channel 可以在VM虚拟机内部进行本地通信 |
+| Embedded    | io.netty.channel.embedded   | Embedded Channel允许在没有真正的网络传输中使用ChannelHandler，可以非常有用的测试ChannelHandler |
+
+
+

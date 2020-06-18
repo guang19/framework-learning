@@ -31,11 +31,12 @@ public class EchoServer
     //启动服务器
     public void start() throws InterruptedException
     {
-        EventLoopGroup group = new NioEventLoopGroup();
+        EventLoopGroup boss = new NioEventLoopGroup();
+        EventLoopGroup worker = new NioEventLoopGroup();
         try
         {
             ServerBootstrap serverBootStrap = new ServerBootstrap();
-            serverBootStrap.group(group)
+            serverBootStrap.group(boss,worker)
                     .channel(NioServerSocketChannel.class)
                     .localAddress(new InetSocketAddress("127.0.0.1",port))
                     .childHandler(new ChannelInitializer<SocketChannel>()
@@ -55,7 +56,8 @@ public class EchoServer
         }
         finally
         {
-            group.shutdownGracefully().sync();
+            boss.shutdownGracefully().sync();
+            worker.shutdownGracefully().sync();
         }
     }
 

@@ -2,6 +2,7 @@ package com.github.guang19.nettylearning.echo;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
+import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
@@ -24,7 +25,22 @@ public class EchoServerHandler extends ChannelInboundHandlerAdapter
     {
         ByteBuf byteBuf = (ByteBuf)msg;
         System.out.println("echo server received message : " + byteBuf.toString(StandardCharsets.UTF_8));
-        ctx.write(byteBuf);
+        ChannelFuture future = ctx.writeAndFlush(byteBuf);
+        future.addListener(new ChannelFutureListener()
+        {
+            @Override
+            public void operationComplete(ChannelFuture future) throws Exception
+            {
+                if (future.isSuccess())
+                {
+                    System.out.println("echo server write message success");
+                }
+                else
+                {
+                    System.out.println("echo server write message failed");
+                }
+            }
+        });
     }
 
     /**

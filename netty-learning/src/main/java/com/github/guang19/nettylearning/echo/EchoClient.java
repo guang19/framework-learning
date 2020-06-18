@@ -29,13 +29,13 @@ public class EchoClient
 
     public void start() throws InterruptedException
     {
-        EventLoopGroup group = new NioEventLoopGroup();
+        EventLoopGroup boss = new NioEventLoopGroup();
 
         try
         {
             Bootstrap bootstrap = new Bootstrap();
 
-            bootstrap.group(group)
+            bootstrap.group(boss)
                     .channel(NioSocketChannel.class)
                     .remoteAddress(new InetSocketAddress("127.0.0.1",port))
                     .handler(new ChannelInitializer<SocketChannel>()
@@ -52,7 +52,7 @@ public class EchoClient
         }
         finally
         {
-            group.shutdownGracefully().sync();
+            boss.shutdownGracefully().sync();
         }
 
     }

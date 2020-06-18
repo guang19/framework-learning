@@ -37,7 +37,7 @@
             * [Linux常见目录说明](#linux常见目录说明)
       * [Linux用户权限](#linux用户权限)
          * [chmod权限模式](#chmod权限模式)
-            * [使用chmode更改文件权限](#使用chmode更改文件权限)
+            * [使用chmod更改文件权限](#使用chmod更改文件权限)
       * [Linux运行级别](#linux运行级别)
       * [shell](#shell)
          * [什么是shell?](#什么是shell)
@@ -358,7 +358,7 @@ chmod的权限模式为: [ugoa...][+-=][rwx...][files]
 
 - rwx代表权限 ， 可以使用数字标识 r  = 4 , w = 2 , x = 1， 所以rwx=7 , rw = 6 , rx=5 , wx=3。
 
-#### 使用chmode更改文件权限
+#### 使用chmod更改文件权限
 我们先创建一个名叫a.txt的文件,它刚被创建后的权限如下:
 
 ![更改文件权限1](../img/linux/更改文件权限1.png)
