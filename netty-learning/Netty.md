@@ -263,4 +263,13 @@ Netty内置Channel接口层次：
 | Embedded    | io.netty.channel.embedded   | Embedded Channel允许在没有真正的网络传输中使用ChannelHandler，可以非常有用的测试ChannelHandler |
 
 
+#### 零拷贝
+零拷贝(Zero-Copy)是一种目前只有在使用NIO和Epoll传输时才可使用的特性。在我之前写过的IO模型中，所有的IO
+的数据都是从内核复制到用户应用进程，再由用户应用进程处理。而零拷贝则可以快速地将数据从源文件移动到目标文件(一切接文件)。
+
+举个栗子： 我要将home目录下的a这个文件复制到root目录下，那么其过程如下：
+
+![普通IO拷贝](../img/netty/普通IO拷贝.png)
+
+
 
