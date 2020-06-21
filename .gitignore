@@ -33,22 +33,6 @@ build/
 DubboLearningPersonServiceConsumerApplication.java
 DubboLearningPersonServiceProviderApplication.java
 
-amqp-learning/
-computer_network/
-datastructure-algorithm/
-design_pattern/
-elasticsearch-learning/
-jdk-jvm-juc/
-linux-learning/
-netty-learning/
-nosql-learning/
-orm-learning/
-rdbms-learning/
-spring-learning/
-springmvc-learning/
-tomcat9.0-source
-zookeeper-learning/
-
 ### gitbook
 _book/
 node_modules/
