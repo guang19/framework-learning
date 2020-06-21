@@ -13,7 +13,7 @@
 ### 知识点总览
 
 
-#### Jdk&Jvm&Juc
+#### Jdk&Jvm&Juc(持续更新)
 
 [Jdk&Jvm&Juc](https://github.com/guang19/framework-learning/blob/dev/jdk-jvm-juc/Jdk&Jvm&Juc.md)
 
@@ -21,7 +21,7 @@
 
 
 
-#### Linux
+#### Linux(持续更新)
 
 [Linux](https://github.com/guang19/framework-learning/blob/dev/linux-learning/Linux.md)
 
@@ -41,35 +41,11 @@
 
 
 
-#### 计算机网络
+#### 计算机网络(持续更新)
 
 [计算机网络](https://github.com/guang19/framework-learning/blob/dev/computer_network/ComputerNetwork.md)
 
 [计算机网络 - XMind](xmind_file/计算机网络.xmind)
-
-
-
-#### 关系型数据库
-
-[关系型数据库](https://github.com/guang19/framework-learning/blob/dev/rdbms-learning/RDBMS.md)
-
-[关系型数据库 - XMind](xmind_file/关系型数据库.xmind)
-
-
-
-#### 非关系型数据库
-
-[非关系型数据库](https://github.com/guang19/framework-learning/blob/dev/nosql-learning/NoSQL.md)
-
-[非关系型数据库 - XMind](xmind_file/非关系型数据库.xmind)
-
-
-
-#### AMQP
-
-[AMQP](https://github.com/guang19/framework-learning/blob/dev/amqp-learning/AMQP.md)
-
-[AMQP - XMind](xmind_file/AMQP.xmind)
 
 
 
@@ -78,7 +54,31 @@
 
 
 
-#### Spring框架
+#### 关系型数据库(持续更新)
+
+[关系型数据库](https://github.com/guang19/framework-learning/blob/dev/rdbms-learning/RDBMS.md)
+
+[关系型数据库 - XMind](xmind_file/关系型数据库.xmind)
+
+
+
+#### 非关系型数据库(持续更新)
+
+[非关系型数据库](https://github.com/guang19/framework-learning/blob/dev/nosql-learning/NoSQL.md)
+
+[非关系型数据库 - XMind](xmind_file/非关系型数据库.xmind)
+
+
+
+#### AMQP(持续更新)
+
+[AMQP](https://github.com/guang19/framework-learning/blob/dev/amqp-learning/AMQP.md)
+
+[AMQP - XMind](xmind_file/AMQP.xmind)
+
+
+
+#### Spring框架(持续更新)
 
 [Spring](https://github.com/guang19/framework-learning/blob/dev/spring-learning/SpringFramework.md)
 
@@ -90,7 +90,7 @@
 
 
 
-#### ORM
+#### ORM(持续更新)
 
 [ORM](https://github.com/guang19/framework-learning/blob/dev/orm-learning/ORM.md)
 
@@ -98,10 +98,14 @@
 
 
 
-#### Tomcat
+#### Tomcat(待补充)
 
 [Tomcat](https://github.com/guang19/framework-learning/blob/dev/tomcat9.0-source/Tomcat.md)
 
+
+#### Elasticsearch(更新中)
+
+[ElasticSearch](https://github.com/guang19/framework-learning/blob/dev/elasticsearch-learning/ElasticSearch.md)
 
 
 #### Zookeeper(待重构)
