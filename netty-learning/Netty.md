@@ -342,7 +342,6 @@ FileChannel.transferFrom/transferTo
 #include<sys/sendfile.h>
 
 ssize_t 
-
 sendfile(int out_fd,
         int in_fd,
         off_t *offset,
@@ -361,3 +360,27 @@ sendfile传输过程如下：
 它的拷贝次数与mmp一样，但是无需像mmp一样与用户进程共享内存了。
 
 
+--- 
+
+
+### ByteBuf API
+网络传输的基本单位是字节，在Java NIO中，JDK提供了Buffer接口，以及其相关的实现作为NIO操作
+数据的容器，如ByteBuffer等等。 而Netty为了解决Buffer原生接口的复杂操作提供了ByteBuf，
+相比于原生Buffer，ByteBuf更加灵活和易用。
+
+Netty的数据处理主要通过两个API提供：
+
+1. abstract class ByteBuf
+2. interface ByteBufHolder
+
+使用ByteBuf API能够给我们带来良好的编码体验，如
+
+- 在读和写这两种模式切换时，无需像ByteBuffer一样调用flip方法。
+
+- 容量可以动态增长，如StringBuilder之于String。
+
+- 支持方法的链式调用，如"a".append("b").append("c")这种形式。
+
+...
+
+ByteBuf还有很多好处，上面列举的只是一部分，其他优点就需要各位同学慢慢了解了。

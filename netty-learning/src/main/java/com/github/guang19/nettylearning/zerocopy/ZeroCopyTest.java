@@ -17,7 +17,8 @@ public class ZeroCopyTest
 {
     public static void main(String[] args) throws Exception
     {
-        mmap();
+//        mmap();
+//        sendFile();
     }
 
     /**
