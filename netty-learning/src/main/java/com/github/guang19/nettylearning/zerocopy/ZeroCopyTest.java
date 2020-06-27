@@ -1,10 +1,9 @@
 package com.github.guang19.nettylearning.zerocopy;
 
+
 import java.io.IOException;
-import java.nio.ByteBuffer;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
-import java.nio.channels.SocketChannel;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 

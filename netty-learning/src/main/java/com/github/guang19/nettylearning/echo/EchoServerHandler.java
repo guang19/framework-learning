@@ -24,6 +24,7 @@ public class EchoServerHandler extends ChannelInboundHandlerAdapter
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception
     {
         ByteBuf byteBuf = (ByteBuf)msg;
+        System.out.println(byteBuf.getClass());
         System.out.println("echo server received message : " + byteBuf.toString(StandardCharsets.UTF_8));
         ChannelFuture future = ctx.writeAndFlush(byteBuf);
         future.addListener(new ChannelFutureListener()
