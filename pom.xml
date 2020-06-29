@@ -19,7 +19,6 @@
     <modules>
         <module>orm-learning</module>
         <module>spring-learning</module>
-        <module>springmvc-learning</module>
         <module>amqp-learning</module>
         <module>zookeeper-learning</module>
         <module>jdk-jvm-juc</module>

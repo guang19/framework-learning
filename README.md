@@ -15,7 +15,34 @@
 
 #### Jdk&Jvm&Juc(持续更新)
 
-[Jdk&Jvm&Juc](https://github.com/guang19/framework-learning/blob/dev/jdk-jvm-juc/Jdk&Jvm&Juc.md)
+- [Java常见基础知识点](jdk-jvm-juc/Java常见基础知识点.md)
+ 
+  - [IO](jdk-jvm-juc/IO.md)
+ 
+  - [Java集合](jdk-jvm-juc/Java集合.md)
+
+  - [Java多线程](jdk-jvm-juc/Java多线程.md)
+
+  - [Java并发](jdk-jvm-juc/Java并发.md)
+ 
+  - [AQS](jdk-jvm-juc/AQS.md)
+ 
+  - [对象在内存中的布局](jdk-jvm-juc/对象在内存中的布局.md)
+
+  - [JVM](jdk-jvm-juc/JVM.md)
+
+  - [简单了解类文件结构](jdk-jvm-juc/简单了解类文件结构.md)
+ 
+  - [类的生命周期(类加载)](jdk-jvm-juc/类的生命周期.md)
+
+  - [JVM常量池](jdk-jvm-juc/JVM常量池.md)
+ 
+  - [GC](jdk-jvm-juc/GC.md) 
+ 
+  - [JVM调优相关内容](jdk-jvm-juc/JVM调优相关内容.md)
+
+  - [Jdk新特性](jdk-jvm-juc/Jdk新特性.md)
+
 
 [JDK&JVM&JUC - XMind](xmind_file/JDK&JVM&JUC.xmind)
 
@@ -23,13 +50,34 @@
 
 #### Linux(持续更新)
 
-[Linux](https://github.com/guang19/framework-learning/blob/dev/linux-learning/Linux.md)
+- [Linux简介](linux-learning/Linux简介.md)
+
+  - [操作系统的内核](linux-learning/操作系统的内核.md)
+
+  - [进程间通信](linux-learning/进程间通信.md)
+
+  - [Linux文件系统](linux-learning/Linux文件系统.md)
+
+  - [Linux用户权限](linux-learning/Linux用户权限.md)
+
+  - [Linux运行级别](linux-learning/Linux运行级别.md)
+
+  - [Shell](linux-learning/Shell.md)
+
+  - [Linux命令大全](linux-learning/Linux命令大全.md)
+
+  - [完全使用GNU/Linux学习](linux-learning/完全使用GNU_Linux学习.md)
 
 
 
 #### 数据结构与算法(持续更新)
 
-[数据结构与算法](https://github.com/guang19/framework-learning/blob/dev/datastructure-algorithm/DataStructure&Algorithm.md)
+- [数据结构与算法简介](datastructure-algorithm/数据结构与算法简介.md)
+  
+  - [数据结构](datastructure-algorithm/数据结构.md)
+  
+  - [算法](datastructure-algorithm/算法.md)
+
 
 推荐一个数据结构与算法的可视化网站，希望能够帮到正在学习数据结构与算法的同学: [数据结构与算法可视化](https://www.cs.usfca.edu/~galles/visualization/Algorithms.html)
 
@@ -37,26 +85,60 @@
 
 #### 设计模式
 
-[设计模式](https://github.com/guang19/framework-learning/blob/dev/design_pattern/DesignPattern.md)
+- [设计模式简介](design_pattern/设计模式简介.md)
 
+  - [七大原则](design_pattern/七大原则.md)
+ 
+  - [二十三种设计模式](design_pattern/二十三种设计模式.md)
 
 
 #### 计算机网络(持续更新)
 
-[计算机网络](https://github.com/guang19/framework-learning/blob/dev/computer_network/ComputerNetwork.md)
+- [OSI七层模型](computer_network/OSI七层模型.md)
+  
+  - [TCP/IP](computer_network/TCP_IP.md)
+  
+  - [HTTP](computer_network/HTTP.md)
+
 
 [计算机网络 - XMind](xmind_file/计算机网络.xmind)
 
 
 
 #### Netty(更新中)
-[Netty](https://github.com/guang19/framework-learning/blob/dev/netty-learning/Netty.md)
+
+- [Netty简介](netty-learning/Netty简介.md)
+  
+  - [Netty组件](netty-learning/Netty组件.md)
+
+  - [Transport传输](netty-learning/Transport传输.md)
+
+  - [ByteBuf](netty-learning/ByteBuf.md)
 
 
 
 #### 关系型数据库(持续更新)
 
-[关系型数据库](https://github.com/guang19/framework-learning/blob/dev/rdbms-learning/RDBMS.md)
+- [RDBMS简介](rdbms-learning/RDBMS简介.md)
+  
+  - [RDBMS常见知识点](rdbms-learning/RDBMS常见知识点.md)
+    
+  - [索引](rdbms-learning/索引.md)
+  
+  - [Mysql](rdbms-learning/Mysql简介.md)
+  
+    - [Mysql存储引擎](rdbms-learning/Mysql存储引擎.md)
+    
+    - [事务](rdbms-learning/事务.md)
+    
+    - [数据库锁](rdbms-learning/数据库锁.md)
+    
+    - [Mysql日志](rdbms-learning/Mysql日志.md)
+    
+    - [Mysql优化](rdbms-learning/Mysql优化.md)
+    
+    - [Mysql数据类型](rdbms-learning/Mysql数据类型.md)
+
 
 [关系型数据库 - XMind](xmind_file/关系型数据库.xmind)
 
@@ -64,7 +146,20 @@
 
 #### 非关系型数据库(持续更新)
 
-[非关系型数据库](https://github.com/guang19/framework-learning/blob/dev/nosql-learning/NoSQL.md)
+- [NoSQL简介](nosql-learning/NoSQL简介.md)
+ 
+  - [Redis简介](nosql-learning/Redis简介.md)
+   
+    - [Redis常见知识点](nosql-learning/Redis常见知识点.md)
+   
+    - [Redis数据结构](nosql-learning/Redis数据结构.md)
+   
+    - [Redis事务](nosql-learning/Redis事务.md)
+   
+    - [Redis缓存淘汰策略](nosql-learning/Redis缓存淘汰策略.md) 
+
+    - [Redis持久化策略](nosql-learning/Redis持久化策略.md)
+
 
 [非关系型数据库 - XMind](xmind_file/非关系型数据库.xmind)
 
@@ -72,7 +167,10 @@
 
 #### AMQP(持续更新)
 
-[AMQP](https://github.com/guang19/framework-learning/blob/dev/amqp-learning/AMQP.md)
+- [AMQP简介](amqp-learning/AMQP简介.md)
+  
+    - [RabbitMQ常见知识点](amqp-learning/RabbitMQ常见知识点.md)
+
 
 [AMQP - XMind](xmind_file/AMQP.xmind)
 
@@ -80,11 +178,14 @@
 
 #### Spring框架(持续更新)
 
-[Spring](https://github.com/guang19/framework-learning/blob/dev/spring-learning/SpringFramework.md)
+- [SpringFramework常见知识点](spring-learning/SpringFramework常见知识点.md)
+  
+- [SpringMVC常见知识点](spring-learning/SpringMVC常见知识点.md)
+  
+  - [SpringMVC源码分析](spring-learning/SpringMVC源码分析.md)
+  
+- [SpringBoot常见知识点](spring-learning/SpringBoot常见知识点.md)
 
-[SpringMVC源码分析](https://github.com/guang19/framework-learning/blob/dev/springmvc-learning/SpringMVC.md)
-
-[SpringBoot](https://github.com/guang19/framework-learning/blob/dev/springmvc-learning/SpringBoot.md)
 
 [Spring - XMind](xmind_file/Spring.xmind)
 
@@ -92,7 +193,14 @@
 
 #### ORM(持续更新)
 
-[ORM](https://github.com/guang19/framework-learning/blob/dev/orm-learning/ORM.md)
+- [ORM简介](orm-learning/ORM简介.md)
+  
+- [Mybatis简介](orm-learning/Mybatis简介.md)
+  
+  - [Mybatis常见知识点](orm-learning/Mybatis常见知识点.md)
+   
+  - [Mybatis源码分析](orm-learning/Mybatis源码分析.md)
+
 
 [ORM - XMind](xmind_file/ORM.xmind)
 
@@ -100,17 +208,17 @@
 
 #### Tomcat(待补充)
 
-[Tomcat](https://github.com/guang19/framework-learning/blob/dev/tomcat9.0-source/Tomcat.md)
+[Tomcat](tomcat9.0-source/Tomcat.md)
 
 
 #### Elasticsearch(更新中)
 
-[ElasticSearch](https://github.com/guang19/framework-learning/blob/dev/elasticsearch-learning/ElasticSearch.md)
+[ElasticSearch](elasticsearch-learning/ElasticSearch.md)
 
 
 #### Zookeeper(待重构)
 
-[Zookeeper](https://github.com/guang19/framework-learning/blob/dev/zookeeper-learning/Zookeeper.md)
+[Zookeeper](zookeeper-learning/Zookeeper.md)
 
 
 
@@ -139,11 +247,17 @@
 
 - xmind_file: 此目录存放了每个模块对应的xmind文件。
 
-- 本项目的每一个模块就是一块知识内容,每个模块下都有一个md文件，如:
+- 本项目的每一个模块就是一块知识内容,每个模块下都有对应知识点的md文件，如:
 
-  - amqp-learning
-  
-    - AMQP.md: AMQP.md 就是对AMQP知识的总结。 **各位同学如果做补充的话，也是对md文件做出修改。**
+  - jdk-jvm-juc
+    
+    ...
+    
+    - Java常见基础知识点.md
+    
+    ...
+    
+**各位同学如果要做补充和纠错，可以选择在对应知识点的模块下新建md或者修改原来的md。**    
 
 其他的目录的文件,如:gitbook_doc/* 由我亲自修改，并不需要改动。
 
