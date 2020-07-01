@@ -1,4 +1,12 @@
-# ByteBuf-Netty的数据容器
+<!-- TOC -->
+         
+  * [ByteBuf--Netty的数据容器](#ByteBuf--Netty的数据容器)
+     * [ByteBuf实现](#ByteBuf实现)
+     * [ByteBuf使用模式](#ByteBuf使用模式)
+
+<!--  TOC -->
+
+# ByteBuf--Netty的数据容器
 
 网络传输的基本单位是字节，在Java NIO中，JDK提供了Buffer接口，以及其相关的实现作为NIO操作
 数据的容器，如ByteBuffer等等。 而Netty为了解决Buffer原生接口的复杂操作提供了ByteBuf，
@@ -63,8 +71,9 @@ ByteBuf有多种使用模式，我们可以根据需求构建不同使用模式�
 - 复合缓冲区（CompositeByteBuf）： CompositeByteBuf为多个ByteBuf提供了一个聚合视图，
 我们可以根据需要，向CompositeByteBuf中添加或删除ByteBuf实例，所以CompositeByteBuf中可能
 同时包含直接缓冲区模式和堆缓冲区模式的ByteBuf。对于CompositeByteBuf的hasArray方法，
-如果CompositeByteBuf中只有一个ByteBuf实例，那么CompositeByteBuf的hasArray方法
-将直接返回这唯一一个ByteBuf的hasArray方法的结果，否则返回false。
+**如果CompositeByteBuf中只有一个ByteBuf实例，那么CompositeByteBuf的hasArray方法
+将直接返回这唯一一个ByteBuf的hasArray方法的结果，否则返回false。**
 除此之外，CompositeByteBuf还提供了许多附加的功能，可以查看Netty的文档学习。
 
 ![复合缓冲区模式](../img/netty/复合缓冲区模式.png)
+
