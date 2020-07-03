@@ -77,3 +77,67 @@ ByteBuf有多种使用模式，我们可以根据需求构建不同使用模式�
 
 ![复合缓冲区模式](../img/netty/复合缓冲区模式.png)
 
+
+### 字节级别的操作
+除了普通的读写操作，ByteBuf还提供了修改数据的方法。
+
+
+#### 索引访问
+如数组的索引访问一样，ByteBuf的索引访问也是从零开始的，第一个字节的索引是0,最后一个字节的索引总是
+capacity - 1：
+
+![随机访问索引](../img/netty/随机访问索引.png)
+
+注意：使用getByte方式访问，既不会改变readerIndex，也不会改变writerIndex。
+
+JDK的ByteBuffer只有一个索引position，所以当ByteBuffer在读和写模式之间切换时，需要使用flip方法。
+而ByteBuf同时具有读索引和写索引，则无需切换模式，在ByteBuf内部，其索引满足：
+
+````text
+0 <= readerIndex <= writerIndex <= capacity
+````
+
+这样的规律，当使用readerIndex读取字节，或使用writerIndex写入字节时，ByteBuf内部的分段大致如下：
+
+![ByteBuf内部分段](../img/netty/ByteBuf内部分段.png)
+
+上图介绍了在ByteBuf内部大致有3个分段，接下来我们就详细的介绍下这三个分段。
+
+
+#### 可丢弃字节
+上图中，当readerIndex读取一部分字节后，之前读过的字节就属于已读字节，可以被丢弃了，通过调用
+ByteBuf的discardReadBytes方法我们可以丢弃这个分段，丢弃这个分段实际上是删除这个分段的已读字节，
+然后回收这部分空间：
+
+![DiscardReadBytes回收后ByteBuf内部分段](../img/netty/DiscardReadBytes回收后ByteBuf内部分段.png)
+
+
+#### 可读字节
+ByteBuf的可读字节分段存储了尚未读取的字节，我们可以使用readBytes等方法来读取这部分数据，如果我们读取
+的范围超过了可读字节分段，那么ByteBuf会抛出IndexOutOfBoundsException异常，所以在读取数据之前，我们
+需要使用isReadable方法判断是否仍然有可读字节分段。
+
+
+#### 可写字节
+可写字节分段即没有被写入数据的区域，我们可以使用writeBytes等方法向可写字节分段写入数据，如果我们写入
+的字节超过了ByteBuf的容量，那么ByteBuf也会抛出IndexOutOfBoundsException异常。
+
+
+#### 索引管理
+我们可以通过markReaderIndex，markWriterIndex方法来标记当前readerIndex和writerIndex的位置，
+然后使用resetReaderIndex，resetWriterIndex方法来将readerIndex和writerIndex重置为之前标记过的
+位置。
+
+我们还可以使用clear方法来将readerIndex和writerIndex重置为0，但是clear方法并不会清空ByteBuf的
+内容，下面clear方法的实现：
+
+![ByteBuf的clear方法](../img/netty/ByteBuf的clear方法.png)
+
+其过程是这样的：
+
+![ByteBuf的clear方法调用前](../img/netty/ByteBuf的clear方法调用前.png)
+
+![ByteBuf的clear方法调用后](../img/netty/ByteBuf的clear方法调用后.png)
+
+由于调用clear后，数据并没有被清空，但整个ByteBuf仍然是可写的，这比discardReadBytes轻量的多，
+DiscardReadBytes还要回收已读字节空间。
