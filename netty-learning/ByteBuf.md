@@ -141,3 +141,27 @@ ByteBuf的可读字节分段存储了尚未读取的字节，我们可以使用r
 
 由于调用clear后，数据并没有被清空，但整个ByteBuf仍然是可写的，这比discardReadBytes轻量的多，
 DiscardReadBytes还要回收已读字节空间。
+
+
+#### 查找操作
+在ByteBuf中，有多种可以确定值的索引的方法，最简单的方法是使用ByteBuf的indexOf方法。
+较为复杂的查找可以通过ByteBuf的forEachByte方法，forEachByte方法所需的参数是ByteProcessor，
+但我们无需去实现ByteProcessor，因为ByteProcessor已经为我们定义好了两个易用的实现。
+
+
+#### 衍生缓冲区
+衍生缓冲区是专门展示ByteBuf内部数据的视图，这种视图常通过以下方法创建：
+
+- duplicate
+
+- slice
+
+- order
+
+- readSlice
+
+这些方法都将以源ByteBuf创建一个新的ByteBuf视图，所以源ByteBuf内部的索引和数据都与视图一样，
+但这也意味着修改了视图的内容，也会修改源ByteBuf的内容。如果我们需要一个真实的ByteBuf的副本，
+我们应该使用copy方法来创建，copy方法创建的副本拥有独立的内存，不会影响到源ByteBuf。
+
+
