@@ -37,7 +37,7 @@
 <url> <loc>https://guang19.github.io/gitbook_doc/netty-learning/Netty简介.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://guang19.github.io/gitbook_doc/netty-learning/Netty组件.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://guang19.github.io/gitbook_doc/netty-learning/Transport传输.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://guang19.github.io/gitbook_doc/netty-learning/ByteBuf.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://guang19.github.io/gitbook_doc/netty-learning/ByteBuf容器.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://guang19.github.io/gitbook_doc/rdbms-learning/RDBMS简介.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://guang19.github.io/gitbook_doc/rdbms-learning/RDBMS常见知识点.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://guang19.github.io/gitbook_doc/rdbms-learning/索引.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
