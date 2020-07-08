@@ -1,0 +1,4 @@
+
+# ChannelHandler和ChannelPipeline
+在Netty组件中我们已经介绍了ChannelHandler和ChannelPipeline的关系，这里我们将继续深入了解这两个核心
+组件的细节。
