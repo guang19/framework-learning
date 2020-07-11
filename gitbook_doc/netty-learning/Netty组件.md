@@ -29,11 +29,10 @@ ChannelHandler，ChannelPipeline，编码器和解码器等核心组件。
 #### Bootstrap/ServerBootstrap
 Bootstrap和ServerBootstrap是Netty应用程序的引导类，它提供了用于应用程序网络层的配置。
 一般的Netty应用程序总是分为客户端和服务端，所以引导分为客户端引导Bootstrap和服务端引导ServerBootstrap，
-ServerBootstrap作为服务端引导，它将服务端进程绑定到制定的端口，而Bootstrap则是将客户端连接到
+ServerBootstrap作为服务端引导，它将服务端进程绑定到指定的端口，而Bootstrap则是将客户端连接到
 指定的远程服务器。
 Bootstrap和ServerBootstrap除了职责不同，它们所需的EventLoopGroup的数量也不同，
-Bootstrap引导客户端只需要一个EventLoopGroup，而ServerBootstrap则需要两个EventLoopGroup
-(2个EventLoopGroup可以是同一个实例)，至于原因嘛，后续再讲 * _ * 。
+Bootstrap引导客户端只需要一个EventLoopGroup，而ServerBootstrap则需要两个EventLoopGroup。
     
 ![Bootstrap引导类功能](../../img/netty/Bootstrap引导类功能.png)
 

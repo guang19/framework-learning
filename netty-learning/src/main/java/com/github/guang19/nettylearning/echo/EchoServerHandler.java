@@ -27,19 +27,15 @@ public class EchoServerHandler extends ChannelInboundHandlerAdapter
         System.out.println(byteBuf.getClass());
         System.out.println("echo server received message : " + byteBuf.toString(StandardCharsets.UTF_8));
         ChannelFuture future = ctx.writeAndFlush(byteBuf);
-        future.addListener(new ChannelFutureListener()
+        future.addListener((ChannelFutureListener) future1 ->
         {
-            @Override
-            public void operationComplete(ChannelFuture future) throws Exception
+            if (future1.isSuccess())
             {
-                if (future.isSuccess())
-                {
-                    System.out.println("echo server write message success");
-                }
-                else
-                {
-                    System.out.println("echo server write message failed");
-                }
+                System.out.println("echo server write message success");
+            }
+            else
+            {
+                System.out.println("echo server write message failed");
             }
         });
     }
