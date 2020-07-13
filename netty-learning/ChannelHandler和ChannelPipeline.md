@@ -80,3 +80,23 @@ ChannelHandler来完成对ByteBuf的释放，就像下面这样：**
 **ChannelOutboundHandler的大部分方法都需要一个ChannelPromise类型的参数，ChannelPromise是
 ChannelFuture的一个子接口，这样你就可以明白ChannelPromise实际的作用和ChannelFuture是一样的，
 没错，ChannelPromise正是用于在ChannelOutboundHandler的操作完成后执行的回调。**
+
+
+#### 资源管理
+当我们使用ChannelInboundHandler的read或ChannelOutboundHandler的write操作时，我们都需要保证
+没有任何资源泄露并尽可能的减少资源耗费。之前已经介绍过了ReferenceCount引用计数用于处理池化的
+ByteBuf资源。 为了帮助我们诊断潜在的的资源泄露问题，Netty提供了ResourceLeakDetector，它将
+对我们的Netty程序的已分配的缓冲区做大约1%的采样用以检测内存泄露，Netty目前定义了4种泄露检测级别，如下：
+
+|   级别   |      描述       |
+|   :---    |   :---        |
+| Disabled  |   禁用泄露检测。我们应当在详细测试之后才应该使用此级别。  |
+| SIMPLE    |   使用1%的默认采样率检测并报告任何发现的泄露，这是默认的检测级别。   |
+| ADVANCED  |   使用默认的采样率，报告任何发现的泄露以及对应的消息的位置。   |
+| PARANOID  |   类似于ADVANCED，但是每次都会对消息的访问进行采样，此级别可能会对程序的性能造成影响，应该用于调试阶段。   |
+
+我们可以通过JVM启动参数来设置leakDetector的级别：
+
+````text
+java -Dio.netty.leakDetectionLevel=ADVANCED
+````
