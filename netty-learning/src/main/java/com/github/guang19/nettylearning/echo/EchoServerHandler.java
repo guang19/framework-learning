@@ -8,6 +8,7 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 
 import java.nio.charset.StandardCharsets;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author guang19
@@ -23,13 +24,39 @@ public class EchoServerHandler extends ChannelInboundHandlerAdapter
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception
     {
+
+
         ByteBuf byteBuf = (ByteBuf)msg;
-        System.out.println(byteBuf.getClass());
         System.out.println("echo server received message : " + byteBuf.toString(StandardCharsets.UTF_8));
-        ChannelFuture future = ctx.writeAndFlush(byteBuf);
-        future.addListener((ChannelFutureListener) future1 ->
+
+//        Thread.sleep(3000);
+//        ctx.writeAndFlush(Unpooled.copiedBuffer("hello client1 " , StandardCharsets.UTF_8));
+//        ctx.channel().eventLoop().execute(()->
+//        {
+//            try
+//            {
+//                TimeUnit.SECONDS.sleep(3);
+//                ctx.writeAndFlush(Unpooled.copiedBuffer("hello client --- channelRead1" , StandardCharsets.UTF_8));
+//            }
+//            catch (Exception e){}
+//        });
+
+
+        ctx.channel().eventLoop().schedule(()->
         {
-            if (future1.isSuccess())
+            try
+            {
+                ctx.writeAndFlush(Unpooled.copiedBuffer("hello client --- channelRead2" , StandardCharsets.UTF_8));
+            }
+            catch (Exception e){}
+        },5,TimeUnit.SECONDS);
+
+        System.out.println("go on");
+
+        ChannelFuture future = ctx.writeAndFlush(byteBuf);
+        future.addListener( futureListener ->
+        {
+            if (futureListener.isSuccess())
             {
                 System.out.println("echo server write message success");
             }
@@ -46,7 +73,8 @@ public class EchoServerHandler extends ChannelInboundHandlerAdapter
     @Override
     public void channelReadComplete(ChannelHandlerContext ctx) throws Exception
     {
-        ctx.writeAndFlush(Unpooled.EMPTY_BUFFER).addListener(ChannelFutureListener.CLOSE);
+        ctx.writeAndFlush(Unpooled.copiedBuffer("hello client --- channelReadComplete" , StandardCharsets.UTF_8));
+//        ctx.writeAndFlush(Unpooled.EMPTY_BUFFER).addListener(ChannelFutureListener.CLOSE);
     }
 
     /**

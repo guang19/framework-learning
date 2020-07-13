@@ -28,9 +28,9 @@ public class EchoClientHandler extends SimpleChannelInboundHandler<ByteBuf>
      * 从服务器受到数据后调用此方法
      */
     @Override
-    protected void channelRead0(ChannelHandlerContext channelHandlerContext, ByteBuf byteBuf) throws Exception
+    protected void channelRead0(ChannelHandlerContext ctx, ByteBuf msg) throws Exception
     {
-        System.out.println("echo client received message : " + byteBuf.toString(StandardCharsets.UTF_8));
+        System.out.println("echo client received message : " + msg.toString(StandardCharsets.UTF_8));
     }
 
     /**

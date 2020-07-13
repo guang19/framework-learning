@@ -51,8 +51,8 @@ EventLoop 与 EventLoopGroup，Channel的关系模型如下：
 ![EventLoop模型](../img/netty/EventLoop模型.png)
 
 一个EventLoopGroup通常包含一个或多个EventLoop，一个EventLoop可以处理多个Channel的IO事件，
-一个Channel也只会被注册到一个EventLoop上。在EventLoop的生命周期中，它只会和一个Thread线程绑定，这个
-EventLoop处理的IO事件都将在与它绑定的Thread内被处理。
+一个Channel也只会被注册到一个EventLoop上。**在EventLoop的生命周期中，它只会和一个Thread线程绑定，这个
+EventLoop处理的IO事件都将在与它绑定的Thread内被处理。**
 
 
 #### ChannelFuture
