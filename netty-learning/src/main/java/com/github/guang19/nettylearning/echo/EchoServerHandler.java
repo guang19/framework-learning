@@ -25,9 +25,12 @@ public class EchoServerHandler extends ChannelInboundHandlerAdapter
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception
     {
 
+        System.out.println("handler1");
 
         ByteBuf byteBuf = (ByteBuf)msg;
-        System.out.println("echo server received message : " + byteBuf.toString(StandardCharsets.UTF_8));
+        System.out.println("echo server received message" + byteBuf.readBytes(byteBuf.readableBytes()).toString(StandardCharsets.UTF_8));
+        byteBuf.discardReadBytes();
+//        System.out.println("echo server received message : " + byteBuf.toString(StandardCharsets.UTF_8));
 
 //        Thread.sleep(3000);
 //        ctx.writeAndFlush(Unpooled.copiedBuffer("hello client1 " , StandardCharsets.UTF_8));
@@ -42,14 +45,14 @@ public class EchoServerHandler extends ChannelInboundHandlerAdapter
 //        });
 
 
-        ctx.channel().eventLoop().schedule(()->
-        {
-            try
-            {
-                ctx.writeAndFlush(Unpooled.copiedBuffer("hello client --- channelRead2" , StandardCharsets.UTF_8));
-            }
-            catch (Exception e){}
-        },5,TimeUnit.SECONDS);
+//        ctx.channel().eventLoop().schedule(()->
+//        {
+//            try
+//            {
+//                ctx.writeAndFlush(Unpooled.copiedBuffer("hello client --- channelRead2" , StandardCharsets.UTF_8));
+//            }
+//            catch (Exception e){}
+//        },5,TimeUnit.SECONDS);
 
         System.out.println("go on");
 
@@ -73,7 +76,7 @@ public class EchoServerHandler extends ChannelInboundHandlerAdapter
     @Override
     public void channelReadComplete(ChannelHandlerContext ctx) throws Exception
     {
-        ctx.writeAndFlush(Unpooled.copiedBuffer("hello client --- channelReadComplete" , StandardCharsets.UTF_8));
+//        ctx.writeAndFlush(Unpooled.copiedBuffer("hello client --- channelReadComplete" , StandardCharsets.UTF_8));
 //        ctx.writeAndFlush(Unpooled.EMPTY_BUFFER).addListener(ChannelFutureListener.CLOSE);
     }
 

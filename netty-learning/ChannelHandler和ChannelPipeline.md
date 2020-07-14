@@ -72,7 +72,7 @@ ChannelHandler来完成对ByteBuf的释放，就像下面这样：**
 |      connect    |    当Channel连接到远程节点时会调用此方法     |
 |      disconnect |    当Channel和远程节点断开时会调用此方法     |
 |      close      |    当关闭Channel时会调用此方法              |
-|      dereigster |    当Channel从它的EventLoop注销时会调用此方法   |
+|      deregister |    当Channel从它的EventLoop注销时会调用此方法   |
 |      read       |    当从Channel读取数据时会调用此方法         |
 |      flush      |    当Channel将数据冲刷到远程节点时调用此方法  |
 |      write      |    当通过Channel将数据写入到远程节点时调用此方法   |
@@ -100,3 +100,75 @@ ByteBuf资源。 为了帮助我们诊断潜在的的资源泄露问题，Netty�
 ````text
 java -Dio.netty.leakDetectionLevel=ADVANCED
 ````
+
+
+### ChannelPipeline
+在Netty组件中也介绍过了，ChannelPipeline是一系列ChannelHandler组成的拦截链，每一个新创建的Channel
+都会被分配一个新的ChannelPipeline，Channel和ChannelPipeline之间的关联是持久的，无需我们干涉它们
+之间的关系。
+
+
+#### ChannelPipeline相对论
+Netty总是将ChannelPipeline的入站口作为头部，出站口作为尾部，当我们通过ChannelPipeline的add方法
+将入站处理器和出站处理器混合添加到ChannelPipeline后，ChannelHandler的顺序如下：
+
+![ChannelPipeline的ChannelHandler顺序](../img/netty/ChannelPipeline的ChannelHandler顺序.png)
+
+一个入站事件将从ChannelPipeline的头部（左侧）向尾部（右侧）开始传播，出站事件的传播则是与入站的传播方向
+相反。当ChannelPipeline在ChannelHandler之间传播事件的时候，它会判断下一个ChannelHandler的类型
+是否与当前ChannelHandler的类型相同，如果相同则说明它们是一个方向的事件，
+如果不同则跳过该ChannelHandler并前进到下一个ChannelHandler，直到它找到相同类型的ChannelHandler。
+
+
+#### 修改ChannelPipeline
+ChannelPipeline可以通过添加，删除和修改ChannelHandler来修改它自身的布局，这是它最基本的能力，
+一下列举了ChannelPipeline的一些修改方法：
+
+|       方法          |           描述           |
+|       addXX        |     将指定的ChannelHandler添加到ChannelPipeline中   |
+|       remove       |     将指定的ChannelHandler从ChannelPipeline中移除   |
+|       replace      |     将ChannelPipeline中指定的ChannelHandler替换成另一个ChannelHandler  |
+
+
+#### ChannelHandler的执行和阻塞
+通常ChannelPipeline中的每个ChannelHandler都是通过它（ChannelPipeline）的EventLoop线程来处理
+传递给他的数据的，所以我们不能去阻塞这个线程，否则会对整体的IO操作产生负面影响。 但有时候不得已
+需要使用阻塞的API来完成逻辑处理，对于这种情况，ChannelPipeline的某些方法支持接受一个EventLoopGroup
+类型的参数，我们可以通过自定义EventLoopGroup的方式，使ChannelHandler在我们的EventLoopGroup内处理数据。
+这样一来，就可以避免阻塞线程的影响了。
+
+
+#### 触发事件
+ChannelPipeline的API不仅有对ChannelHandler的增删改操作，还有对入站和出站操作的附加方法，如下：
+
+ChannelPipeline的入站方法：
+
+|       方法      |           描述           |
+|   :---         |          :---            |
+|   fireChannelRegistered  |    调用ChannelPipeline中下一个ChannelInboundHandler的channelRegistered方法 |
+|   fireChannelUnregistered |   调用ChannelPipeline中下一个ChannelInboundHandler的channelUnregistered方法 |
+|   fireChannelActive       |   调用ChannelPipeline中下一个ChannelInboundHandler的channelActive方法 |
+|   fireChannelInactive     |   调用ChannelPipeline中下一个ChannelInboundHandler的channelInactive方法  |
+|   fireExceptionCaught     |   调用ChannelPipeline中下一个ChannelInboundHandler的exceptionCaught方法  |
+|   fireUserEventTriggered  |   调用ChannelPipeline中下一个ChannelInboundHandler的userEventTriggered方法 |
+|   fireChannelRead         |   调用ChannelPipeline中下一个ChannelInboundHandler的channelRead方法        |
+|   fireChannelReadComplete |   调用ChannelPipeline中下一个ChannelInboundHandler的channelReadComplete方法    |
+|   fireChannelWritabilityChanged | 调用ChannelPipeline中下一个ChannelInboundHandler的channelWritabilityChanged方法  |
+
+
+ChannelPipeline的出站方法：
+
+|           方法           |             描述             |
+|           :---           |            :---             |
+|       bind               |   调用ChannelPipeline中下一个ChannelOutboundHandler的bind方法，将Channel与本地地址绑定 |
+|       connect            |   调用ChannelPipeline中下一个ChannelOutboundHandler的connect方法，将Channel连接到远程节点    |
+|       disconnect         |   调用ChannelPipeline中下一个ChannelOutboundHandler的disconnect方法，将Channel与远程连接断开 |
+|       close              |   调用ChannelPipeline中下一个ChannelOutboundHandler的close方法，将Channel关闭   |
+|       deregister         |   调用ChannelPipeline中下一个ChannelOutboundHandler的deregister方法，将Channel从其对应的EventLoop注销   |   
+|       flush              |   调用ChannelPipeline中下一个ChannelOutboundHandler的flush方法，将Channel的数据冲刷到远程节点   |
+|       write              |   调用ChannelPipeline中下一个ChannelOutboundHandler的write方法，将数据写入Channel     |
+|       writeAndFlush      |   先调用write方法，然后调用flush方法，将数据写入并刷回远程节点          |
+|       read               |   调用ChannelPipeline中下一个ChannelOutboundHandler的raed方法，从Channel中读取数据 |
+
+
+
