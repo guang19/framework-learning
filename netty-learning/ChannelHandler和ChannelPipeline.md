@@ -1,3 +1,22 @@
+<!--TOC-->
+
+   * [ChannelHandler和ChannelPipeline](#channelhandler和channelpipeline)
+      * [ChannelHandler家族](#channelhandler家族)
+         * [Channel的生命周期](#channel的生命周期)
+         * [ChannelHandler生命周期](#channelhandler生命周期)
+         * [ChannelInboundHandler接口](#channelinboundhandler接口)
+         * [ChannelOutboundHandler接口](#channeloutboundhandler接口)
+         * [资源管理](#资源管理)
+      * [ChannelPipeline](#channelpipeline)
+         * [ChannelPipeline相对论](#channelpipeline相对论)
+         * [修改ChannelPipeline](#修改channelpipeline)
+         * [ChannelHandler的执行和阻塞](#channelhandler的执行和阻塞)
+         * [触发事件](#触发事件)
+            
+<!-- /TOC-->
+
+
+
 
 # ChannelHandler和ChannelPipeline
 在Netty组件中我们已经介绍了ChannelHandler和ChannelPipeline的关系，这里我们将继续深入了解这两个核心
