@@ -8,51 +8,54 @@ import java.io.Serializable;
  * @Date :      2019/12/22
  */
 public class Person implements Serializable {
+    private static final long serialVersionUID = -2098539486101139093L;
 
     //序列化ID
-    private static final long serialVersionUID = 336571784061779072L;
 
     private Long pId;
 
-    private String pName;
+    private String name;
 
     private Integer age;
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
 
-    public Long getpId() {
+    public Long getpId()
+    {
         return pId;
     }
 
-    public void setpId(Long pId) {
+    public void setpId(Long pId)
+    {
         this.pId = pId;
     }
 
-    public String getpName() {
-        return pName;
+    public String getName()
+    {
+        return name;
     }
 
-    public void setpName(String pName) {
-        this.pName = pName;
+    public void setName(String name)
+    {
+        this.name = name;
     }
 
-    public Integer getAge() {
+    public Integer getAge()
+    {
         return age;
     }
 
-    public void setAge(Integer age) {
+    public void setAge(Integer age)
+    {
         this.age = age;
     }
 
-  @Override
-  public String toString()
-  {
-    return "Person{" +
-      "pId=" + pId +
-      ", pName='" + pName + '\'' +
-      ", age=" + age +
-      '}';
-  }
+    @Override
+    public String toString()
+    {
+        return "Person{" +
+                "pId=" + pId +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                '}';
+    }
 }

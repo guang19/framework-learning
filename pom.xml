@@ -38,6 +38,7 @@
         <project.version>1.0.0</project.version>
         <mybatis.version>3.5.3</mybatis.version>
         <mysql.version>8.0.18</mysql.version>
+        <pgsql.version>42.2.14</pgsql.version>
         <spring.version>5.2.2.RELEASE</spring.version>
         <tomcat.version>9.0.30</tomcat.version>
         <dubbo-starter.version>2.7.3</dubbo-starter.version>
@@ -73,6 +74,12 @@
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
                 <version>${mysql.version}</version>
+            </dependency>
+            <!--postgresql-->
+            <dependency>
+                <groupId>org.postgresql</groupId>
+                <artifactId>postgresql</artifactId>
+                <version>${pgsql.version}</version>
             </dependency>
             <!-- dubbo -->
             <dependency>

@@ -12,4 +12,6 @@ import org.apache.ibatis.annotations.Param;
 public interface PersonMapper {
 
     public Person selectPersonById(@Param("pId") Long pId);
+
+    public int updateNameById(@Param("name")String name,@Param("pId")Long pId);
 }

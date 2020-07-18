@@ -1,5 +1,6 @@
 package com.github.guang19.jdk8;
 
+import java.awt.desktop.SystemSleepEvent;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 import java.util.Optional;
@@ -11,11 +12,14 @@ import java.util.Optional;
  */
 public class OptionalTest
 {
-    public static void main(String[] args)
+
+    public static void main(String[] args) throws Exception
     {
 //        OptionalInt optionalInt = OptionalInt.of(Integer.valueOf(10));
 //        optionalInt.ifPresent(System.out::print);
 //        Optional<Integer> optional = Optional.ofNullable(Integer.valueOf(10));
 //        System.out.println(optional.orElse(5));
     }
+
 }
+
