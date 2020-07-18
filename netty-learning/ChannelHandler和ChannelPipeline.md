@@ -1,21 +1,8 @@
 <!--TOC-->
 
-   * [ChannelHandler和ChannelPipeline](#channelhandler和channelpipeline)
-      * [ChannelHandler家族](#channelhandler家族)
-         * [Channel的生命周期](#channel的生命周期)
-         * [ChannelHandler生命周期](#channelhandler生命周期)
-         * [ChannelInboundHandler接口](#channelinboundhandler接口)
-         * [ChannelOutboundHandler接口](#channeloutboundhandler接口)
-         * [资源管理](#资源管理)
-      * [ChannelPipeline](#channelpipeline)
-         * [ChannelPipeline相对论](#channelpipeline相对论)
-         * [修改ChannelPipeline](#修改channelpipeline)
-         * [ChannelHandler的执行和阻塞](#channelhandler的执行和阻塞)
-         * [触发事件](#触发事件)
+
             
 <!-- /TOC-->
-
-
 
 
 # ChannelHandler和ChannelPipeline
@@ -187,7 +174,82 @@ ChannelPipeline的出站方法：
 |       flush              |   调用ChannelPipeline中下一个ChannelOutboundHandler的flush方法，将Channel的数据冲刷到远程节点   |
 |       write              |   调用ChannelPipeline中下一个ChannelOutboundHandler的write方法，将数据写入Channel     |
 |       writeAndFlush      |   先调用write方法，然后调用flush方法，将数据写入并刷回远程节点          |
-|       read               |   调用ChannelPipeline中下一个ChannelOutboundHandler的raed方法，从Channel中读取数据 |
+|       read               |   调用ChannelPipeline中下一个ChannelOutboundHandler的read方法，从Channel中读取数据 |
+
+
+### ChannelHandlerContext
+ChannelHandlerContext代表的是ChannelHandler和ChannelPipeline之间的关联，每当有ChannelHandler
+添加到ChannelPipeline中时，都会创建ChannelHandlerContext。ChannelHandlerContext的主要功能是
+管理它所关联的ChannelHandler与同一个ChannelPipeline中的其他ChannelHandler之间的交互：
+
+![ChannelHandlerContext和ChannelHandler之间的关系](../img/netty/ChannelHandlerContext和ChannelHandler之间的关系.png)
+
+ChannelHandlerContext的大部分方法和Channel和ChannelPipeline相似，但有一个重要的区别是：
+调用Channel或ChannelPipeline的方法，如：
+
+````text
+//使用Chanel write
+Channel channel = ctx.channel();
+ctx.write(xxx);
+
+//使用Pipeline write
+ChannelPipeline pipeline = ctx.pipeline();
+pipeline.write(xxx);
+````
+
+，其影响是会沿着整个ChannelPipeline进行传播：
+
+![通过Channel或ChannelPipeline进行的事件传播](../img/netty/通过Channel或ChannelPipeline进行的事件传播.png)
+
+
+而调用ChannelHandlerContext的方法，如：
+
+````text
+//使用ChannelContext write
+ctx.write(xxx);
+````
+则是从其关联的ChannelHandler开始，并且只会传播给位于该ChannelPipeline中的下一个能够处理该事件的
+ChannelHandler：
+
+![通过ChannelHandlerContext进行的事件传播](../img/netty/通过ChannelHandlerContext进行的事件传播.png)
 
 
 
+下面是一些比较重要的方法，有些和ChannelPipeline功能相似的方法就不再罗列了，各位同学可以直接查看原API。
+
+|   方法     |   描述   |
+|  :---     |   :---   |
+|  alloc    |   获取与当前ChannelHandlerContext所关联的Channel的ByteBufAllocator  |
+|  handler  |   返回与当前ChannelHandlerContext绑定的ChannelHandler   |
+|  pipeline |   返回与当前ChannelHandlerContext关联的ChannelPipeline               |
+|  ...      |   ...               |
+
+
+#### ChannelHandlerContext的高级用法
+有时候我们需要在多个ChannelPipeline之间共享一个ChannelHandler，以此实现跨管道处理（获取）数据
+的功能，此时的ChannelHandler属于多个ChannelPipeline，且会绑定到不同的ChannelHandlerContext上。
+在多个ChannelPipeline之间共享ChannelHandler我们需要使用 **@Sharable注解**，这代表着它是一个共享的
+ChannelHandler，如果一个ChannelHandler没有使用@Sharable注解却被用于多个ChannelPipeline，那么
+将会触发异常。 还有非常重要的一点：**一个ChannelHandler被用于多个ChannelPipeline肯定涉及到多线程
+数据共享的问题，因此我们需要保证ChannelHandler的方法同步。** 下面是一个很好的例子：
+
+`````java
+@Sharable
+public class UnsafeSharableChannelHandler extends ChannelInboundHandlerAdapter
+{
+    private int count;
+
+    @Override
+    public void channelRead(ChannelHandlerContext ctx,Object msg)
+    {
+        count++;
+        System.out.println("count : " + count);
+        ctx.fireChannelRead(msg);
+    }
+}
+`````
+上面这个ChannelHandler标识了@Sharable注解，这代表它需要被用于多个ChannelPipeline之间，
+但是这个ChannelHandler之中有一个不易察觉的问题： 它声明了一个实例变量count，且ChannelRead方法
+不是线程安全的。 那么这个问题的后果我相信学习了多线程的同学应该都明白，一个最简单的方法
+就是给修改了count的变量的方法加synchronized关键字，确保即使在多个ChannelPipeline之间共享，
+ChannelHandler也能保证数据一致。

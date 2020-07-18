@@ -6,12 +6,21 @@
 学习Netty，相信大部分同学都会选择 《Netty in Action》 ， 这里我推荐它的一个Gitbook精髓版本的，
 此版本的作者对《Netty in Action》做出了更为精简的概述，所以各位同学可酌情挑选阅读。
 
-
 - [Netty in Action(精髓)](https://waylau.com/essential-netty-in-action/index.html)
 
+其次我认为只看书是不够的，这里我推荐一些关于Netty入门比较优秀的视频供各位同学参考，
+推荐视频观看的顺序即下列顺序，各位同学不需要每个视频的每个章节都看，只需要挑选互补的内容学习即可：
 
-在学习Netty之前，我们需要对 IO模型(网络IO模型)有一个大概的认知，可以参考我编写的：
+- [韩顺平Netty教程](https://www.bilibili.com/video/BV1DJ411m7NR)
+
+- [张龙Netty教程](https://www.bilibili.com/video/BV1cb411F7En)
+
+- [索南杰夕Netty RPC实现](https://www.bilibili.com/video/BV1Rb411h7jZ)
+
+
+最后，在学习Netty之前，我们需要对 IO模型(网络IO模型)有一个大概的认知，可以参考我编写的：
 [IO](https://guang19.github.io/framework-learning/gitbook_doc/jdk-jvm-juc/IO.html) 。
+
 
 ````text
 如有错误之处，敬请指教。
