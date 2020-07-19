@@ -688,6 +688,19 @@
             
         </li>
     
+        <li class="chapter " data-level="7.1.4" data-path="../netty-learning/ChannelHandler和ChannelPipeline.html">
+            
+                <a href="../netty-learning/ChannelHandler和ChannelPipeline.html">
+            
+                    
+                    ChannelHandler和ChannelPipeline
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -1265,7 +1278,7 @@
 <li>&#x65B9;&#x6CD5;&#x533A;&#x4E2D;&#x7C7B;&#x7684;&#x9759;&#x6001;&#x5C5E;&#x6027;&#x5F15;&#x7528;&#x7684;&#x5BF9;&#x8C61;(static)</li>
 <li>&#x65B9;&#x6CD5;&#x533A;&#x4E2D;&#x7684;&#x5E38;&#x91CF;&#x5F15;&#x7528;&#x7684;&#x5BF9;&#x8C61;(final)   </li>
 </ol>
-<p><a href="../../img/jdk-jvm-juc/&#x53EF;&#x8FBE;&#x6027;&#x7B97;&#x6CD5;.png" data-lightbox="fc3602df-9744-44d6-b38a-95104de40888" data-title="&#x53EF;&#x8FBE;&#x6027;&#x7B97;&#x6CD5;"><img src="../../img/jdk-jvm-juc/&#x53EF;&#x8FBE;&#x6027;&#x7B97;&#x6CD5;.png" alt="&#x53EF;&#x8FBE;&#x6027;&#x7B97;&#x6CD5;"></a>      </p>
+<p><a href="../../img/jdk-jvm-juc/&#x53EF;&#x8FBE;&#x6027;&#x7B97;&#x6CD5;.png" data-lightbox="ab81c467-a7ae-48fe-82ce-1af5f9f5a196" data-title="&#x53EF;&#x8FBE;&#x6027;&#x7B97;&#x6CD5;"><img src="../../img/jdk-jvm-juc/&#x53EF;&#x8FBE;&#x6027;&#x7B97;&#x6CD5;.png" alt="&#x53EF;&#x8FBE;&#x6027;&#x7B97;&#x6CD5;"></a>      </p>
 <h3 id="&#x5783;&#x573E;&#x56DE;&#x6536;&#x7B97;&#x6CD5;">&#x5783;&#x573E;&#x56DE;&#x6536;&#x7B97;&#x6CD5;</h3>
 <p>&#x5E38;&#x89C1;&#x7684;&#x5783;&#x573E;&#x56DE;&#x6536;&#x7B97;&#x6CD5;&#x4E3B;&#x8981;&#x6709;&#x4EE5;&#x4E0B;4&#x79CD;:</p>
 <ol>
@@ -1284,7 +1297,7 @@
 <p><strong>&#x590D;&#x5236;&#x7B97;&#x6CD5;&#x4E00;&#x822C;&#x7528;&#x4E8E;&#x65B0;&#x751F;&#x4EE3;&#x3002;
 &#x56E0;&#x4E3A;&#x65B0;&#x751F;&#x4EE3;&#x7684;GC&#x975E;&#x5E38;&#x9891;&#x7E41;&#xFF0C;&#x6BCF;&#x6B21;GC&#x7684;&#x5BF9;&#x8C61;&#x8F83;&#x591A;&#xFF0C;&#x5B58;&#x6D3B;&#x7684;&#x5BF9;&#x8C61;&#x8F83;&#x5C11;&#x3002;
 &#x6240;&#x4EE5;&#x91C7;&#x7528;&#x590D;&#x5236;&#x7B97;&#x6CD5;&#x6548;&#x7387;&#x66F4;&#x9AD8;&#xFF0C;&#x590D;&#x5236;&#x65F6;&#x53EA;&#x9700;&#x8981;&#x590D;&#x5236;&#x5C11;&#x91CF;&#x5B58;&#x6D3B;&#x7684;&#x5BF9;&#x8C61;&#x3002;</strong></p>
-<p><a href="../../img/jdk-jvm-juc/&#x590D;&#x5236;&#x7B97;&#x6CD5;.png" data-lightbox="6545f266-f27e-426a-8762-e3c7b49bb344" data-title="&#x590D;&#x5236;&#x7B97;&#x6CD5;"><img src="../../img/jdk-jvm-juc/&#x590D;&#x5236;&#x7B97;&#x6CD5;.png" alt="&#x590D;&#x5236;&#x7B97;&#x6CD5;"></a>         </p>
+<p><a href="../../img/jdk-jvm-juc/&#x590D;&#x5236;&#x7B97;&#x6CD5;.png" data-lightbox="5b8c7bdf-1c7d-4064-b04e-9ddbbfc3cd88" data-title="&#x590D;&#x5236;&#x7B97;&#x6CD5;"><img src="../../img/jdk-jvm-juc/&#x590D;&#x5236;&#x7B97;&#x6CD5;.png" alt="&#x590D;&#x5236;&#x7B97;&#x6CD5;"></a>         </p>
 <h4 id="&#x6807;&#x8BB0;-&#x6E05;&#x9664;&#x7B97;&#x6CD5;mark-sweep">&#x6807;&#x8BB0;-&#x6E05;&#x9664;&#x7B97;&#x6CD5;(Mark-Sweep)</h4>
 <p>&#x6807;&#x8BB0;-&#x6E05;&#x9664;&#x7B97;&#x6CD5;&#x5206;&#x4E3A;2&#x4E2A;&#x6B65;&#x9AA4;&#xFF1A;&#x6807;&#x8BB0;&#x548C;&#x6E05;&#x9664;&#x3002;</p>
 <p>&#x9996;&#x5148;&#x6807;&#x8BB0;&#x51FA;&#x6240;&#x6709;&#x53EF;&#x8FBE;(&#x5B58;&#x6D3B;)&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x5728;&#x6807;&#x8BB0;&#x5B8C;&#x6210;&#x540E;&#xFF0C;
@@ -1300,7 +1313,7 @@
 &#x56E0;&#x4E3A;&#x8001;&#x5E74;&#x4EE3;&#x4E2D;&#x7684;&#x5BF9;&#x8C61;&#x5B58;&#x6D3B;&#x7387;&#x8F83;&#x9AD8;&#xFF0C;&#x51E0;&#x4E4E;&#x5F88;&#x5C11;&#x88AB;&#x56DE;&#x6536;&#xFF0C;
 &#x6240;&#x4EE5;&#x6807;&#x8BB0;-&#x6E05;&#x9664;&#x548C;&#x6807;&#x8BB0;-&#x6574;&#x7406;&#x7B97;&#x6CD5;GC&#x7684;&#x65F6;&#x95F4;&#x4E0D;&#x4F1A;&#x592A;&#x957F;&#xFF0C;
 GC&#x7684;&#x5BF9;&#x8C61;&#x76F8;&#x6BD4;&#x65B0;&#x751F;&#x4EE3;&#x66F4;&#x5C11;&#x3002;</p>
-<p><a href="../../img/jdk-jvm-juc/&#x6807;&#x8BB0;-&#x6E05;&#x9664;&#x7B97;&#x6CD5;.png" data-lightbox="77dc6411-13f0-468d-8382-8534c3e48174" data-title="&#x6807;&#x8BB0;-&#x6E05;&#x9664;&#x7B97;&#x6CD5;"><img src="../../img/jdk-jvm-juc/&#x6807;&#x8BB0;-&#x6E05;&#x9664;&#x7B97;&#x6CD5;.png" alt="&#x6807;&#x8BB0;-&#x6E05;&#x9664;&#x7B97;&#x6CD5;"></a></p>
+<p><a href="../../img/jdk-jvm-juc/&#x6807;&#x8BB0;-&#x6E05;&#x9664;&#x7B97;&#x6CD5;.png" data-lightbox="f26c2094-4541-4118-8269-091bc2663c1e" data-title="&#x6807;&#x8BB0;-&#x6E05;&#x9664;&#x7B97;&#x6CD5;"><img src="../../img/jdk-jvm-juc/&#x6807;&#x8BB0;-&#x6E05;&#x9664;&#x7B97;&#x6CD5;.png" alt="&#x6807;&#x8BB0;-&#x6E05;&#x9664;&#x7B97;&#x6CD5;"></a></p>
 <h4 id="&#x6807;&#x8BB0;-&#x6574;&#x7406;&#x7B97;&#x6CD5;mark-compact">&#x6807;&#x8BB0;-&#x6574;&#x7406;&#x7B97;&#x6CD5;(Mark-Compact)</h4>
 <p>&#x6807;&#x8BB0;-&#x6574;&#x7406;&#x7B97;&#x6CD5;&#x662F;&#x5BF9;&#x6807;&#x8BB0;-&#x6E05;&#x9664;&#x7B97;&#x6CD5;&#x7684;&#x4E00;&#x79CD;&#x6539;&#x8FDB;&#x3002;</p>
 <p>&#x6807;&#x8BB0;-&#x6574;&#x7406;&#x7B97;&#x6CD5;&#x4E0E;&#x6807;&#x8BB0;-&#x6E05;&#x9664;&#x7B97;&#x6CD5;&#x7684;&#x5728;&#x6807;&#x8BB0;&#x9636;&#x6BB5;&#x662F;&#x76F8;&#x540C;&#x7684;&#xFF0C;
@@ -1311,7 +1324,7 @@ GC&#x7684;&#x5BF9;&#x8C61;&#x76F8;&#x6BD4;&#x65B0;&#x751F;&#x4EE3;&#x66F4;&#x5C1
 &#x51E0;&#x4E4E;&#x4E0D;&#x4F1A;&#x5982;&#x6807;&#x8BB0;-&#x6E05;&#x9664;&#x7B97;&#x6CD5;&#x90A3;&#x6837;&#x4EA7;&#x751F;&#x4E0D;&#x8FDE;&#x7EED;&#x7684;&#x5185;&#x5B58;&#x788E;&#x7247;&#x3002;
 &#x4F46;&#xFF0C;&#x6240;&#x8C13;&#x6162;&#x5DE5;&#x51FA;&#x7EC6;&#x6D3B;,&#x6807;&#x8BB0;-&#x6574;&#x7406;&#x7684;&#x6548;&#x7387;&#x662F;&#x6BD4;&#x6807;&#x8BB0;-&#x6E05;&#x9664;&#x8981;&#x4F4E;&#x7684;&#x3002;</strong>         </p>
 <p><strong>&#x6807;&#x8BB0;-&#x6574;&#x7406;&#x7B97;&#x6CD5;&#x548C;&#x6807;&#x8BB0;-&#x6E05;&#x9664;&#x7B97;&#x6CD5;&#x4E00;&#x6837;&#xFF0C;&#x4E00;&#x822C;&#x7528;&#x4E8E;&#x8001;&#x5E74;&#x4EE3;&#x3002;</strong></p>
-<p><a href="../../img/jdk-jvm-juc/&#x6807;&#x8BB0;-&#x6574;&#x7406;&#x7B97;&#x6CD5;.png" data-lightbox="0010edf1-b60c-4dc1-b7fb-55d0650d92f6" data-title="&#x6807;&#x8BB0;-&#x6574;&#x7406;&#x7B97;&#x6CD5;"><img src="../../img/jdk-jvm-juc/&#x6807;&#x8BB0;-&#x6574;&#x7406;&#x7B97;&#x6CD5;.png" alt="&#x6807;&#x8BB0;-&#x6574;&#x7406;&#x7B97;&#x6CD5;"></a>         </p>
+<p><a href="../../img/jdk-jvm-juc/&#x6807;&#x8BB0;-&#x6574;&#x7406;&#x7B97;&#x6CD5;.png" data-lightbox="a5060795-d72a-46a5-bb74-baa2166aef36" data-title="&#x6807;&#x8BB0;-&#x6574;&#x7406;&#x7B97;&#x6CD5;"><img src="../../img/jdk-jvm-juc/&#x6807;&#x8BB0;-&#x6574;&#x7406;&#x7B97;&#x6CD5;.png" alt="&#x6807;&#x8BB0;-&#x6574;&#x7406;&#x7B97;&#x6CD5;"></a>         </p>
 <h4 id="&#x5206;&#x4EE3;&#x6536;&#x96C6;&#x7B97;&#x6CD5;">&#x5206;&#x4EE3;&#x6536;&#x96C6;&#x7B97;&#x6CD5;</h4>
 <p><strong>&#x5206;&#x4EE3;&#x6536;&#x96C6;&#x7B97;&#x6CD5;&#x5E76;&#x4E0D;&#x662F;&#x6307;&#x67D0;&#x4E00;&#x79CD;&#x5177;&#x4F53;&#x7684;&#x5783;&#x573E;&#x6536;&#x96C6;&#x7B97;&#x6CD5;&#xFF0C;
 &#x800C;&#x662F;&#x5C06;&#x590D;&#x5236;&#xFF0C;&#x6807;&#x8BB0;-&#x6E05;&#x9664;&#xFF0C;&#x6807;&#x8BB0;-&#x6574;&#x7406;&#x7B49;&#x7B97;&#x6CD5;&#x5408;&#x7406;&#x8FD0;&#x7528;&#x5230;&#x5806;&#x533A;&#x7684;&#x4E0D;&#x540C;&#x7A7A;&#x95F4;&#x3002;</strong>
@@ -1494,7 +1507,7 @@ G1&#x6536;&#x96C6;&#x5668;&#x8FD8;&#x53EF;&#x4EE5;&#x5EFA;&#x7ACB;&#x53EF;&#x988
 &#x5F53;&#x6709;&#x5927;&#x5BF9;&#x8C61;&#x65F6;&#xFF0C;&#x5BF9;&#x8C61;&#x4F1A;&#x88AB;&#x5206;&#x914D;&#x5230;Humongous Region&#x4E4B;&#x4E2D;&#x3002;</strong></p>
 </li>
 </ul>
-<p><a href="../../img/jdk-jvm-juc/G1&#x6536;&#x96C6;&#x5668;Region.png" data-lightbox="e8a5be18-f1fe-4a96-b654-5fbf4069d180" data-title="G1&#x6536;&#x96C6;&#x5668;Region"><img src="../../img/jdk-jvm-juc/G1&#x6536;&#x96C6;&#x5668;Region.png" alt="G1&#x6536;&#x96C6;&#x5668;Region"></a></p>
+<p><a href="../../img/jdk-jvm-juc/G1&#x6536;&#x96C6;&#x5668;Region.png" data-lightbox="d7faeeaa-b568-4e8d-9c82-f0c59efd8cfe" data-title="G1&#x6536;&#x96C6;&#x5668;Region"><img src="../../img/jdk-jvm-juc/G1&#x6536;&#x96C6;&#x5668;Region.png" alt="G1&#x6536;&#x96C6;&#x5668;Region"></a></p>
 <h4 id="g1&#x6536;&#x96C6;&#x5668;&#x56DE;&#x6536;&#x8FC7;&#x7A0B;">G1&#x6536;&#x96C6;&#x5668;&#x56DE;&#x6536;&#x8FC7;&#x7A0B;</h4>
 <pre><code class="lang-text">G1&#x6536;&#x96C6;&#x5668;&#x4E0E;CMS&#x6536;&#x96C6;&#x5668;&#x7684;&#x56DE;&#x6536;&#x8FC7;&#x7A0B;&#x76F8;&#x4F3C;
 </code></pre>
@@ -1576,7 +1589,7 @@ G1&#x6536;&#x96C6;&#x5668;&#x8FD8;&#x53EF;&#x4EE5;&#x5EFA;&#x7ACB;&#x53EF;&#x988
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"GC","level":"2.1.11","depth":2,"next":{"title":"JVM调优相关内容","level":"2.1.12","depth":2,"path":"gitbook_doc/jdk-jvm-juc/JVM调优相关内容.md","ref":"gitbook_doc/jdk-jvm-juc/JVM调优相关内容.md","articles":[]},"previous":{"title":"JVM常量池","level":"2.1.10","depth":2,"path":"gitbook_doc/jdk-jvm-juc/JVM常量池.md","ref":"gitbook_doc/jdk-jvm-juc/JVM常量池.md","articles":[]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","expandable-chapters","code","github","splitter","pageview-count","lightbox","theme-comscore","-lunr","-search","search-pro","sitemap","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/guang19/framework-learning"},"livereload":{},"simple-page-toc":{"maxDepth":4,"skipFirstH1":false},"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"https://guang19.github.io/framework-learning"},"lightbox":{"jquery":true,"sameUuid":false},"theme-comscore":{},"back-to-top-button":{},"pageview-count":{},"github-buttons":{"buttons":[{"user":"guang19","repo":"framework-learning","type":"star","size":"small"},{"user":"guang19","repo":"framework-learning","type":"fork","size":"small"},{"user":"guang19","type":"follow","width":"230","size":"small"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author:":"qsjzwithguang19forever","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"framework-learning","language":"zh-hans","links":{"sidebar":{}},"gitbook":"*","description":"Java方向的开发者学习的资料"},"file":{"path":"gitbook_doc/jdk-jvm-juc/GC.md","mtime":"2020-07-06T09:38:47.587Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-07-06T09:42:14.476Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"GC","level":"2.1.11","depth":2,"next":{"title":"JVM调优相关内容","level":"2.1.12","depth":2,"path":"gitbook_doc/jdk-jvm-juc/JVM调优相关内容.md","ref":"gitbook_doc/jdk-jvm-juc/JVM调优相关内容.md","articles":[]},"previous":{"title":"JVM常量池","level":"2.1.10","depth":2,"path":"gitbook_doc/jdk-jvm-juc/JVM常量池.md","ref":"gitbook_doc/jdk-jvm-juc/JVM常量池.md","articles":[]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","expandable-chapters","code","github","splitter","pageview-count","lightbox","theme-comscore","-lunr","-search","search-pro","sitemap"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/guang19/framework-learning"},"simple-page-toc":{"maxDepth":4,"skipFirstH1":false},"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"https://guang19.github.io/framework-learning"},"lightbox":{"jquery":true,"sameUuid":false},"theme-comscore":{},"back-to-top-button":{},"pageview-count":{},"github-buttons":{"buttons":[{"user":"guang19","repo":"framework-learning","type":"star","size":"small"},{"user":"guang19","repo":"framework-learning","type":"fork","size":"small"},{"user":"guang19","type":"follow","width":"230","size":"small"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author:":"qsjzwithguang19forever","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"framework-learning","language":"zh-hans","links":{"sidebar":{}},"gitbook":"*","description":"Java方向的开发者学习的资料"},"file":{"path":"gitbook_doc/jdk-jvm-juc/GC.md","mtime":"2020-07-19T04:29:42.490Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-07-19T04:42:53.822Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1619,10 +1632,6 @@ G1&#x6536;&#x96C6;&#x5668;&#x8FD8;&#x53EF;&#x4EE5;&#x5EFA;&#x7ACB;&#x53EF;&#x988
     
         
         <script src="../../gitbook/gitbook-plugin-search-pro/search.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         

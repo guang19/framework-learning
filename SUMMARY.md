@@ -102,6 +102,8 @@
   - [Transport传输](gitbook_doc/netty-learning/Transport传输.md)
 
   - [ByteBuf容器](gitbook_doc/netty-learning/ByteBuf容器.md)
+  
+  - [ChannelHandler和ChannelPipeline](gitbook_doc/netty-learning/ChannelHandler和ChannelPipeline.md)
 
 
 ---

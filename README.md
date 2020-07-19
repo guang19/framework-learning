@@ -7,7 +7,7 @@
 [framework-learning](https://qsjzwithguang19forever.gitee.io/framework-learning) 。
 网页阅读版的内容与本项目是同步的，请放心阅读。
 
-目前有很多知识我个人也在学习和复习之中，后面的push可能会比较慢,所以请各位同学理解。
+目前有很多知识我个人也在学习和复习之中，后面的push可能会比较慢，所以请各位同学理解。
 
 
 ### 知识点总览
@@ -114,6 +114,8 @@
   - [Transport传输](netty-learning/Transport传输.md)
 
   - [ByteBuf容器](netty-learning/ByteBuf容器.md)
+  
+  - [ChannelHandler和ChannelPipeline](netty-learning/ChannelHandler和ChannelPipeline.md)
 
 
 
@@ -266,15 +268,4 @@
 
 
 ### LICENSE
-这份资料的很多文章都是我从网上搜寻，从专业书籍摘抄，再加上我自己的学习总结而成，目的还是希望为各位同学
-提供较为明确的学习方式。
-
-本项目遵循GPL协议，这代表着本项目是自由的，你可以将本项目随意复制，传播，修改，但是你需要保证修改的部分
-也遵循GPL协议，不能闭源。
-
-
-### 这次一定
-
-个人能力有限，总结的知识可能不全或有遗漏和错误，敬请各位同学指教。
-
-如果这份资料帮助到了各位同学，还请各位同学不吝点个star或者转发一下(别下次一定呀 =^_^=),非常感谢...
+**GNU / GPL**

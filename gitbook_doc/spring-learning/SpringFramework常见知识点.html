@@ -688,6 +688,19 @@
             
         </li>
     
+        <li class="chapter " data-level="7.1.4" data-path="../netty-learning/ChannelHandler和ChannelPipeline.html">
+            
+                <a href="../netty-learning/ChannelHandler和ChannelPipeline.html">
+            
+                    
+                    ChannelHandler和ChannelPipeline
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -1210,8 +1223,8 @@
 <li><a href="#spring&#x5E38;&#x89C1;&#x77E5;&#x8BC6;&#x70B9;">Spring&#x5E38;&#x89C1;&#x77E5;&#x8BC6;&#x70B9;</a><ul>
 <li><a href="#&#x4EC0;&#x4E48;&#x662F;spring-framework">&#x4EC0;&#x4E48;&#x662F;Spring Framework?</a></li>
 <li><a href="#spring&#x7684;&#x4F18;&#x7F3A;&#x70B9;">Spring&#x7684;&#x4F18;&#x7F3A;&#x70B9;</a></li>
-<li><a href="#spring&#x7684;&#x4F18;&#x70B9;">Spring&#x7684;&#x4F18;&#x70B9;:</a></li>
-<li><a href="#spring&#x7684;&#x7F3A;&#x70B9;">Spring&#x7684;&#x7F3A;&#x70B9;:</a></li>
+<li><a href="#spring&#x7684;&#x4F18;&#x70B9;">Spring&#x7684;&#x4F18;&#x70B9;</a></li>
+<li><a href="#spring&#x7684;&#x7F3A;&#x70B9;">Spring&#x7684;&#x7F3A;&#x70B9;</a></li>
 <li><a href="#spring-&#x4E3B;&#x8981;&#x63D0;&#x4F9B;&#x4E86;&#x54EA;&#x4E9B;&#x6A21;&#x5757;">Spring &#x4E3B;&#x8981;&#x63D0;&#x4F9B;&#x4E86;&#x54EA;&#x4E9B;&#x6A21;&#x5757;?</a></li>
 <li><a href="#spring&#x4E3B;&#x8981;&#x4F7F;&#x7528;&#x4E86;&#x54EA;&#x4E9B;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;">Spring&#x4E3B;&#x8981;&#x4F7F;&#x7528;&#x4E86;&#x54EA;&#x4E9B;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;?</a></li>
 <li><a href="#spring-ioc&#x5BB9;&#x5668;&#x7684;&#x914D;&#x7F6E;&#x65B9;&#x5F0F;&#x6709;&#x54EA;&#x4E9B;">Spring IOC&#x5BB9;&#x5668;&#x7684;&#x914D;&#x7F6E;&#x65B9;&#x5F0F;&#x6709;&#x54EA;&#x4E9B;&#xFF1F;</a></li>
@@ -1236,42 +1249,24 @@
 <h4 id="&#x4EC0;&#x4E48;&#x662F;spring-framework">&#x4EC0;&#x4E48;&#x662F;Spring Framework?</h4>
 <p>Spring&#x662F;&#x4E00;&#x4E2A;&#x8F7B;&#x91CF;&#x7EA7;&#x7684;&#xFF0C;&#x5F00;&#x6E90;&#x7684;Java&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5F00;&#x53D1;&#x6846;&#x67B6;&#x3002;&#x5B83;&#x63D0;&#x4F9B;&#x7684;IOC&#x548C;AOP&#x7B49;&#x6838;&#x5FC3;&#x529F;&#x80FD;&#xFF0C;&#x80FD;&#x591F;&#x4F7F;&#x5F00;&#x53D1;&#x8005;&#x5F88;&#x65B9;&#x4FBF;&#x7684;&#x5F00;&#x53D1;&#x51FA;&#x677E;&#x8026;&#x5408;&#x7684;&#x5E94;&#x7528;&#x3002;</p>
 <h4 id="spring&#x7684;&#x4F18;&#x7F3A;&#x70B9;">Spring&#x7684;&#x4F18;&#x7F3A;&#x70B9;</h4>
-<h4 id="spring&#x7684;&#x4F18;&#x70B9;">Spring&#x7684;&#x4F18;&#x70B9;:</h4>
+<h4 id="spring&#x7684;&#x4F18;&#x70B9;">Spring&#x7684;&#x4F18;&#x70B9;</h4>
 <ul>
-<li><p>&#x65B9;&#x4FBF;&#x89E3;&#x8026;&#xFF0C;&#x7B80;&#x5316;&#x5F00;&#x53D1;</p>
-<blockquote>
-<p>&#x5BF9;&#x8C61;&#x7EDF;&#x4E00;&#x4EA4;&#x7531;&#x5BB9;&#x5668;&#x7BA1;&#x7406;&#xFF0C;&#x5B9E;&#x73B0;&#x4E86;&#x8D44;&#x6E90;&#x7684;&#x53EF;&#x914D;&#x7F6E;&#x548C;&#x6613;&#x7BA1;&#x7406;&#x3002;
+<li><p>&#x65B9;&#x4FBF;&#x89E3;&#x8026;&#xFF0C;&#x7B80;&#x5316;&#x5F00;&#x53D1;&#xFF1A;&#x5BF9;&#x8C61;&#x7EDF;&#x4E00;&#x4EA4;&#x7531;&#x5BB9;&#x5668;&#x7BA1;&#x7406;&#xFF0C;&#x5B9E;&#x73B0;&#x4E86;&#x8D44;&#x6E90;&#x7684;&#x53EF;&#x914D;&#x7F6E;&#x548C;&#x6613;&#x7BA1;&#x7406;&#x3002;
 &#x5E76;&#x4E14;&#x4E0D;&#x518D;&#x9700;&#x8981;&#x663E;&#x793A;&#x7684;&#x7F16;&#x5199;&#x7BA1;&#x7406;&#x5BF9;&#x8C61;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x964D;&#x4F4E;&#x4E86;&#x5E94;&#x7528;&#x7684;&#x4EE3;&#x7801;&#x91CF;&#x3002;</p>
-</blockquote>
 </li>
-<li><p>AOP&#x652F;&#x6301;</p>
-<blockquote>
-<p>Spring &#x63D0;&#x4F9B; AOP&#x6A21;&#x5757;&#xFF0C;&#x80FD;&#x591F;&#x5F88;&#x65B9;&#x4FBF;&#x7684;&#x7F16;&#x5199;&#x51FA;AOP&#x7A0B;&#x5E8F;.</p>
-</blockquote>
+<li><p>AOP&#x652F;&#x6301;&#xFF1A;Spring &#x63D0;&#x4F9B; AOP&#x6A21;&#x5757;&#xFF0C;&#x80FD;&#x591F;&#x5F88;&#x65B9;&#x4FBF;&#x7684;&#x7F16;&#x5199;&#x51FA;AOP&#x7A0B;&#x5E8F;.</p>
 </li>
-<li><p>&#x58F0;&#x660E;&#x5F0F;&#x4E8B;&#x52A1;</p>
-<blockquote>
-<p>&#x53EA;&#x9700;&#x8981;&#x901A;&#x8FC7;&#x914D;&#x7F6E;&#x6216;&#x6CE8;&#x89E3;&#x5C31;&#x53EF;&#x4EE5;&#x5B8C;&#x6210;&#x5BF9;&#x4E8B;&#x52A1;&#x7684;&#x652F;&#x6301;&#xFF0C;&#x800C;&#x4E0D;&#x9700;&#x8981;&#x624B;&#x52A8;&#x7684;&#x7F16;&#x5199;&#x4E8B;&#x52A1;&#x4EE3;&#x7801;</p>
-</blockquote>
+<li><p>&#x58F0;&#x660E;&#x5F0F;&#x4E8B;&#x52A1;&#xFF1A;&#x53EA;&#x9700;&#x8981;&#x901A;&#x8FC7;&#x914D;&#x7F6E;&#x6216;&#x6CE8;&#x89E3;&#x5C31;&#x53EF;&#x4EE5;&#x5B8C;&#x6210;&#x5BF9;&#x4E8B;&#x52A1;&#x7684;&#x652F;&#x6301;&#xFF0C;&#x800C;&#x4E0D;&#x9700;&#x8981;&#x624B;&#x52A8;&#x7684;&#x7F16;&#x5199;&#x4E8B;&#x52A1;&#x4EE3;&#x7801;</p>
 </li>
-<li><p>&#x7B2C;&#x4E09;&#x65B9;&#x6846;&#x67B6;&#x65E0;&#x7F1D;&#x96C6;&#x6210;</p>
-<blockquote>
-<p>Spring&#x53EF;&#x4EE5;&#x5F88;&#x65B9;&#x4FBF;&#x7684;&#x5C06;&#x7B2C;&#x4E09;&#x65B9;&#x6846;&#x67B6;&#x7EE7;&#x627F;&#x5230;&#x7CFB;&#x7EDF;&#x4E2D;&#xFF0C;&#x5F88;&#x7075;&#x6D3B;&#x3002;</p>
-</blockquote>
+<li><p>&#x7B2C;&#x4E09;&#x65B9;&#x6846;&#x67B6;&#x65E0;&#x7F1D;&#x96C6;&#x6210;&#xFF1A;Spring&#x53EF;&#x4EE5;&#x5F88;&#x65B9;&#x4FBF;&#x7684;&#x5C06;&#x7B2C;&#x4E09;&#x65B9;&#x6846;&#x67B6;&#x7EE7;&#x627F;&#x5230;&#x7CFB;&#x7EDF;&#x4E2D;&#xFF0C;&#x5F88;&#x7075;&#x6D3B;&#x3002;</p>
 </li>
 </ul>
 <p>...</p>
-<h4 id="spring&#x7684;&#x7F3A;&#x70B9;">Spring&#x7684;&#x7F3A;&#x70B9;:</h4>
+<h4 id="spring&#x7684;&#x7F3A;&#x70B9;">Spring&#x7684;&#x7F3A;&#x70B9;</h4>
 <ul>
-<li><p>&#x590D;&#x6742;</p>
-<blockquote>
-<p>Spring&#x53D1;&#x5C55;&#x5230;&#x73B0;&#x5728;&#xFF0C;&#x786E;&#x8BA4;&#x6709;&#x4E9B;&#x590D;&#x6742;&#x4E86;&#xFF0C;&#x4F46;&#x662F;&#x5BF9;&#x4E8E;&#x5B83;&#x89E3;&#x51B3;&#x7684;&#x95EE;&#x9898;&#x6765;&#x8BF4;&#xFF0C;&#x590D;&#x6742;&#x5DF2;&#x7ECF;&#x4E0D;&#x7B97;&#x4EC0;&#x4E48;&#x4E86;&#x3002;</p>
-</blockquote>
+<li><p>&#x590D;&#x6742;&#xFF1A;Spring&#x53D1;&#x5C55;&#x5230;&#x73B0;&#x5728;&#xFF0C;&#x786E;&#x8BA4;&#x6709;&#x4E9B;&#x590D;&#x6742;&#x4E86;&#xFF0C;&#x4F46;&#x662F;&#x5BF9;&#x4E8E;&#x5B83;&#x89E3;&#x51B3;&#x7684;&#x95EE;&#x9898;&#x6765;&#x8BF4;&#xFF0C;&#x590D;&#x6742;&#x5DF2;&#x7ECF;&#x4E0D;&#x7B97;&#x4EC0;&#x4E48;&#x4E86;&#x3002;</p>
 </li>
-<li><p>&#x6548;&#x7387;</p>
-<blockquote>
-<p>Spring&#x5185;&#x90E8;&#x4F9D;&#x8D56;&#x53CD;&#x5C04;&#xFF0C;&#x800C;&#x53CD;&#x5C04;&#x4F1A;&#x5E26;&#x6765;&#x4E00;&#x5B9A;&#x7684;&#x6548;&#x7387;&#x635F;&#x8017;&#x3002;</p>
-</blockquote>
+<li><p>&#x6548;&#x7387;&#xFF1A;Spring&#x5185;&#x90E8;&#x4F9D;&#x8D56;&#x53CD;&#x5C04;&#xFF0C;&#x800C;&#x53CD;&#x5C04;&#x4F1A;&#x5E26;&#x6765;&#x4E00;&#x5B9A;&#x7684;&#x6548;&#x7387;&#x635F;&#x8017;&#x3002;</p>
 </li>
 </ul>
 <h4 id="spring-&#x4E3B;&#x8981;&#x63D0;&#x4F9B;&#x4E86;&#x54EA;&#x4E9B;&#x6A21;&#x5757;">Spring &#x4E3B;&#x8981;&#x63D0;&#x4F9B;&#x4E86;&#x54EA;&#x4E9B;&#x6A21;&#x5757;?</h4>
@@ -1417,7 +1412,7 @@ BeanFactoryAware,ApplicationContextAware&#x7B49;&#x6269;&#x5C55;&#x7684;setXXX&#
 </ol>
 </li>
 </ul>
-<p><a href="../../img/spring/Spring&#x4E09;&#x7EA7;&#x7F13;&#x5B58;.png" data-lightbox="af030d4c-4b4a-4e95-b6cc-1f45fcaacbd6" data-title="Spring3&#x7EA7;&#x7F13;&#x5B58;"><img src="../../img/spring/Spring&#x4E09;&#x7EA7;&#x7F13;&#x5B58;.png" alt="Spring3&#x7EA7;&#x7F13;&#x5B58;"></a></p>
+<p><a href="../../img/spring/Spring&#x4E09;&#x7EA7;&#x7F13;&#x5B58;.png" data-lightbox="48863cfb-e560-44c3-8f86-4041995d7979" data-title="Spring3&#x7EA7;&#x7F13;&#x5B58;"><img src="../../img/spring/Spring&#x4E09;&#x7EA7;&#x7F13;&#x5B58;.png" alt="Spring3&#x7EA7;&#x7F13;&#x5B58;"></a></p>
 <blockquote>
 <p>Setter&#x65B9;&#x6CD5;&#x6CE8;&#x5165;&#x65F6;&#xFF0C;&#x5982;&#x679C;Bean A&#x53D1;&#x73B0;&#x81EA;&#x5DF1;&#x4F9D;&#x8D56;&#x4E8E;Bean B&#xFF0C;
 &#x90A3;&#x4E48;&#x5C06;&#x81EA;&#x5DF1;&#x5B9E;&#x4F8B;&#x5316;&#x540E;&#x5E76;&#x6DFB;&#x52A0;&#x5230;&#x7B2C;&#x4E09;&#x7EA7;&#x7F13;&#x5B58;(Bean &#x5DE5;&#x5382;)&#x3002;
@@ -1433,26 +1428,30 @@ BeanFactoryAware,ApplicationContextAware&#x7B49;&#x6269;&#x5C55;&#x7684;setXXX&#
 <strong>&#x4E8B;&#x52A1;&#x7684;&#x4F20;&#x64AD;&#x884C;&#x4E3A;&#x63CF;&#x8FF0;&#x7684;&#x662F;&#x5F53;&#x591A;&#x4E2A;&#x4E8B;&#x52A1;&#x540C;&#x65F6;&#x5B58;&#x5728;&#x65F6;&#xFF0C;&#x8FD9;&#x4E9B;&#x4E8B;&#x52A1;&#x8BE5;&#x5982;&#x4F55;&#x88AB;&#x5904;&#x7406;&#x3002;</strong></p>
 <p>Spring&#x5B9A;&#x4E49;&#x4E86;7&#x79CD;&#x4E8B;&#x52A1;&#x7684;&#x4F20;&#x64AD;&#x884C;&#x4E3A;:REQUIRED,SUPPORTS,MANDATORY,REQUIRES_NEW,NOT_SUPPORTED,NEVER,NESTED</p>
 <ul>
-<li><p>REQUIRED: &#x5F53;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;A(REQUIRED)&#x88AB;&#x53E6;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;B&#x8C03;&#x7528;&#x65F6;&#xFF0C;&#x5982;&#x679C;B&#x6CA1;&#x6709;&#x5F00;&#x542F;&#x4E8B;&#x52A1;&#xFF0C;
-&#x90A3;&#x4E48;A&#x5C06;&#x81EA;&#x5DF1;&#x5F00;&#x542F;&#x4E8B;&#x52A1;,&#x72EC;&#x7ACB;&#x8FD0;&#x884C;&#x3002;&#x5982;&#x679C;B&#x5F00;&#x542F;&#x4E86;&#x4E8B;&#x52A1;&#xFF0C;&#x90A3;&#x4E48;A&#x5C31;&#x52A0;&#x5165;&#x5230;B&#x7684;&#x4E8B;&#x52A1;&#x4E2D;&#x53BB;&#xFF0C;
-A&#x548C;B&#x8981;&#x4E48;&#x540C;&#x65F6;&#x6210;&#x529F;&#xFF0C;&#x8981;&#x4E48;&#x540C;&#x65F6;&#x5931;&#x8D25;&#x3002;</p>
+<li><p>REQUIRED: &#x5F53;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;A(REQUIRED)&#x88AB;&#x53E6;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;B&#x8C03;&#x7528;&#x65F6;&#xFF0C;&#x5982;&#x679C;B&#x5DF2;&#x7ECF;&#x5F00;&#x542F;&#x4E86;&#x4E8B;&#x52A1;&#xFF0C;&#x90A3;&#x4E48;A&#x5C31;&#x52A0;&#x5165;&#x5230;B&#x7684;&#x4E8B;&#x52A1;&#x4E2D;&#x53BB;&#xFF0C;
+A&#x548C;B&#x8981;&#x4E48;&#x540C;&#x65F6;&#x6210;&#x529F;&#xFF0C;&#x8981;&#x4E48;&#x540C;&#x65F6;&#x5931;&#x8D25;&#x3002;&#x5982;&#x679C;B&#x6CA1;&#x6709;&#x5F00;&#x542F;&#x4E8B;&#x52A1;&#xFF0C;&#x90A3;&#x4E48;A&#x5C06;&#x81EA;&#x5DF1;&#x5F00;&#x542F;&#x65B0;&#x7684;&#x4E8B;&#x52A1;,&#x72EC;&#x7ACB;&#x8FD0;&#x884C;&#x3002;</p>
 </li>
-<li><p>NESTED: NESTED&#x4E0E;REQUIRED&#x5F88;&#x76F8;&#x4F3C;&#x3002;&#x5982;&#x679C;&#x65B9;&#x6CD5;A(NESTED)&#x88AB;&#x53E6;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;B&#x8C03;&#x7528;&#xFF0C;&#x5982;&#x679C;B&#x6CA1;&#x6709;&#x4E8B;&#x52A1;&#xFF0C;
-&#x90A3;&#x4E48;A&#x5C06;&#x81EA;&#x5DF1;&#x5F00;&#x542F;&#x4E00;&#x4E2A;&#x4E8B;&#x52A1;&#x8FD0;&#x884C;&#x3002;&#x5982;&#x679C;B&#x6709;&#x4E8B;&#x52A1;&#xFF0C;&#x90A3;&#x4E48;A&#x5C06;&#x4F5C;&#x4E3A;B&#x7684;&#x5B50;&#x4E8B;&#x52A1;&#x8FD0;&#x884C;&#xFF0C;B&#x5931;&#x8D25;&#xFF0C;A&#x4E5F;&#x5931;&#x8D25;&#xFF0C;&#x4F46;&#x662F;A&#x5931;&#x8D25;&#x5374;&#x4E0D;&#x5F71;&#x54CD;B&#x3002;
-A&#x662F;&#x4F5C;&#x4E3A;B&#x7684;&#x5D4C;&#x5957;&#x4E8B;&#x52A1;&#x8FD0;&#x884C;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x5E76;&#x4E0D;&#x4F1A;&#x5F71;&#x54CD;B&#x3002;</p>
+<li><p>REQUIRES_NEW: &#x5F53;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;A(REQUIRE_NEW)&#x88AB;&#x975E;&#x4E8B;&#x52A1;&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x65F6;&#xFF0C;A&#x4F1A;&#x81EA;&#x5DF1;&#x5F00;&#x542F;&#x4E8B;&#x52A1;&#x3002;
+&#x5982;&#x679C;A&#x88AB;&#x53E6;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;B&#x8C03;&#x7528;&#x65F6;&#xFF0C;&#x65E0;&#x8BBA;B&#x662F;&#x5426;&#x5F00;&#x542F;&#x4E8B;&#x52A1;&#xFF0C;A&#x90FD;&#x4F1A;&#x5F00;&#x542F;&#x81EA;&#x5DF1;&#x7684;&#x4E8B;&#x52A1;&#xFF0C;&#x4E14;&#x4F1A;&#x6302;&#x8D77;B&#x7684;&#x4E8B;&#x52A1;&#xFF0C;
+&#x7136;&#x540E;&#x6267;&#x884C;A&#xFF0C;A&#x63D0;&#x4EA4;&#x540E;&#x624D;&#x4F1A;&#x6062;&#x590D;B&#xFF0C;&#x8FD9;&#x6837;&#x5916;&#x5C42;&#x7684;B&#x5373;&#x4F7F;&#x5931;&#x8D25;&#x4E5F;&#x4E0D;&#x4F1A;&#x5F71;&#x54CD;A&#xFF0C;&#x4F46;&#x662F;&#x5982;&#x679C;A&#x5931;&#x8D25;&#x4E86;&#xFF0C;B&#x4E5F;&#x4F1A;&#x56DE;&#x6EDA;&#x3002;</p>
+</li>
+<li><p>NESTED: &#x5982;&#x679C;&#x65B9;&#x6CD5;A(NESTED)&#x88AB;&#x53E6;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;B&#x8C03;&#x7528;&#xFF0C;&#x5982;&#x679C;B&#x5DF2;&#x7ECF;&#x5F00;&#x542F;&#x4E86;&#x4E8B;&#x52A1;&#xFF0C;
+&#x90A3;&#x4E48;A&#x5C06;&#x4F5C;&#x4E3A;B&#x7684;&#x5B50;&#x4E8B;&#x52A1;&#x8FD0;&#x884C;&#xFF0C;B&#x5931;&#x8D25;&#xFF0C;A&#x4E5F;&#x5931;&#x8D25;&#xFF0C;&#x4F46;&#x662F;A&#x5931;&#x8D25;&#x5374;&#x4E0D;&#x5F71;&#x54CD;B&#x3002;A&#x662F;&#x4F5C;&#x4E3A;B&#x7684;&#x5D4C;&#x5957;&#x4E8B;&#x52A1;&#x8FD0;&#x884C;&#x7684;&#xFF0C;
+&#x6240;&#x4EE5;&#x5E76;&#x4E0D;&#x4F1A;&#x5F71;&#x54CD;B&#x3002;&#x5982;&#x679C;B&#x6CA1;&#x6709;&#x4E8B;&#x52A1;&#xFF0C;&#x90A3;&#x4E48;A&#x5C06;&#x81EA;&#x5DF1;&#x65B0;&#x5F00;&#x542F;&#x4E00;&#x4E2A;&#x4E8B;&#x52A1;&#x8FD0;&#x884C;&#x3002;
+<strong>PS:NESTED&#x548C;REQUIRES_NEW&#x5F88;&#x76F8;&#x4F3C;&#xFF0C;&#x4F46;&#x662F;&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;&#x4ED6;&#x4EEC;&#x662F;&#x76F8;&#x53CD;&#x7684;&#xFF0C;NESTED&#x7684;&#x65B9;&#x6CD5;&#x4F5C;&#x4E3A;&#x5D4C;&#x5957;&#x4E8B;&#x52A1;&#x8FD0;&#x884C;&#x5728;
+&#x5916;&#x5C42;&#x4E8B;&#x52A1;&#x5185;&#x90E8;&#xFF0C;&#x5916;&#x5C42;&#x4E8B;&#x52A1;&#x5931;&#x8D25;&#x5219;&#x5185;&#x5C42;&#x4E8B;&#x52A1;&#x4E5F;&#x5931;&#x8D25;&#xFF0C;&#x4F46;&#x5185;&#x5C42;&#x4E8B;&#x52A1;&#x5931;&#x8D25;&#x5374;&#x4E0D;&#x5F71;&#x54CD;&#x5916;&#x5C42;&#x4E8B;&#x52A1;&#xFF1B;REQUIRES_NEW&#x5219;&#x662F;
+&#x81EA;&#x5DF1;&#x5F00;&#x542F;&#x81EA;&#x5DF1;&#x7684;&#x4E8B;&#x52A1;&#xFF0C;&#x5916;&#x5C42;&#x4E8B;&#x52A1;&#x5931;&#x8D25;&#x4E5F;&#x4E0D;&#x5F71;&#x54CD;&#x5185;&#x5C42;&#x4E8B;&#x52A1;&#xFF0C;&#x4F46;&#x5185;&#x5C42;&#x4E8B;&#x52A1;&#x5931;&#x8D25;&#x4F1A;&#x5BFC;&#x81F4;&#x5916;&#x5C42;&#x4E8B;&#x52A1;&#x56DE;&#x6EDA;&#x3002;</strong></p>
 </li>
 <li><p>SUPPORTS: &#x5F53;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;A(SUPPORTS)&#x88AB;&#x53E6;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;B&#x8C03;&#x7528;&#x65F6;&#xFF0C;&#x5982;&#x679C;B&#x5F00;&#x542F;&#x4E86;&#x4E8B;&#x52A1;&#xFF0C;
-&#x90A3;&#x4E48;A&#x5C31;&#x52A0;&#x5165;&#x5230;B&#x7684;&#x4E8B;&#x52A1;&#x4E2D;&#x53BB;&#x3002;&#x5982;&#x679C;B&#x6CA1;&#x6709;&#x5F00;&#x542F;&#x4E8B;&#x52A1;,&#x90A3;&#x5C31;&#x6B63;&#x5E38;&#x6267;&#x884C;&#xFF0C;&#x4E0D;&#x5F00;&#x542F;&#x4E8B;&#x52A1;&#x3002;</p>
+&#x90A3;&#x4E48;A&#x5C31;&#x52A0;&#x5165;&#x5230;B&#x7684;&#x4E8B;&#x52A1;&#x4E2D;&#x53BB;&#x3002;&#x5982;&#x679C;B&#x6CA1;&#x6709;&#x5F00;&#x542F;&#x4E8B;&#x52A1;,&#x90A3;&#x5C31;&#x4EE5;&#x975E;&#x4E8B;&#x52A1;&#x65B9;&#x5F0F;&#x8FD0;&#x884C;&#x6267;&#x884C;&#x3002;</p>
 </li>
-<li><p>MANDATORY: &#x5F53;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;A(MANDATORY)&#x88AB;&#x53E6;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;B&#x8C03;&#x7528;&#x65F6;&#xFF0C;&#x5982;&#x679C;B&#x6CA1;&#x6709;&#x5F00;&#x542F;&#x4E8B;&#x52A1;&#xFF0C;&#x90A3;&#x4E48;A&#x5C06;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#x3002;</p>
+<li><p>MANDATORY: &#x5F53;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;A(MANDATORY)&#x88AB;&#x53E6;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;B&#x8C03;&#x7528;&#x65F6;&#xFF0C;&#x5982;&#x679C;B&#x6CA1;&#x6709;&#x5F00;&#x542F;&#x4E8B;&#x52A1;&#xFF0C;&#x90A3;&#x4E48;A&#x5C06;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#xFF0C;
+&#x5982;&#x679C;B&#x5F00;&#x542F;&#x4E86;&#x4E8B;&#x52A1;&#xFF0C;&#x5219;A&#x52A0;&#x5165;&#x5230;B&#x4E2D;&#x5171;&#x7528;&#x4E8B;&#x52A1;&#x3002;</p>
 </li>
-<li><p>REQUIRES_NEW: &#x5F53;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;A(REQUIRE_NEW)&#x88AB;&#x53E6;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;B&#x8C03;&#x7528;&#x65F6;&#xFF0C;&#x65E0;&#x8BBA;B&#x662F;&#x5426;&#x6709;&#x4E8B;&#x52A1;&#xFF0C;
-A&#x90FD;&#x4F1A;&#x5F00;&#x542F;&#x81EA;&#x5DF1;&#x7684;&#x4E8B;&#x52A1;&#xFF0C;&#x4E0E;B&#x7684;&#x4E8B;&#x52A1;&#x4E92;&#x4E0D;&#x76F8;&#x5E72;&#xFF0C;&#x9694;&#x79BB;&#x8FD0;&#x884C;&#x3002;</p>
-</li>
-<li><p>NOT_SUPPORTED: &#x5F53;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;A(NOT_SUPPORTED)&#x88AB;&#x53E6;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;B&#x8C03;&#x7528;&#x65F6;&#xFF0C;&#x5982;&#x679C;B&#x6709;&#x4E8B;&#x52A1;&#xFF0C;&#x90A3;&#x4E48;B&#x7684;&#x4E8B;&#x52A1;&#x5C06;&#x6302;&#x8D77;&#xFF0C;
+<li><p>NOT_SUPPORTED: &#x5F53;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;A(NOT_SUPPORTED)&#x88AB;&#x53E6;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;B&#x8C03;&#x7528;&#x65F6;&#xFF0C;&#x5982;&#x679C;B&#x5F00;&#x542F;&#x4E86;&#x4E8B;&#x52A1;&#xFF0C;&#x90A3;&#x4E48;B&#x7684;&#x4E8B;&#x52A1;&#x5C06;&#x6302;&#x8D77;&#xFF0C;
 &#x76F4;&#x5230;A&#x6267;&#x884C;&#x5B8C;&#xFF0C;B&#x518D;&#x4EE5;&#x4E8B;&#x52A1;&#x7684;&#x65B9;&#x5F0F;&#x8FD0;&#x884C;&#x3002;</p>
 </li>
-<li><p>NEVER: &#x5F53;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;A(NEVER)&#x88AB;&#x53E6;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;B&#x8C03;&#x7528;&#x65F6;&#xFF0C;&#x5982;&#x679C;B&#x6709;&#x4E8B;&#x52A1;&#xFF0C;&#x90A3;&#x4E48;A&#x5C06;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#x3002; </p>
+<li><p>NEVER: &#x5F53;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;A(NEVER)&#x88AB;&#x53E6;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;B&#x8C03;&#x7528;&#x65F6;&#xFF0C;&#x5982;&#x679C;B&#x5F00;&#x542F;&#x4E86;&#x4E8B;&#x52A1;&#xFF0C;&#x90A3;&#x4E48;A&#x5C06;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#x3002; </p>
 </li>
 </ul>
 <h4 id="&#x4EC0;&#x4E48;&#x662F;aop">&#x4EC0;&#x4E48;&#x662F;AOP?</h4>
@@ -1550,7 +1549,7 @@ Aspect&#x63D0;&#x4F9B;&#x6587;&#x4EF6;&#x548C;&#x6CE8;&#x89E3;2&#x79CD;&#x65B9;&
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"SpringFramework常见知识点","level":"11.1","depth":1,"next":{"title":"SpringMVC常见知识点","level":"12.1","depth":1,"path":"gitbook_doc/spring-learning/SpringMVC常见知识点.md","ref":"gitbook_doc/spring-learning/SpringMVC常见知识点.md","articles":[{"title":"SpringMVC源码分析","level":"12.1.1","depth":2,"path":"gitbook_doc/spring-learning/SpringMVC源码分析.md","ref":"gitbook_doc/spring-learning/SpringMVC源码分析.md","articles":[]}]},"previous":{"title":"Mybatis源码分析","level":"10.1.1.2","depth":3,"path":"gitbook_doc/orm-learning/Mybatis源码分析.md","ref":"gitbook_doc/orm-learning/Mybatis源码分析.md","articles":[]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","expandable-chapters","code","github","splitter","pageview-count","lightbox","theme-comscore","-lunr","-search","search-pro","sitemap","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/guang19/framework-learning"},"livereload":{},"simple-page-toc":{"maxDepth":4,"skipFirstH1":false},"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"https://guang19.github.io/framework-learning"},"lightbox":{"jquery":true,"sameUuid":false},"theme-comscore":{},"back-to-top-button":{},"pageview-count":{},"github-buttons":{"buttons":[{"user":"guang19","repo":"framework-learning","type":"star","size":"small"},{"user":"guang19","repo":"framework-learning","type":"fork","size":"small"},{"user":"guang19","type":"follow","width":"230","size":"small"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author:":"qsjzwithguang19forever","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"framework-learning","language":"zh-hans","links":{"sidebar":{}},"gitbook":"*","description":"Java方向的开发者学习的资料"},"file":{"path":"gitbook_doc/spring-learning/SpringFramework常见知识点.md","mtime":"2020-07-06T09:38:47.597Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-07-06T09:42:14.476Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"SpringFramework常见知识点","level":"11.1","depth":1,"next":{"title":"SpringMVC常见知识点","level":"12.1","depth":1,"path":"gitbook_doc/spring-learning/SpringMVC常见知识点.md","ref":"gitbook_doc/spring-learning/SpringMVC常见知识点.md","articles":[{"title":"SpringMVC源码分析","level":"12.1.1","depth":2,"path":"gitbook_doc/spring-learning/SpringMVC源码分析.md","ref":"gitbook_doc/spring-learning/SpringMVC源码分析.md","articles":[]}]},"previous":{"title":"Mybatis源码分析","level":"10.1.1.2","depth":3,"path":"gitbook_doc/orm-learning/Mybatis源码分析.md","ref":"gitbook_doc/orm-learning/Mybatis源码分析.md","articles":[]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","expandable-chapters","code","github","splitter","pageview-count","lightbox","theme-comscore","-lunr","-search","search-pro","sitemap"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/guang19/framework-learning"},"simple-page-toc":{"maxDepth":4,"skipFirstH1":false},"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"https://guang19.github.io/framework-learning"},"lightbox":{"jquery":true,"sameUuid":false},"theme-comscore":{},"back-to-top-button":{},"pageview-count":{},"github-buttons":{"buttons":[{"user":"guang19","repo":"framework-learning","type":"star","size":"small"},{"user":"guang19","repo":"framework-learning","type":"fork","size":"small"},{"user":"guang19","type":"follow","width":"230","size":"small"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author:":"qsjzwithguang19forever","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"framework-learning","language":"zh-hans","links":{"sidebar":{}},"gitbook":"*","description":"Java方向的开发者学习的资料"},"file":{"path":"gitbook_doc/spring-learning/SpringFramework常见知识点.md","mtime":"2020-07-19T04:29:42.490Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-07-19T04:42:53.822Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1593,10 +1592,6 @@ Aspect&#x63D0;&#x4F9B;&#x6587;&#x4EF6;&#x548C;&#x6CE8;&#x89E3;2&#x79CD;&#x65B9;&
     
         
         <script src="../../gitbook/gitbook-plugin-search-pro/search.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         
