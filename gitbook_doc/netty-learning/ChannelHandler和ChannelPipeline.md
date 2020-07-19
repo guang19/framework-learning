@@ -69,13 +69,13 @@ ChannelInboundHandler的生命周期和Channel的生命周期其实是密切相�
 使用ReferenceCountUtil的release方法释放ByteBuf，这样可以减少内存的消耗，所以我们可以实现一个
 ChannelHandler来完成对ByteBuf的释放，就像下面这样：**
 
-![ChannelInboundHandler释放ByteBuf](../img/netty/ChannelInboundHandler释放ByteBuf.png)
+![ChannelInboundHandler释放ByteBuf](../../img/netty/ChannelInboundHandler释放ByteBuf.png)
 
 
 **一个更好的办法是继承SimpleChannelInboundHandler，因为SimpleChannelInboundHandler已经帮我们
 把与业务无关的逻辑在ChannelRead方法实现了，我们只需要实现它的channelRead0方法来完成我们的逻辑就够了：**
 
-![SimpleChannelInboundHandler的ChannelRead方法](../img/netty/SimpleChannelInboundHandler的ChannelRead方法.png)
+![SimpleChannelInboundHandler的ChannelRead方法](../../img/netty/SimpleChannelInboundHandler的ChannelRead方法.png)
 
 **可以看到SimpleChannelInboundHandler已经将释放资源的逻辑实现了，而且会自动调用ChannelRead0方法
 来完成我们业务逻辑。**
@@ -131,7 +131,7 @@ java -Dio.netty.leakDetectionLevel=ADVANCED
 Netty总是将ChannelPipeline的入站口作为头部，出站口作为尾部，当我们通过ChannelPipeline的add方法
 将入站处理器和出站处理器混合添加到ChannelPipeline后，ChannelHandler的顺序如下：
 
-![ChannelPipeline的ChannelHandler顺序](../img/netty/ChannelPipeline的ChannelHandler顺序.png)
+![ChannelPipeline的ChannelHandler顺序](../../img/netty/ChannelPipeline的ChannelHandler顺序.png)
 
 一个入站事件将从ChannelPipeline的头部（左侧）向尾部（右侧）开始传播，出站事件的传播则是与入站的传播方向
 相反。当ChannelPipeline在ChannelHandler之间传播事件的时候，它会判断下一个ChannelHandler的类型
@@ -195,7 +195,7 @@ ChannelHandlerContext代表的是ChannelHandler和ChannelPipeline之间的关联
 添加到ChannelPipeline中时，都会创建ChannelHandlerContext。ChannelHandlerContext的主要功能是
 管理它所关联的ChannelHandler与同一个ChannelPipeline中的其他ChannelHandler之间的交互：
 
-![ChannelHandlerContext和ChannelHandler之间的关系](../img/netty/ChannelHandlerContext和ChannelHandler之间的关系.png)
+![ChannelHandlerContext和ChannelHandler之间的关系](../../img/netty/ChannelHandlerContext和ChannelHandler之间的关系.png)
 
 ChannelHandlerContext的大部分方法和Channel和ChannelPipeline相似，但有一个重要的区别是：
 调用Channel或ChannelPipeline的方法，如：
@@ -212,7 +212,7 @@ pipeline.write(xxx);
 
 ，其影响是会沿着整个ChannelPipeline进行传播：
 
-![通过Channel或ChannelPipeline进行的事件传播](../img/netty/通过Channel或ChannelPipeline进行的事件传播.png)
+![通过Channel或ChannelPipeline进行的事件传播](../../img/netty/通过Channel或ChannelPipeline进行的事件传播.png)
 
 
 而调用ChannelHandlerContext的方法，如：
@@ -224,7 +224,7 @@ ctx.write(xxx);
 则是从其关联的ChannelHandler开始，并且只会传播给位于该ChannelPipeline中的下一个能够处理该事件的
 ChannelHandler：
 
-![通过ChannelHandlerContext进行的事件传播](../img/netty/通过ChannelHandlerContext进行的事件传播.png)
+![通过ChannelHandlerContext进行的事件传播](../../img/netty/通过ChannelHandlerContext进行的事件传播.png)
 
 
 
