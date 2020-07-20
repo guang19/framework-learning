@@ -48,77 +48,6 @@
 
 
 
-#### Linux(持续更新)
-
-- [Linux简介](linux-learning/Linux简介.md)
-
-  - [操作系统的内核](linux-learning/操作系统的内核.md)
-
-  - [进程间通信](linux-learning/进程间通信.md)
-
-  - [Linux文件系统](linux-learning/Linux文件系统.md)
-
-  - [Linux用户权限](linux-learning/Linux用户权限.md)
-
-  - [Linux运行级别](linux-learning/Linux运行级别.md)
-
-  - [Shell](linux-learning/Shell.md)
-
-  - [Linux命令大全](linux-learning/Linux命令大全.md)
-
-  - [完全使用GNU/Linux学习](linux-learning/完全使用GNU_Linux学习.md)
-
-
-
-#### 数据结构与算法(持续更新)
-
-- [数据结构与算法简介](datastructure-algorithm/数据结构与算法简介.md)
-  
-  - [数据结构](datastructure-algorithm/数据结构.md)
-  
-  - [算法](datastructure-algorithm/算法.md)
-
-
-推荐一个数据结构与算法的可视化网站，希望能够帮到正在学习数据结构与算法的同学: [数据结构与算法可视化](https://www.cs.usfca.edu/~galles/visualization/Algorithms.html)
-
-
-
-#### 设计模式
-
-- [设计模式简介](design_pattern/设计模式简介.md)
-
-  - [七大原则](design_pattern/七大原则.md)
- 
-  - [二十三种设计模式](design_pattern/二十三种设计模式.md)
-
-
-#### 计算机网络(持续更新)
-
-- [OSI七层模型](computer_network/OSI七层模型.md)
-  
-  - [TCP/IP](computer_network/TCP_IP.md)
-  
-  - [HTTP](computer_network/HTTP.md)
-
-
-[计算机网络 - XMind](xmind_file/计算机网络.xmind)
-
-
-
-#### Netty(更新中)
-
-- [Netty简介](netty-learning/Netty简介.md)
-  
-  - [Netty组件](netty-learning/Netty组件.md)
-
-  - [Transport传输](netty-learning/Transport传输.md)
-
-  - [ByteBuf容器](netty-learning/ByteBuf容器.md)
-  
-  - [ChannelHandler和ChannelPipeline](netty-learning/ChannelHandler和ChannelPipeline.md)
-
-
-
 #### 关系型数据库(持续更新)
 
 - [RDBMS简介](rdbms-learning/RDBMS简介.md)
@@ -164,6 +93,79 @@
 
 
 [非关系型数据库 - XMind](xmind_file/非关系型数据库.xmind)
+
+
+
+#### 数据结构与算法(持续更新)
+
+- [数据结构与算法简介](datastructure-algorithm/数据结构与算法简介.md)
+  
+  - [数据结构](datastructure-algorithm/数据结构.md)
+  
+  - [算法](datastructure-algorithm/算法.md)
+
+
+推荐一个数据结构与算法的可视化网站，希望能够帮到正在学习数据结构与算法的同学: [数据结构与算法可视化](https://www.cs.usfca.edu/~galles/visualization/Algorithms.html)
+
+
+
+#### 计算机网络(持续更新)
+
+- [OSI七层模型](computer_network/OSI七层模型.md)
+  
+  - [TCP/IP](computer_network/TCP_IP.md)
+  
+  - [HTTP](computer_network/HTTP.md)
+
+
+[计算机网络 - XMind](xmind_file/计算机网络.xmind)
+
+
+
+#### Netty(更新中)
+
+- [Netty简介](netty-learning/Netty简介.md)
+  
+  - [Netty组件](netty-learning/Netty组件.md)
+
+  - [Transport传输](netty-learning/Transport传输.md)
+
+  - [ByteBuf容器](netty-learning/ByteBuf容器.md)
+  
+  - [ChannelHandler和ChannelPipeline](netty-learning/ChannelHandler和ChannelPipeline.md)
+
+  - [Netty线程模型和EventLoop事件循环](netty-learning/Netty线程模型和EventLoop.md)
+
+
+#### Linux(持续更新)
+
+- [Linux简介](linux-learning/Linux简介.md)
+
+  - [操作系统的内核](linux-learning/操作系统的内核.md)
+
+  - [进程间通信](linux-learning/进程间通信.md)
+
+  - [Linux文件系统](linux-learning/Linux文件系统.md)
+
+  - [Linux用户权限](linux-learning/Linux用户权限.md)
+
+  - [Linux运行级别](linux-learning/Linux运行级别.md)
+
+  - [Shell](linux-learning/Shell.md)
+
+  - [Linux命令大全](linux-learning/Linux命令大全.md)
+
+  - [完全使用GNU/Linux学习](linux-learning/完全使用GNU_Linux学习.md)
+
+
+
+#### 设计模式
+
+- [设计模式简介](design_pattern/设计模式简介.md)
+
+  - [七大原则](design_pattern/七大原则.md)
+ 
+  - [二十三种设计模式](design_pattern/二十三种设计模式.md)
 
 
 
@@ -213,9 +215,11 @@
 [Tomcat](tomcat9.0-source/Tomcat.md)
 
 
+
 #### Elasticsearch(更新中)
 
 [ElasticSearch](elasticsearch-learning/ElasticSearch.md)
+
 
 
 #### Zookeeper(待重构)
@@ -226,7 +230,7 @@
 
 ### 待办(绝对不会鸽)
 
-- [ ] Git
+- [ ] ~~Git~~ (突然想到Git的官方文档已经是最好的资料了，这里不再画蛇添足了)
 
 - [ ] JVM部分后续会根据《深入理解Java虚拟机 - 第三版》更新
 
@@ -263,7 +267,7 @@
 
 其他的目录的文件,如:gitbook_doc/* 由我亲自修改，并不需要改动。
 
-各位同学有好的建议提issue或pr就行了，感谢各位同学的支持！
+各位同学有好的可以提issue或pr，感谢各位同学的支持！
 
 
 

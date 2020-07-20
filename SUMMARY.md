@@ -103,7 +103,7 @@
 
   - [ByteBuf容器](gitbook_doc/netty-learning/ByteBuf容器.md)
   
-  - [ChannelHandler和ChannelPipeline](netty-learning/ChannelHandler和ChannelPipeline.md)
+  - [ChannelHandler和ChannelPipeline](gitbook_doc/netty-learning/ChannelHandler和ChannelPipeline.md)
 
 
 ---
