@@ -1,6 +1,8 @@
 package com.github.guang19.nettylearning.zerocopy;
 
 
+import io.netty.channel.EventLoop;
+
 import java.io.IOException;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
