@@ -20,6 +20,5 @@ public class OptionalTest
 //        Optional<Integer> optional = Optional.ofNullable(Integer.valueOf(10));
 //        System.out.println(optional.orElse(5));
     }
-
 }
 
