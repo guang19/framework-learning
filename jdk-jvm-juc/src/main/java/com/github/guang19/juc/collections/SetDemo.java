@@ -3,6 +3,7 @@ package com.github.guang19.juc.collections;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @Description : TODO          并发容器安全之 Set
@@ -31,24 +32,20 @@ public class SetDemo {
      *
      */
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception
+    {
         Set<String> set = new HashSet<>();
-        Runnable run = ()->{
+        Runnable run = ()->
+        {
             set.add(UUID.randomUUID().toString());
+            /**
+             *
+             * 大概率可能会抛出 ConcurrentModificationException 异常
+             *
+             * 此异常是同时对集合进行修改时会抛出的异常
+             */
             System.out.println(set);
         };
-
-        //30个线程对set进行修改和读取操作
-        for(int i = 0 ; i < 100; ++i)
-        {
-            new Thread(run).start();
-        }
-
-        /**
-         *
-         * 大概率可能会抛出 ConcurrentModificationException 异常
-         *
-         * 此异常是同时对集合进行修改时会抛出的异常
-         */
     }
+
 }

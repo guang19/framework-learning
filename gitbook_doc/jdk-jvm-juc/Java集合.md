@@ -30,7 +30,7 @@
 
 - HashMap在Jdk8之前使用拉链法实现,jdk8之后使用拉链法+红黑树实现。
 
-- HashMap是线程不安全的,并允许null key 和 null value。**
+- HashMap是线程不安全的,并允许null key 和 null value。
 
 - HashMap在我当前的jdk版本(11)的默认容量为0,在第一次添加元素的时候才初始化容量为 16,
 之后才扩容为原来的2倍。
@@ -38,9 +38,9 @@
 - HashMap的扩容是根据 threshold决定的 : threshold = loadFactor * capacity。 
   当 size 大于 threshold 时,扩容。
 
-- **当每个桶的元素数量达到默认的阈值TREEIFY_THRESHOLD(8)时，HashMap会判断当前数组的
+- **当某个桶的元素数量达到指定的阈值TREEIFY_THRESHOLD(8)时，HashMap会判断当前数组的
 长度是否大于MIN_TREEIFY_CAPACITY(64),如果大于，那么这个桶的链表将会转为红黑树，否则HashMap将会扩容。
-当红黑树节点的数量小于等于默认的阈值UNTREEIFY_THRESHOLD(6)时，那么在扩容的时候，这个桶的红黑树将转为链表。**
+当某个桶的红黑树节点的数量小于等于指定的阈值UNTREEIFY_THRESHOLD(6)时，那么在扩容的时候，这个桶的红黑树将转为链表。**
 
 #### HashMap的长度(容量)为什么要设计成2的幂？
 >这就不得不佩服大师们的设计。
@@ -196,4 +196,4 @@ ConcurrentSkipListMap是基于跳表这种数据结构实现的。
 每层链表的元素也都是有序的。处于上层索引的链表都是下层链表的子集。
 跳表与普通链表相比查找元素的效率更高。
 
-![跳表](../../img/jdk-jvm-juc/跳表.png)
+![跳表](../img/jdk-jvm-juc/跳表.png)

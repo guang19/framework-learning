@@ -37,6 +37,12 @@ public class ListDemo {
         List<Integer> list = new ArrayList<>();
         Runnable run = ()->{
             list.add(5);
+            /**
+             *
+             * 大概率可能会抛出 ConcurrentModificationException 异常
+             *
+             * 此异常是同时对集合进行修改时会抛出的异常
+             */
             System.out.println(list);
         };
 
@@ -45,14 +51,5 @@ public class ListDemo {
         {
             new Thread(run).start();
         }
-        /**
-         *
-         * 大概率可能会抛出 ConcurrentModificationException 异常
-         *
-         * 此异常是同时对集合进行修改时会抛出的异常
-         */
-
-
-
     }
 }
