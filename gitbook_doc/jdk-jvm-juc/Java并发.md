@@ -337,7 +337,7 @@ CAS体现的是一种乐观锁的机制。
       
 CAS在Java中的实现是 juc的atomic包下的Atomicxx原子类。
 
-而这些Atomic原子类的核心是: <Unsafe>类
+而这些Atomic原子类的核心是: Unsafe类 。
 Unsafe类是个final类，它的核心方法都是native的，
 因为Java无法像C/C++一样使用指针来操作内存,
 Unsafe类就解决了这个问题。
@@ -447,5 +447,5 @@ ThreadLocal的原理还得从Thread线程类说起，
 尽管它们的线程数是固定的，但是它们的阻塞队列的长度却是Integer.MAX_VALUE的,所以，
 队列的任务很可能过多，导致OOM。**
 
-**newCacheThreadPool和newScheduledThreadPool创建出来的线程池的线程数量却是Integer.MAX_VALUE的，
-如果任务数量过多,也很可能发生OOM。**          
+**newCacheThreadPool和newScheduledThreadPool创建出来的线程池的最大线程数量却是Integer.MAX_VALUE的，
+如果任务数量过多,也很可能发生OOM。**                   
