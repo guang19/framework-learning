@@ -25,6 +25,8 @@ public class LoadClass
     {
         //静态变量字段才会初始化类: getstatic
 //        System.out.println($Class.b);
+        //静态常量不会初始化类
+//        System.out.println($Class.c);
 
         //给静态变量赋值 : putstatic
 //        System.out.println($Class.b = 1);
@@ -54,7 +56,7 @@ public class LoadClass
 //        methodHandle1.invoke();
 
         //VarHandle作为动态获取变量的调用
-        VarHandle a1 = MethodHandles.lookup().findStaticVarHandle($Class.class, "a1", int.class);
+//        VarHandle a1 = MethodHandles.lookup().findStaticVarHandle($Class.class, "a1", int.class);
 //        Object o = a1.get();
           //此处被编译成 : getstatic
 //        System.out.println(o);

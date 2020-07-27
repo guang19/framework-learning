@@ -157,7 +157,7 @@ JVM发起Minor GC。Minor GC的范围包括eden和From Survivor:
 
 #### 动态年龄阈值
 JVM并不要求对象年龄一定要达到 MaxTenuringThreshold 才会
-晋升到老年代，晋升的年龄阈值是动态计算的。￼￼￼￼￼
+晋升到老年代，晋升的年龄阈值是动态计算的。
 如果在Survivor中，某个相同年龄阶段的所有对象大小的总和
 大于Survivor区域的一半，则大于等于这个年龄的所有对象
 可以直接进入老年代，无需等到MaxTenuringThreshold。
