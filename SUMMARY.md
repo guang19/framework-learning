@@ -43,6 +43,48 @@
 ---
 
 
+- [RDBMS简介](gitbook_doc/rdbms-learning/RDBMS简介.md)
+  
+  - [RDBMS常见知识点](gitbook_doc/rdbms-learning/RDBMS常见知识点.md)
+    
+  - [索引](gitbook_doc/rdbms-learning/索引.md)
+  
+  - [Mysql简介](gitbook_doc/rdbms-learning/Mysql简介.md)
+  
+    - [Mysql存储引擎](gitbook_doc/rdbms-learning/Mysql存储引擎.md)
+    
+    - [事务](gitbook_doc/rdbms-learning/事务.md)
+    
+    - [数据库锁](gitbook_doc/rdbms-learning/数据库锁.md)
+    
+    - [Mysql日志](gitbook_doc/rdbms-learning/Mysql日志.md)
+    
+    - [Mysql优化](gitbook_doc/rdbms-learning/Mysql优化.md)
+    
+    - [Mysql数据类型](gitbook_doc/rdbms-learning/Mysql数据类型.md)
+
+
+---
+
+
+- [NoSQL简介](gitbook_doc/nosql-learning/NoSQL简介.md)
+  
+  - [Redis简介](gitbook_doc/nosql-learning/Redis简介.md)
+    
+    - [Redis常见知识点](gitbook_doc/nosql-learning/Redis常见知识点.md)
+    
+    - [Redis数据结构](gitbook_doc/nosql-learning/Redis数据结构.md)
+    
+    - [Redis事务](gitbook_doc/nosql-learning/Redis事务.md)
+    
+    - [Redis缓存淘汰策略](gitbook_doc/nosql-learning/Redis缓存淘汰策略.md) 
+ 
+    - [Redis持久化策略](gitbook_doc/nosql-learning/Redis持久化策略.md)
+
+
+---
+
+
 - [Linux简介](gitbook_doc/linux-learning/Linux简介.md)
 
   - [操作系统的内核](gitbook_doc/linux-learning/操作系统的内核.md)
@@ -104,48 +146,6 @@
   - [ByteBuf容器](gitbook_doc/netty-learning/ByteBuf容器.md)
   
   - [ChannelHandler和ChannelPipeline](gitbook_doc/netty-learning/ChannelHandler和ChannelPipeline.md)
-
-
----
-
-
-- [RDBMS简介](gitbook_doc/rdbms-learning/RDBMS简介.md)
-  
-  - [RDBMS常见知识点](gitbook_doc/rdbms-learning/RDBMS常见知识点.md)
-    
-  - [索引](gitbook_doc/rdbms-learning/索引.md)
-  
-  - [Mysql简介](gitbook_doc/rdbms-learning/Mysql简介.md)
-  
-    - [Mysql存储引擎](gitbook_doc/rdbms-learning/Mysql存储引擎.md)
-    
-    - [事务](gitbook_doc/rdbms-learning/事务.md)
-    
-    - [数据库锁](gitbook_doc/rdbms-learning/数据库锁.md)
-    
-    - [Mysql日志](gitbook_doc/rdbms-learning/Mysql日志.md)
-    
-    - [Mysql优化](gitbook_doc/rdbms-learning/Mysql优化.md)
-    
-    - [Mysql数据类型](gitbook_doc/rdbms-learning/Mysql数据类型.md)
-
-
----
-
-
-- [NoSQL简介](gitbook_doc/nosql-learning/NoSQL简介.md)
-  
-  - [Redis简介](gitbook_doc/nosql-learning/Redis简介.md)
-    
-    - [Redis常见知识点](gitbook_doc/nosql-learning/Redis常见知识点.md)
-    
-    - [Redis数据结构](gitbook_doc/nosql-learning/Redis数据结构.md)
-    
-    - [Redis事务](gitbook_doc/nosql-learning/Redis事务.md)
-    
-    - [Redis缓存淘汰策略](gitbook_doc/nosql-learning/Redis缓存淘汰策略.md) 
- 
-    - [Redis持久化策略](gitbook_doc/nosql-learning/Redis持久化策略.md)
 
 
 ---

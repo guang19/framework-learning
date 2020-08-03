@@ -3,7 +3,7 @@
 **本文章部分摘抄自 《Netty in Action》(Netty实战)，再根据本人实际学习体验总结而成，
 所以本文内容可能不那么全面，但是我尽量挑选Netty中我认为比较重要的部分做讲解。**
 
-学习Netty，相信大部分同学都会选择 《Netty in Action》 ， 这里我推荐它的一个Gitbook精髓版本的，
+学习Netty，相信大部分同学都会选择 《Netty in Action》 ， 这里我推荐它的一个通读版本，
 此版本的作者对《Netty in Action》做出了更为精简的概述，所以各位同学可酌情挑选阅读。
 
 - [Netty in Action(精髓)](https://waylau.com/essential-netty-in-action/index.html)

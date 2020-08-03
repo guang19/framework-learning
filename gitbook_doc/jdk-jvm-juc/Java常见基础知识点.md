@@ -1,6 +1,6 @@
 <!-- TOC -->
 
- * [java基础知识(部分图源:<a href="https://github.com/Snailclimb/JavaGuide">JavaGuide</a>)](#java基础知识部分图源javaguide)
+   * [java基础知识(部分图源:<a href="https://github.com/Snailclimb/JavaGuide">JavaGuide</a>)](#java基础知识部分图源javaguide)
      * [面向对象和面向过程的区别](#面向对象和面向过程的区别)
      * [OracleJdk与OpenJdk的区别](#oraclejdk与openjdk的区别)
      * [Java与C  的异同](#java与c的异同)
@@ -23,11 +23,11 @@
      * [BigDecimal](#bigdecimal)
      * [Java异常体系结构](#java异常体系结构)
      * [Comparable和Comparator](#comparable和comparator)
-     * [什么是泛型，什么是类型擦除?](#什么是泛型什么是类型擦除)
+     * [什么是泛型,什么是类型擦除?](#什么是泛型什么是类型擦除)
      * [泛型通配符](#泛型通配符)
      * [上界通配符 &lt;? extend E&gt;](#上界通配符--extend-e)
      * [下界通配符 &lt;? super E&gt;](#下界通配符--super-e)
-     * [？和 T的区别](#和-t的区别)
+     * [?和T的区别](#和t的区别)
      * [为什么要慎用 Arrays.asList()?](#为什么要慎用-arraysaslist)
      * [Java中引用的类型](#java中引用的类型)
 
@@ -153,7 +153,7 @@ C++则需要开发者手动释放内存。因此Java在内存管理上相对C++�
 
 #### 子类属性与父类属性初始化顺序
 1. 无论如何，静态数据首先加载，且如果一个类有父类，那么先加载其父类，所以先初始化父类静态变量并执行父类静态初始化块(静态变量和静态初始化块按源码编写的顺序执行，
-普通初始化块和普通成员变量也是如此),再初始化子类静态变量并执行子类静态初始化块。
+普通初始化块和普通成员变量也是如此)，再初始化子类静态变量并执行子类静态初始化块。
 
 2. 普通初始化块和普通成员变量优先于构造方法,所以接下来初始化父类的普通成员变量并执行父类的普通初始化块,再调用父类构造方法。
 

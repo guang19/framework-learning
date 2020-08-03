@@ -1,7 +1,7 @@
 # Netty线程模型和EventLoop
 由于线程模型确定了代码执行的方式，它可能带来一些副作用以及不确定因素，
-可以说这是并发编程中最大的难点，因此，我们需要了解Netty所采用的线程模型，这样可以减少我们
-在编写Netty程序时所犯的错误。
+可以说这是并发编程中最大的难点，因此，我们需要了解Netty所采用的线程模型，这样
+在遇到相关问题时不至于手足无措。
 
 
 ## 线程模型概述
@@ -12,8 +12,8 @@ Java多线程编程中，我们使用线程的方式一般都是继承Thread或�
 
 
 ## EventLoop事件循环
-事件循环正如它所命名的那样，处于一个循环之中。我们以前在编写网络程序的时候，会使我们处理连接的逻辑
-处于一个死循环之中，这样可以不断的接受请求。
+事件循环正如它的名字，处于一个循环之中。我们以前在编写网络程序的时候，会使我们处理连接的逻辑
+处于一个死循环之中，这样可以不断的处理客户端连接。
 
 Netty的EventLoop采用了两个基本的API：并发和网络。
 Netty的并发包io.netty.util.concurrent是基于Java的并发包java.util.concurrent之上的，
@@ -47,3 +47,40 @@ JDK主要有Timer和ScheduledExecutorService两种实现任务调度的方式，
 
 使用Channel获取其对应的EventLoop，然后调用schedule方法给其分配一个Runnable执行。Netty的任务调度
 比JDK的任务调度性能性能要好，这主要是由于Netty底层的线程模型设计的非常优秀。
+
+
+## 线程管理
+Netty线程模型的卓越性能取决于当前执行任务的Thread，我们看一张图就明白了：
+
+![EventLoop执行逻辑](../img/netty/EventLoop执行逻辑.png)
+
+**如果处理Chanel任务的线程正是支撑EventLoop的线程，那么与Channel的任务会被直接执行。
+否则EventLoop会将该任务放入任务队列之中稍后执行。
+需要注意的是每个EventLoop都有自己的任务队列，独立于其他EventLoop的任务队列。**
+
+
+## 线程分配
+每个EventLoop都注册在一个EventLoopGroup之中，一个EventLoopGroup可以包含多个EventLoop，根据不同的传输实现，
+EventLoop的创建和分配方式也不同。
+
+
+#### 非阻塞传输
+我们说过一个EventLoop可以处理多个Channel，Netty这样设计的目的就是尽可能的通过少量Thread来支撑大量的Channel，
+而不是每个Channel都分配一个Thread。
+
+![EventLoop非阻塞分配](../img/netty/EventLoop非阻塞分配.png)
+
+EventLoopGroup负责为每个新创建的Channel分配一个EventLoop，一旦一个Channel被分配给EventLoop，它将在
+整个生命周期中都使用这个EventLoop及其Thread处理事件和任务。
+
+**注意：EventLoop的分配方式对ThreadLocal的使用是很有很大影响的。因为注册在一个EventLoop上的Channel
+共有这一个线程，那么在这些Channel之间使用ThreadLocal，其ThreadLocal的状态都是一样的，无法发挥ThreadLocal
+本来的作用。**
+
+
+#### 阻塞传输
+阻塞传输即OIO(BIO)，此种传输方式的EventLoop只会被分配一个Channel，如下图：
+
+![EventLoop阻塞分配](../img/netty/EventLoop阻塞分配.png)
+
+这样带来的会是线程资源的巨大消耗，导致并发量降低。

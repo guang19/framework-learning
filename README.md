@@ -272,4 +272,4 @@
 
 
 ### LICENSE
-**GNU / GPL**
+**GNU**
