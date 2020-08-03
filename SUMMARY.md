@@ -147,7 +147,7 @@
   
   - [ChannelHandler和ChannelPipeline](gitbook_doc/netty-learning/ChannelHandler和ChannelPipeline.md)
 
-  - [Netty线程模型和EventLoop事件循环](netty-learning/Netty线程模型和EventLoop.md)
+  - [Netty线程模型和EventLoop事件循环](gitbook_doc/netty-learning/Netty线程模型和EventLoop.md)
 
 ---
 
