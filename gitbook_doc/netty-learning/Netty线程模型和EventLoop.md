@@ -36,7 +36,7 @@ Netty的并发包io.netty.util.concurrent是基于Java的并发包java.util.conc
 它主要用于提供Executor的支持。Netty的io.netty.channel包提供了与客户端Channel的事件交互的支持。
 以下是EventLoop类层次结构图：
 
-![EventLoop类层次结构图](../img/netty/EventLoop类层次结构图.png)
+![EventLoop类层次结构图](../../img/netty/EventLoop类层次结构图.png)
 
 在EventLoop模型中，**EventLoop将有一个永远不会改变的Thread，即Netty会给EventLoop分配一个
 Thread，在EventLoop生命周期之中的所有IO操作和事件都由这个Thread执行。 根据配置和CPU核心的不同，
@@ -59,7 +59,7 @@ JDK主要有Timer和ScheduledExecutorService两种实现任务调度的方式，
 上面介绍过的EventLoop类层次结构图，可以看到EventLoop扩展了ScheduledExecutorService，
 所以我们可以通过EventLoop来实现任务调度，其编程模型如下：
 
-![EventLoop任务调度](../img/netty/EventLoop任务调度.png)
+![EventLoop任务调度](../../img/netty/EventLoop任务调度.png)
 
 使用Channel获取其对应的EventLoop，然后调用schedule方法给其分配一个Runnable执行。Netty的任务调度
 比JDK的任务调度性能性能要好，这主要是由于Netty底层的线程模型设计的非常优秀。
@@ -68,7 +68,7 @@ JDK主要有Timer和ScheduledExecutorService两种实现任务调度的方式，
 ## 线程管理
 Netty线程模型的卓越性能取决于当前执行任务的Thread，我们看一张图就明白了：
 
-![EventLoop执行逻辑](../img/netty/EventLoop执行逻辑.png)
+![EventLoop执行逻辑](../../img/netty/EventLoop执行逻辑.png)
 
 **如果处理Chanel任务的线程正是支撑EventLoop的线程，那么与Channel的任务会被直接执行。
 否则EventLoop会将该任务放入任务队列之中稍后执行。
@@ -84,7 +84,7 @@ EventLoop的创建和分配方式也不同。
 我们说过一个EventLoop可以处理多个Channel，Netty这样设计的目的就是尽可能的通过少量Thread来支撑大量的Channel，
 而不是每个Channel都分配一个Thread。
 
-![EventLoop非阻塞分配](../img/netty/EventLoop非阻塞分配.png)
+![EventLoop非阻塞分配](../../img/netty/EventLoop非阻塞分配.png)
 
 EventLoopGroup负责为每个新创建的Channel分配一个EventLoop，一旦一个Channel被分配给EventLoop，它将在
 整个生命周期中都使用这个EventLoop及其Thread处理事件和任务。
@@ -97,6 +97,6 @@ EventLoopGroup负责为每个新创建的Channel分配一个EventLoop，一旦�
 #### 阻塞传输
 阻塞传输即OIO(BIO)，此种传输方式的EventLoop只会被分配一个Channel，如下图：
 
-![EventLoop阻塞分配](../img/netty/EventLoop阻塞分配.png)
+![EventLoop阻塞分配](../../img/netty/EventLoop阻塞分配.png)
 
 这样带来的会是线程资源的巨大消耗，导致并发量降低。
