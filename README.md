@@ -135,6 +135,8 @@
   - [ChannelHandler和ChannelPipeline](netty-learning/ChannelHandler和ChannelPipeline.md)
 
   - [Netty线程模型和EventLoop事件循环](netty-learning/Netty线程模型和EventLoop.md)
+  
+  - [Bootstrap引导](netty-learning/Netty线程模型和EventLoop.md)
 
 
 #### Linux(持续更新)
