@@ -31,10 +31,11 @@
         <module>tomcat9.0-source</module>
         <module>elasticsearch-learning</module>
         <module>netty-learning</module>
+        <module>system_architecture_design</module>
     </modules>
 
     <properties>
-        <java.version>14</java.version>
+        <java.version>11</java.version>
         <project.version>1.0.0</project.version>
         <mybatis.version>3.5.3</mybatis.version>
         <mysql.version>8.0.18</mysql.version>

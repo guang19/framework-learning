@@ -209,8 +209,9 @@ HotSpot移除了永久代，新增了元空间。
 * Requested array size exceeds VM limit
 >当为数组分配内存时，数组需要的容量超过了虚拟机的限制范围，
 >就会抛出OOM: Requested array size exceeds VM limit。   
->根据我的测试，Integer.MAX_VALUE - 2 是虚拟机能为数组分配的最大容量      
-   
+>根据我的测试（jdk11/jdk14），Integer.MAX_VALUE - 2 是虚拟机能为数组分配的最大容量，当数组长度为 Integer.MAX_VALUE - 1
+>时就会抛出 OOM：Requested array size exceeds VM limit
+
 * GC overhead limit exceed
 >垃圾回收器花费了很长时间GC,但是GC回收的内存非常少,
 >就可能抛出OOM:GC overhead limit exceed 错误。

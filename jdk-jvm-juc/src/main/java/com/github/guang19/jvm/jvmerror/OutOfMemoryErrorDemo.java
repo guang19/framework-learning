@@ -45,6 +45,16 @@ public class OutOfMemoryErrorDemo {
        就会抛出OOM: Requested array size exceeds VM limit。
      */
 
+    public static void main(String[] args) {
+//        heapSpace();
+//        overHeadLimitExceeded();
+//        directBufferMemoryError();
+//        unableCreateNewNativeThread();
+//        metaspace();
+        arraySize();
+    }
+
+
     //测试java heap space错误的时候,把堆的max size 设置的小如:-Xmx30m, 会快一点,不然电脑的内存足够大,没有限制,很难出现OutOfMemory
     public static void heapSpace()
     {
@@ -55,7 +65,7 @@ public class OutOfMemoryErrorDemo {
     //当为数组分配容量时，分配的容量超出了VM虚拟机的范围，会抛出: Requested array size exceeds VM limit。
     public static void arraySize()
     {
-        Object[] objects = new Object[Integer.MAX_VALUE];
+        Object[] objects = new Object[Integer.MAX_VALUE - 1];
         System.out.println(Arrays.toString(objects));
     }
 
@@ -138,17 +148,4 @@ public class OutOfMemoryErrorDemo {
     }
 
     private static final Enhancer enhancer = new Enhancer();
-
-
-
-
-    public static void main(String[] args) {
-//        heapSpace();
-//        overHeadLimitExceeded();
-//        directBufferMemoryError();
-//        unableCreateNewNativeThread();
-//        metaspace();
-
-//        arraySize();
-    }
 }
