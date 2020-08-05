@@ -15,7 +15,7 @@
 
 - [系统架构设计](system_architecture_design/系统架构设计简介.md)
 
-  - [消息系统的设计](system_architecture_design/消息系统的设计.md)
+  - [站内消息系统的设计](system_architecture_design/站内消息系统的设计.md)
 
 
 
