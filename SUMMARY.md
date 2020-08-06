@@ -14,7 +14,8 @@
 ## 架构设计
 
 - [系统架构设计](gitbook_doc/system_architecture_design/系统架构设计简介.md)
-
+    
+  - [站内消息系统的设计](gitbook_doc/system_architecture_design/站内消息系统的设计.md)
 
 ---
 
