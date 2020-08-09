@@ -62,6 +62,7 @@
 <url> <loc>https://guang19.github.io/gitbook_doc/netty-learning/ByteBuf容器.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://guang19.github.io/gitbook_doc/netty-learning/ChannelHandler和ChannelPipeline.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://guang19.github.io/gitbook_doc/netty-learning/Netty线程模型和EventLoop.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://guang19.github.io/gitbook_doc/netty-learning/Bootstrap引导.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://guang19.github.io/gitbook_doc/orm-learning/ORM简介.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://guang19.github.io/gitbook_doc/orm-learning/Mybatis简介.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://guang19.github.io/gitbook_doc/orm-learning/Mybatis常见知识点.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>

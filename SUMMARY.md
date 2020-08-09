@@ -182,6 +182,8 @@
 
   - [Netty线程模型和EventLoop事件循环](gitbook_doc/netty-learning/Netty线程模型和EventLoop.md)
 
+  - [Bootstrap引导](gitbook_doc/netty-learning/Bootstrap引导.md)
+  
 ---
 
 
