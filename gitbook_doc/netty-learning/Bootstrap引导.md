@@ -15,7 +15,7 @@
 ## Bootstrap类
 引导类的层次结构包括一个抽象的父类和两个具体的引导子类：
 
-![Bootstrap类层次结构](../img/netty/Bootstrap类层次结构.png)
+![Bootstrap类层次结构](../../img/netty/Bootstrap类层次结构.png)
 
 ServerBootstrap总是需要一个ServerSocketChannel来处理客户端的连接通信，而
 Bootstrap则只需要一个普通的Channel用于与服务端的通信。
@@ -39,7 +39,7 @@ Bootstrap则只需要一个普通的Channel用于与服务端的通信。
 Bootstrap负责Netty应用程序的客户端引导，作为客户端，我们需要使用到connect API来连接到远程
 服务端，其过程如下：
 
-![Bootstrap客户端引导过程](../img/netty/Bootstrap客户端引导过程.png)
+![Bootstrap客户端引导过程](../../img/netty/Bootstrap客户端引导过程.png)
 
 客户端引导的编程模型如下：
 
@@ -85,7 +85,7 @@ future.addListener(new ChannelFutureListener() {
 ServerBootstrap负责Netty应用程序的服务端引导，作为服务端，我们需要使用bind API来
 与本地地址绑定，从而接收客户端连接，其过程如下：
 
-![ServerBootStrap服务端引导过程](../img/netty/ServerBootStrap服务端引导过程.png)
+![ServerBootStrap服务端引导过程](../../img/netty/ServerBootStrap服务端引导过程.png)
 
 服务端引导的编程模型如下:
 
