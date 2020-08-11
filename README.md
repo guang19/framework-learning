@@ -204,6 +204,8 @@
   - [Netty线程模型和EventLoop事件循环](netty-learning/Netty线程模型和EventLoop.md)
   
   - [Bootstrap引导](netty-learning/Bootstrap引导.md)
+  
+  - [Code编码与解码](netty-learning/Codec编码与解码.md)
 
 
 ### Spring框架
