@@ -205,7 +205,7 @@
   
   - [Bootstrap引导](netty-learning/Bootstrap引导.md)
   
-  - [Code编码与解码](netty-learning/Codec编码与解码.md)
+  - [Codec编码与解码](netty-learning/Codec编码与解码.md)
 
 
 ### Spring框架

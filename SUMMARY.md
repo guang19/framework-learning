@@ -184,7 +184,7 @@
 
   - [Bootstrap引导](gitbook_doc/netty-learning/Bootstrap引导.md)
   
-  - [Code编码与解码](gitbook_doc/netty-learning/Codec编码与解码.md)
+  - [Codec编码与解码](gitbook_doc/netty-learning/Codec编码与解码.md)
   
   
 ---
