@@ -1,12 +1,15 @@
 # Netty
 
-**本文章部分摘抄自 《Netty in Action》(Netty实战)，再根据本人实际学习体验总结而成，
-所以本文内容可能不那么全面，但是我尽量挑选Netty中我认为比较重要的部分做讲解。**
+**本文章总结了 《Netty in Action》(Netty实战) 和 《Netty 4.x User Guide 》(Netty 4.x 用户指南)，
+再根据本人实际学习体验总结而成。本部分内容可能不那么全面，但是我尽量挑选Netty中我认为比较重要的部分做讲解。**
 
-学习Netty，相信大部分同学都会选择 《Netty in Action》 ， 这里我推荐它的一个通读版本，
-此版本的作者对《Netty in Action》做出了更为精简的概述，所以各位同学可酌情挑选阅读。
+学习Netty，相信大部分同学都会选择 《Netty in Action》 和  《Netty 4.x User Guide 》，
+这里我推荐它们的通读版本，这二本书的通读版本的作者都为同一人，通读版本对《Netty in Action》做出了更为精简的概述，
+所以各位同学可酌情挑选阅读。
 
-- [Netty in Action(精髓)](https://waylau.com/essential-netty-in-action/index.html)
+- [《Netty in Action》](https://waylau.com/essential-netty-in-action/index.html)
+
+- [《Netty 4.x User Guide》](https://waylau.gitbooks.io/netty-4-user-guide/content)
 
 其次我认为只看书是不够的，这里我推荐一些关于Netty入门比较优秀的视频供各位同学参考，
 推荐视频观看的顺序即下列顺序，各位同学不需要每个视频的每个章节都看，只需要挑选互补的内容学习即可：
@@ -48,7 +51,7 @@ Netty作为一款优秀的网络框架，自然有令人折服的特点：
   - 链接逻辑复用。
   
 - 性能： Netty的高性能是它被广泛使用的一个重要的原因，我们可能都认为Java不太适合
-编写游戏服务端程序，但Netty的到来无疑是消除了这种见解。
+编写游戏服务端程序，但Netty的到来无疑是降低了怀疑的声音。
 
   - 较原生Java API有更好的吞吐量，较低的延时。
   
@@ -61,3 +64,14 @@ Netty作为一款优秀的网络框架，自然有令人折服的特点：
   的使用，这使得我们编写出来的程序不那么容易出错。
   
 - 社区： Netty快速发展的一个重要的原因就是它的社区非常活跃，这也使得采用它的开发者越来越多。
+
+
+## Netty架构总览
+下面是Netty的模块设计部分：
+
+![Netty架构总览](../img/netty/Netty架构总览.png)
+
+Netty提供了通用的传输API（TCP/UDP...）；多种网络协议（HTTP/WebSocket...）；基于事件驱动的IO模型；
+超高性能的零拷贝...
+
+上面说的这些模块和功能只是Netty的一部分，具体的组件在后面的部分会有较为详细的介绍。

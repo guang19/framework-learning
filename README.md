@@ -192,8 +192,10 @@
 ### Netty(更新中)
 
 - [Netty简介](netty-learning/Netty简介.md)
-  
-  - [Netty组件](netty-learning/Netty组件.md)
+
+  - [Netty特性](netty-learning/Netty特性.md)
+
+- [Netty组件](netty-learning/Netty组件.md)
 
   - [Transport传输](netty-learning/Transport传输.md)
 

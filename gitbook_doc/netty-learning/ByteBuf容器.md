@@ -18,11 +18,9 @@
           * [ByteBufUtil](#bytebufutil)
        * [引用计数](#引用计数)
 
-
 <!--  TOC -->
 
 # ByteBuf--Netty的数据容器
-
 网络传输的基本单位是字节，在Java NIO中，JDK提供了Buffer接口，以及其相关的实现作为NIO操作
 数据的容器，如ByteBuffer等等。 而Netty为了解决Buffer原生接口的复杂操作提供了ByteBuf，
 ByteBuf是一个很好的经过优化过的数据容器，我们可以将字节数据添加到ByteBuf中或从ByteBuf中获取数据，
@@ -35,11 +33,14 @@ Netty的数据处理主要通过两个API提供：
 
 使用ByteBuf API能够给我们带来良好的编码体验，如
 
-- 在读和写这两种模式切换时，无需像ByteBuffer一样调用flip方法。
+- 正常情况下，ByteBuf比ByteBuffer的性能更好；
 
-- 容量可以动态增长，如StringBuilder之于String。
+- 实现了ReferenceCounted引用计数接口，优化了内存的使用；
 
-- 支持方法的链式调用，如"a".append("b").append("c")这种形式。
+- 容量可以动态增长，如StringBuilder之于String；
+
+- 在读和写这两种模式切换时，无需像ByteBuffer一样调用flip方法，更易于操作；
+
 
 ...
 

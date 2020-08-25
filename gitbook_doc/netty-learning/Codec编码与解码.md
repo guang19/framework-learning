@@ -130,12 +130,12 @@ MessageToMessageEncoder用于将一种类型的消息编码另一种类型的消
 MessageToMessageDecoder相似，所以这里也不再细说。
 
 
-## 编码解码器
-上面的内容是把编码器和解码器作为分开的内容讲解，编码器处理出站数据，是ChannelOutboundHandler的实现，
+## 编解码器
+上面的内容讲的是单独的编码器和解码器，编码器处理出站数据，是ChannelOutboundHandler的实现，
 解码器负责处理入站数据，是ChannelInboundHandler的实现。除了编码器和解码器，Netty还提供了集编码与解码
-于一身的编码解码器，它同时实现了ChannelInboundHandler和ChannelOutboundHandler，其结构如下：
+于一身的编解码器ByteToMessageCodec和MessageToMessageCodec，它们同时实现了ChannelInboundHandler和ChannelOutboundHandler，其结构如下：
 
 ![编码解码器codec层次结构](../../img/netty/编码解码器codec层次结构.png)
 
 虽然使用编码解码器可以同时编码和解码数据，但这样不利于代码的可重用性。
-相反，单独的编码器和解码器最大化了代码的可重用性和可扩展性，所以我们应该优先考虑分开使用二者。
+相反，单独的编码器和解码器最大化了代码的可重用性和可扩展性，所以我们应该优先考虑分开使用二者

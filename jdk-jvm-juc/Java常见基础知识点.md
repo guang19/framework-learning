@@ -1,6 +1,6 @@
 <!-- TOC -->
 
-   * [java基础知识(部分图源:<a href="https://github.com/Snailclimb/JavaGuide">JavaGuide</a>)](#java基础知识部分图源javaguide)
+   * [java基础知识(部分图源:<a href="https://github.com/Snailclimb/JavaGuide">JavaGuide)</a>](#java基础知识部分图源javaguide)
      * [面向对象和面向过程的区别](#面向对象和面向过程的区别)
      * [OracleJdk与OpenJdk的区别](#oraclejdk与openjdk的区别)
      * [Java与C  的异同](#java与c的异同)
