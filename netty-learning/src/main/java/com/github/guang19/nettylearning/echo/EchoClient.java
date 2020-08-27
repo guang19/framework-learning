@@ -48,7 +48,6 @@ public class EchoClient
                     });
             ChannelFuture future = bootstrap.connect().sync();
 
-            future.channel().closeFuture().sync();
         }
         finally
         {

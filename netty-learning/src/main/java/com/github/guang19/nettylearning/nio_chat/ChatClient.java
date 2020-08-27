@@ -1,19 +1,13 @@
-package com.github.guang19.nettylearning.nio;
+package com.github.guang19.nettylearning.nio_chat;
 
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.Reader;
 import java.net.InetSocketAddress;
-import java.net.Socket;
 import java.nio.ByteBuffer;
-import java.nio.CharBuffer;
 import java.nio.channels.*;
-import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.Iterator;
 import java.util.Scanner;
 import java.util.Set;
-import java.util.concurrent.TimeUnit;
 
 /**
  * @author guang19
