@@ -1006,7 +1006,20 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="12.1.1" data-path="Netty组件.html">
+        <li class="chapter " data-level="12.1.1" data-path="Netty特性.html">
+            
+                <a href="Netty特性.html">
+            
+                    
+                    Netty特性
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="12.1.2" data-path="Netty组件.html">
             
                 <a href="Netty组件.html">
             
@@ -1017,9 +1030,10 @@
             
 
             
-        </li>
+            <ul class="articles">
+                
     
-        <li class="chapter " data-level="12.1.2" data-path="Transport传输.html">
+        <li class="chapter " data-level="12.1.2.1" data-path="Transport传输.html">
             
                 <a href="Transport传输.html">
             
@@ -1032,7 +1046,7 @@
             
         </li>
     
-        <li class="chapter " data-level="12.1.3" data-path="ByteBuf容器.html">
+        <li class="chapter " data-level="12.1.2.2" data-path="ByteBuf容器.html">
             
                 <a href="ByteBuf容器.html">
             
@@ -1045,7 +1059,7 @@
             
         </li>
     
-        <li class="chapter " data-level="12.1.4" data-path="ChannelHandler和ChannelPipeline.html">
+        <li class="chapter " data-level="12.1.2.3" data-path="ChannelHandler和ChannelPipeline.html">
             
                 <a href="ChannelHandler和ChannelPipeline.html">
             
@@ -1058,7 +1072,7 @@
             
         </li>
     
-        <li class="chapter " data-level="12.1.5" data-path="Netty线程模型和EventLoop.html">
+        <li class="chapter " data-level="12.1.2.4" data-path="Netty线程模型和EventLoop.html">
             
                 <a href="Netty线程模型和EventLoop.html">
             
@@ -1071,7 +1085,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="12.1.6" data-path="Bootstrap引导.html">
+        <li class="chapter active" data-level="12.1.2.5" data-path="Bootstrap引导.html">
             
                 <a href="Bootstrap引导.html">
             
@@ -1084,7 +1098,7 @@
             
         </li>
     
-        <li class="chapter " data-level="12.1.7" data-path="Codec编码与解码.html">
+        <li class="chapter " data-level="12.1.2.6" data-path="Codec编码与解码.html">
             
                 <a href="Codec编码与解码.html">
             
@@ -1094,6 +1108,11 @@
                 </a>
             
 
+            
+        </li>
+    
+
+            </ul>
             
         </li>
     
@@ -1313,7 +1332,7 @@
 &#x8FD9;&#x91CC;&#x5C31;&#x9700;&#x8981;&#x5F15;&#x5BFC;&#x8FD9;&#x4E9B;&#x7EC4;&#x4EF6;&#x4E86;&#x3002;</p>
 <h2 id="bootstrap&#x7C7B;">Bootstrap&#x7C7B;</h2>
 <p>&#x5F15;&#x5BFC;&#x7C7B;&#x7684;&#x5C42;&#x6B21;&#x7ED3;&#x6784;&#x5305;&#x62EC;&#x4E00;&#x4E2A;&#x62BD;&#x8C61;&#x7684;&#x7236;&#x7C7B;&#x548C;&#x4E24;&#x4E2A;&#x5177;&#x4F53;&#x7684;&#x5F15;&#x5BFC;&#x5B50;&#x7C7B;&#xFF1A;</p>
-<p><a href="../../img/netty/Bootstrap&#x7C7B;&#x5C42;&#x6B21;&#x7ED3;&#x6784;.png" data-lightbox="61b572c4-a4d8-4fcd-8803-b6ed6d8f948e" data-title="Bootstrap&#x7C7B;&#x5C42;&#x6B21;&#x7ED3;&#x6784;"><img src="../../img/netty/Bootstrap&#x7C7B;&#x5C42;&#x6B21;&#x7ED3;&#x6784;.png" alt="Bootstrap&#x7C7B;&#x5C42;&#x6B21;&#x7ED3;&#x6784;"></a></p>
+<p><a href="../../img/netty/Bootstrap&#x7C7B;&#x5C42;&#x6B21;&#x7ED3;&#x6784;.png" data-lightbox="bbb782d5-e466-4402-b738-9ad3d54165cf" data-title="Bootstrap&#x7C7B;&#x5C42;&#x6B21;&#x7ED3;&#x6784;"><img src="../../img/netty/Bootstrap&#x7C7B;&#x5C42;&#x6B21;&#x7ED3;&#x6784;.png" alt="Bootstrap&#x7C7B;&#x5C42;&#x6B21;&#x7ED3;&#x6784;"></a></p>
 <p>ServerBootstrap&#x603B;&#x662F;&#x9700;&#x8981;&#x4E00;&#x4E2A;ServerSocketChannel&#x6765;&#x5904;&#x7406;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x8FDE;&#x63A5;&#x901A;&#x4FE1;&#xFF0C;&#x800C;
 Bootstrap&#x5219;&#x53EA;&#x9700;&#x8981;&#x4E00;&#x4E2A;&#x666E;&#x901A;&#x7684;Channel&#x7528;&#x4E8E;&#x4E0E;&#x670D;&#x52A1;&#x7AEF;&#x7684;&#x901A;&#x4FE1;&#x3002;</p>
 <p>&#x4E0B;&#x9762;&#x662F;AbstractBootstrap&#x7684;&#x4E3B;&#x8981;&#x65B9;&#x6CD5;&#xFF1A;</p>
@@ -1366,7 +1385,7 @@ Bootstrap&#x5219;&#x53EA;&#x9700;&#x8981;&#x4E00;&#x4E2A;&#x666E;&#x901A;&#x7684
 <h3 id="&#x5F15;&#x5BFC;&#x5BA2;&#x6237;&#x7AEF;&#x548C;&#x65E0;&#x8FDE;&#x63A5;&#x534F;&#x8BAE;">&#x5F15;&#x5BFC;&#x5BA2;&#x6237;&#x7AEF;&#x548C;&#x65E0;&#x8FDE;&#x63A5;&#x534F;&#x8BAE;</h3>
 <p>Bootstrap&#x8D1F;&#x8D23;Netty&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x5F15;&#x5BFC;&#xFF0C;&#x4F5C;&#x4E3A;&#x5BA2;&#x6237;&#x7AEF;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x5230;connect API&#x6765;&#x8FDE;&#x63A5;&#x5230;&#x8FDC;&#x7A0B;
 &#x670D;&#x52A1;&#x7AEF;&#xFF0C;&#x5176;&#x8FC7;&#x7A0B;&#x5982;&#x4E0B;&#xFF1A;</p>
-<p><a href="../../img/netty/Bootstrap&#x5BA2;&#x6237;&#x7AEF;&#x5F15;&#x5BFC;&#x8FC7;&#x7A0B;.png" data-lightbox="d55710ac-095d-41b6-9555-916c954febc6" data-title="Bootstrap&#x5BA2;&#x6237;&#x7AEF;&#x5F15;&#x5BFC;&#x8FC7;&#x7A0B;"><img src="../../img/netty/Bootstrap&#x5BA2;&#x6237;&#x7AEF;&#x5F15;&#x5BFC;&#x8FC7;&#x7A0B;.png" alt="Bootstrap&#x5BA2;&#x6237;&#x7AEF;&#x5F15;&#x5BFC;&#x8FC7;&#x7A0B;"></a></p>
+<p><a href="../../img/netty/Bootstrap&#x5BA2;&#x6237;&#x7AEF;&#x5F15;&#x5BFC;&#x8FC7;&#x7A0B;.png" data-lightbox="f94e7bb3-430e-4bbf-895a-7f8333b4fcaa" data-title="Bootstrap&#x5BA2;&#x6237;&#x7AEF;&#x5F15;&#x5BFC;&#x8FC7;&#x7A0B;"><img src="../../img/netty/Bootstrap&#x5BA2;&#x6237;&#x7AEF;&#x5F15;&#x5BFC;&#x8FC7;&#x7A0B;.png" alt="Bootstrap&#x5BA2;&#x6237;&#x7AEF;&#x5F15;&#x5BFC;&#x8FC7;&#x7A0B;"></a></p>
 <p>&#x5BA2;&#x6237;&#x7AEF;&#x5F15;&#x5BFC;&#x7684;&#x7F16;&#x7A0B;&#x6A21;&#x578B;&#x5982;&#x4E0B;&#xFF1A;</p>
 <pre><code class="lang-text">
 //&#x521B;&#x5EFA;EventLoopGroup
@@ -1405,7 +1424,7 @@ future.addListener(new ChannelFutureListener() {
 <h3 id="&#x5F15;&#x5BFC;&#x670D;&#x52A1;&#x7AEF;">&#x5F15;&#x5BFC;&#x670D;&#x52A1;&#x7AEF;</h3>
 <p>ServerBootstrap&#x8D1F;&#x8D23;Netty&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x670D;&#x52A1;&#x7AEF;&#x5F15;&#x5BFC;&#xFF0C;&#x4F5C;&#x4E3A;&#x670D;&#x52A1;&#x7AEF;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x4F7F;&#x7528;bind API&#x6765;
 &#x4E0E;&#x672C;&#x5730;&#x5730;&#x5740;&#x7ED1;&#x5B9A;&#xFF0C;&#x4ECE;&#x800C;&#x63A5;&#x6536;&#x5BA2;&#x6237;&#x7AEF;&#x8FDE;&#x63A5;&#xFF0C;&#x5176;&#x8FC7;&#x7A0B;&#x5982;&#x4E0B;&#xFF1A;</p>
-<p><a href="../../img/netty/ServerBootStrap&#x670D;&#x52A1;&#x7AEF;&#x5F15;&#x5BFC;&#x8FC7;&#x7A0B;.png" data-lightbox="3209a885-482b-4dd4-992b-309153a33c79" data-title="ServerBootStrap&#x670D;&#x52A1;&#x7AEF;&#x5F15;&#x5BFC;&#x8FC7;&#x7A0B;"><img src="../../img/netty/ServerBootStrap&#x670D;&#x52A1;&#x7AEF;&#x5F15;&#x5BFC;&#x8FC7;&#x7A0B;.png" alt="ServerBootStrap&#x670D;&#x52A1;&#x7AEF;&#x5F15;&#x5BFC;&#x8FC7;&#x7A0B;"></a></p>
+<p><a href="../../img/netty/ServerBootStrap&#x670D;&#x52A1;&#x7AEF;&#x5F15;&#x5BFC;&#x8FC7;&#x7A0B;.png" data-lightbox="adf741bb-1f86-4c70-86e1-6a385ff065ab" data-title="ServerBootStrap&#x670D;&#x52A1;&#x7AEF;&#x5F15;&#x5BFC;&#x8FC7;&#x7A0B;"><img src="../../img/netty/ServerBootStrap&#x670D;&#x52A1;&#x7AEF;&#x5F15;&#x5BFC;&#x8FC7;&#x7A0B;.png" alt="ServerBootStrap&#x670D;&#x52A1;&#x7AEF;&#x5F15;&#x5BFC;&#x8FC7;&#x7A0B;"></a></p>
 <p>&#x670D;&#x52A1;&#x7AEF;&#x5F15;&#x5BFC;&#x7684;&#x7F16;&#x7A0B;&#x6A21;&#x578B;&#x5982;&#x4E0B;:</p>
 <pre><code class="lang-text">//&#x521B;&#x5EFA;EventLoopGroup
 NioEventLoopGroup group = new NioEventLoopGroup();
@@ -1483,7 +1502,7 @@ future.addListener(new ChannelFutureListener() {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Bootstrap引导","level":"12.1.6","depth":2,"next":{"title":"Codec编码与解码","level":"12.1.7","depth":2,"path":"gitbook_doc/netty-learning/Codec编码与解码.md","ref":"gitbook_doc/netty-learning/Codec编码与解码.md","articles":[]},"previous":{"title":"Netty线程模型和EventLoop事件循环","level":"12.1.5","depth":2,"path":"gitbook_doc/netty-learning/Netty线程模型和EventLoop.md","ref":"gitbook_doc/netty-learning/Netty线程模型和EventLoop.md","articles":[]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","expandable-chapters","code","github","splitter","pageview-count","lightbox","theme-comscore","-lunr","-search","search-pro","sitemap","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/guang19/framework-learning"},"livereload":{},"simple-page-toc":{"maxDepth":4,"skipFirstH1":false},"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"https://guang19.github.io/framework-learning"},"lightbox":{"jquery":true,"sameUuid":false},"theme-comscore":{},"back-to-top-button":{},"pageview-count":{},"github-buttons":{"buttons":[{"user":"guang19","repo":"framework-learning","type":"star","size":"small"},{"user":"guang19","repo":"framework-learning","type":"fork","size":"small"},{"user":"guang19","type":"follow","width":"230","size":"small"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author:":"qsjzwithguang19forever","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"framework-learning","language":"zh-hans","links":{"sidebar":{}},"gitbook":"*","description":"Java方向的开发者学习的资料"},"file":{"path":"gitbook_doc/netty-learning/Bootstrap引导.md","mtime":"2020-08-11T15:32:55.354Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-08-12T13:19:17.752Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Bootstrap引导","level":"12.1.2.5","depth":3,"next":{"title":"Codec编码与解码","level":"12.1.2.6","depth":3,"path":"gitbook_doc/netty-learning/Codec编码与解码.md","ref":"gitbook_doc/netty-learning/Codec编码与解码.md","articles":[]},"previous":{"title":"Netty线程模型和EventLoop事件循环","level":"12.1.2.4","depth":3,"path":"gitbook_doc/netty-learning/Netty线程模型和EventLoop.md","ref":"gitbook_doc/netty-learning/Netty线程模型和EventLoop.md","articles":[]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","expandable-chapters","code","github","splitter","pageview-count","lightbox","theme-comscore","-lunr","-search","search-pro","sitemap","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/guang19/framework-learning"},"livereload":{},"simple-page-toc":{"maxDepth":4,"skipFirstH1":false},"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"https://guang19.github.io/framework-learning"},"lightbox":{"jquery":true,"sameUuid":false},"theme-comscore":{},"back-to-top-button":{},"pageview-count":{},"github-buttons":{"buttons":[{"user":"guang19","repo":"framework-learning","type":"star","size":"small"},{"user":"guang19","repo":"framework-learning","type":"fork","size":"small"},{"user":"guang19","type":"follow","width":"230","size":"small"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author:":"qsjzwithguang19forever","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"framework-learning","language":"zh-hans","links":{"sidebar":{}},"gitbook":"*","description":"Java方向的开发者学习的资料"},"file":{"path":"gitbook_doc/netty-learning/Bootstrap引导.md","mtime":"2020-08-27T15:59:06.515Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-08-27T16:01:07.543Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

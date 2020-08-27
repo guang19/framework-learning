@@ -171,20 +171,22 @@
 ## 开发框架与库
 
 - [Netty简介](gitbook_doc/netty-learning/Netty简介.md)
-  
+
+  - [Netty特性](gitbook_doc/netty-learning/Netty特性.md)
+
   - [Netty组件](gitbook_doc/netty-learning/Netty组件.md)
 
-  - [Transport传输](gitbook_doc/netty-learning/Transport传输.md)
-
-  - [ByteBuf容器](gitbook_doc/netty-learning/ByteBuf容器.md)
+    - [Transport传输](gitbook_doc/netty-learning/Transport传输.md)
   
-  - [ChannelHandler和ChannelPipeline](gitbook_doc/netty-learning/ChannelHandler和ChannelPipeline.md)
-
-  - [Netty线程模型和EventLoop事件循环](gitbook_doc/netty-learning/Netty线程模型和EventLoop.md)
-
-  - [Bootstrap引导](gitbook_doc/netty-learning/Bootstrap引导.md)
+    - [ByteBuf容器](gitbook_doc/netty-learning/ByteBuf容器.md)
+    
+    - [ChannelHandler和ChannelPipeline](gitbook_doc/netty-learning/ChannelHandler和ChannelPipeline.md)
   
-  - [Codec编码与解码](gitbook_doc/netty-learning/Codec编码与解码.md)
+    - [Netty线程模型和EventLoop事件循环](gitbook_doc/netty-learning/Netty线程模型和EventLoop.md)
+    
+    - [Bootstrap引导](gitbook_doc/netty-learning/Bootstrap引导.md)
+    
+    - [Codec编码与解码](gitbook_doc/netty-learning/Codec编码与解码.md)
   
   
 ---

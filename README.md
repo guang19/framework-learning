@@ -192,20 +192,22 @@
 ### Netty(更新中)
 
 - [Netty简介](netty-learning/Netty简介.md)
-  
+
+  - [Netty特性](netty-learning/Netty特性.md)
+
   - [Netty组件](netty-learning/Netty组件.md)
 
-  - [Transport传输](netty-learning/Transport传输.md)
-
-  - [ByteBuf容器](netty-learning/ByteBuf容器.md)
+    - [Transport传输](netty-learning/Transport传输.md)
   
-  - [ChannelHandler和ChannelPipeline](netty-learning/ChannelHandler和ChannelPipeline.md)
-
-  - [Netty线程模型和EventLoop事件循环](netty-learning/Netty线程模型和EventLoop.md)
+    - [ByteBuf容器](netty-learning/ByteBuf容器.md)
+    
+    - [ChannelHandler和ChannelPipeline](netty-learning/ChannelHandler和ChannelPipeline.md)
   
-  - [Bootstrap引导](netty-learning/Bootstrap引导.md)
-  
-  - [Codec编码与解码](netty-learning/Codec编码与解码.md)
+    - [Netty线程模型和EventLoop事件循环](netty-learning/Netty线程模型和EventLoop.md)
+    
+    - [Bootstrap引导](netty-learning/Bootstrap引导.md)
+    
+    - [Codec编码与解码](netty-learning/Codec编码与解码.md)
 
 
 ### Spring框架
@@ -239,14 +241,11 @@
 
 ## 待办
 
-- [ ] ~~Git~~ (突然想到Git的官方文档已经是最好的资料了，这里不再画蛇添足了)
-
 - [ ] JVM部分后续会根据《深入理解Java虚拟机 - 第三版》更新
-
-- [ ] ~~Netty~~ (更新中)
 
 - [ ] PostgreSQL
 
+- [ ] ~~Netty~~ (暂完)
 
 
 ## 如何对本文档做出补充?

@@ -85,7 +85,7 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="Netty组件.html" />
+    <link rel="next" href="Netty特性.html" />
     
     
     <link rel="prev" href="../tomcat/Tomcat.html" />
@@ -1006,7 +1006,20 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="12.1.1" data-path="Netty组件.html">
+        <li class="chapter " data-level="12.1.1" data-path="Netty特性.html">
+            
+                <a href="Netty特性.html">
+            
+                    
+                    Netty特性
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="12.1.2" data-path="Netty组件.html">
             
                 <a href="Netty组件.html">
             
@@ -1017,9 +1030,10 @@
             
 
             
-        </li>
+            <ul class="articles">
+                
     
-        <li class="chapter " data-level="12.1.2" data-path="Transport传输.html">
+        <li class="chapter " data-level="12.1.2.1" data-path="Transport传输.html">
             
                 <a href="Transport传输.html">
             
@@ -1032,7 +1046,7 @@
             
         </li>
     
-        <li class="chapter " data-level="12.1.3" data-path="ByteBuf容器.html">
+        <li class="chapter " data-level="12.1.2.2" data-path="ByteBuf容器.html">
             
                 <a href="ByteBuf容器.html">
             
@@ -1045,7 +1059,7 @@
             
         </li>
     
-        <li class="chapter " data-level="12.1.4" data-path="ChannelHandler和ChannelPipeline.html">
+        <li class="chapter " data-level="12.1.2.3" data-path="ChannelHandler和ChannelPipeline.html">
             
                 <a href="ChannelHandler和ChannelPipeline.html">
             
@@ -1058,7 +1072,7 @@
             
         </li>
     
-        <li class="chapter " data-level="12.1.5" data-path="Netty线程模型和EventLoop.html">
+        <li class="chapter " data-level="12.1.2.4" data-path="Netty线程模型和EventLoop.html">
             
                 <a href="Netty线程模型和EventLoop.html">
             
@@ -1071,7 +1085,7 @@
             
         </li>
     
-        <li class="chapter " data-level="12.1.6" data-path="Bootstrap引导.html">
+        <li class="chapter " data-level="12.1.2.5" data-path="Bootstrap引导.html">
             
                 <a href="Bootstrap引导.html">
             
@@ -1084,7 +1098,7 @@
             
         </li>
     
-        <li class="chapter " data-level="12.1.7" data-path="Codec编码与解码.html">
+        <li class="chapter " data-level="12.1.2.6" data-path="Codec编码与解码.html">
             
                 <a href="Codec编码与解码.html">
             
@@ -1094,6 +1108,11 @@
                 </a>
             
 
+            
+        </li>
+    
+
+            </ul>
             
         </li>
     
@@ -1356,6 +1375,12 @@ Netty&#x63D0;&#x4F9B;&#x4E86;&#x9AD8;&#x6027;&#x80FD;&#x548C;&#x53EF;&#x6269;&#x
 <li><p>&#x793E;&#x533A;&#xFF1A; Netty&#x5FEB;&#x901F;&#x53D1;&#x5C55;&#x7684;&#x4E00;&#x4E2A;&#x91CD;&#x8981;&#x7684;&#x539F;&#x56E0;&#x5C31;&#x662F;&#x5B83;&#x7684;&#x793E;&#x533A;&#x975E;&#x5E38;&#x6D3B;&#x8DC3;&#xFF0C;&#x8FD9;&#x4E5F;&#x4F7F;&#x5F97;&#x91C7;&#x7528;&#x5B83;&#x7684;&#x5F00;&#x53D1;&#x8005;&#x8D8A;&#x6765;&#x8D8A;&#x591A;&#x3002;</p>
 </li>
 </ul>
+<h2 id="netty&#x67B6;&#x6784;&#x603B;&#x89C8;">Netty&#x67B6;&#x6784;&#x603B;&#x89C8;</h2>
+<p>&#x4E0B;&#x9762;&#x662F;Netty&#x7684;&#x6A21;&#x5757;&#x8BBE;&#x8BA1;&#x90E8;&#x5206;&#xFF1A;</p>
+<p><a href="../../img/netty/Netty&#x67B6;&#x6784;&#x603B;&#x89C8;.png" data-lightbox="7342e351-50c2-43a6-b6c3-d709716e8256" data-title="Netty&#x67B6;&#x6784;&#x603B;&#x89C8;"><img src="../../img/netty/Netty&#x67B6;&#x6784;&#x603B;&#x89C8;.png" alt="Netty&#x67B6;&#x6784;&#x603B;&#x89C8;"></a></p>
+<p>Netty&#x63D0;&#x4F9B;&#x4E86;&#x901A;&#x7528;&#x7684;&#x4F20;&#x8F93;API&#xFF08;TCP/UDP...&#xFF09;&#xFF1B;&#x591A;&#x79CD;&#x7F51;&#x7EDC;&#x534F;&#x8BAE;&#xFF08;HTTP/WebSocket...&#xFF09;&#xFF1B;&#x57FA;&#x4E8E;&#x4E8B;&#x4EF6;&#x9A71;&#x52A8;&#x7684;IO&#x6A21;&#x578B;&#xFF1B;
+&#x8D85;&#x9AD8;&#x6027;&#x80FD;&#x7684;&#x96F6;&#x62F7;&#x8D1D;...</p>
+<p>&#x4E0A;&#x9762;&#x8BF4;&#x7684;&#x8FD9;&#x4E9B;&#x6A21;&#x5757;&#x548C;&#x529F;&#x80FD;&#x53EA;&#x662F;Netty&#x7684;&#x4E00;&#x90E8;&#x5206;&#xFF0C;&#x5177;&#x4F53;&#x7684;&#x7EC4;&#x4EF6;&#x5728;&#x540E;&#x9762;&#x7684;&#x90E8;&#x5206;&#x4F1A;&#x6709;&#x8F83;&#x4E3A;&#x8BE6;&#x7EC6;&#x7684;&#x4ECB;&#x7ECD;&#x3002;</p>
 
                                 
                                 </section>
@@ -1388,7 +1413,7 @@ Netty&#x63D0;&#x4F9B;&#x4E86;&#x9AD8;&#x6027;&#x80FD;&#x548C;&#x53EF;&#x6269;&#x
                 </a>
                 
                 
-                <a href="Netty组件.html" class="navigation navigation-next " aria-label="Next page: Netty组件">
+                <a href="Netty特性.html" class="navigation navigation-next " aria-label="Next page: Netty特性">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1399,7 +1424,7 @@ Netty&#x63D0;&#x4F9B;&#x4E86;&#x9AD8;&#x6027;&#x80FD;&#x548C;&#x53EF;&#x6269;&#x
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Netty简介","level":"12.1","depth":1,"next":{"title":"Netty组件","level":"12.1.1","depth":2,"path":"gitbook_doc/netty-learning/Netty组件.md","ref":"gitbook_doc/netty-learning/Netty组件.md","articles":[]},"previous":{"title":"Tomcat部分","level":"11.1","depth":1,"path":"gitbook_doc/tomcat/Tomcat.md","ref":"gitbook_doc/tomcat/Tomcat.md","articles":[]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","expandable-chapters","code","github","splitter","pageview-count","lightbox","theme-comscore","-lunr","-search","search-pro","sitemap","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/guang19/framework-learning"},"livereload":{},"simple-page-toc":{"maxDepth":4,"skipFirstH1":false},"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"https://guang19.github.io/framework-learning"},"lightbox":{"jquery":true,"sameUuid":false},"theme-comscore":{},"back-to-top-button":{},"pageview-count":{},"github-buttons":{"buttons":[{"user":"guang19","repo":"framework-learning","type":"star","size":"small"},{"user":"guang19","repo":"framework-learning","type":"fork","size":"small"},{"user":"guang19","type":"follow","width":"230","size":"small"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author:":"qsjzwithguang19forever","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"framework-learning","language":"zh-hans","links":{"sidebar":{}},"gitbook":"*","description":"Java方向的开发者学习的资料"},"file":{"path":"gitbook_doc/netty-learning/Netty简介.md","mtime":"2020-08-11T15:32:55.354Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-08-12T13:19:17.752Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Netty简介","level":"12.1","depth":1,"next":{"title":"Netty特性","level":"12.1.1","depth":2,"path":"gitbook_doc/netty-learning/Netty特性.md","ref":"gitbook_doc/netty-learning/Netty特性.md","articles":[]},"previous":{"title":"Tomcat部分","level":"11.1","depth":1,"path":"gitbook_doc/tomcat/Tomcat.md","ref":"gitbook_doc/tomcat/Tomcat.md","articles":[]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","expandable-chapters","code","github","splitter","pageview-count","lightbox","theme-comscore","-lunr","-search","search-pro","sitemap","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/guang19/framework-learning"},"livereload":{},"simple-page-toc":{"maxDepth":4,"skipFirstH1":false},"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"https://guang19.github.io/framework-learning"},"lightbox":{"jquery":true,"sameUuid":false},"theme-comscore":{},"back-to-top-button":{},"pageview-count":{},"github-buttons":{"buttons":[{"user":"guang19","repo":"framework-learning","type":"star","size":"small"},{"user":"guang19","repo":"framework-learning","type":"fork","size":"small"},{"user":"guang19","type":"follow","width":"230","size":"small"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author:":"qsjzwithguang19forever","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"framework-learning","language":"zh-hans","links":{"sidebar":{}},"gitbook":"*","description":"Java方向的开发者学习的资料"},"file":{"path":"gitbook_doc/netty-learning/Netty简介.md","mtime":"2020-08-27T15:59:06.518Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-08-27T16:01:07.543Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
