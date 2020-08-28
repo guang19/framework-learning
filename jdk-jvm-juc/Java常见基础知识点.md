@@ -42,21 +42,19 @@ openjdk8u:
 * hotspot:[hotspot](http://hg.openjdk.java.net/jdk8u/hs-dev/hotspot/archive/tip.tar.gz)
 * openjdk:[jdk](https://hg.openjdk.java.net/jdk8u/hs-dev/jdk/archive/tip.tar.gz)
 
-#### 面向对象和面向过程的区别
 
-首先面向过程和面向对象的语言没有具体的性能高下之分,要依据每种语言的设计来做参考.
-个人认为面向过程与面向对象的最大区别在于: **面向过程的语言是结构化的,面向对象的语言是模块化的。**
-**模块化的代码比结构化的代码更易于维护,复用与扩展。**
+#### 面向对象和面向过程的区别
+面向对象编程时，其代码是模块化的。 面向过程编程时，其代码是结构化的。
+面向过程和面向对象的语言没有具体的性能高下之分,要依据每种语言的设计来做评断。
+
 
 #### OracleJdk与OpenJdk的区别
-
 OpenJdk是基于Sum捐赠的HotSpot的源代码开发的,是开源的。
 OracleJdk是Oracle对Jdk的商业化版本,由Oracle公司发布并维护.
 因此OracleJdk比OpenJdk更可靠(不过随着版本的迭代，二者之间的差异正在减少)。
 
 '
 #### Java与C++的异同
-
 - Java和C++都是基于面向对象思想的语言。
 
 - Java不提供指针来访问内存。C++允许指针访问内存。
@@ -310,26 +308,19 @@ add.invoke(list, "kl");
 
 System.out.println(list)
 ```
- 
- 
+
+
 #### 泛型通配符
 
-**常用的 T，E，K，V，?**
+**常用的 ?, T，E，K，V**
 
-- ？ 表示不确定的 java 类型
-- T (type) 表示具体的一个java类型
-- K V (key value) 分别代表java键值中的Key Value
-- E (element) 代表Element
+- ? ： 无界通配符
+- T ： (type) 表示具体的一个java类型
+- K和V ： (key value) 分别代表Java键值中的Key Value
+- E ：    代表Element
 
-**? 无界通配符**
 
-一个抽象父类Animal和子类Dog，现在需要一个动物列表，我的第一反应是这样的：
-
-```text
-List<Animal> listAnimals
-```
-
-但是老板的想法却是这样的：
+一个抽象父类Animal和子类Dog，现在需要一个动物列表，其泛型约束应该是这样的：
 
 ```text
 List<? extends Animal> listAnimals
@@ -363,13 +354,11 @@ List<? extends Animal> listAnimals
      }
 ```
  
-所以，对于不确定或者不关心实际要操作的类型，可以使用无限制通配符(**<?>**)，表示可以持有任意类型。像countLegs方法，规定了参数传入的上界，但是并不关心具体类型是什么，对于传入的参数，只要是`Animal`的子类，就都可以支持，而countLegs1方法不行。
+所以，对于不确定或者不关心实际要操作的类型，可以使用无限制通配符**?**，表示可以持有任意类型。像countLegs方法，规定了参数传入的上界，但是并不关心具体类型是什么，对于传入的参数，只要是`Animal`的子类，就都可以支持，而countLegs1方法不行。
 
 为什么countLegs1方法就不行呢？`Dog`不是`Animal`的子类吗，根据多态的角度来讲，理论上应该是可以的，但是，在泛型的继承体系中，`Dog`并不算`Animal`的一个子类。
 
 假设我们有以下代码：
-
-animals的泛型是父类对象`Animal`，dogs的泛型是子类对象`Dog`，那么dogs转换animals能成功吗，我们知道子类对象转父类对象是可以的，但是子类泛型转父类泛型能成功吗，我们假设能成功。
 
 ```text
   public static void main(String[] args) {
@@ -379,8 +368,10 @@ animals的泛型是父类对象`Animal`，dogs的泛型是子类对象`Dog`，�
          animals = dogs;
      }
 ```
- 
+
+animals的泛型是父类对象`Animal`，dogs的泛型是子类对象`Dog`，那么dogs转换animals能成功吗，我们知道子类对象转父类对象是可以的，但是子类泛型转父类泛型能成功吗，我们假设能成功。
 那么animals就指向了一个泛型为`Dog`的集合容器，但是现在这个集合容器的泛型是`Animal`，看上去可以将另一个子类`Cat`加进容器中。
+
 
 ```text
  public static void main(String[] args) {
@@ -396,7 +387,6 @@ animals的泛型是父类对象`Animal`，dogs的泛型是子类对象`Dog`，�
 
 
 #### 上界通配符 <? extend E>
-
 上界：用extend关键字指定，表示所指定的类型只能是某个类的子类或者这个类本身
 
 ```text
@@ -431,7 +421,6 @@ static <T> void  test1(List<? super  T> dst ,List<T> list){
 ```
 
 #### ?和T的区别
-
 ? 表示不确定的类型，常用于泛型方法的调用代码和形参，不能用于定义泛型类、泛型方法和泛型变量。
 
 T 表示一个具体的类型，常用于泛型类和泛型方法的定义，可以定义泛型变量。
@@ -476,21 +465,20 @@ T extends A
 
 #### 为什么要慎用 Arrays.asList()?
 **因为Arrays.asList这个方法返回的根本就不是我们期盼的ArrayList,
-而是Arrays类内部实现的ArrayList,这个内部类只支持访问和set操作,
-并不支持remove,add,clear等修改操作。**
+而是Arrays类内部实现的ArrayList,这个内部类只支持get和set等有限的操作,
+对于remove,add,clear等操作会抛出异常。**
 
 
 #### Java中引用的类型
-
 Java中引用类型总共有四种: 强引用，软引用，弱引用，虚引用。
 
 - 强引用(Strong Reference): Java程序中绝大部分都是强引用，一般使用new关键字创建的对象就是强引用。
   只要强引用存在，强引用的对象就不会被回收，除非不可达(参考jvm部分)
 
 - 软引用(Soft Reference): 软引用一般不会被回收，但是当堆内存不够的时候，
-  比如几乎快要发生OOM的时候，就会回收掉软引用对象。
+比如几乎快要发生OOM的时候，就会回收掉软引用对象。
 
 - 弱引用(Weak Reference): 只要垃圾回收开始，就会回收掉弱引用的对象。
 
-- 虚引用(Phantom Reference,又称幽灵引用): 和其他几种引用不同，虚引用不决定对象的生命周期，
-  它在任何时候都可能被回收掉。
+- 虚引用(Phantom Reference): 虚引用又称幽灵引用。和其他几种引用不同，虚引用不决定对象的生命周期，
+它在任何时候都可能被回收掉。

@@ -27,7 +27,6 @@
 ### 线程不安全的集合
 
 #### HashMap的特点
-
 - HashMap在Jdk8之前使用拉链法实现,jdk8之后使用拉链法+红黑树实现。
 
 - HashMap是线程不安全的,并允许null key 和 null value。
@@ -42,10 +41,9 @@
 长度是否大于MIN_TREEIFY_CAPACITY(64),如果大于，那么这个桶的链表将会转为红黑树，否则HashMap将会扩容。
 当某个桶的红黑树节点的数量小于等于指定的阈值UNTREEIFY_THRESHOLD(6)时，那么在扩容的时候，这个桶的红黑树将转为链表。**
 
-#### HashMap的长度(容量)为什么要设计成2的幂？
->这就不得不佩服大师们的设计。
 
-想想看，一个对象的hashcode是很大的，当HashMap的容量仅为16,32时，
+#### HashMap的长度(容量)为什么要设计成2的幂？
+想想看，一个对象的hashcode是很大的，当HashMap的容量仅为16，32时，
 如何根据hashcode来确定key在数组中的下标。
 一个好的办法就是取余: hashcode % length。
 这样就能确保，key的下标是永远不会超过数组的长度的。
@@ -56,13 +54,11 @@
 hash % length == hash & (length - 1)
 ````
 
-为什么上面这个性能超高的等式成立，当然是有条件的，
-
-**只有当length为2的幂的时候这样的等式才成立,**
+上面这个性能超高的等式**只有当length为2的幂的时候这样的等式才成立,**
 这就明白了为什么使用2的幂来定义HashMap的长度。
 
-#### HashTable的特点
 
+#### HashTable的特点
 - HashTable底层使用拉链法实现。
 
 - HashTable就像Vector一样,也是jdk1就存在的很古老的一个类，它是线程安全的，
@@ -135,7 +131,6 @@ Set是如何保证元素不会重复,这个得看各自Map的实现了。
 
 
 #### ConcurrentModificationException异常  
- 
 ConcurrentModificationException可以从名字看出是并发修改的异常。
 
 但我要说的是**这个异并不是在修改的时候会抛出的，而是在调用迭代器遍历集合的时候才会抛出。**
@@ -144,13 +139,13 @@ ConcurrentModificationException可以从名字看出是并发修改的异常。
 接着就遍历集合，那么很有可能会抛出ConcurrentModificationException。**
 
 **在ArrayList，HashMap等非线程安全的集合内部都有一个modCount变量，
-这个变量是在集合被修改时(删除，新增)，都会被修改。**
+这个变量是在集合被修改时(包括删除，新增)，都会被修改。**
 
-如果是多线程对同一个集合做出修改操作，就可能会造成modCount与实际的操作次数不符，
-那么最终在调用集合的迭代方法时，modCount与预期expectedModeCount比较，
-expectedModCount是在迭代器初始化时使用modCount赋值的，
+如果是多线程对同一个集合做出修改操作，那么最终在调用集合的迭代方法时，
+modCount与预期expectedModeCount比较，expectedModCount是在迭代器初始化时使用modCount赋值的，
 **如果发现modCount与expectedModeCount不一致，就说明在使用迭代器遍历集合期间，
 有其他线程对集合进行了修改,所以就会抛出ConcurrentModificationException异常。**
+
 
 ### 线程安全的集合
 
