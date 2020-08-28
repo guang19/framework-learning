@@ -24,7 +24,7 @@
 
 - [Java常见基础知识点](gitbook_doc/jdk-jvm-juc/Java常见基础知识点.md)
 
-  - [IO](gitbook_doc/jdk-jvm-juc/IO.md)
+  - [Linux IO](gitbook_doc/jdk-jvm-juc/Linux_IO.md)
   
   - [Java集合](gitbook_doc/jdk-jvm-juc/Java集合.md)
 

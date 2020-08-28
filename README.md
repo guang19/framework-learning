@@ -25,7 +25,7 @@
 
 - [Java常见基础知识点](jdk-jvm-juc/Java常见基础知识点.md)
  
-  - [IO](jdk-jvm-juc/IO.md)
+  - [Linux IO](jdk-jvm-juc/Linux_IO.md)
  
   - [Java集合](jdk-jvm-juc/Java集合.md)
 
@@ -189,7 +189,7 @@
 
 ## 开发框架与库
 
-### Netty(更新中)
+### Netty
 
 - [Netty简介](netty-learning/Netty简介.md)
 

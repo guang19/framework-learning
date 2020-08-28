@@ -4,8 +4,8 @@
      * [传输API](#传输api)
      * [Netty内置的传输](#netty内置的传输)
      * [零拷贝](#零拷贝)
-     * [内存映射（Memory Mapped）](#内存映射memory-mapped)
-     * [文件传输(SendFile)](#文件传输sendfile)
+       * [内存映射（Memory Mapped）](#内存映射memory-mapped)
+       * [文件传输(SendFile)](#文件传输sendfile)
 
 <!-- /TOC -->
 
@@ -21,7 +21,7 @@ Netty则为这些不同的IO模型实现了一个通用的API，我们使用这�
 在传输这一部分，我们将主要学习这个通用的API，以及它与JDK之间的对比。
 
 
-#### 传输API
+### 传输API
 传输API的核心是Channel(io.netty.Channel，而非java nio的Channel)接口，它被用于所有的IO操作。
 
 Channel结构层次：
@@ -48,7 +48,7 @@ ChannelPipeline在上面已经介绍过了，它存储了所有用于处理出�
 | writeFlush | 等同于调用 write 写入数据后再调用 flush 刷新数据 |
 
 
-#### Netty内置的传输
+### Netty内置的传输
 Netty内置了一些开箱即用的传输，我们上面介绍了传输的核心API是Channel，那么这些已经封装好的
 传输也是基于Channel的。
 
@@ -66,7 +66,7 @@ Netty内置Channel接口层次：
 | Embedded    | io.netty.channel.embedded   | Embedded Channel允许在没有真正的网络传输中使用ChannelHandler，可以非常有用的测试ChannelHandler |
 
 
-#### 零拷贝
+### 零拷贝
 零拷贝(Zero-Copy)是一种目前只有在使用NIO和Epoll传输时才可使用的特性。
 在我之前写过的IO模型中，所有的IO的数据都是从内核复制到用户应用进程，再由用户应用进程处理。
 而零拷贝则可以快速地将数据从源文件移动到目标文件，无需经过用户空间。
