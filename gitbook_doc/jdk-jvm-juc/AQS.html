@@ -207,12 +207,12 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="3.1.1" data-path="IO.html">
+        <li class="chapter " data-level="3.1.1" data-path="Linux_IO.html">
             
-                <a href="IO.html">
+                <a href="Linux_IO.html">
             
                     
-                    IO
+                    Linux IO
             
                 </a>
             
@@ -1418,18 +1418,18 @@ release&#x65B9;&#x6CD5;&#x4F7F;&#x5F97;state&#x7684;&#x53D8;&#x91CF;&#x4F1A;&#x5
  /** Returns the number of exclusive holds represented in count. */
  static int exclusiveCount(int c) { return c &amp; EXCLUSIVE_MASK; }
 </code></pre>
-<pre><code class="lang-text">&#x5269;&#x4E0B;&#x7684;&#x5C31;&#x8BFB;&#x6E90;&#x7801;&#x5427;&#x3002;
+<pre><code class="lang-text">&#x5269;&#x4E0B;&#x7684;&#x5C31;&#x770B;&#x6E90;&#x7801;&#x5427;&#x3002;
 </code></pre>
 <p>&#x5176;&#x5B9E;&#x5427;&#xFF0C;&#x5728;&#x6211;&#x8BFB;&#x4E86;&#x51E0;&#x904D;&#x6E90;&#x7801;&#x540E;,&#x624D;&#x53D1;&#x73B0;jdk&#x7684;&#x6E90;&#x7801;&#x4E0D;&#x7B97;&#x7279;&#x522B;&#x96BE;&#x9605;&#x8BFB;&#x3002;</p>
 <p>&#x4F46;&#x662F;&#x50CF;&#x6211;&#x5728;&#x8BFB;SpringBoot&#x7684;&#x6E90;&#x7801;&#x65F6;&#xFF0C;&#x6211;&#x5C31;&#x53EA;&#x80FD;&#x5206;&#x6790;&#x4E2A;&#x5927;&#x6982;&#x3002;</p>
 <p>&#x4E3B;&#x8981;&#x662F;Jdk&#x7684;&#x6E90;&#x7801;&#x4E4B;&#x95F4;&#x5E76;&#x6CA1;&#x6709;&#x4EC0;&#x4E48;&#x8026;&#x5408;&#x6027;&#xFF0C;&#x4F60;&#x770B;&#x4E00;&#x4E2A;jdk&#x7684;&#x7C7B;&#xFF0C;&#x4E0D;&#x50CF;Spring&#x7684;&#x6E90;&#x7801;&#x90A3;&#x6837;&#x7ED5;&#x6765;&#x7ED5;&#x53BB;&#xFF0C;
 &#x5404;&#x79CD;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x641E;&#x5F97;&#x4F60;&#x5934;&#x6655;&#x3002;
-&#x6240;&#x4EE5;&#x6211;&#x5EFA;&#x8BAE;&#x9605;&#x8BFB;&#x6E90;&#x7801;&#x53EF;&#x4EE5;&#x4ECE;jdk&#x7684;&#x6E90;&#x7801;&#x5F00;&#x59CB;&#xFF0C;&#x524D;&#x63D0;&#x662F;&#x4F60;&#x9700;&#x8981;&#x4E00;&#x5B9A;&#x7684;&#x57FA;&#x7840;&#x624D;&#x80FD;&#x770B;&#x5F97;&#x61C2;&#x3002;
+&#x6240;&#x4EE5;&#x6211;&#x5EFA;&#x8BAE;&#x9605;&#x8BFB;&#x6E90;&#x7801;&#x53EF;&#x4EE5;&#x4ECE;Jdk&#x7684;&#x6E90;&#x7801;&#x5F00;&#x59CB;&#xFF0C;&#x524D;&#x63D0;&#x662F;&#x4F60;&#x9700;&#x8981;&#x4E00;&#x5B9A;&#x7684;&#x57FA;&#x7840;&#x624D;&#x80FD;&#x770B;&#x5F97;&#x61C2;&#x3002;
 &#x6BD4;&#x5982;&#x6211;&#x8FD9;&#x4E2A;&#x7248;&#x672C;(11)&#x5C31;&#x53D1;&#x73B0;AQS&#x7684;&#x90E8;&#x5206;&#x6E90;&#x7801;&#x4E0E;&#x4E4B;&#x524D;&#x7248;&#x672C;&#x7684;&#x6E90;&#x7801;&#x4E0D;&#x540C;&#x3002;
 &#x8FD9;&#x4E2A;&#x7248;&#x672C;&#x7684;AQS&#x4F7F;&#x7528;&#x4E86;: VarHandle &#x8FD9;&#x4E2A;&#x7C7B;&#x6765;&#x8BBE;&#x7F6E;Node&#x7C7B;&#x5185;&#x90E8;&#x7684;&#x5C5E;&#x6027;&#xFF0C;
 &#x800C;&#x4E4B;&#x524D;&#x90FD;&#x662F;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x6765;&#x6784;&#x9020;Node&#x7684;&#x3002;
-&#x5E76;&#x4E14;AQS&#x4F7F;&#x7528;&#x7684;&#x662F;LockSupport&#x6765;&#x963B;&#x585E;&#x7EBF;&#x7A0B;&#x7684;&#xFF0C;LockSupport&#x4ECD;&#x7136;&#x4F7F;&#x7528;&#x7684;&#x662F;Unsafe&#x7C7B;&#x6765;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#x7684;,
-&#x8FD9;&#x4E9B;&#x90FD;&#x5C5E;&#x4E8E;java&#x4E0E;c/c++&#x4EA4;&#x4E92;&#x7684;&#x7C7B;,&#x6240;&#x4EE5;&#x4F60;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x57FA;&#x7840;&#xFF0C;&#x4F1A;&#x8BE7;&#x5F02;,jdk&#x8FD8;&#x6709;&#x8FD9;&#x79CD;&#x4E1C;&#x897F;&#x5440; ^-^...    </p>
+&#x5E76;&#x4E14;AQS&#x4F7F;&#x7528;&#x7684;&#x662F;LockSupport&#x6765;&#x963B;&#x585E;&#x7EBF;&#x7A0B;&#x7684;&#xFF0C;LockSupport&#x5E95;&#x5C42;&#x4ECD;&#x7136;&#x4F7F;&#x7528;&#x7684;&#x662F;Unsafe&#x7C7B;&#x6765;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#x7684;,
+&#x8FD9;&#x4E9B;&#x90FD;&#x5C5E;&#x4E8E;java&#x4E0E;c/c++&#x4EA4;&#x4E92;&#x7684;&#x7C7B;,&#x6240;&#x4EE5;&#x4F60;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x57FA;&#x7840;&#xFF0C;&#x4F1A;&#x8BE7;&#x5F02;&#xFF0C;jdk&#x8FD8;&#x6709;&#x8FD9;&#x79CD;&#x4E1C;&#x897F;&#x5440;&#x3002;</p>
 
                                 
                                 </section>
@@ -1473,7 +1473,7 @@ release&#x65B9;&#x6CD5;&#x4F7F;&#x5F97;state&#x7684;&#x53D8;&#x91CF;&#x4F1A;&#x5
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"AQS","level":"3.1.5","depth":2,"next":{"title":"对象在内存中的布局","level":"3.1.6","depth":2,"path":"gitbook_doc/jdk-jvm-juc/对象在内存中的布局.md","ref":"gitbook_doc/jdk-jvm-juc/对象在内存中的布局.md","articles":[]},"previous":{"title":"Java并发","level":"3.1.4","depth":2,"path":"gitbook_doc/jdk-jvm-juc/Java并发.md","ref":"gitbook_doc/jdk-jvm-juc/Java并发.md","articles":[]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","expandable-chapters","code","github","splitter","pageview-count","lightbox","theme-comscore","-lunr","-search","search-pro","sitemap","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/guang19/framework-learning"},"livereload":{},"simple-page-toc":{"maxDepth":4,"skipFirstH1":false},"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"https://guang19.github.io/framework-learning"},"lightbox":{"jquery":true,"sameUuid":false},"theme-comscore":{},"back-to-top-button":{},"pageview-count":{},"github-buttons":{"buttons":[{"user":"guang19","repo":"framework-learning","type":"star","size":"small"},{"user":"guang19","repo":"framework-learning","type":"fork","size":"small"},{"user":"guang19","type":"follow","width":"230","size":"small"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author:":"qsjzwithguang19forever","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"framework-learning","language":"zh-hans","links":{"sidebar":{}},"gitbook":"*","description":"Java方向的开发者学习的资料"},"file":{"path":"gitbook_doc/jdk-jvm-juc/AQS.md","mtime":"2020-08-27T15:59:06.508Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-08-27T16:01:07.543Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"AQS","level":"3.1.5","depth":2,"next":{"title":"对象在内存中的布局","level":"3.1.6","depth":2,"path":"gitbook_doc/jdk-jvm-juc/对象在内存中的布局.md","ref":"gitbook_doc/jdk-jvm-juc/对象在内存中的布局.md","articles":[]},"previous":{"title":"Java并发","level":"3.1.4","depth":2,"path":"gitbook_doc/jdk-jvm-juc/Java并发.md","ref":"gitbook_doc/jdk-jvm-juc/Java并发.md","articles":[]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","expandable-chapters","code","github","splitter","pageview-count","lightbox","theme-comscore","-lunr","-search","search-pro","sitemap","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/guang19/framework-learning"},"livereload":{},"simple-page-toc":{"maxDepth":4,"skipFirstH1":false},"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"https://guang19.github.io/framework-learning"},"lightbox":{"jquery":true,"sameUuid":false},"theme-comscore":{},"back-to-top-button":{},"pageview-count":{},"github-buttons":{"buttons":[{"user":"guang19","repo":"framework-learning","type":"star","size":"small"},{"user":"guang19","repo":"framework-learning","type":"fork","size":"small"},{"user":"guang19","type":"follow","width":"230","size":"small"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author:":"qsjzwithguang19forever","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"framework-learning","language":"zh-hans","links":{"sidebar":{}},"gitbook":"*","description":"Java方向的开发者学习的资料"},"file":{"path":"gitbook_doc/jdk-jvm-juc/AQS.md","mtime":"2020-08-29T05:47:46.551Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-08-29T05:49:57.702Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

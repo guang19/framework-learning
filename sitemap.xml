@@ -5,7 +5,7 @@
 <url> <loc>https://guang19.github.io/gitbook_doc/system_architecture_design/系统架构设计简介.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://guang19.github.io/gitbook_doc/system_architecture_design/站内消息系统的设计.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://guang19.github.io/gitbook_doc/jdk-jvm-juc/Java常见基础知识点.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://guang19.github.io/gitbook_doc/jdk-jvm-juc/IO.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://guang19.github.io/gitbook_doc/jdk-jvm-juc/Linux_IO.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://guang19.github.io/gitbook_doc/jdk-jvm-juc/Java集合.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://guang19.github.io/gitbook_doc/jdk-jvm-juc/Java多线程.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://guang19.github.io/gitbook_doc/jdk-jvm-juc/Java并发.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
