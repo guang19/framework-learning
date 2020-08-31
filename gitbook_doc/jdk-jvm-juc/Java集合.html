@@ -33,10 +33,6 @@
                 
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-pageview-count/plugin.css">
-                
-            
-                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-lightbox/css/lightbox.min.css">
                 
             
@@ -1363,11 +1359,11 @@
 </li>
 </ul>
 <h4 id="hashmap&#x7684;&#x957F;&#x5EA6;&#x5BB9;&#x91CF;&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x8BBE;&#x8BA1;&#x6210;2&#x7684;&#x5E42;&#xFF1F;">HashMap&#x7684;&#x957F;&#x5EA6;(&#x5BB9;&#x91CF;)&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x8BBE;&#x8BA1;&#x6210;2&#x7684;&#x5E42;&#xFF1F;</h4>
-<p>&#x60F3;&#x60F3;&#x770B;&#xFF0C;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;hashcode&#x662F;&#x5F88;&#x5927;&#x7684;&#xFF0C;&#x5F53;HashMap&#x7684;&#x5BB9;&#x91CF;&#x4EC5;&#x4E3A;16&#xFF0C;32&#x65F6;&#xFF0C;
-&#x5982;&#x4F55;&#x6839;&#x636E;hashcode&#x6765;&#x786E;&#x5B9A;key&#x5728;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x4E0B;&#x6807;&#x3002;
+<p>&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;hashcode&#x662F;&#x5F88;&#x5927;&#x7684;&#xFF0C;&#x60F3;&#x60F3;&#x770B;&#xFF1A;&#x5F53;HashMap&#x7684;&#x5BB9;&#x91CF;&#x4EC5;&#x4E3A;16&#xFF0C;32&#x65F6;&#xFF0C;
+&#x5982;&#x4F55;&#x6839;&#x636E;hashcode&#x6765;&#x786E;&#x5B9A;key&#x5728;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x4E0B;&#x6807;&#xFF1F;
 &#x4E00;&#x4E2A;&#x597D;&#x7684;&#x529E;&#x6CD5;&#x5C31;&#x662F;&#x53D6;&#x4F59;: hashcode % length&#x3002;
-&#x8FD9;&#x6837;&#x5C31;&#x80FD;&#x786E;&#x4FDD;&#xFF0C;key&#x7684;&#x4E0B;&#x6807;&#x662F;&#x6C38;&#x8FDC;&#x4E0D;&#x4F1A;&#x8D85;&#x8FC7;&#x6570;&#x7EC4;&#x7684;&#x957F;&#x5EA6;&#x7684;&#x3002;
-&#x4F46;&#x662F;&#x60F3;&#x60F3;&#xFF0C;&#x9664;&#x4E86;&#x53D6;&#x4F59;&#x6709;&#x6CA1;&#x6709;&#x66F4;&#x597D;&#x7684;&#x529E;&#x6CD5;&#xFF0C;</p>
+&#x8FD9;&#x6837;&#x5C31;&#x80FD;&#x786E;&#x4FDD;&#xFF0C;key&#x7684;&#x4E0B;&#x6807;&#x662F;&#x6C38;&#x8FDC;&#x4E0D;&#x4F1A;&#x8D85;&#x8FC7;&#x6570;&#x7EC4;&#x7684;&#x957F;&#x5EA6;&#x3002;
+&#x4F46;&#x662F;&#xFF0C;&#x9664;&#x4E86;&#x53D6;&#x4F59;&#x6709;&#x6CA1;&#x6709;&#x66F4;&#x597D;&#x7684;&#x529E;&#x6CD5;&#xFF1F;</p>
 <p>&#x5F53;&#x7136;&#x6709;:</p>
 <pre><code class="lang-text">hash % length == hash &amp; (length - 1)
 </code></pre>
@@ -1391,7 +1387,7 @@
 <ul>
 <li><p>ArrayList&#x5E95;&#x5C42;&#x4F7F;&#x7528;Object&#x6570;&#x7EC4;&#x5B9E;&#x73B0;&#x3002;</p>
 </li>
-<li><p>ArrayList&#x7684;&#x5BB9;&#x91CF;&#x9ED8;&#x8BA4;&#x4E3A;0,&#x53EA;&#x6709;&#x5728;&#x7B2C;&#x4E00;&#x6B21;&#x6267;&#x884C;add&#x64CD;&#x4F5C;&#x65F6;&#x624D;&#x4F1A;&#x521D;&#x59CB;&#x5316;&#x5BB9;&#x91CF;&#x4E3A;10&#xFF0C;&#x6B63;&#x5E38;&#x7684;&#x6269;&#x5BB9;&#x662F;&#x4E3A;&#x539F;&#x6765;&#x7684;1/2&#x500D;&#x3002;</p>
+<li><p>ArrayList&#x7684;&#x5BB9;&#x91CF;&#x9ED8;&#x8BA4;&#x4E3A;0,&#x53EA;&#x6709;&#x5728;&#x7B2C;&#x4E00;&#x6B21;&#x6267;&#x884C;add&#x64CD;&#x4F5C;&#x65F6;&#x624D;&#x4F1A;&#x521D;&#x59CB;&#x5316;&#x5BB9;&#x91CF;&#x4E3A;10&#xFF0C;&#x6B63;&#x5E38;&#x7684;&#x6269;&#x5BB9;&#x662F;&#x539F;&#x6765;&#x7684;1/2&#x500D;&#x3002;</p>
 </li>
 <li><p>&#x7531;&#x4E8E;ArrayList&#x91C7;&#x7528;&#x6570;&#x7EC4;&#x5B9E;&#x73B0;,&#x5B83;&#x7684;&#x5BB9;&#x91CF;&#x662F;&#x56FA;&#x5B9A;&#x7684;,&#x6240;&#x4EE5;&#x5F53;&#x6DFB;&#x52A0;&#x65B0;&#x5143;&#x7D20;&#x7684;&#x65F6;&#x5019;,&#x5982;&#x679C;&#x8D85;&#x51FA;&#x4E86;&#x6570;&#x7EC4;&#x7684;&#x5BB9;&#x91CF;,
 &#x90A3;&#x4E48;&#x6B64;&#x65F6;add&#x64CD;&#x4F5C;&#x7684;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x5C06;&#x4F1A;&#x662F;O(n-1)&#x3002;</p>
@@ -1492,7 +1488,7 @@ ConcurrentHashMap&#x548C;&#x666E;&#x901A;&#x7684;HashMap&#x7684;&#x5DEE;&#x522B;
 &#x8DF3;&#x8868;&#x6BD4;&#x8F83;&#x7279;&#x6B8A;&#xFF0C;&#x5B83;&#x7531;&#x591A;&#x4E2A;&#x5C42;&#x6B21;&#x7684;&#x94FE;&#x8868;&#x7EC4;&#x6210;&#xFF0C;&#x6BCF;&#x5C42;&#x94FE;&#x8868;&#x53C8;&#x6709;&#x591A;&#x4E2A;&#x7D22;&#x5F15;&#x8282;&#x70B9;&#x8FDE;&#x63A5;&#xFF0C;
 &#x6BCF;&#x5C42;&#x94FE;&#x8868;&#x7684;&#x5143;&#x7D20;&#x4E5F;&#x90FD;&#x662F;&#x6709;&#x5E8F;&#x7684;&#x3002;&#x5904;&#x4E8E;&#x4E0A;&#x5C42;&#x7D22;&#x5F15;&#x7684;&#x94FE;&#x8868;&#x90FD;&#x662F;&#x4E0B;&#x5C42;&#x94FE;&#x8868;&#x7684;&#x5B50;&#x96C6;&#x3002;
 &#x8DF3;&#x8868;&#x4E0E;&#x666E;&#x901A;&#x94FE;&#x8868;&#x76F8;&#x6BD4;&#x67E5;&#x627E;&#x5143;&#x7D20;&#x7684;&#x6548;&#x7387;&#x66F4;&#x9AD8;&#x3002;</p>
-<p><a href="../../img/jdk-jvm-juc/&#x8DF3;&#x8868;.png" data-lightbox="9a9bce8e-7f99-4ba9-b4b5-1f47ed850cad" data-title="&#x8DF3;&#x8868;"><img src="../../img/jdk-jvm-juc/&#x8DF3;&#x8868;.png" alt="&#x8DF3;&#x8868;"></a></p>
+<p><a href="../../img/jdk-jvm-juc/&#x8DF3;&#x8868;.png" data-lightbox="098ba331-4d43-4096-a70e-29f4db9e2df6" data-title="&#x8DF3;&#x8868;"><img src="../../img/jdk-jvm-juc/&#x8DF3;&#x8868;.png" alt="&#x8DF3;&#x8868;"></a></p>
 
                                 
                                 </section>
@@ -1536,7 +1532,7 @@ ConcurrentHashMap&#x548C;&#x666E;&#x901A;&#x7684;HashMap&#x7684;&#x5DEE;&#x522B;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Java集合","level":"3.1.2","depth":2,"next":{"title":"Java多线程","level":"3.1.3","depth":2,"path":"gitbook_doc/jdk-jvm-juc/Java多线程.md","ref":"gitbook_doc/jdk-jvm-juc/Java多线程.md","articles":[]},"previous":{"title":"Linux IO","level":"3.1.1","depth":2,"path":"gitbook_doc/jdk-jvm-juc/Linux_IO.md","ref":"gitbook_doc/jdk-jvm-juc/Linux_IO.md","articles":[]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","expandable-chapters","code","github","splitter","pageview-count","lightbox","theme-comscore","-lunr","-search","search-pro","sitemap","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/guang19/framework-learning"},"livereload":{},"simple-page-toc":{"maxDepth":4,"skipFirstH1":false},"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"https://guang19.github.io/framework-learning"},"lightbox":{"jquery":true,"sameUuid":false},"theme-comscore":{},"back-to-top-button":{},"pageview-count":{},"github-buttons":{"buttons":[{"user":"guang19","repo":"framework-learning","type":"star","size":"small"},{"user":"guang19","repo":"framework-learning","type":"fork","size":"small"},{"user":"guang19","type":"follow","width":"230","size":"small"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author:":"qsjzwithguang19forever","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"framework-learning","language":"zh-hans","links":{"sidebar":{}},"gitbook":"*","description":"Java方向的开发者学习的资料"},"file":{"path":"gitbook_doc/jdk-jvm-juc/Java集合.md","mtime":"2020-08-29T05:47:46.554Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-08-29T05:49:57.702Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Java集合","level":"3.1.2","depth":2,"next":{"title":"Java多线程","level":"3.1.3","depth":2,"path":"gitbook_doc/jdk-jvm-juc/Java多线程.md","ref":"gitbook_doc/jdk-jvm-juc/Java多线程.md","articles":[]},"previous":{"title":"Linux IO","level":"3.1.1","depth":2,"path":"gitbook_doc/jdk-jvm-juc/Linux_IO.md","ref":"gitbook_doc/jdk-jvm-juc/Linux_IO.md","articles":[]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","expandable-chapters","code","github","splitter","lightbox","theme-comscore","-lunr","-search","search-pro","sitemap","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/guang19/framework-learning"},"livereload":{},"simple-page-toc":{"maxDepth":4,"skipFirstH1":false},"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"https://guang19.github.io/framework-learning"},"lightbox":{"jquery":true,"sameUuid":false},"theme-comscore":{},"back-to-top-button":{},"github-buttons":{"buttons":[{"user":"guang19","repo":"framework-learning","type":"star","size":"small"},{"user":"guang19","repo":"framework-learning","type":"fork","size":"small"},{"user":"guang19","type":"follow","width":"230","size":"small"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author:":"qsjzwithguang19forever","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"framework-learning","language":"zh-hans","links":{"sidebar":{}},"gitbook":"*","description":"Java方向的开发者学习的资料"},"file":{"path":"gitbook_doc/jdk-jvm-juc/Java集合.md","mtime":"2020-08-31T14:52:48.687Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-08-31T14:56:03.826Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1563,10 +1559,6 @@ ConcurrentHashMap&#x548C;&#x666E;&#x901A;&#x7684;HashMap&#x7684;&#x5DEE;&#x522B;
     
         
         <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
         
     
         
