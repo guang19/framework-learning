@@ -40,7 +40,8 @@ public class ProducerConsumer {
     //减少
     public synchronized void decrement()
     {
-        try {
+        try
+        {
             while (number <= 0)
             {
                 this.wait();
@@ -63,10 +64,35 @@ public class ProducerConsumer {
          * 多轮操作后,number依然为 0
          */
         ProducerConsumer producerConsumer = new ProducerConsumer();
-//        new Thread(()->{for (int i = 0 ; i < 10; ++i){producerConsumer.increment();}},"A").start();
-//        new Thread(()->{for (int i = 0 ; i < 10; ++i){producerConsumer.increment();}},"B").start();
-//        new Thread(()->{for (int i = 0 ; i < 10 ; ++i){producerConsumer.decrement();}},"C").start();
-//        new Thread(()->{for (int i = 0 ; i < 10 ; ++i){producerConsumer.decrement();}},"D").start();
+//        new Thread(()->
+//        {
+//            for (int i = 0 ; i < 10; ++i)
+//            {
+//                producerConsumer.increment();
+//            }
+//        },"A").start();
+//        new Thread(()->
+//        {
+//            for (int i = 0 ; i < 10; ++i)
+//            {
+//                producerConsumer.increment();
+//            }
+//        },"B").start();
+//        new Thread(()->
+//        {
+//            for (int i = 0 ; i < 10 ; ++i)
+//            {
+//                producerConsumer.decrement();
+//            }
+//        },"C").start();
+//        new Thread(()->
+//        {
+//            for (int i = 0 ; i < 10 ; ++i)
+//            {
+//                producerConsumer.decrement();
+//            }
+//        },"D").start();
+
         new Thread(()->{for (int i = 0 ; i < 20; ++i){producerConsumer.increment2();}},"A").start();
         new Thread(()->{for (int i = 0 ; i < 20; ++i){producerConsumer.increment2();}},"B").start();
         new Thread(()->{for (int i = 0 ; i < 20 ; ++i){producerConsumer.decrement2();}},"C").start();
