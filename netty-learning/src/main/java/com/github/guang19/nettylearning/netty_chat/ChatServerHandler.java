@@ -14,7 +14,7 @@ import io.netty.util.concurrent.GlobalEventExecutor;
  */
 public class ChatServerHandler extends SimpleChannelInboundHandler<String>
 {
-    private final ChannelGroup channelGroup = new DefaultChannelGroup(GlobalEventExecutor.INSTANCE);
+    private static ChannelGroup channelGroup = new DefaultChannelGroup(GlobalEventExecutor.INSTANCE);
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, String msg) throws Exception
