@@ -24,7 +24,7 @@ Bootstrap则只需要一个普通的Channel用于与服务端的通信。
 
 |       方法         |         描述          |
 |      :---        |        :---          |
-|     group         |      设置用语处理所有事件的EventLoopGroup |
+|     group         |      设置用于处理所有事件的EventLoopGroup |
 |    channel        |      指定服务端或客户端的Channel |
 |    channelFactory |      如果引导没有指定Channel，那么可以指定ChannelFactory来创建Channel   |
 |   localAddress    |      指定Channel需要绑定的本地地址，如果不指定，则将由系统随机分配一个地址 |
@@ -43,7 +43,7 @@ Bootstrap负责Netty应用程序的客户端引导，作为客户端，我们需
 
 客户端引导的编程模型如下：
 
-````text
+```java
 
 //创建EventLoopGroup
 EventLoopGroup group = new NioEventLoopGroup();
@@ -78,7 +78,7 @@ future.addListener(new ChannelFutureListener() {
         }
     });
 
-````
+```
 
 
 ### 引导服务端
@@ -89,7 +89,7 @@ ServerBootstrap负责Netty应用程序的服务端引导，作为服务端，我
 
 服务端引导的编程模型如下:
 
-````text
+```java
 //创建EventLoopGroup
 NioEventLoopGroup group = new NioEventLoopGroup();
 //创建服务端引导
@@ -122,4 +122,4 @@ future.addListener(new ChannelFutureListener() {
         }
     }
 );
-````
+```
