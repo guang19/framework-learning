@@ -21,7 +21,7 @@
 ## 什么是RabbitMQ?
 RabbitMQ是使用Erlang语言编写的支持AMQP协议的高性能消息队列,
 目前由Pivotal(维护Spring项目的公司)公司在维护。
-RabbitMQ最初起源于金融系统,被用于在分布式系统种存储和转发消息,
+RabbitMQ最初起源于金融系统,被用于在分布式系统中存储和转发消息,
 具有较好的易用性,可扩展性和并发性等优点。
 
 
@@ -30,7 +30,7 @@ RabbitMQ最初起源于金融系统,被用于在分布式系统种存储和转�
 
 ![RabbitMQ结构图](../img/mq/rabbitmq/RabbitMQ内部结构.png)
 
-RabbitMQ主要设计以下概念:
+RabbitMQ主要涉及以下概念:
 
 - Message消息: 消息即需要发送的数据,由消息体和消息头组成。
 消息体是消息的内容,消息头则是对消息体的描述,由许多Property属性组成,
@@ -38,7 +38,7 @@ RabbitMQ主要设计以下概念:
 
 - Producer生产者: 生产者即发布者,它是发布消息的一方,可以是一个RabbitMQ客户端应用程序。
 
-- Consumer消费者: 消费者即订阅者,他是接受消息的一方,也可以是一个RabbitMQ客户端应用程序。
+- Consumer消费者: 消费者即订阅者,它是接受消息的一方,也可以是一个RabbitMQ客户端应用程序。
 
 - Exchange交换机: 交换机用于接受 生产者发布的消息,并按消息的路由规则将消息发送到指定的消息队列。
 
@@ -59,7 +59,7 @@ RabbitMQ主要设计以下概念:
 在Redis中,一个Redis服务器实例可以被分为16个库,但不是说这16个库的大小就是相等的,
 比如1个库也可以占9g内存,其他15个库可以共占1g内存。
 虚拟主机也是如此,它可以看做是一个独立的rabbitmq服务器实例,
-它包含了属于他的一系列的Exchange,Queue等内容。
+它包含了属于它的一系列的Exchange,Queue等内容。
 
 - Broker: Broker即RabbitMQ服务实例。
 
