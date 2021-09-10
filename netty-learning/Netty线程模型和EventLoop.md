@@ -46,7 +46,7 @@ Netty可以创建多个EventLoop，且单个EventLoop可能会服务于多个客
 
 
 ## 任务调度
-有时候我们需要在指定的时间之后触发任务或者周期性的执行某一个人物，这都需要使用到任务调度。
+有时候我们需要在指定的时间之后触发任务或者周期性的执行某一个任务，这都需要使用到任务调度。
 
 
 ### JDK任务调度
@@ -61,7 +61,7 @@ JDK主要有Timer和ScheduledExecutorService两种实现任务调度的方式，
 ![EventLoop任务调度](../img/netty/EventLoop任务调度.png)
 
 使用Channel获取其对应的EventLoop，然后调用schedule方法给其分配一个Runnable执行。Netty的任务调度
-比JDK的任务调度性能性能要好，这主要是由于Netty底层的线程模型设计的非常优秀。
+比JDK的任务调度性能要好，这主要是由于Netty底层的线程模型设计的非常优秀。
 
 
 ## 线程管理
@@ -69,7 +69,7 @@ Netty线程模型的卓越性能取决于当前执行任务的Thread，我们看
 
 ![EventLoop执行逻辑](../img/netty/EventLoop执行逻辑.png)
 
-**如果处理Chanel任务的线程正是支撑EventLoop的线程，那么与Channel的任务会被直接执行。
+**如果处理Channel任务的线程正是支撑EventLoop的线程，那么与Channel的任务会被直接执行。
 否则EventLoop会将该任务放入任务队列之中稍后执行。
 需要注意的是每个EventLoop都有自己的任务队列，独立于其他EventLoop的任务队列。**
 
@@ -88,7 +88,7 @@ EventLoop的创建和分配方式也不同。
 EventLoopGroup负责为每个新创建的Channel分配一个EventLoop，一旦一个Channel被分配给EventLoop，它将在
 整个生命周期中都使用这个EventLoop及其Thread处理事件和任务。
 
-**注意：EventLoop的分配方式对ThreadLocal的使用是很有很大影响的。因为注册在一个EventLoop上的Channel
+**注意：EventLoop的分配方式对ThreadLocal的使用是有很大影响的。因为注册在一个EventLoop上的Channel
 共有这一个线程，那么在这些Channel之间使用ThreadLocal，其ThreadLocal的状态都是一样的，无法发挥ThreadLocal
 本来的作用。**
 
