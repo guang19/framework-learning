@@ -55,8 +55,8 @@ readerIndex和writerIndex到达同一位置（已经读取到末尾了），Byte
 当我们调用ByteBuf以read或write开头的方法时，将会增加这个ByteBuf的读索引或写索引，而诸如set或get
 的方法则不会改变索引。
 
-我们可以指定ByteBuf的最大容量，如果对ByteBuf的写入操作导致writerIndex超出了最大人容量，那么程序将会
-抛出一个异常，ByteBuf的最大人容量是Integer.MAX_VALUE。 
+我们可以指定ByteBuf的最大容量，如果对ByteBuf的写入操作导致writerIndex超出了最大容量，那么程序将会
+抛出一个异常，ByteBuf的最大容量是Integer.MAX_VALUE。 
 
 ByteBuf大致的结构和状态：
 
@@ -67,7 +67,7 @@ ByteBuf大致的结构和状态：
 ByteBuf有多种使用模式，我们可以根据需求构建不同使用模式的ByteBuf。
 
 - 堆缓冲区(HeapByteBuf)： 最常用的ByteBuf模式是将数据存储在JVM的堆空间中，实际上是通过数组存储数据，
-所以这种模式被称为支撑数组（Backing Array ）。所以这种模式被称为支撑数组可以在没有使用池化的情况下快速分配和释放，
+所以这种模式被称为支撑数组（Backing Array）。它可以在没有使用池化的情况下快速分配和释放，
 适合用于有遗留数据需要处理的情况。
 
 ![堆缓冲区模式](../img/netty/堆缓冲区模式.png)
@@ -220,16 +220,16 @@ Netty提供了两种ByteBufAllocator的实现： PooledByteBufAllocator和Unpool
 PooledByteBufAllocator池化了ByteBuf的实例以提高性能并最大限度的减少内存碎片，此实现的分配内存的方法
 是使用[jemalloc](https://people.freebsd.org/~jasone/jemalloc/bsdcan2006/jemalloc.pdf)，此种
 方法分配内存的效率非常高，已被大量现代操作系统采用。 UnpooledByteBufAllocator则不会池化ByteBuf，
-Netty默认使用的是PooledByteBufALlocator。
+Netty默认使用的是PooledByteBufAllocator。
 
 
 #### Unpooled
 当Channel或ChannelHandlerContext未引用ByteBufAllocator时，就无法使用ByteBufAllocator来分配
-ByteBUf，对于这种情况，Netty提供了Unpooled工具类，它提供了一系列的静态方法来分配未池化的ByteBuf。
+ByteBuf，对于这种情况，Netty提供了Unpooled工具类，它提供了一系列的静态方法来分配未池化的ByteBuf。
 
 
 #### ByteBufUtil
-ByteBufUtil是ByteBuf的一个工具类，它提供大量操作ByteBuf的方法，，其中非常重要的一个方法就是
+ByteBufUtil是ByteBuf的一个工具类，它提供大量操作ByteBuf的方法，其中非常重要的一个方法就是
 hexDump，这个方法会以16进制的形式来表示ByteBuf的内容。另一个很重要的方法是equals，它被用于判断
 ByteBuf之间的相等性。
 
