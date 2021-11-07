@@ -52,7 +52,7 @@
         <jsr250.version>1.0</jsr250.version>
         <netty.version>4.1.50.Final</netty.version>
         <lombok.version>1.18.10</lombok.version>
-        <junit.version>4.12</junit.version>
+        <junit.version>4.13.1</junit.version>
     </properties>
 
     <dependencyManagement>
